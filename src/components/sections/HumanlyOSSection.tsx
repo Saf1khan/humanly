@@ -30,11 +30,11 @@ export const HumanlyOSSection = () => {
       {/* Background Gradients — exact match to DataRoom */}
       <div
         className="absolute pointer-events-none right-0 translate-x-1/3 top-1/3 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.12), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
       />
       <div
         className="absolute pointer-events-none left-0 -translate-x-1/2 top-1/3 -translate-y-1/4 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.12), rgba(255, 182, 55, 0.03) 50%, rgba(255, 182, 55, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.03) 50%, rgba(255, 182, 55, 0))" }}
       />
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-[64px]">
@@ -62,10 +62,6 @@ export const HumanlyOSSection = () => {
                 
                 <article className="absolute inset-0 flex flex-col justify-between p-8">
                   <div>
-                    <span className="text-[#A8A5A0] text-xs font-bold tracking-widest uppercase">
-                      THE PLATFORM
-                    </span>
-                    <div className="h-0.5 w-16 bg-gradient-to-r from-[#A8A5A0] to-purple-500 rounded-full mb-4"></div>
                     <div className="font-bold py-2 rounded-md uppercase inline-block bg-[#f7f1e8] text-xs px-3">
                       <p className="text-left text-[#1c1b1a] font-sans leading-normal font-bold">
                         THE OPERATING SYSTEM

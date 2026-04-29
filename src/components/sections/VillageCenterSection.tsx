@@ -77,15 +77,15 @@ export const VillageCenterSection = () => {
       {/* Background Gradients — exact match to DataRoom */}
       <div
         className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.12), rgba(255, 182, 55, 0.04) 50%, rgba(255, 182, 55, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.04) 50%, rgba(255, 182, 55, 0))" }}
       />
       <div
         className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-[-35%] w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.12), rgba(255, 182, 55, 0.04) 50%, rgba(255, 182, 55, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.04) 50%, rgba(255, 182, 55, 0))" }}
       />
       <div
         className="absolute pointer-events-none left-0 -translate-x-1/2 top-1/2 -translate-y-1/4 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.10), rgba(255, 182, 55, 0.04) 50%, rgba(255, 182, 55, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.04) 50%, rgba(255, 182, 55, 0))" }}
       />
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         
@@ -103,7 +103,7 @@ export const VillageCenterSection = () => {
                 <p className="text-sandstone-500/80 font-sans text-base md:text-lg tracking-wide">
                   15 Integrated facilities · 90,000+ SF of community space
                 </p>
-                <div className="h-[2px] w-16 bg-gradient-to-r from-[#4ade80] via-[#A8A5A0] to-[#a855f7] rounded-full"></div>
+                <div className="h-[2px] w-full bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
               </div>
             </RevealOnScroll>
           </div>

@@ -8,11 +8,11 @@ export const ProofOfConceptSection = () => {
       {/* Background Gradients — exact match to DataRoom */}
       <div
         className="absolute pointer-events-none right-0 translate-x-1/3 top-1/3 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.12), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
       />
       <div
         className="absolute pointer-events-none left-0 -translate-x-1/2 top-1/3 -translate-y-1/4 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.12), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
       />
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -20,9 +20,10 @@ export const ProofOfConceptSection = () => {
           {/* Text Content Block */}
           <div className="order-2 lg:order-1 flex flex-col pt-8 lg:py-12">
             <RevealOnScroll>
-              <span className="block text-xs md:text-sm font-bold tracking-[0.2em] text-[#1C1B1A]/60 uppercase mb-4 md:mb-6">
+              <span className="block text-xs md:text-sm font-bold tracking-[0.2em] text-[#1C1B1A]/60 uppercase mb-2 md:mb-3">
                 Proof of Concept
               </span>
+              <div className="h-[2px] w-[176] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full mb-2 md:mb-3"></div>
               <h2 className="text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] text-left font-sans font-bold leading-tight text-sandstone-500 tracking-tight mb-6">
                 $5M flagship investment.<br className="hidden md:block" />
                 $100M projected value.

@@ -276,7 +276,7 @@ export const TeamSection = () => {
       {/* Background Gradients — exact match to DataRoom */}
        <div
         className="absolute pointer-events-none left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.10), rgba(255, 182, 55, 0.10) 50%, rgba(255, 182, 55, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.10) 50%, rgba(255, 182, 55, 0))" }}
       />
        
       <div className="relative z-10 gap-y-2 gridContainerV3" data-cy="landing-page-profile-cards">
@@ -287,7 +287,7 @@ export const TeamSection = () => {
             <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#A8A5A0]">
               THE TEAM
             </p>
-            <div className="w-10 h-[2px] bg-gradient-to-r from-[#A8A5A0] to-[#A855F7]"></div>
+            <div className="h-0.5 w-[72px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-[#1c1b1a] text-center tracking-tight">
             Builders, operators, innovators.
