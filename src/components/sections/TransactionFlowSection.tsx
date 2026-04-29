@@ -1,5 +1,6 @@
 "use client";
 
+import React, { Fragment } from "react";
 import { RevealOnScroll } from "../ui/RevealOnScroll";
 
 const flowSteps = [
@@ -42,14 +43,14 @@ const flowSteps = [
 
 export const TransactionFlowSection = () => {
   return (
-    <section className="w-full bg-[#111111] py-16 lg:py-24 border-t border-white/5 overflow-hidden">
+    <section className="w-full bg-transparent py-16 lg:py-24 overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 md:px-[64px]">
 
         {/* Section Header */}
         <RevealOnScroll>
           <header className="grid grid-cols-1 gap-6 mb-12 lg:mb-16">
             <div className="flex flex-col gap-4 lg:gap-6">
-              <h2 className="text-[2rem] md:text-[2.75rem] lg:text-[3.5rem] font-sans font-bold text-[#f1f0ee] tracking-tight leading-tight">
+              <h2 className="text-[2rem] md:text-[2.75rem] lg:text-[3.5rem] font-sans font-bold text-[#1c1b1a] tracking-tight leading-tight">
                 Transaction Flow
               </h2>
             </div>
@@ -63,7 +64,7 @@ export const TransactionFlowSection = () => {
           role="list"
         >
           {flowSteps.map((step, idx) => (
-            <>
+            <Fragment key={step.id}>
               <RevealOnScroll key={step.id} delay={`delay-${(idx + 1) * 100}` as any} className="h-full">
                 <article
                   role="listitem"
@@ -95,12 +96,12 @@ export const TransactionFlowSection = () => {
               {/* Arrow connector */}
               {idx < flowSteps.length - 1 && (
                 <div key={`arrow-${idx}`} className="flex items-center justify-center px-3 xl:px-4">
-                  <svg width="20" height="12" viewBox="0 0 21 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white/30 flex-shrink-0">
+                  <svg width="20" height="12" viewBox="0 0 21 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#1c1b1a]/30 flex-shrink-0">
                     <path d="M20.5303 6.53033C20.8232 6.23744 20.8232 5.76256 20.5303 5.46967L15.7574 0.696699C15.4645 0.403806 14.9896 0.403806 14.6967 0.696699C14.4038 0.989593 14.4038 1.46447 14.6967 1.75736L18.9393 6L14.6967 10.2426C14.4038 10.5355 14.4038 11.0104 14.6967 11.3033C14.9896 11.5962 15.4645 11.5962 15.7574 11.3033L20.5303 6.53033ZM0 6.75H20V5.25H0V6.75Z" fill="currentColor"/>
                   </svg>
                 </div>
               )}
-            </>
+            </Fragment>
           ))}
         </div>
 
@@ -132,7 +133,7 @@ export const TransactionFlowSection = () => {
               </RevealOnScroll>
 
               {idx < flowSteps.length - 1 && (
-                <div className="py-2 text-white/25">
+                <div className="py-2 text-[#1c1b1a]/25">
                   <svg width="12" height="20" viewBox="0 0 12 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M5.46967 20.5303C5.76256 20.8232 6.23744 20.8232 6.53033 20.5303L11.3033 15.7574C11.5962 15.4645 11.5962 14.9896 11.3033 14.6967C11.0104 14.4038 10.5355 14.4038 10.2426 14.6967L6 18.9393L1.75736 14.6967C1.46447 14.4038 0.989592 14.4038 0.696699 14.6967C0.403806 14.9896 0.403806 15.4645 0.696699 15.7574L5.46967 20.5303ZM5.25 0L5.25 20H6.75L6.75 0L5.25 0Z" fill="currentColor"/>
                   </svg>

@@ -17,55 +17,42 @@ import { Footer } from "@/components/layout/Footer";
 export default function Home() {
   return (
     <main className="min-h-screen bg-black">
-      {/* Group 1: Hero and Stats (Sandstone) */}
-      <div className="relative bg-[#F0EDEB] overflow-hidden">
-        {/* Unified Background Gradients for Group 1 */}
+      {/* Seamless Light Background Container */}
+      <div className="relative bg-[#fcfaf7] overflow-hidden">
+        
+        {/* Continuous Background Gradients */}
         <div 
-          className="absolute pointer-events-none left-0 -translate-x-1/2 top-0 w-[1200px] h-[1200px] opacity-40" 
+          className="absolute pointer-events-none left-0 -translate-x-1/2 top-0 w-[1200px] h-[1200px] opacity-20" 
           style={{ background: "radial-gradient(50% 50%, #827E7A 0%, rgba(130, 126, 122, 0) 100%)" }}
         />
         <div 
-          className="absolute pointer-events-none right-0 translate-x-1/4 top-1/2 -translate-y-1/2 w-[1000px] h-[1000px] opacity-30" 
+          className="absolute pointer-events-none right-0 translate-x-1/4 top-1/4 w-[1000px] h-[1000px] opacity-15" 
           style={{ background: "radial-gradient(50% 50%, #827E7A 0%, rgba(130, 126, 122, 0) 100%)" }}
         />
+        <div 
+          className="absolute pointer-events-none left-1/4 -translate-x-1/2 top-1/2 w-[1200px] h-[1200px] opacity-20" 
+          style={{ background: "radial-gradient(50% 50%, #827E7A 0%, rgba(130, 126, 122, 0) 100%)" }}
+        />
+        <div 
+          className="absolute pointer-events-none right-1/4 translate-x-1/2 bottom-0 w-[1200px] h-[1200px] opacity-15" 
+          style={{ background: "radial-gradient(50% 50%, #827E7A 0%, rgba(130, 126, 122, 0) 100%)" }}
+        />
+
         <HeroSection />
         <StatsSection />
-      </div>
-
-      <InvestmentThesisSection />
-
-      {/* Group 2: Problem (Sandstone) */}
-      <div className="relative bg-[#F0EDEB] overflow-hidden">
-        <div 
-          className="absolute pointer-events-none right-0 translate-x-1/2 top-0 -translate-y-1/2 w-[1000px] h-[1000px] opacity-50" 
-          style={{ background: "radial-gradient(50% 50%, #827E7A 0%, rgba(130, 126, 122, 0) 100%)" }}
-        />
+        <InvestmentThesisSection />
         <ProblemSection />
-      </div>
-
-      <PlatformSection />
-
-      {/* Group 3: Communities through Proof of Concept (Sandstone) */}
-      <div className="relative bg-[#F0EDEB] overflow-hidden">
-        {/* Unified Background Gradients for Group 3 */}
-        <div 
-          className="absolute pointer-events-none left-1/4 -translate-x-1/2 top-0 -translate-y-1/2 w-[1200px] h-[1200px] opacity-40" 
-          style={{ background: "radial-gradient(50% 50%, #827E7A 0%, rgba(130, 126, 122, 0) 100%)" }}
-        />
-        <div 
-          className="absolute pointer-events-none right-1/4 translate-x-1/2 bottom-0 w-[1200px] h-[1200px] opacity-30" 
-          style={{ background: "radial-gradient(50% 50%, #827E7A 0%, rgba(130, 126, 122, 0) 100%)" }}
-        />
+        <PlatformSection />
         <CommunitiesSection />
         <LandLeasingSection />
         <VillageCenterSection />
         <ProofOfConceptSection />
+        <HumanlyOSSection />
+        <FinancialServicesSection />
+        <TransactionFlowSection />
+        <TeamSection />
       </div>
 
-      <HumanlyOSSection />
-      <FinancialServicesSection />
-      <TransactionFlowSection />
-      <TeamSection />
       <DataRoomForm />
       <Footer />
     </main>

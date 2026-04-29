@@ -26,15 +26,15 @@ const features = [
 
 export const HumanlyOSSection = () => {
   return (
-    <section className="relative w-full bg-[#111213] py-8 lg:py-16 overflow-hidden">
+    <section className="relative w-full bg-transparent py-8 lg:py-16 overflow-hidden">
       {/* Background Gradients — exact match to DataRoom */}
       <div
         className="absolute pointer-events-none right-0 translate-x-1/2 top-0 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.15), rgba(105, 165, 255, 0.05) 50%, rgba(105, 165, 255, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.08), rgba(105, 165, 255, 0.02) 50%, rgba(105, 165, 255, 0))" }}
       />
       <div
         className="absolute pointer-events-none left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.12), rgba(105, 165, 255, 0.05) 50%, rgba(105, 165, 255, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.06), rgba(105, 165, 255, 0.02) 50%, rgba(105, 165, 255, 0))" }}
       />
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-[64px]">
@@ -58,7 +58,7 @@ export const HumanlyOSSection = () => {
                   alt="HumanlyOS App Interface Background"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
-                <div className="absolute inset-x-0 top-1/4 bottom-0 bg-gradient-to-b from-transparent to-black opacity-80"></div>
+                <div className="absolute inset-x-0 top-1/4 bottom-0 bg-gradient-to-b from-transparent to-[#1c1b1a]/90"></div>
                 
                 <article className="absolute inset-0 flex flex-col justify-between p-8">
                   <div>
@@ -74,10 +74,10 @@ export const HumanlyOSSection = () => {
                   </div>
                   
                   <div className="mt-auto pt-64 md:pt-0 pb-4">
-                    <h2 className="text-left text-[#f7f1e8] font-sans leading-tight font-bold mb-4 text-[2.5rem] md:text-[3rem] lg:text-[4rem] tracking-tight">
+                    <h2 className="text-left text-white font-sans leading-tight font-bold mb-4 text-[2.5rem] md:text-[3rem] lg:text-[4rem] tracking-tight">
                       HumanlyOS&reg;
                     </h2>
-                    <p className="text-left text-[#f7f1e8]/90 font-sans leading-relaxed text-[1rem] md:text-[1.125rem] max-w-xl">
+                    <p className="text-left text-white/90 font-sans leading-relaxed text-[1rem] md:text-[1.125rem] max-w-xl">
                       The AI-native operating system that transforms community management from fragmented services into an integrated, revenue-generating platform.
                     </p>
                   </div>
@@ -90,7 +90,7 @@ export const HumanlyOSSection = () => {
           <div className="hidden md:flex flex-col gap-6 w-full lg:w-[33%] pt-4 lg:pt-0">
             {features.map((feature, idx) => (
               <RevealOnScroll key={feature.id} delay={`delay-${Math.min((idx + 2) * 100, 700)}` as any} className="flex-1">
-                <article className="flex h-full flex-col justify-center overflow-hidden rounded-lg p-6 lg:p-8 bg-[#f7f1e8] group hover:-translate-y-1 transition-transform duration-300">
+                <article className="flex h-full flex-col justify-center overflow-hidden rounded-lg p-6 lg:p-8 bg-white/80 backdrop-blur-sm border border-[#1c1b1a]/5 group hover:-translate-y-1 transition-transform duration-300 shadow-sm">
                   <div className="mb-6 text-[#3b82f6]">
                     <feature.icon className="w-8 h-8 md:w-10 md:h-10" />
                   </div>
@@ -109,7 +109,7 @@ export const HumanlyOSSection = () => {
           <div className="md:hidden mt-4 pt-4 overflow-hidden w-full">
              <div className="flex overflow-x-auto snap-x snap-mandatory gap-x-6 pr-6 snap-always -mx-6 px-6 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none' }}>
                 {features.map((feature) => (
-                  <article key={feature.id} className="flex-shrink-0 w-[75vw] snap-center flex flex-col justify-center overflow-hidden rounded-lg p-6 bg-[#f7f1e8] min-h-[200px]">
+                  <article key={feature.id} className="flex-shrink-0 w-[75vw] snap-center flex flex-col justify-center overflow-hidden rounded-lg p-6 bg-white/80 border border-[#1c1b1a]/5 min-h-[200px]">
                     <div className="mb-4 text-[#3b82f6]">
                       <feature.icon className="w-8 h-8" />
                     </div>

@@ -42,15 +42,15 @@ export const InvestmentThesisSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0); // Default first item open
 
   return (
-    <section className="relative w-full bg-[#111213] text-[#f1f0ee] py-24 lg:py-36 overflow-hidden">
+    <section className="relative w-full bg-transparent text-[#1c1b1a] py-24 lg:py-36 overflow-hidden">
       {/* Background Gradients — exact match to DataRoom */}
       <div
         className="absolute pointer-events-none right-0 translate-x-1/2 top-0 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.15), rgba(105, 165, 255, 0.05) 50%, rgba(105, 165, 255, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.08), rgba(105, 165, 255, 0.02) 50%, rgba(105, 165, 255, 0))" }}
       />
       <div
         className="absolute pointer-events-none left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.12), rgba(105, 165, 255, 0.05) 50%, rgba(105, 165, 255, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.06), rgba(105, 165, 255, 0.02) 50%, rgba(105, 165, 255, 0))" }}
       />
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative flex flex-col gap-10 md:gap-16">
         
@@ -67,12 +67,12 @@ export const InvestmentThesisSection = () => {
                 <div className="h-0.5 w-16 bg-gradient-to-r from-[#A8A5A0] to-purple-500 rounded-full"></div>
               </div>
 
-              <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-serif leading-tight tracking-tight max-w-3xl">
+              <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-serif leading-tight tracking-tight max-w-3xl text-[#1c1b1a]">
                 Five revenue layers.<br />
                 One integrated platform.
               </h2>
               
-              <p className="text-base text-[#8f96a3] max-w-2xl leading-relaxed mt-2">
+              <p className="text-base text-[#4a4741] max-w-2xl leading-relaxed mt-2">
                 Traditional real estate captures one revenue stream. Humanly captures five — compounding returns through vertical integration from land to living to lifelong services.
               </p>
             </div>
@@ -88,7 +88,7 @@ export const InvestmentThesisSection = () => {
               const isOpen = openIndex === index;
               return (
                 <RevealOnScroll key={item.id} delay={`delay-${(index + 1) * 100}` as any}>
-                  <div className="bg-[#2f3237] p-2 rounded-xl transition-colors duration-300">
+                  <div className="bg-white/60 border border-[#1c1b1a]/5 p-2 rounded-xl transition-colors duration-300 shadow-sm">
                     <button 
                       onClick={() => setOpenIndex(isOpen ? null : index)}
                       aria-expanded={isOpen}
@@ -101,7 +101,7 @@ export const InvestmentThesisSection = () => {
                         </span>
                         <h3 className={clsx(
                           "text-lg md:text-xl font-sans font-medium transition-colors duration-300",
-                          isOpen ? "text-mustard-200" : "text-[#f1f0ee] group-hover:text-mustard-100"
+                          isOpen ? "text-blue-600" : "text-[#1c1b1a] group-hover:text-blue-500"
                         )}>
                           {item.title}
                         </h3>
@@ -130,7 +130,7 @@ export const InvestmentThesisSection = () => {
                         isOpen ? "max-h-48 opacity-100 pb-4" : "max-h-0 opacity-0"
                       )}
                     >
-                      <p className="text-[#c2c9d6] font-sans text-base leading-relaxed">
+                      <p className="text-[#4a4741] font-sans text-base leading-relaxed">
                         {item.content}
                       </p>
                     </div>
