@@ -74,15 +74,15 @@ export const FinancialServicesSection = () => {
   };
 
   return (
-    <section className="relative w-full bg-[#111213] py-14 lg:py-24 border-t border-white/5">
+    <section className="relative w-full bg-transparent py-14 lg:py-24">
       {/* Background Gradients — exact match to DataRoom */}
       <div
         className="absolute pointer-events-none right-0 translate-x-1/2 top-0 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.15), rgba(105, 165, 255, 0.05) 50%, rgba(105, 165, 255, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.08), rgba(105, 165, 255, 0.02) 50%, rgba(105, 165, 255, 0))" }}
       />
       <div
         className="absolute pointer-events-none left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.12), rgba(105, 165, 255, 0.05) 50%, rgba(105, 165, 255, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.06), rgba(105, 165, 255, 0.02) 50%, rgba(105, 165, 255, 0))" }}
       />
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
@@ -90,11 +90,11 @@ export const FinancialServicesSection = () => {
         {/* Section Header */}
         <RevealOnScroll>
           <header className="flex flex-col items-start gap-4 mb-10 lg:mb-14">
-            <h2 className="text-[2rem] md:text-5xl font-sans font-bold text-white tracking-tight">
+            <h2 className="text-[2rem] md:text-5xl font-sans font-bold text-[#1c1b1a] tracking-tight">
               Financial Services
             </h2>
             <div className="text-[#a8a5a0] text-lg lg:text-[1.25rem] font-sans relative">
-              <span className="text-[#f7f1e8] relative inline-block mr-1">
+              <span className="text-blue-600 relative inline-block mr-1">
                 HumanlyPay™
                 <div className="absolute -bottom-1.5 left-0 w-full h-[3px] bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 rounded-full"></div>
               </span>
@@ -109,8 +109,8 @@ export const FinancialServicesSection = () => {
             <div className="overflow-hidden">
               <div className="flex flex-col-reverse">
                 <div className="relative mt-6 mr-6">
-                  <div className="relative h-[1px] w-full overflow-hidden bg-white/10" role="presentation">
-                    <div className="absolute inset-0 h-[1px] origin-left bg-white/40" />
+                  <div className="relative h-[1px] w-full overflow-hidden bg-black/10" role="presentation">
+                    <div className="absolute inset-0 h-[1px] origin-left bg-black/40" />
                   </div>
                   <div className="flex justify-end gap-x-4 pt-6 pb-4">
                     <button
@@ -118,7 +118,7 @@ export const FinancialServicesSection = () => {
                       aria-label="go to previous slide"
                       onClick={() => scrollTo("left")}
                       disabled={!canScrollLeft}
-                      className="rounded-full px-3 py-4 bg-white/5 border border-white/10 text-white/50 disabled:opacity-30 transition-all hover:bg-white/10 hover:text-white"
+                      className="rounded-full px-3 py-4 bg-[#f7f1e8] border border-[#1c1b1a]/10 text-[#1c1b1a]/50 disabled:opacity-30 transition-all hover:bg-white hover:text-black shadow-sm"
                     >
                       <ArrowIcon direction="left" />
                     </button>
@@ -127,7 +127,7 @@ export const FinancialServicesSection = () => {
                       aria-label="go to next slide"
                       onClick={() => scrollTo("right")}
                       disabled={!canScrollRight}
-                      className="rounded-full px-3 py-4 bg-white/5 border border-white/10 text-white/50 disabled:opacity-30 transition-all hover:bg-white/10 hover:text-white"
+                      className="rounded-full px-3 py-4 bg-[#f7f1e8] border border-[#1c1b1a]/10 text-[#1c1b1a]/50 disabled:opacity-30 transition-all hover:bg-white hover:text-black shadow-sm"
                     >
                       <ArrowIcon direction="right" />
                     </button>
@@ -141,11 +141,11 @@ export const FinancialServicesSection = () => {
                 >
                   {financialCards.map((card) => (
                     <li key={card.id} className="snap-start shrink-0 h-auto">
-                      <article className="flex h-full flex-col justify-center overflow-hidden rounded-[1rem] p-8 w-[75vw] bg-[#222428]/80 border border-white/5 md:w-[60vw] lg:w-full min-h-[160px]">
-                        <h3 className="text-left text-[#f7f1e8] font-sans leading-tight font-bold mb-3 text-[1.125rem]">
+                      <article className="flex h-full flex-col justify-center overflow-hidden rounded-[1rem] p-8 w-[75vw] bg-white border border-[#1c1b1a]/5 md:w-[60vw] lg:w-full min-h-[160px] shadow-sm">
+                        <h3 className="text-left text-[#1c1b1a] font-sans leading-tight font-bold mb-3 text-[1.125rem]">
                           {card.title}
                         </h3>
-                        <p className="text-left text-[#a8a5a0] font-sans leading-relaxed text-[0.95rem]">
+                        <p className="text-left text-[#4a4741] font-sans leading-relaxed text-[0.95rem]">
                           {card.description}
                         </p>
                       </article>
@@ -161,11 +161,11 @@ export const FinancialServicesSection = () => {
         <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {financialCards.map((card, idx) => (
             <RevealOnScroll key={card.id} delay={`delay-${(idx % 3 + 1) * 100}` as any}>
-              <article className="flex flex-col justify-center overflow-hidden rounded-[1.25rem] p-8 bg-[#2A2A2A]/40 border border-white/5 min-h-[160px] transition-all duration-300 hover:bg-[#2A2A2A]/80 hover:border-white/10 hover:-translate-y-1 hover:shadow-2xl">
-                <h3 className="text-left text-white font-sans leading-tight font-bold mb-3 text-[1.125rem]">
-                  {card.title}
-                </h3>
-                <p className="text-left text-[#a8a5a0] font-sans leading-relaxed text-[0.95rem] pr-4">
+            <article className="flex flex-col justify-center overflow-hidden rounded-[1.25rem] p-8 bg-white/80 backdrop-blur-sm border border-[#1c1b1a]/5 min-h-[160px] transition-all duration-300 hover:bg-white hover:border-[#1c1b1a]/10 hover:-translate-y-1 hover:shadow-xl group">
+              <h3 className="text-left text-[#1c1b1a] font-sans leading-tight font-bold mb-3 text-[1.125rem] group-hover:text-blue-600 transition-colors">
+                {card.title}
+              </h3>
+              <p className="text-left text-[#4a4741] font-sans leading-relaxed text-[0.95rem] pr-4">
                   {card.description}
                 </p>
               </article>

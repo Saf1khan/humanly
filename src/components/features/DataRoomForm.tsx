@@ -61,8 +61,8 @@ export const DataRoomForm = () => {
               </div>
               <div className="flex flex-col gap-2">
                 <label className="text-sm font-semibold text-sandstone-200">Investor Type <span className="text-[#A8A5A0]">*</span></label>
-                <select required className="w-full bg-[#1d1e20] border border-neutral-700/50 rounded-lg p-3.5 text-white focus:border-[#A8A5A0] focus:ring-1 focus:ring-[#A8A5A0] transition-all outline-none appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%207l5%205%205-5%22%20fill%3D%22none%22%20stroke%3D%22%238f96a3%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E')] bg-[length:20px_20px] bg-[position:right_1rem_center] bg-no-repeat">
-                  <option value="" disabled selected>Select...</option>
+                <select defaultValue="" required className="w-full bg-[#1d1e20] border border-neutral-700/50 rounded-lg p-3.5 text-white focus:border-[#A8A5A0] focus:ring-1 focus:ring-[#A8A5A0] transition-all outline-none appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%207l5%205%205-5%22%20fill%3D%22none%22%20stroke%3D%22%238f96a3%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E')] bg-[length:20px_20px] bg-[position:right_1rem_center] bg-no-repeat">
+                  <option value="" disabled>Select...</option>
                   <option value="Venture Capital">Venture Capital</option>
                   <option value="Private Equity">Private Equity</option>
                   <option value="Angel Investor">Angel Investor</option>
