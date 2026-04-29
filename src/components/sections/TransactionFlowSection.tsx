@@ -1,5 +1,6 @@
 "use client";
 
+import React, { Fragment } from "react";
 import { RevealOnScroll } from "../ui/RevealOnScroll";
 
 const flowSteps = [
@@ -63,7 +64,7 @@ export const TransactionFlowSection = () => {
           role="list"
         >
           {flowSteps.map((step, idx) => (
-            <>
+            <Fragment key={step.id}>
               <RevealOnScroll key={step.id} delay={`delay-${(idx + 1) * 100}` as any} className="h-full">
                 <article
                   role="listitem"
@@ -100,7 +101,7 @@ export const TransactionFlowSection = () => {
                   </svg>
                 </div>
               )}
-            </>
+            </Fragment>
           ))}
         </div>
 
