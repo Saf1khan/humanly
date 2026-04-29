@@ -8,7 +8,7 @@ export const LandLeasingSection = () => {
       {/* Background Gradients — exact match to DataRoom */}
       <div
         className="absolute pointer-events-none left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.12), rgba(255, 182, 55, 0.03) 50%, rgba(255, 182, 55, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.03) 50%, rgba(255, 182, 55, 0))" }}
       />
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         

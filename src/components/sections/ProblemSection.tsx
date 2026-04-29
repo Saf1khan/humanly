@@ -74,11 +74,11 @@ export const ProblemSection = () => {
       {/* Background Gradients — exact match to DataRoom */}
       <div
         className="absolute pointer-events-none right-0 translate-x-1/3 top-1/3 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.10), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
       />
       <div
         className="absolute pointer-events-none left-1/5 -translate-x-1/3 top-2/3 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.10), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
       />
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
 
