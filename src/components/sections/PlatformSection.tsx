@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 
 const layerRows = [
@@ -63,7 +63,48 @@ const layerRows = [
 import { RevealOnScroll } from "../ui/RevealOnScroll";
 
 export const PlatformSection = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const elements = document.querySelectorAll('.scroll-reveal-card');
+          let minDistance = Infinity;
+          let closestIndex: string | null = null;
+          const viewportCenter = window.innerHeight / 2;
+
+          elements.forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            // Distance from card center to viewport center
+            const elCenter = rect.top + rect.height / 2;
+            const distance = Math.abs(elCenter - viewportCenter);
+
+            if (distance < minDistance) {
+              minDistance = distance;
+              closestIndex = el.getAttribute('data-index');
+            }
+          });
+
+          // Only activate if the closest card is within a reasonable range of the center
+          if (closestIndex !== null && minDistance < window.innerHeight * 0.35) {
+            setActiveIndex(Number(closestIndex));
+          }
+          
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Initial check
+    setTimeout(handleScroll, 100);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <section className="relative w-full bg-transparent text-[#1c1b1a] py-24 lg:py-36 overflow-hidden">
@@ -121,7 +162,7 @@ export const PlatformSection = () => {
 
           {/* Right: Image — same style as InvestmentThesisSection */}
           <RevealOnScroll delay="delay-100">
-            <div className="relative w-full aspect-square md:aspect-auto md:h-[560px] bg-slate-800/50 rounded-2xl overflow-hidden border border-white/5 shadow-2xl">
+            <div className="relative w-full aspect-square md:aspect-auto md:h-[560px] bg-slate-800/40 backdrop-blur-md rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
               <img
                 alt="Humanly Platform"
                 loading="lazy"
@@ -136,47 +177,34 @@ export const PlatformSection = () => {
         {/* Bottom: Same accordion card style as InvestmentThesisSection */}
         <div className="flex flex-col gap-3">
           {layerRows.map((item, index) => {
-            const isOpen = openIndex === index;
+            const isActive = activeIndex === index;
             return (
               <RevealOnScroll key={item.id} delay={`delay-${(index % 5 + 1) * 100}` as any}>
-                <div className="bg-white/60 border border-[#1c1b1a]/5 p-2 rounded-xl transition-colors duration-300 shadow-sm">
-                  <button
-                    onClick={() => setOpenIndex(isOpen ? null : index)}
-                    aria-expanded={isOpen}
-                    type="button"
-                    className="w-full p-3 md:p-5 flex items-center justify-between gap-4 md:gap-6 text-left group rounded-lg cursor-pointer"
-                  >
+                <div
+                  data-index={index}
+                  onMouseEnter={() => setActiveIndex(index)}
+                  className={clsx(
+                    "group scroll-reveal-card backdrop-blur-[32px] border p-2 rounded-xl transition-all duration-500 shadow-lg cursor-pointer",
+                    isActive ? "bg-white/30 border-blue-500/30 scale-[1.01] shadow-xl" : "bg-white/10 border-white/10 hover:bg-white/20 hover:border-white/20 hover:scale-[1.005]"
+                  )}
+                >
+                  <div className="w-full p-3 md:p-5 flex items-center justify-between gap-4 md:gap-6 text-left rounded-lg">
                     <div className="flex flex-col gap-1">
                       <span className="text-[0.65rem] md:text-xs font-medium tracking-wider uppercase text-[#8f96a3]">
                         {item.eyebrow}
                       </span>
                       <h3 className={clsx(
                         "text-lg md:text-xl font-sans font-medium transition-colors duration-300",
-                        isOpen ? "text-blue-600" : "text-[#1c1b1a] group-hover:text-blue-500"
+                        isActive ? "text-blue-600" : "text-[#1c1b1a] group-hover:text-blue-500"
                       )}>
                         {item.title}
                       </h3>
                     </div>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 15 15"
-                      className={clsx(
-                        "w-4 h-auto transition-all duration-300 shrink-0",
-                        isOpen ? "fill-mustard-200" : "fill-[#c2c9d6] group-hover:fill-mustard-100"
-                      )}
-                    >
-                      {isOpen ? (
-                        <path d="M14.25 8.25H0.75A0.75.75 0 0 1 0.75 6.75H14.25A0.75.75 0 0 1 14.25 8.25Z" fill="currentColor" />
-                      ) : (
-                        <path d="M7.5 0a.75.75 0 0 1 .75.75v6h6a.75.75 0 0 1 0 1.5h-6v6a.75.75 0 0 1-1.5 0v-6h-6a.75.75 0 0 1 0-1.5h6v-6A.75.75 0 0 1 7.5 0" fill="currentColor" />
-                      )}
-                    </svg>
-                  </button>
+                  </div>
 
                   <div className={clsx(
                     "overflow-hidden transition-all duration-500 ease-in-out px-3 md:px-5",
-                    isOpen ? "max-h-48 opacity-100 pb-4" : "max-h-0 opacity-0"
+                    isActive ? "max-h-48 opacity-100 pb-4" : "max-h-0 opacity-0"
                   )}>
                     <p className="text-[#4a4741] font-sans text-base leading-relaxed">
                       {item.content}
