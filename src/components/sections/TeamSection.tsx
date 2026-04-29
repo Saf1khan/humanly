@@ -125,7 +125,7 @@ const TeamCarousel = ({ members, title }: { members: any[], title: string }) => 
     <div className="col-start-main col-end-main flex flex-col 2xl:justify-self-center 2xl:w-fit max-w-full">
       {/* Sub-label */}
       <div className="relative mb-4">
-        <h3 className="text-xl font-bold text-white tracking-tight">{title}</h3>
+        <h3 className="text-xl font-bold text-[#1c1b1a] tracking-tight">{title}</h3>
       </div>
 
       {/* CARDS */}
@@ -144,7 +144,7 @@ const TeamCarousel = ({ members, title }: { members: any[], title: string }) => 
               return (
                 <div 
                   key={member.id} 
-                  className={`relative shrink-0 overflow-hidden rounded-xl transition-all duration-300 ${isExpanded ? "w-[277px] lg:w-[565px]" : "w-[277px]"} h-[370px] bg-white/[0.05] backdrop-blur-xl border border-white/10 shadow-2xl`} 
+                  className={`relative shrink-0 overflow-hidden rounded-xl transition-all duration-300 ${isExpanded ? "w-[277px] lg:w-[565px]" : "w-[277px]"} h-[370px] bg-white/80 backdrop-blur-md border border-[#1c1b1a]/5 shadow-sm hover:shadow-md transition-shadow`} 
                   data-cy="landing-page-profile-card"
                 >
                   {/* Expand Button (Desktop) */}
@@ -187,11 +187,11 @@ const TeamCarousel = ({ members, title }: { members: any[], title: string }) => 
                     {/* Desktop Expansion Panel */}
                     <div className={`h-full overflow-hidden transition-all duration-300 sm:hidden lg:block ${isExpanded ? "w-72" : "w-0"}`}>
                       <div 
-                        className="flex h-full w-72 flex-col justify-end gap-4 overflow-hidden p-6 text-sandstone-200"
+                        className="flex h-full w-72 flex-col justify-end gap-4 overflow-hidden p-6 text-[#1c1b1a]"
                       >
                         <p className="tracking-normal text-left text-inherit font-sans leading-normal text-2xl font-bold">{member.name}</p>
-                        <p className="text-base tracking-normal text-left text-blue-500 font-sans leading-normal font-normal">{member.title}</p>
-                        <button className="rounded-full inline-block transition text-stroke-color-transparent text-stroke-width-0.5 hover:text-stroke-color-current p-0 text-left text-sandstone-200 hover:opacity-70" data-cy="landing-page-profile-card-desktop-button" type="button" aria-label="View Full Bio" tabIndex={isExpanded ? 0 : -1}>
+                        <p className="text-base tracking-normal text-left text-blue-600 font-sans leading-normal font-normal">{member.title}</p>
+                        <button className="rounded-full inline-block transition text-stroke-color-transparent text-stroke-width-0.5 hover:text-stroke-color-current p-0 text-left text-[#1c1b1a] hover:opacity-70" data-cy="landing-page-profile-card-desktop-button" type="button" aria-label="View Full Bio" tabIndex={isExpanded ? 0 : -1}>
                           <span className="items-center inline-flex gap-2 content-center justify-center underline" data-cy="button-compartment">
                             <span><span className="underline">View Full Bio</span></span>
                             <svg aria-hidden="true" fill="none" height="6" viewBox="0 0 20 6" width="20" xmlns="http://www.w3.org/2000/svg" data-cy="link_button_arrow_icon">
@@ -206,11 +206,11 @@ const TeamCarousel = ({ members, title }: { members: any[], title: string }) => 
                     <div 
                       className="flex h-full w-[277px] grow flex-col justify-between overflow-hidden p-6 transition-all lg:hidden bg-transparent"
                     >
-                      <div className="flex flex-col justify-between gap-2 text-sandstone-200">
+                      <div className="flex flex-col justify-between gap-2 text-[#1c1b1a]">
                         <p className="tracking-normal text-left text-inherit font-sans leading-normal text-lg font-bold">{member.name}</p>
-                        <p className="text-[0.875rem] tracking-normal text-left text-blue-500 font-sans leading-normal font-normal">{member.title}</p>
+                        <p className="text-[0.875rem] tracking-normal text-left text-blue-600 font-sans leading-normal font-normal">{member.title}</p>
                       </div>
-                      <button className="rounded-full inline-block transition text-stroke-color-transparent text-stroke-width-0.5 hover:text-stroke-color-current p-0 text-left text-sandstone-200 hover:opacity-70 mt-4" data-cy="landing-page-profile-card-mobile-button" type="button" aria-label="View Full Bio">
+                      <button className="rounded-full inline-block transition text-stroke-color-transparent text-stroke-width-0.5 hover:text-stroke-color-current p-0 text-left text-[#1c1b1a] hover:opacity-70 mt-4" data-cy="landing-page-profile-card-mobile-button" type="button" aria-label="View Full Bio">
                         <span className="items-center inline-flex gap-2 content-center justify-center underline" data-cy="button-compartment">
                           <span><span className="underline">View Full Bio</span></span>
                           <svg aria-hidden="true" fill="none" height="6" viewBox="0 0 20 6" width="20" xmlns="http://www.w3.org/2000/svg" data-cy="link_button_arrow_icon">
@@ -255,7 +255,7 @@ const TeamCarousel = ({ members, title }: { members: any[], title: string }) => 
           </button>
           <button
             aria-label="Next Profile"
-            className="rounded-full text-center inline-block transition p-5 bg-white/10 backdrop-blur-md border border-white/10 text-sandstone-200 hover:bg-white/20 disabled:bg-neutral-700/50 disabled:text-neutral-400 disabled:opacity-30"
+            className="rounded-full text-center inline-block transition p-5 bg-[#f7f1e8] backdrop-blur-md border border-[#1c1b1a]/10 text-[#1c1b1a] hover:bg-white disabled:bg-neutral-200/50 disabled:text-neutral-400 disabled:opacity-30 shadow-sm"
             data-cy="landing-page-profile-cards-next-button"
             type="button"
             onClick={handleNext}
@@ -272,15 +272,15 @@ const TeamCarousel = ({ members, title }: { members: any[], title: string }) => 
 
 export const TeamSection = () => {
   return (
-    <section className="relative w-full bg-[#111213] py-20 pb-32 overflow-hidden">
+    <section className="relative w-full bg-transparent py-20 pb-32 overflow-hidden">
       {/* Background Gradients — exact match to DataRoom */}
       <div
         className="absolute pointer-events-none right-0 translate-x-1/2 top-0 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.15), rgba(105, 165, 255, 0.05) 50%, rgba(105, 165, 255, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.08), rgba(105, 165, 255, 0.02) 50%, rgba(105, 165, 255, 0))" }}
       />
       <div
         className="absolute pointer-events-none left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.12), rgba(105, 165, 255, 0.05) 50%, rgba(105, 165, 255, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.06), rgba(105, 165, 255, 0.02) 50%, rgba(105, 165, 255, 0))" }}
       />
 
       <div className="relative z-10 gap-y-2 gridContainerV3" data-cy="landing-page-profile-cards">
@@ -293,7 +293,7 @@ export const TeamSection = () => {
             </p>
             <div className="w-10 h-[2px] bg-gradient-to-r from-[#A8A5A0] to-[#A855F7]"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white text-center tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#1c1b1a] text-center tracking-tight">
             Builders, operators, innovators.
           </h2>
         </div>
