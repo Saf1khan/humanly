@@ -103,7 +103,7 @@ export const VillageCenterSection = () => {
                 <p className="text-sandstone-500/80 font-sans text-base md:text-lg tracking-wide">
                   15 Integrated facilities · 90,000+ SF of community space
                 </p>
-                <div className="h-[2px] w-16 bg-gradient-to-r from-[#4ade80] via-[#A8A5A0] to-[#a855f7] rounded-full"></div>
+                <div className="h-[2px] w-full bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
               </div>
             </RevealOnScroll>
           </div>

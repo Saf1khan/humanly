@@ -20,9 +20,10 @@ export const ProofOfConceptSection = () => {
           {/* Text Content Block */}
           <div className="order-2 lg:order-1 flex flex-col pt-8 lg:py-12">
             <RevealOnScroll>
-              <span className="block text-xs md:text-sm font-bold tracking-[0.2em] text-[#1C1B1A]/60 uppercase mb-4 md:mb-6">
+              <span className="block text-xs md:text-sm font-bold tracking-[0.2em] text-[#1C1B1A]/60 uppercase mb-2 md:mb-3">
                 Proof of Concept
               </span>
+              <div className="h-[2px] w-[176] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full mb-2 md:mb-3"></div>
               <h2 className="text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] text-left font-sans font-bold leading-tight text-sandstone-500 tracking-tight mb-6">
                 $5M flagship investment.<br className="hidden md:block" />
                 $100M projected value.

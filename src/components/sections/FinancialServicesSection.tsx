@@ -96,7 +96,7 @@ export const FinancialServicesSection = () => {
             <div className="text-[#a8a5a0] text-lg lg:text-[1.25rem] font-sans relative">
               <span className="text-blue-600 relative inline-block mr-1">
                 HumanlyPay™
-                <div className="absolute -bottom-1.5 left-0 w-full h-[3px] bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 rounded-full"></div>
+                <div className="absolute -bottom-1.5 left-0 h-[3px] w-[108px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
               </span>
               — embedded finance for residents
             </div>

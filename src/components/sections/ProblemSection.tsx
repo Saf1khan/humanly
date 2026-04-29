@@ -85,7 +85,8 @@ export const ProblemSection = () => {
         {/* Section Header */}
         <RevealOnScroll>
           <div className="mb-10 lg:mb-14">
-            <p className="text-xs font-bold tracking-widest uppercase text-sandstone-500 mb-4">The Problem</p>
+            <p className="text-xs font-bold tracking-widest uppercase text-sandstone-500 mb-3">The Problem</p>
+            <div className="h-0.5 w-[96px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full mb-3"></div>
             <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-serif leading-tight tracking-tight text-sandstone-500 max-w-3xl">
               Housing is broken.<br />Communities are fragmented.
             </h2>

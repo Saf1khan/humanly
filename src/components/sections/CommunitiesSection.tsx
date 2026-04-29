@@ -96,7 +96,7 @@ export const CommunitiesSection = () => {
                 <span className="text-[#1C1B1A]/60 text-xs font-bold tracking-[0.2em] uppercase">
                   THE COMMUNITIES
                 </span>
-                <div className="h-0.5 w-16 bg-gradient-to-r from-[#1C1B1A]/40 to-purple-500 rounded-full"></div>
+                <div className="h-0.5 w-[146px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
               </div>
 
               <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-serif leading-tight tracking-tight text-sandstone-500 max-w-3xl">

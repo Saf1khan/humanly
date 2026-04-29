@@ -68,7 +68,7 @@ export const InvestmentThesisSection = () => {
                 <span className="text-[#A8A5A0] text-xs font-bold tracking-widest uppercase">
                   INVESTMENT THESIS
                 </span>
-                <div className="h-0.5 w-16 bg-gradient-to-r from-[#A8A5A0] to-purple-500 rounded-full"></div>
+                <div className="h-0.5 w-[140px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
               </div>
 
               <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-serif leading-tight tracking-tight max-w-3xl text-[#1c1b1a]">

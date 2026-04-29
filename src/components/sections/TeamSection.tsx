@@ -287,7 +287,7 @@ export const TeamSection = () => {
             <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#A8A5A0]">
               THE TEAM
             </p>
-            <div className="w-10 h-[2px] bg-gradient-to-r from-[#A8A5A0] to-[#A855F7]"></div>
+            <div className="h-0.5 w-[72px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-[#1c1b1a] text-center tracking-tight">
             Builders, operators, innovators.

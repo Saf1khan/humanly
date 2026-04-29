@@ -62,10 +62,6 @@ export const HumanlyOSSection = () => {
                 
                 <article className="absolute inset-0 flex flex-col justify-between p-8">
                   <div>
-                    <span className="text-[#A8A5A0] text-xs font-bold tracking-widest uppercase">
-                      THE PLATFORM
-                    </span>
-                    <div className="h-0.5 w-16 bg-gradient-to-r from-[#A8A5A0] to-purple-500 rounded-full mb-4"></div>
                     <div className="font-bold py-2 rounded-md uppercase inline-block bg-[#f7f1e8] text-xs px-3">
                       <p className="text-left text-[#1c1b1a] font-sans leading-normal font-bold">
                         THE OPERATING SYSTEM

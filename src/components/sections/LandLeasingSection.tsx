@@ -21,6 +21,7 @@ export const LandLeasingSection = () => {
                 <span className="text-[#A8A5A0] text-xs font-bold tracking-widest uppercase">
                   LAND LEASING MODEL
                 </span>
+                <div className="h-0.5 w-[156px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
                 <h2 className="text-sandstone-500 text-[5rem] md:text-[7rem] lg:text-[9rem] font-sans font-bold leading-none tracking-tight">
                   ~70%
                 </h2>
