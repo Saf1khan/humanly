@@ -71,12 +71,22 @@ export const ProblemSection = () => {
 
   return (
     <section className="relative w-full bg-transparent pt-14 lg:py-20 overflow-hidden">
+      {/* Background Gradients — exact match to DataRoom */}
+      <div
+        className="absolute pointer-events-none right-0 translate-x-1/3 top-1/3 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
+      />
+      <div
+        className="absolute pointer-events-none left-1/5 -translate-x-1/3 top-2/3 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
+      />
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
 
         {/* Section Header */}
         <RevealOnScroll>
           <div className="mb-10 lg:mb-14">
-            <p className="text-xs font-bold tracking-widest uppercase text-sandstone-500 mb-4">The Problem</p>
+            <p className="text-xs font-bold tracking-widest uppercase text-sandstone-500 mb-3">The Problem</p>
+            <div className="h-0.5 w-[96px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full mb-3"></div>
             <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-serif leading-tight tracking-tight text-sandstone-500 max-w-3xl">
               Housing is broken.<br />Communities are fragmented.
             </h2>

@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import { RevealOnScroll } from "../ui/RevealOnScroll";
+import { CardGlass } from "../ui/CardGlass";
 
 const ArrowIcon = ({ direction }: { direction: "left" | "right" }) => (
   <svg aria-hidden="true" fill="none" height="12" viewBox="0 0 21 12" width="21" xmlns="http://www.w3.org/2000/svg">
@@ -18,6 +19,8 @@ const communitiesCards = [
     id: "card-1",
     title: "Attainable Housing",
     description: "Quality homes at 80–120% AMI for workforce families.",
+    bgImage: "https://ourahealth.imgix.net/blue-sky/home/take-walk-mask-mobile.jpg",
+    overlayImage: "https://ourahealth.imgix.net/home-scenarios-walk-steps-ui-en.png"
   },
   {
     id: "card-2",
@@ -75,19 +78,28 @@ export const CommunitiesSection = () => {
 
   return (
     <section className="relative w-full bg-transparent py-14 lg:py-24 overflow-hidden">
+      {/* Background Gradients — exact match to DataRoom */}
+      <div
+        className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
+      />
+      <div
+        className="absolute pointer-events-none left-0 -translate-x-1/2 top-1/2 -translate-y-1/3 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
+      />
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
 
         {/* Section Header */}
         <RevealOnScroll>
           <header className="grid grid-cols-1 gap-6 mb-10 lg:mb-14">
             <div className="flex flex-col gap-4 lg:gap-6">
-              
+
               {/* Badge */}
               <div className="flex flex-col items-start gap-2">
                 <span className="text-[#1C1B1A]/60 text-xs font-bold tracking-[0.2em] uppercase">
                   THE COMMUNITIES
                 </span>
-                <div className="h-0.5 w-16 bg-gradient-to-r from-[#1C1B1A]/40 to-purple-500 rounded-full"></div>
+                <div className="h-0.5 w-[146px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
               </div>
 
               <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-serif leading-tight tracking-tight text-sandstone-500 max-w-3xl">
@@ -135,16 +147,20 @@ export const CommunitiesSection = () => {
                 >
                   {communitiesCards.map((card) => (
                     <li key={card.id} className="snap-start shrink-0 h-auto">
-                      <div className="p-[1px] rounded-xl bg-gradient-to-r from-[#4ade80]/50 to-[#a855f7]/50 shadow-sm transition-all duration-300">
-                        <article className="flex h-full flex-col overflow-hidden rounded-xl p-6 w-[75vw] bg-white backdrop-blur-xl md:w-[60vw] lg:w-full min-h-[160px]">
-                          <h3 className="text-left text-[#1C1B1A] font-sans leading-tight font-bold mb-2 text-[1.15rem]">
+                      <CardGlass
+                        className="w-[65vw] md:w-[50vw] min-h-[260px]"
+                        backgroundImage={card.bgImage}
+                        overlayImage={card.overlayImage}
+                      >
+                        <div className="p-6">
+                          <h3 className="text-left text-[#1C1B1A] font-sans leading-tight font-bold mb-2 text-[1.15rem] transition-colors duration-300 group-hover:text-white">
                             {card.title}
                           </h3>
-                          <p className="text-left text-[#1C1B1A]/70 font-sans leading-relaxed font-medium text-base">
+                          <p className="text-left text-[#1C1B1A]/70 font-sans leading-relaxed font-medium text-base transition-colors duration-300 group-hover:text-white/90">
                             {card.description}
                           </p>
-                        </article>
-                      </div>
+                        </div>
+                      </CardGlass>
                     </li>
                   ))}
                 </ul>
@@ -154,19 +170,23 @@ export const CommunitiesSection = () => {
         </div>
 
         {/* Desktop 3-column grid */}
-        <div className="hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:grid">
+        <div className="hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:grid ">
           {communitiesCards.map((card, idx) => (
-            <RevealOnScroll key={card.id} delay={`delay-${(idx % 3 + 1) * 100}` as any}>
-              <div className="p-[1px] rounded-xl bg-gradient-to-r from-[#4ade80]/40 to-[#a855f7]/40 hover:from-[#4ade80]/80 hover:to-[#a855f7]/80 shadow-md transition-all duration-500 group hover:-translate-y-1">
-                <article className="flex flex-col overflow-hidden rounded-xl p-8 bg-white backdrop-blur-xl min-h-[160px]">
-                  <h3 className="text-left text-[#1C1B1A] font-sans leading-tight font-bold mb-2 text-xl transition-colors">
+            <RevealOnScroll key={card.id} delay={`delay-${(idx + 1) * 100}` as any}>
+              <CardGlass
+                className="h-full min-h-[260px]"
+                backgroundImage={card.bgImage}
+                overlayImage={card.overlayImage}
+              >
+                <div className="p-8">
+                  <h3 className="text-left text-[#1C1B1A] font-sans leading-tight font-bold mb-3 text-2xl transition-colors duration-300 group-hover:text-white">
                     {card.title}
                   </h3>
-                  <p className="text-left text-[#1C1B1A]/70 font-sans leading-relaxed font-medium text-base transition-colors">
+                  <p className="text-left text-[#1C1B1A]/70 font-sans leading-relaxed font-medium text-lg transition-colors duration-300 group-hover:text-white/90">
                     {card.description}
                   </p>
-                </article>
-              </div>
+                </div>
+              </CardGlass>
             </RevealOnScroll>
           ))}
         </div>

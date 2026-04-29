@@ -47,10 +47,10 @@ export default function Home() {
         <LandLeasingSection />
         <VillageCenterSection />
         <ProofOfConceptSection />
-        <HumanlyOSSection />
-        <FinancialServicesSection />
-        <TransactionFlowSection />
-        <TeamSection />
+      <HumanlyOSSection />
+      <FinancialServicesSection />
+      <TransactionFlowSection />
+      <TeamSection />
       </div>
 
       <DataRoomForm />

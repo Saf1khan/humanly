@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 
 const layerRows = [
@@ -63,18 +63,71 @@ const layerRows = [
 import { RevealOnScroll } from "../ui/RevealOnScroll";
 
 export const PlatformSection = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const elements = document.querySelectorAll('.scroll-reveal-card');
+          let minDistance = Infinity;
+          let closestIndex: string | null = null;
+          const viewportCenter = window.innerHeight / 2;
+
+          elements.forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            // Distance from card center to viewport center
+            const elCenter = rect.top + rect.height / 2;
+            const distance = Math.abs(elCenter - viewportCenter);
+
+            if (distance < minDistance) {
+              minDistance = distance;
+              closestIndex = el.getAttribute('data-index');
+            }
+          });
+
+          // Only activate if the closest card is within a reasonable range of the center
+          if (closestIndex !== null && minDistance < window.innerHeight * 0.35) {
+            setActiveIndex(Number(closestIndex));
+          }
+          
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Initial check
+    setTimeout(handleScroll, 100);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <section className="relative w-full bg-transparent text-[#1c1b1a] py-24 lg:py-36 overflow-hidden">
       {/* Background Gradients — exact match to DataRoom */}
       <div
-        className="absolute pointer-events-none right-0 translate-x-1/2 top-0 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.08), rgba(105, 165, 255, 0.02) 50%, rgba(105, 165, 255, 0))" }}
+        className="absolute pointer-events-none left-[-30%] translate-x-0 top-0 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.03), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
       />
       <div
-        className="absolute pointer-events-none left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.06), rgba(105, 165, 255, 0.02) 50%, rgba(105, 165, 255, 0))" }}
+        className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.03), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
+      />
+      <div
+        className="absolute pointer-events-none translate-x-0 top-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.06) 50%, rgba(255, 182, 55, 0))" }}
+      />
+      <div
+        className="absolute pointer-events-none left-0 -translate-x-1/2 top-1/2 -translate-y-1/4 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
+      />
+      <div
+        className="absolute pointer-events-none right-0 -translate-x-[-30%] top-1/2 -translate-y-[-20%] w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
       />
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative flex flex-col gap-10 md:gap-16">
 
@@ -88,7 +141,7 @@ export const PlatformSection = () => {
                 <span className="text-[#A8A5A0] text-xs font-bold tracking-widest uppercase">
                   THE PLATFORM
                 </span>
-                <div className="h-0.5 w-16 bg-gradient-to-r from-[#A8A5A0] to-purple-500 rounded-full"></div>
+                <div className="h-0.5 w-[104px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-serif leading-tight tracking-tight text-[#1c1b1a]">
                 Seven layers.<br />One vertical stack.
@@ -97,7 +150,7 @@ export const PlatformSection = () => {
                 From intelligence-driven site selection through compounding network effects — every layer feeds the next, creating a moat no horizontal competitor can replicate.
               </p>
               <div className="mt-2 flex flex-col gap-2">
-                <div className="h-[3px] w-full rounded-full bg-gradient-to-r from-blue-600 via-fuchsia-500 to-red-400" />
+                <div className="h-[3px] w-full rounded-full bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)]" />
                 <div className="flex justify-between text-xs text-[#8f96a3] tracking-wide pt-1">
                   <span>Acquisitions</span>
                   <span>Lease-up</span>
@@ -109,7 +162,7 @@ export const PlatformSection = () => {
 
           {/* Right: Image — same style as InvestmentThesisSection */}
           <RevealOnScroll delay="delay-100">
-            <div className="relative w-full aspect-square md:aspect-auto md:h-[560px] bg-slate-800/50 rounded-2xl overflow-hidden border border-white/5 shadow-2xl">
+            <div className="relative w-full aspect-square md:aspect-auto md:h-[560px] bg-slate-800/40 backdrop-blur-md rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
               <img
                 alt="Humanly Platform"
                 loading="lazy"
@@ -124,47 +177,34 @@ export const PlatformSection = () => {
         {/* Bottom: Same accordion card style as InvestmentThesisSection */}
         <div className="flex flex-col gap-3">
           {layerRows.map((item, index) => {
-            const isOpen = openIndex === index;
+            const isActive = activeIndex === index;
             return (
               <RevealOnScroll key={item.id} delay={`delay-${(index % 5 + 1) * 100}` as any}>
-                <div className="bg-white/60 border border-[#1c1b1a]/5 p-2 rounded-xl transition-colors duration-300 shadow-sm">
-                  <button
-                    onClick={() => setOpenIndex(isOpen ? null : index)}
-                    aria-expanded={isOpen}
-                    type="button"
-                    className="w-full p-3 md:p-5 flex items-center justify-between gap-4 md:gap-6 text-left group rounded-lg cursor-pointer"
-                  >
+                <div
+                  data-index={index}
+                  onMouseEnter={() => setActiveIndex(index)}
+                  className={clsx(
+                    "group scroll-reveal-card backdrop-blur-[32px] border p-2 rounded-xl transition-all duration-500 shadow-lg cursor-pointer",
+                    isActive ? "bg-white/30 border-blue-500/30 scale-[1.01] shadow-xl" : "bg-white/10 border-white/10 hover:bg-white/20 hover:border-white/20 hover:scale-[1.005]"
+                  )}
+                >
+                  <div className="w-full p-3 md:p-5 flex items-center justify-between gap-4 md:gap-6 text-left rounded-lg">
                     <div className="flex flex-col gap-1">
                       <span className="text-[0.65rem] md:text-xs font-medium tracking-wider uppercase text-[#8f96a3]">
                         {item.eyebrow}
                       </span>
                       <h3 className={clsx(
                         "text-lg md:text-xl font-sans font-medium transition-colors duration-300",
-                        isOpen ? "text-blue-600" : "text-[#1c1b1a] group-hover:text-blue-500"
+                        isActive ? "text-blue-600" : "text-[#1c1b1a] group-hover:text-blue-500"
                       )}>
                         {item.title}
                       </h3>
                     </div>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 15 15"
-                      className={clsx(
-                        "w-4 h-auto transition-all duration-300 shrink-0",
-                        isOpen ? "fill-mustard-200" : "fill-[#c2c9d6] group-hover:fill-mustard-100"
-                      )}
-                    >
-                      {isOpen ? (
-                        <path d="M14.25 8.25H0.75A0.75.75 0 0 1 0.75 6.75H14.25A0.75.75 0 0 1 14.25 8.25Z" fill="currentColor" />
-                      ) : (
-                        <path d="M7.5 0a.75.75 0 0 1 .75.75v6h6a.75.75 0 0 1 0 1.5h-6v6a.75.75 0 0 1-1.5 0v-6h-6a.75.75 0 0 1 0-1.5h6v-6A.75.75 0 0 1 7.5 0" fill="currentColor" />
-                      )}
-                    </svg>
-                  </button>
+                  </div>
 
                   <div className={clsx(
                     "overflow-hidden transition-all duration-500 ease-in-out px-3 md:px-5",
-                    isOpen ? "max-h-48 opacity-100 pb-4" : "max-h-0 opacity-0"
+                    isActive ? "max-h-48 opacity-100 pb-4" : "max-h-0 opacity-0"
                   )}>
                     <p className="text-[#4a4741] font-sans text-base leading-relaxed">
                       {item.content}
