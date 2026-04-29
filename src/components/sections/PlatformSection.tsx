@@ -69,12 +69,24 @@ export const PlatformSection = () => {
     <section className="relative w-full bg-transparent text-[#1c1b1a] py-24 lg:py-36 overflow-hidden">
       {/* Background Gradients — exact match to DataRoom */}
       <div
-        className="absolute pointer-events-none right-0 translate-x-1/2 top-0 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.08), rgba(105, 165, 255, 0.02) 50%, rgba(105, 165, 255, 0))" }}
+        className="absolute pointer-events-none left-[-30%] translate-x-0 top-0 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.04), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
       />
       <div
-        className="absolute pointer-events-none left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.06), rgba(105, 165, 255, 0.02) 50%, rgba(105, 165, 255, 0))" }}
+        className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.04), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
+      />
+      <div
+        className="absolute pointer-events-none translate-x-0 top-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.10), rgba(255, 182, 55, 0.06) 50%, rgba(255, 182, 55, 0))" }}
+      />
+      <div
+        className="absolute pointer-events-none left-0 -translate-x-1/2 top-1/2 -translate-y-1/4 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.10), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
+      />
+      <div
+        className="absolute pointer-events-none right-0 -translate-x-[-30%] top-1/2 -translate-y-[-20%] w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.10), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
       />
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative flex flex-col gap-10 md:gap-16">
 
@@ -88,7 +100,7 @@ export const PlatformSection = () => {
                 <span className="text-[#A8A5A0] text-xs font-bold tracking-widest uppercase">
                   THE PLATFORM
                 </span>
-                <div className="h-0.5 w-16 bg-gradient-to-r from-[#A8A5A0] to-purple-500 rounded-full"></div>
+                <div className="h-0.5 w-[104px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-serif leading-tight tracking-tight text-[#1c1b1a]">
                 Seven layers.<br />One vertical stack.
@@ -97,7 +109,7 @@ export const PlatformSection = () => {
                 From intelligence-driven site selection through compounding network effects — every layer feeds the next, creating a moat no horizontal competitor can replicate.
               </p>
               <div className="mt-2 flex flex-col gap-2">
-                <div className="h-[3px] w-full rounded-full bg-gradient-to-r from-blue-600 via-fuchsia-500 to-red-400" />
+                <div className="h-[3px] w-full rounded-full bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)]" />
                 <div className="flex justify-between text-xs text-[#8f96a3] tracking-wide pt-1">
                   <span>Acquisitions</span>
                   <span>Lease-up</span>
