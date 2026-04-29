@@ -37,24 +37,9 @@ export const Nav = () => {
 
   return (
     <>
-      <div className="absolute top-0 left-0 w-full py-3.5 px-4 text-center bg-[#F0EDEB] text-[#4A4741] z-[60] overflow-hidden">
-        {/* Soft Background Gradients */}
-        <div 
-          className="absolute pointer-events-none left-1/4 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-30" 
-          style={{ background: "radial-gradient(50% 50%, #827E7A 0%, rgba(130, 126, 122, 0) 100%)" }}
-        />
-        <div 
-          className="absolute pointer-events-none right-1/4 translate-x-1/2 top-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-20" 
-          style={{ background: "radial-gradient(50% 50%, #827E7A 0%, rgba(130, 126, 122, 0) 100%)" }}
-        />
-        <p className="relative z-10 text-[0.875rem] font-bold tracking-normal leading-normal font-sans">
-          Free trial offer at checkout: Natural Cycles non-hormonal birth control
-        </p>
-      </div>
-
       {/* THE HEADER: Sticky container */}
       <header 
-        className={`fixed z-50 w-full transition-all duration-500 font-sans ${scrolled ? 'top-0' : 'top-[48px]'}`}
+        className="fixed z-50 w-full transition-all duration-500 font-sans top-0"
         onMouseLeave={() => setIsMenuOpen(false)}
       >
         
