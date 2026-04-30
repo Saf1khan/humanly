@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import { RevealOnScroll } from "../ui/RevealOnScroll";
+import { CardGlass } from "../ui/CardGlass";
 
 const ArrowIcon = ({ direction }: { direction: "left" | "right" }) => (
   <svg aria-hidden="true" fill="none" height="12" viewBox="0 0 21 12" width="21" xmlns="http://www.w3.org/2000/svg">
@@ -90,7 +91,7 @@ export const CommunitiesSection = () => {
         <RevealOnScroll>
           <header className="grid grid-cols-1 gap-6 mb-10 lg:mb-14">
             <div className="flex flex-col gap-4 lg:gap-6">
-              
+
               {/* Badge */}
               <div className="flex flex-col items-start gap-2">
                 <span className="text-[#1C1B1A]/60 text-xs font-bold tracking-[0.2em] uppercase">
@@ -144,16 +145,16 @@ export const CommunitiesSection = () => {
                 >
                   {communitiesCards.map((card) => (
                     <li key={card.id} className="snap-start shrink-0 h-auto">
-                      <div className="p-[1px] rounded-xl bg-gradient-to-r from-[#4ade80]/50 to-[#a855f7]/50 shadow-sm transition-all duration-300">
-                        <article className="flex h-full flex-col overflow-hidden rounded-xl p-6 w-[75vw] bg-white backdrop-blur-xl md:w-[60vw] lg:w-full min-h-[160px]">
-                          <h3 className="text-left text-[#1C1B1A] font-sans leading-tight font-bold mb-2 text-[1.15rem]">
+                      <CardGlass className="w-[65vw] md:w-[50vw] min-h-[260px]">
+                        <div className="p-6">
+                          <h3 className="text-left text-[#1C1B1A] font-sans leading-tight font-bold mb-2 text-[1.15rem] transition-colors duration-300 group-hover:text-gray-800">
                             {card.title}
                           </h3>
-                          <p className="text-left text-[#1C1B1A]/70 font-sans leading-relaxed font-medium text-base">
+                          <p className="text-left text-[#1C1B1A]/70 font-sans leading-relaxed font-medium text-base transition-colors duration-300 group-hover:text-gray-800">
                             {card.description}
                           </p>
-                        </article>
-                      </div>
+                        </div>
+                      </CardGlass>
                     </li>
                   ))}
                 </ul>
@@ -163,19 +164,19 @@ export const CommunitiesSection = () => {
         </div>
 
         {/* Desktop 3-column grid */}
-        <div className="hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:grid">
+        <div className="hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:grid ">
           {communitiesCards.map((card, idx) => (
-            <RevealOnScroll key={card.id} delay={`delay-${(idx % 3 + 1) * 100}` as any}>
-              <div className="p-[1px] rounded-xl bg-gradient-to-r from-[#4ade80]/40 to-[#a855f7]/40 hover:from-[#4ade80]/80 hover:to-[#a855f7]/80 shadow-md transition-all duration-500 group hover:-translate-y-1">
-                <article className="flex flex-col overflow-hidden rounded-xl p-8 bg-white backdrop-blur-xl min-h-[160px]">
-                  <h3 className="text-left text-[#1C1B1A] font-sans leading-tight font-bold mb-2 text-xl transition-colors">
+            <RevealOnScroll key={card.id} delay={`delay-${(idx + 1) * 100}` as any}>
+              <CardGlass className="bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 p-2 rounded-2xl transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10">
+                <div className="p-8">
+                  <h3 className="text-left text-[#1C1B1A] font-sans leading-tight font-bold mb-3 text-2xl transition-colors duration-300 group-hover:text-gray-800">
                     {card.title}
                   </h3>
-                  <p className="text-left text-[#1C1B1A]/70 font-sans leading-relaxed font-medium text-base transition-colors">
+                  <p className="text-left text-[#1C1B1A]/70 font-sans leading-relaxed font-medium text-lg transition-colors duration-300 group-hover:text-gray-800">
                     {card.description}
                   </p>
-                </article>
-              </div>
+                </div>
+              </CardGlass>
             </RevealOnScroll>
           ))}
         </div>
