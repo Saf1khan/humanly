@@ -94,7 +94,7 @@ export const TransactionFlowSection = () => {
         {/* Section Header */}
         <RevealOnScroll>
           <header className="flex flex-col items-center text-center mb-20 lg:mb-32">
-            <h2 className="text-[2.25rem] md:text-[3rem] lg:text-[4rem] font-sans font-bold text-[#1c1b1a] tracking-tight leading-tight">
+            <h2 className="text-[2.25rem] md:text-[3rem] lg:text-[4rem] font-sans font-bold text-sandstone-500 tracking-tight leading-tight">
               Transaction Flow
             </h2>
           </header>
@@ -154,7 +154,7 @@ export const TransactionFlowSection = () => {
                               {step.step}
                             </span>
                           </div>
-                          <h3 className="text-[1.1rem] xl:text-[1.25rem] font-sans font-bold leading-snug text-[#1c1b1a]">
+                          <h3 className="text-[1.1rem] xl:text-[1.25rem] font-sans font-bold leading-snug text-sandstone-500">
                             {step.title}
                           </h3>
                           <p className="text-[0.85rem] text-[#1c1b1a]/70 font-sans leading-relaxed mt-1">
@@ -189,7 +189,7 @@ export const TransactionFlowSection = () => {
                     <p className="font-bold font-sans text-[#1c1b1a]/50 tracking-widest uppercase text-[0.7rem]">
                       {step.step}
                     </p>
-                    <p className="text-[1.125rem] font-sans font-bold leading-snug text-[#1c1b1a]">
+                    <p className="text-[1.125rem] font-sans font-bold leading-snug text-sandstone-500">
                       {step.title}
                     </p>
                     <p className="text-[0.875rem] text-[#1c1b1a]/60 font-sans leading-relaxed">

@@ -75,7 +75,10 @@ export const CommunitiesSection = () => {
   };
 
   return (
-    <section className="relative w-full bg-transparent py-14 lg:py-24 overflow-hidden">
+    <section 
+      className="relative w-full bg-transparent py-14 lg:py-24 overflow-hidden"
+      style={{ fontFamily: "'Neue Haas Grotesk', sans-serif" }}
+    >
       {/* Background Gradients — exact match to DataRoom */}
       <div
         className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
@@ -97,12 +100,12 @@ export const CommunitiesSection = () => {
                 <span className="text-[#1C1B1A]/60 text-xs font-bold tracking-[0.2em] uppercase">
                   THE COMMUNITIES
                 </span>
-                <div className="h-0.5 w-[146px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
               </div>
 
-              <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-serif leading-tight tracking-tight text-sandstone-500 max-w-3xl">
+              <h2 className="text-4xl md:text-5xl lg:text-[4rem] leading-tight tracking-tight text-sandstone-500 max-w-4xl">
                 Not just housing.<br />Launchpads for human potential.
               </h2>
+              <div className="h-[1px] w-[800px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
             </div>
           </header>
         </RevealOnScroll>
@@ -147,10 +150,10 @@ export const CommunitiesSection = () => {
                     <li key={card.id} className="snap-start shrink-0 h-auto">
                       <CardGlass className="w-[65vw] md:w-[50vw] min-h-[260px]">
                         <div className="p-6">
-                          <h3 className="text-left text-[#1C1B1A] font-sans leading-tight font-bold mb-2 text-[1.15rem] transition-colors duration-300 group-hover:text-gray-800">
+                          <h3 className="text-left text-sandstone-500 leading-tight font-bold mb-2 text-[1.15rem] transition-colors duration-300 group-hover:text-gray-800">
                             {card.title}
                           </h3>
-                          <p className="text-left text-[#1C1B1A]/70 font-sans leading-relaxed font-medium text-base transition-colors duration-300 group-hover:text-gray-800">
+                          <p className="text-left text-[#1C1B1A]/70 leading-relaxed font-medium text-base transition-colors duration-300 group-hover:text-gray-800">
                             {card.description}
                           </p>
                         </div>
@@ -169,10 +172,10 @@ export const CommunitiesSection = () => {
             <RevealOnScroll key={card.id} delay={`delay-${(idx + 1) * 100}` as any}>
               <CardGlass className="bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 p-2 rounded-2xl transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10">
                 <div className="p-8">
-                  <h3 className="text-left text-[#1C1B1A] font-sans leading-tight font-bold mb-3 text-2xl transition-colors duration-300 group-hover:text-gray-800">
+                  <h3 className="text-left text-sandstone-500 leading-tight font-bold mb-3 text-2xl transition-colors duration-300 group-hover:text-gray-800">
                     {card.title}
                   </h3>
-                  <p className="text-left text-[#1C1B1A]/70 font-sans leading-relaxed font-medium text-lg transition-colors duration-300 group-hover:text-gray-800">
+                  <p className="text-left text-[#1C1B1A]/70 leading-relaxed font-medium text-lg transition-colors duration-300 group-hover:text-gray-800">
                     {card.description}
                   </p>
                 </div>

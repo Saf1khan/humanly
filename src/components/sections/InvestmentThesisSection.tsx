@@ -131,10 +131,10 @@ export const InvestmentThesisSection = () => {
                 <span className="text-[#A8A5A0] text-xs font-bold tracking-widest uppercase">
                   INVESTMENT THESIS
                 </span>
-                <div className="h-0.5 w-[140px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
+                <div className="h-[2px] w-[140px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
               </div>
 
-              <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-serif leading-tight tracking-tight max-w-3xl text-[#1c1b1a]">
+              <h2 className="text-4xl md:text-5xl lg:text-[4rem] leading-tight tracking-tight max-w-3xl text-sandstone-500">
                 Five revenue layers.<br />
                 One integrated platform.
               </h2>
@@ -167,8 +167,8 @@ export const InvestmentThesisSection = () => {
                           {item.eyebrow}
                         </span>
                         <h3 className={clsx(
-                          "text-lg md:text-xl font-sans font-medium transition-colors duration-300",
-                          isOpen ? "text-blue-600" : "text-[#1c1b1a] group-hover:text-blue-500"
+                          "text-lg md:text-xl font-medium transition-colors duration-300",
+                          isOpen ? "text-blue-600" : "text-sandstone-500 group-hover:text-blue-500"
                         )}>
                           {item.title}
                         </h3>
@@ -197,7 +197,7 @@ export const InvestmentThesisSection = () => {
                         isOpen ? "max-h-48 opacity-100 pb-4" : "max-h-0 opacity-0"
                       )}
                     >
-                      <p className="text-[#4a4741] font-sans text-base leading-relaxed">
+                      <p className="text-[#4a4741] text-base leading-relaxed">
                         {item.content}
                       </p>
                     </div>

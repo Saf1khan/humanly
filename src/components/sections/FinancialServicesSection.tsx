@@ -90,13 +90,13 @@ export const FinancialServicesSection = () => {
         {/* Section Header */}
         <RevealOnScroll>
           <header className="flex flex-col items-start gap-4 mb-10 lg:mb-14">
-            <h2 className="text-[2rem] md:text-5xl font-sans font-bold text-[#1c1b1a] tracking-tight">
+            <h2 className="text-[2rem] md:text-5xl font-bold text-sandstone-500 tracking-tight">
               Financial Services
             </h2>
             <div className="text-[#a8a5a0] text-lg lg:text-[1.25rem] font-sans relative">
               <span className="text-blue-600 relative inline-block mr-1">
                 HumanlyPay™
-                <div className="absolute -bottom-1.5 left-0 h-[3px] w-[108px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
+                <div className="absolute -bottom-1.5 left-0 h-[1px] w-[108px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
               </span>
               — embedded finance for residents
             </div>
@@ -142,10 +142,10 @@ export const FinancialServicesSection = () => {
                   {financialCards.map((card) => (
                     <li key={card.id} className="snap-start shrink-0 h-auto">
                       <article className="flex h-full flex-col justify-center overflow-hidden rounded-2xl p-8 w-[75vw] bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 md:w-[60vw] lg:w-full min-h-[160px] transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10">
-                        <h3 className="text-left text-[#1c1b1a] font-sans leading-tight font-bold mb-3 text-[1.125rem]">
+                        <h3 className="text-left text-sandstone-500 leading-tight font-bold mb-3 text-[1.125rem]">
                           {card.title}
                         </h3>
-                        <p className="text-left text-[#4a4741] font-sans leading-relaxed text-[0.95rem]">
+                        <p className="text-left text-[#4a4741] leading-relaxed text-[0.95rem]">
                           {card.description}
                         </p>
                       </article>
@@ -162,10 +162,10 @@ export const FinancialServicesSection = () => {
           {financialCards.map((card, idx) => (
             <RevealOnScroll key={card.id} delay={`delay-${(idx % 3 + 1) * 100}` as any}>
               <article className="flex flex-col justify-center overflow-hidden rounded-2xl p-8 bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 min-h-[160px] transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10 group">
-                <h3 className="text-left text-[#1c1b1a] font-sans leading-tight font-bold mb-3 text-[1.125rem] group-hover:text-blue-600 transition-colors">
+                <h3 className="text-left text-sandstone-500 leading-tight font-bold mb-3 text-[1.125rem] group-hover:text-blue-600 transition-colors">
                   {card.title}
                 </h3>
-                <p className="text-left text-[#4a4741] font-sans leading-relaxed text-[0.95rem] pr-4">
+                <p className="text-left text-[#4a4741] leading-relaxed text-[0.95rem] pr-4">
                   {card.description}
                 </p>
               </article>

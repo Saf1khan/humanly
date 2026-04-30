@@ -166,9 +166,9 @@ export const PlatformSection = () => {
                 <span className="text-[#A8A5A0] text-xs font-bold tracking-widest uppercase">
                   THE PLATFORM
                 </span>
-                <div className="h-0.5 w-[104px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full" />
+                <div className="h-[1px] w-[104px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full" />
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-serif leading-tight tracking-tight text-[#1c1b1a]">
+              <h2 className="text-4xl md:text-5xl lg:text-[4rem] leading-tight tracking-tight text-sandstone-500">
                 Seven layers.<br />One vertical stack.
               </h2>
               <p className="text-base text-[#4a4741] max-w-lg leading-relaxed">
@@ -177,7 +177,7 @@ export const PlatformSection = () => {
                 no horizontal competitor can replicate.
               </p>
               <div className="mt-2 flex flex-col gap-2">
-                <div className="h-[3px] w-full rounded-full bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)]" />
+                <div className="h-[1px] w-full rounded-full bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)]" />
                 <div className="flex justify-between text-xs text-[#8f96a3] tracking-wide pt-1">
                   <span>Acquisitions</span>
                   <span>Lease-up</span>
@@ -229,10 +229,10 @@ export const PlatformSection = () => {
                       {/* ↓ group-hover:text-blue-500 from the later version */}
                       <h3
                         className={clsx(
-                          "text-lg md:text-xl font-sans font-medium transition-colors duration-300",
+                          "text-lg md:text-xl font-medium transition-colors duration-300",
                           isActive
                             ? "text-blue-600"
-                            : "text-[#1c1b1a] group-hover:text-blue-500"
+                            : "text-sandstone-500 group-hover:text-blue-500"
                         )}
                       >
                         {item.title}
@@ -248,7 +248,7 @@ export const PlatformSection = () => {
                         : "max-h-0 opacity-0"
                     )}
                   >
-                    <p className="text-[#4a4741] font-sans text-base leading-relaxed">
+                    <p className="text-[#4a4741] text-base leading-relaxed">
                       {item.content}
                     </p>
                   </div>

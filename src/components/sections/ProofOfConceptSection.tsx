@@ -23,15 +23,15 @@ export const ProofOfConceptSection = () => {
               <span className="block text-xs md:text-sm font-bold tracking-[0.2em] text-[#1C1B1A]/60 uppercase mb-2 md:mb-3">
                 Proof of Concept
               </span>
-              <div className="h-[2px] w-[176] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full mb-2 md:mb-3"></div>
-              <h2 className="text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] text-left font-sans font-bold leading-tight text-sandstone-500 tracking-tight mb-6">
+              <div className="h-[1px] w-[176] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full mb-2 md:mb-3"></div>
+              <h2 className="text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] text-left font-bold leading-tight text-sandstone-500 tracking-tight mb-6">
                 $5M flagship investment.<br className="hidden md:block" />
                 $100M projected value.
               </h2>
             </RevealOnScroll>
 
             <RevealOnScroll delay="delay-100">
-              <p className="text-base md:text-[1.125rem] text-sandstone-500/80 font-sans leading-relaxed mb-8 max-w-[540px]">
+              <p className="text-base md:text-[1.125rem] text-sandstone-500/80 leading-relaxed mb-8 max-w-[540px]">
                 Our first community demonstrates the full model — from AI-driven site selection through integrated services and compounding returns.
               </p>
             </RevealOnScroll>

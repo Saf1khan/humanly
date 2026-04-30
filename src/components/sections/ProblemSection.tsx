@@ -86,8 +86,8 @@ export const ProblemSection = () => {
         <RevealOnScroll>
           <div className="mb-10 lg:mb-14">
             <p className="text-xs font-bold tracking-widest uppercase text-sandstone-500 mb-3">The Problem</p>
-            <div className="h-0.5 w-[96px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full mb-3"></div>
-            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-serif leading-tight tracking-tight text-sandstone-500 max-w-3xl">
+            <div className="h-[1px] w-[96px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full mb-3"></div>
+            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-tight tracking-tight text-sandstone-500 max-w-3xl">
               Housing is broken.<br />Communities are fragmented.
             </h2>
           </div>
@@ -135,10 +135,10 @@ export const ProblemSection = () => {
                           <div className={`relative z-10 w-2.5 h-2.5 rounded-full ${card.dot}`} />
                           <div className="flex-1" />
                           <div className="relative z-10">
-                            <h3 className="text-[#1C1B1A] font-sans font-semibold text-xl leading-tight mb-3">
+                            <h3 className="text-sandstone-500 font-semibold text-xl leading-tight mb-3">
                               {card.title}
                             </h3>
-                            <p className="text-[#1C1B1A]/70 font-sans font-normal text-base leading-snug">
+                            <p className="text-[#1C1B1A]/70 font-normal text-base leading-snug">
                               {card.description}
                             </p>
                           </div>
@@ -158,10 +158,10 @@ export const ProblemSection = () => {
                   <div className={`relative z-10 w-2.5 h-2.5 rounded-full ${card.dot}`} />
                   <div className="flex-1" />
                   <div className="relative z-10">
-                    <h3 className="text-[#1C1B1A] font-sans font-semibold text-xl leading-tight mb-3 transition-colors">
+                    <h3 className="text-sandstone-500 font-semibold text-xl leading-tight mb-3 transition-colors">
                       {card.title}
                     </h3>
-                    <p className="text-[#1C1B1A]/70 font-sans font-normal text-base leading-snug transition-colors">
+                    <p className="text-[#1C1B1A]/70 font-normal text-base leading-snug transition-colors">
                       {card.description}
                     </p>
                   </div>

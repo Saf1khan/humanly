@@ -40,7 +40,7 @@ export const HumanlyOSSection = () => {
       <div className="max-w-[1440px] mx-auto px-6 md:px-[64px]">
         <RevealOnScroll>
           <h2
-            className="text-[1.125rem] text-left text-[#A8A5A0] font-sans font-bold mb-8 uppercase"
+            className="text-[1.125rem] text-left text-sandstone-500 font-bold mb-8 uppercase"
             style={{ letterSpacing: "0.05em" }}
           >
             HUMANLY OS
@@ -63,17 +63,17 @@ export const HumanlyOSSection = () => {
                 <article className="absolute inset-0 flex flex-col justify-between p-8">
                   <div>
                     <div className="font-bold py-2 rounded-md uppercase inline-block bg-[#f7f1e8] text-xs px-3">
-                      <p className="text-left text-[#1c1b1a] font-sans leading-normal font-bold">
+                      <p className="text-left text-[#1c1b1a] leading-normal font-bold">
                         THE OPERATING SYSTEM
                       </p>
                     </div>
                   </div>
 
                   <div className="mt-auto pt-64 md:pt-0 pb-4">
-                    <h2 className="text-left text-white font-sans leading-tight font-bold mb-4 text-[2.5rem] md:text-[3rem] lg:text-[4rem] tracking-tight">
+                    <h2 className="text-left text-white leading-tight font-bold mb-4 text-[2.5rem] md:text-[3rem] lg:text-[4rem] tracking-tight">
                       HumanlyOS&reg;
                     </h2>
-                    <p className="text-left text-white/90 font-sans leading-relaxed text-[1rem] md:text-[1.125rem] max-w-xl">
+                    <p className="text-left text-white/90 leading-relaxed text-[1rem] md:text-[1.125rem] max-w-xl">
                       The AI-native operating system that transforms community management from fragmented services into an integrated, revenue-generating platform.
                     </p>
                   </div>
@@ -90,10 +90,10 @@ export const HumanlyOSSection = () => {
                   <div className="mb-6 text-[#3b82f6]">
                     <feature.icon className="w-8 h-8 md:w-10 md:h-10" />
                   </div>
-                  <h2 className="text-left font-sans leading-tight font-bold mb-2 text-[1.25rem] text-[#1e2427]">
+                  <h2 className="text-left leading-tight font-bold mb-2 text-[1.25rem] text-sandstone-500">
                     {feature.title}
                   </h2>
-                  <p className="text-left font-sans text-[#4a4741] text-[0.95rem]">
+                  <p className="text-left text-[#4a4741] text-[0.95rem]">
                     {feature.description}
                   </p>
                 </article>
@@ -109,10 +109,10 @@ export const HumanlyOSSection = () => {
                   <div className="mb-4 text-[#3b82f6]">
                     <feature.icon className="w-8 h-8" />
                   </div>
-                  <h2 className="text-left text-[#1e2427] font-sans leading-tight font-bold mb-2 text-[1.25rem]">
+                  <h2 className="text-left text-sandstone-500 leading-tight font-bold mb-2 text-[1.25rem]">
                     {feature.title}
                   </h2>
-                  <p className="text-left font-sans text-[#4a4741] text-[0.95rem]">
+                  <p className="text-left text-[#4a4741] text-[0.95rem]">
                     {feature.description}
                   </p>
                 </article>
