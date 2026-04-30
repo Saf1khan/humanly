@@ -18,24 +18,28 @@ const cards = [
     dot: "bg-orange-400",
     title: "Fragmented Development",
     description: "Housing, services, and technology developed in silos with no integration.",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop"
   },
   {
     id: "problem-2",
     dot: "bg-blue-400",
     title: "Affordability Crisis",
     description: "Workforce families priced out of quality housing in thriving communities.",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop"
   },
   {
     id: "problem-3",
     dot: "bg-purple-400",
     title: "Disconnected Services",
     description: "Residents navigate dozens of providers with no unified access point.",
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop"
   },
   {
     id: "problem-4",
     dot: "bg-yellow-400",
     title: "No Wealth Building",
     description: "Traditional rentership extracts value with zero path to financial growth.",
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop"
   },
 ];
 
@@ -70,7 +74,7 @@ export const ProblemSection = () => {
   };
 
   return (
-    <section className="relative w-full bg-transparent pt-14 lg:py-20 overflow-hidden">
+    <section className="gridContainerV3 relative w-full bg-transparent pt-14 lg:py-20 overflow-hidden">
       {/* Background Gradients — exact match to DataRoom */}
       <div
         className="absolute pointer-events-none right-0 translate-x-1/3 top-1/3 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
@@ -80,9 +84,9 @@ export const ProblemSection = () => {
         className="absolute pointer-events-none left-1/5 -translate-x-1/3 top-2/3 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
         style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
       />
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
 
-        {/* Section Header */}
+      {/* Section Header */}
+      <div className="col-start-main col-end-main relative z-10 pl-6 md:pl-16 lg:pl-24 xl:pl-32">
         <RevealOnScroll>
           <div className="mb-10 lg:mb-14">
             <p className="text-xs font-bold tracking-widest uppercase text-sandstone-500 mb-3">The Problem</p>
@@ -92,15 +96,15 @@ export const ProblemSection = () => {
             </h2>
           </div>
         </RevealOnScroll>
-
-        {/* Mobile Slider */}
-        <div className="lg:hidden">
-          <RevealOnScroll delay="delay-100">
-            <div className="overflow-hidden">
-              <div className="flex flex-col-reverse">
-                <div className="relative mt-6 mr-6">
-                  <div className="relative h-[1px] w-full overflow-hidden bg-gray-300" role="presentation">
-                    <div className="absolute inset-0 h-[1px] origin-left bg-sandstone-500" />
+      </div>
+      {/* Main Slider */}
+      <div className="col-start-main col-end-full relative z-10 pl-6 md:pl-16 lg:pl-24 xl:pl-32">
+        <RevealOnScroll delay="delay-100">
+          <div className="overflow-hidden">
+            <div className="flex flex-col-reverse">
+              <div className="relative mr-6 max-w-[1312px]">
+                  <div className="relative h-[1px] w-full overflow-hidden bg-gray-200" role="presentation">
+                    <div className="absolute inset-0 h-[1px] origin-left bg-black/10" />
                   </div>
                   <div className="flex justify-end gap-x-4 pt-6 pb-4">
                     <button
@@ -131,19 +135,24 @@ export const ProblemSection = () => {
                 >
                   {cards.map((card) => (
                     <li key={card.id} className="snap-start shrink-0">
-                      <div className="p-[1px] rounded-2xl bg-gradient-to-r from-[#4ade80]/40 to-[#a855f7]/40 shadow-sm">
-                        <article className="flex h-full flex-col p-6 w-[75vw] md:w-[60vw] min-h-[140px] bg-white backdrop-blur-xl rounded-2xl">
-                          <div className={`relative z-10 w-2.5 h-2.5 rounded-full ${card.dot}`} />
-                          <div className="flex-1" />
-                          <div className="relative z-10">
-                            <h3 className="text-[#1C1B1A] font-sans font-semibold text-xl leading-tight mb-3">
-                              {card.title}
-                            </h3>
-                            <p className="text-[#1C1B1A]/70 font-sans font-normal text-base leading-snug">
-                              {card.description}
-                            </p>
+                      <div aria-label={card.title} className="motion-safe:transition-all motion-safe:duration-500 motion-safe:ease-in-out h-[388px] w-[80vw] max-w-[1440px] pb-8 md:h-[658px] md:w-[493px] group cursor-pointer">
+                        <div className="h-full w-full overflow-hidden rounded-xl">
+                          <div className="grid h-full grid-cols-4 grid-rows-4 gap-4">
+                            <div className="col-start-1 col-end-5 row-start-1 row-end-5 relative">
+                              <div style={{ height: "110%", position: "relative", transform: "translateY(-5.41763%)" }} className="transition-transform duration-700 group-hover:scale-105">
+                                <img alt={card.title} src={card.image} className="object-cover absolute w-full h-full left-0 top-0 right-0 bottom-0" draggable="false" loading="lazy" />
+                              </div>
+                            </div>
+                            <div className="col-start-1 col-end-4 row-start-1 row-end-2 pt-6 pl-6">
+                              <div className="relative inline-flex items-center justify-center overflow-hidden px-4 py-2 md:px-5 md:py-2.5 rounded-full border border-white/30 bg-white/20 backdrop-blur-lg shadow-sm">
+                                <span className="text-sm md:text-base text-left text-white font-sans leading-normal font-medium relative tracking-wide drop-shadow-sm">{card.title}</span>
+                              </div>
+                            </div>
+                            <div className="col-start-1 md:col-start-1 lg:col-start-1 col-end-5 md:col-end-5 lg:col-end-4 row-start-4 row-end-5 relative self-end px-6 pb-6 md:pb-8 md:pr-0">
+                              <h3 className="text-xl md:text-2xl lg:text-3xl text-left text-white font-sans leading-tight font-medium">{card.description}</h3>
+                            </div>
                           </div>
-                        </article>
+                        </div>
                       </div>
                     </li>
                   ))}
@@ -152,29 +161,6 @@ export const ProblemSection = () => {
             </div>
           </RevealOnScroll>
         </div>
-
-        <div className="hidden grid-cols-2 gap-4 lg:grid">
-          {cards.map((card, idx) => (
-            <RevealOnScroll key={card.id} delay={`delay-${(idx + 1) * 100}` as any}>
-              <div className="p-[1px] rounded-2xl transition-all duration-500 group hover:-translate-y-1 shadow-md">
-                <article className="flex flex-col p-8 min-h-[160px] bg-white/5 backdrop-blur-sm rounded-2xl">
-                  <div className={`relative z-10 w-2.5 h-2.5 rounded-full ${card.dot}`} />
-                  <div className="flex-1" />
-                  <div className="relative z-10">
-                    <h3 className="text-[#1C1B1A] font-sans font-semibold text-xl leading-tight mb-3 transition-colors">
-                      {card.title}
-                    </h3>
-                    <p className="text-[#1C1B1A]/70 font-sans font-normal text-base leading-snug transition-colors">
-                      {card.description}
-                    </p>
-                  </div>
-                </article>
-              </div>
-            </RevealOnScroll>
-          ))}
-        </div>
-
-      </div>
     </section>
   );
 };
