@@ -141,7 +141,7 @@ export const FinancialServicesSection = () => {
                 >
                   {financialCards.map((card) => (
                     <li key={card.id} className="snap-start shrink-0 h-auto">
-                      <article className="flex h-full flex-col justify-center overflow-hidden rounded-[1rem] p-8 w-[75vw] bg-white border border-[#1c1b1a]/5 md:w-[60vw] lg:w-full min-h-[160px] shadow-sm">
+                      <article className="flex h-full flex-col justify-center overflow-hidden rounded-2xl p-8 w-[75vw] bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 md:w-[60vw] lg:w-full min-h-[160px] transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10">
                         <h3 className="text-left text-[#1c1b1a] font-sans leading-tight font-bold mb-3 text-[1.125rem]">
                           {card.title}
                         </h3>
@@ -161,11 +161,11 @@ export const FinancialServicesSection = () => {
         <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {financialCards.map((card, idx) => (
             <RevealOnScroll key={card.id} delay={`delay-${(idx % 3 + 1) * 100}` as any}>
-            <article className="flex flex-col justify-center overflow-hidden rounded-[1.25rem] p-8 bg-white/80 backdrop-blur-sm border border-[#1c1b1a]/5 min-h-[160px] transition-all duration-300 hover:bg-white hover:border-[#1c1b1a]/10 hover:-translate-y-1 hover:shadow-xl group">
-              <h3 className="text-left text-[#1c1b1a] font-sans leading-tight font-bold mb-3 text-[1.125rem] group-hover:text-blue-600 transition-colors">
-                {card.title}
-              </h3>
-              <p className="text-left text-[#4a4741] font-sans leading-relaxed text-[0.95rem] pr-4">
+              <article className="flex flex-col justify-center overflow-hidden rounded-2xl p-8 bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 min-h-[160px] transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10 group">
+                <h3 className="text-left text-[#1c1b1a] font-sans leading-tight font-bold mb-3 text-[1.125rem] group-hover:text-blue-600 transition-colors">
+                  {card.title}
+                </h3>
+                <p className="text-left text-[#4a4741] font-sans leading-relaxed text-[0.95rem] pr-4">
                   {card.description}
                 </p>
               </article>

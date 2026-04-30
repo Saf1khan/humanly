@@ -139,7 +139,7 @@ export const PlatformSection = () => {
             const isOpen = openIndex === index;
             return (
               <RevealOnScroll key={item.id} delay={`delay-${(index % 5 + 1) * 100}` as any}>
-                <div className="bg-white/60 border border-[#1c1b1a]/5 p-2 rounded-xl transition-colors duration-300 shadow-sm">
+                <div className="bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 p-2 rounded-2xl transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10">
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : index)}
                     aria-expanded={isOpen}

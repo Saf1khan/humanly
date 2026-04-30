@@ -39,10 +39,73 @@ const accordionData = [
 import { RevealOnScroll } from "../ui/RevealOnScroll";
 
 export const InvestmentThesisSection = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0); // Default first item open
+  const [openIndex, setOpenIndex] = useState<number | null>(null); // Start with all items closed
 
   return (
     <section className="relative w-full bg-transparent text-[#1c1b1a] py-24 lg:py-36 overflow-hidden">
+      {/* Curved Luminous Line */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-35 z-0">
+        <svg
+          viewBox="0 0 1000 1000"
+          preserveAspectRatio="none"
+          className="w-full h-full"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            {/* Gradient for First Line */}
+            <linearGradient id="luminousGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#AA3DAD" />
+              <stop offset="50%" stopColor="#0c007a" />
+              <stop offset="100%" stopColor="#6BCEFF" />
+            </linearGradient>
+
+            {/* Gradient for Second Line */}
+            <linearGradient id="luminousGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#FF6136" />
+              <stop offset="100%" stopColor="#FFE366" />
+            </linearGradient>
+
+            <filter id="sharpGlow" x="-100%" y="-100%" width="300%" height="300%">
+              {/* Layer 1: Wide atmospheric glow */}
+              <feGaussianBlur stdDeviation="30" in="SourceGraphic" result="glow30" />
+              {/* Layer 2: Medium bloom */}
+              <feGaussianBlur stdDeviation="12" in="SourceGraphic" result="glow12" />
+              {/* Layer 3: Tight intense glow */}
+              <feGaussianBlur stdDeviation="4" in="SourceGraphic" result="glow4" />
+
+              <feMerge>
+                <feMergeNode in="glow30" />
+                <feMergeNode in="glow30" /> {/* Stacked for intensity */}
+                <feMergeNode in="glow12" />
+                <feMergeNode in="glow12" /> {/* Stacked for intensity */}
+                <feMergeNode in="glow4" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          {/* First Line */}
+          <path
+            d="M 0,0 C 400,0 600,1000 1000,1000"
+            stroke="url(#luminousGradient1)"
+            strokeWidth="0.5"
+            strokeLinecap="round"
+            filter="url(#sharpGlow)"
+          />
+
+          {/* Second Line - Lifted up and shifted right */}
+          <path
+            d="M 1750,-15 C 400,0 700,900 1100,900"
+            stroke="url(#luminousGradient2)"
+            strokeWidth="0.5"
+            strokeLinecap="round"
+            filter="url(#sharpGlow)"
+            className="opacity-80"
+          />
+        </svg>
+      </div>
+
       {/* Background Gradients — exact match to DataRoom */}
       <div
         className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
@@ -53,10 +116,10 @@ export const InvestmentThesisSection = () => {
         style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.03), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
       />
       <div
-        className="absolute pointer-events-none left-0 -translate-x-1/3 top-1/2 -translate-y-1/4 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        className="absolute pointer-events-none left-0 -translate-x-1/3 top-1/2 -translate-y-1/4 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)] z-0"
         style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
       />
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative flex flex-col gap-10 md:gap-16">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative flex flex-col gap-10 md:gap-16 z-10">
 
         {/* Header */}
         <RevealOnScroll>
@@ -92,7 +155,7 @@ export const InvestmentThesisSection = () => {
               const isOpen = openIndex === index;
               return (
                 <RevealOnScroll key={item.id} delay={`delay-${(index + 1) * 100}` as any}>
-                  <div className="bg-white/60 border border-[#1c1b1a]/5 p-2 rounded-xl transition-colors duration-300 shadow-sm">
+                  <div className="bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 p-2 rounded-2xl transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10">
                     <button
                       onClick={() => setOpenIndex(isOpen ? null : index)}
                       aria-expanded={isOpen}

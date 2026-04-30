@@ -73,7 +73,7 @@ export const TransactionFlowSection = () => {
               <RevealOnScroll key={step.id} delay={`delay-${(idx + 1) * 100}` as any} className="h-full">
                 <article
                   role="listitem"
-                  className="flex flex-col bg-[#f7f1e8] text-[#1c1b1a] rounded-xl p-6 xl:p-8 h-full min-h-[260px] transition-all duration-300 hover:-translate-y-2 shadow-sm hover:shadow-[0_10px_40px_rgba(247,241,232,0.15)]"
+                  className="flex flex-col bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 rounded-2xl p-6 xl:p-8 h-full min-h-[260px] transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10"
                 >
                   <header className="grow flex flex-col gap-2">
                     <p className="font-bold font-sans text-[#1c1b1a]/50 tracking-widest uppercase text-[0.7rem]">
@@ -102,7 +102,7 @@ export const TransactionFlowSection = () => {
               {idx < flowSteps.length - 1 && (
                 <div key={`arrow-${idx}`} className="flex items-center justify-center px-3 xl:px-4">
                   <svg width="20" height="12" viewBox="0 0 21 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#1c1b1a]/30 flex-shrink-0">
-                    <path d="M20.5303 6.53033C20.8232 6.23744 20.8232 5.76256 20.5303 5.46967L15.7574 0.696699C15.4645 0.403806 14.9896 0.403806 14.6967 0.696699C14.4038 0.989593 14.4038 1.46447 14.6967 1.75736L18.9393 6L14.6967 10.2426C14.4038 10.5355 14.4038 11.0104 14.6967 11.3033C14.9896 11.5962 15.4645 11.5962 15.7574 11.3033L20.5303 6.53033ZM0 6.75H20V5.25H0V6.75Z" fill="currentColor"/>
+                    <path d="M20.5303 6.53033C20.8232 6.23744 20.8232 5.76256 20.5303 5.46967L15.7574 0.696699C15.4645 0.403806 14.9896 0.403806 14.6967 0.696699C14.4038 0.989593 14.4038 1.46447 14.6967 1.75736L18.9393 6L14.6967 10.2426C14.4038 10.5355 14.4038 11.0104 14.6967 11.3033C14.9896 11.5962 15.4645 11.5962 15.7574 11.3033L20.5303 6.53033ZM0 6.75H20V5.25H0V6.75Z" fill="currentColor" />
                   </svg>
                 </div>
               )}
@@ -117,7 +117,7 @@ export const TransactionFlowSection = () => {
               <RevealOnScroll delay={`delay-${(idx + 1) * 100}` as any} className="w-full">
                 <article
                   role="listitem"
-                  className="flex flex-col bg-[#f7f1e8] text-[#1c1b1a] rounded-xl p-6 w-full"
+                  className="flex flex-col bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 rounded-2xl p-6 w-full transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10"
                 >
                   <header className="flex flex-col gap-2 mb-4">
                     <p className="font-bold font-sans text-[#1c1b1a]/50 tracking-widest uppercase text-[0.7rem]">
@@ -140,7 +140,7 @@ export const TransactionFlowSection = () => {
               {idx < flowSteps.length - 1 && (
                 <div className="py-2 text-[#1c1b1a]/25">
                   <svg width="12" height="20" viewBox="0 0 12 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5.46967 20.5303C5.76256 20.8232 6.23744 20.8232 6.53033 20.5303L11.3033 15.7574C11.5962 15.4645 11.5962 14.9896 11.3033 14.6967C11.0104 14.4038 10.5355 14.4038 10.2426 14.6967L6 18.9393L1.75736 14.6967C1.46447 14.4038 0.989592 14.4038 0.696699 14.6967C0.403806 14.9896 0.403806 15.4645 0.696699 15.7574L5.46967 20.5303ZM5.25 0L5.25 20H6.75L6.75 0L5.25 0Z" fill="currentColor"/>
+                    <path d="M5.46967 20.5303C5.76256 20.8232 6.23744 20.8232 6.53033 20.5303L11.3033 15.7574C11.5962 15.4645 11.5962 14.9896 11.3033 14.6967C11.0104 14.4038 10.5355 14.4038 10.2426 14.6967L6 18.9393L1.75736 14.6967C1.46447 14.4038 0.989592 14.4038 0.696699 14.6967C0.403806 14.9896 0.403806 15.4645 0.696699 15.7574L5.46967 20.5303ZM5.25 0L5.25 20H6.75L6.75 0L5.25 0Z" fill="currentColor" />
                   </svg>
                 </div>
               )}
