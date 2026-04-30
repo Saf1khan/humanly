@@ -94,16 +94,16 @@ export const VillageCenterSection = () => {
           {/* Heading */}
           <div className="flex flex-col gap-2 md:gap-3 mb-4">
             <RevealOnScroll>
-              <h2 className="text-[2rem] tracking-tight md:text-[2.5rem] lg:text-[3.5rem] text-left font-sans leading-tight text-sandstone-500 font-bold">
+              <h2 className="text-[2rem] tracking-tight md:text-[2.5rem] lg:text-[3.5rem] text-left leading-tight text-sandstone-500 font-bold">
                 Village Center
               </h2>
             </RevealOnScroll>
             <RevealOnScroll delay="delay-100">
               <div className="flex flex-col items-start gap-3 mt-2">
-                <p className="text-sandstone-500/80 font-sans text-base md:text-lg tracking-wide">
+                <p className="text-sandstone-500/80 text-base md:text-lg tracking-wide">
                   15 Integrated facilities · 90,000+ SF of community space
                 </p>
-                <div className="h-[2px] w-full bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
+                <div className="h-[1px] w-full bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
               </div>
             </RevealOnScroll>
           </div>
@@ -216,11 +216,11 @@ export const VillageCenterSection = () => {
                 >
                   <div className="flex items-center gap-4">
                     <div className={`h-2.5 w-2.5 rounded-full ${facility.color}`} />
-                    <span className="font-sans font-medium text-slate-800 transition-colors group-hover:text-slate-900">
+                    <span className="font-medium text-sandstone-500 transition-colors group-hover:text-slate-900">
                       {facility.name}
                     </span>
                   </div>
-                  <span className="font-sans text-sm font-semibold tracking-wide text-sandstone-500/80">
+                  <span className="text-sm font-semibold tracking-wide text-sandstone-500/80">
                     {facility.size}
                   </span>
                 </div>

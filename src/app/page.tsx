@@ -39,18 +39,20 @@ export default function Home() {
         />
 
         <HeroSection />
-        <StatsSection />
-        <InvestmentThesisSection />
-        <ProblemSection />
-        <PlatformSection />
-        <CommunitiesSection />
-        <LandLeasingSection />
-        <VillageCenterSection />
-        <ProofOfConceptSection />
-      <HumanlyOSSection />
-      <FinancialServicesSection />
-      <TransactionFlowSection />
-      <TeamSection />
+        <div style={{ fontFamily: "'Neue Haas Grotesk', sans-serif" }}>
+          <StatsSection />
+          <InvestmentThesisSection />
+          <ProblemSection />
+          <PlatformSection />
+          <CommunitiesSection />
+          <LandLeasingSection />
+          <VillageCenterSection />
+          <ProofOfConceptSection />
+          <HumanlyOSSection />
+          <FinancialServicesSection />
+          <TransactionFlowSection />
+          <TeamSection />
+        </div>
       </div>
 
       <DataRoomForm />

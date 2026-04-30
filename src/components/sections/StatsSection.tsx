@@ -73,10 +73,10 @@ export const StatsSection = () => {
           {/* Stat 1 */}
           <RevealOnScroll delay="delay-100">
             <div className="flex w-full flex-col items-center text-center md:items-start md:text-left">
-              <p className="text-[2rem] tracking-normal md:text-[2.5rem] lg:text-[3.5rem] text-sandstone-500 font-serif leading-none mb-4 font-normal flex items-end min-h-[3.5rem] md:min-h-[2.5rem] lg:min-h-[3.5rem]">
+              <p className="text-[2rem] tracking-normal md:text-[2.5rem] lg:text-[3.5rem] text-sandstone-500 leading-none mb-4 font-normal flex items-end min-h-[3.5rem] md:min-h-[2.5rem] lg:min-h-[3.5rem]">
                 <CountUpNumber prefix="$" end={5} suffix="M" />
               </p>
-              <p className="text-base tracking-normal text-sandstone-500 font-sans font-normal max-w-96 leading-snug">
+              <p className="text-base tracking-normal text-sandstone-500 font-normal max-w-96 leading-snug">
                 Flagship Investment
               </p>
             </div>
@@ -85,10 +85,10 @@ export const StatsSection = () => {
           {/* Stat 2 */}
           <RevealOnScroll delay="delay-200">
             <div className="flex w-full flex-col items-center text-center md:items-start md:text-left">
-              <p className="text-[2rem] tracking-normal md:text-[2.5rem] lg:text-[3.5rem] text-sandstone-500 font-serif leading-none mb-4 font-normal flex items-end min-h-[3.5rem] md:min-h-[2.5rem] lg:min-h-[3.5rem]">
+              <p className="text-[2rem] tracking-normal md:text-[2.5rem] lg:text-[3.5rem] text-sandstone-500 leading-none mb-4 font-normal flex items-end min-h-[3.5rem] md:min-h-[2.5rem] lg:min-h-[3.5rem]">
                 <CountUpNumber prefix="$" end={100} suffix="M" />
               </p>
-              <p className="text-base tracking-normal text-sandstone-500 font-sans font-normal max-w-96 leading-snug">
+              <p className="text-base tracking-normal text-sandstone-500 font-normal max-w-96 leading-snug">
                 Projected Value
               </p>
             </div>
@@ -97,10 +97,10 @@ export const StatsSection = () => {
           {/* Stat 3 */}
           <RevealOnScroll delay="delay-300">
             <div className="flex w-full flex-col items-center text-center md:items-start md:text-left">
-              <p className="text-[2rem] tracking-normal md:text-[2.5rem] lg:text-[3.5rem] text-sandstone-500 font-serif leading-none mb-4 font-normal flex items-end min-h-[3.5rem] md:min-h-[2.5rem] lg:min-h-[3.5rem]">
+              <p className="text-[2rem] tracking-normal md:text-[2.5rem] lg:text-[3.5rem] text-sandstone-500 leading-none mb-4 font-normal flex items-end min-h-[3.5rem] md:min-h-[2.5rem] lg:min-h-[3.5rem]">
                 <CountUpNumber prefix="$" end={20} suffix="M" />
               </p>
-              <p className="text-base tracking-normal text-sandstone-500 font-sans font-normal max-w-96 leading-snug">
+              <p className="text-base tracking-normal text-sandstone-500 font-normal max-w-96 leading-snug">
                 Raising for Next 4 Communities
               </p>
             </div>
