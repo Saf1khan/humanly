@@ -88,9 +88,9 @@ export const VillageCenterSection = () => {
         style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.04) 50%, rgba(255, 182, 55, 0))" }}
       />
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
-        
+
         <div className="grid grid-cols-1 gap-y-12">
-          
+
           {/* Heading */}
           <div className="flex flex-col gap-2 md:gap-3 mb-4">
             <RevealOnScroll>
@@ -111,14 +111,13 @@ export const VillageCenterSection = () => {
           {/* Carousel */}
           <RevealOnScroll delay="delay-200">
             <div className="relative h-[540px] w-full overflow-hidden rounded-2xl md:aspect-[3/2] md:h-auto lg:aspect-[2/1]">
-              
+
               {/* Crossfade layers — each image sits stacked, only the active one is visible */}
               {carouselItems.map((item, index) => (
                 <div
                   key={item.name}
-                  className={`absolute inset-0 transition-all duration-[2000ms] ease-in-out ${
-                    activeIndex === index ? "opacity-100 scale-105 z-10" : "opacity-0 scale-100 z-0"
-                  }`}
+                  className={`absolute inset-0 transition-all duration-[2000ms] ease-in-out ${activeIndex === index ? "opacity-100 scale-105 z-10" : "opacity-0 scale-100 z-0"
+                    }`}
                 >
                   <img
                     src={item.image}
@@ -141,15 +140,14 @@ export const VillageCenterSection = () => {
 
               {/* Compact navigation bar — 5 swatches + arrows */}
               <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1.5 bg-white/90 backdrop-blur-md rounded-full px-2.5 py-1.5 shadow-xl">
-                
+
                 {/* Prev arrow */}
                 <button
                   onClick={() => shiftWindow("prev")}
                   disabled={!canGoPrev}
                   aria-label="Previous"
-                  className={`flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200 ${
-                    canGoPrev ? "text-slate-700 hover:bg-slate-100" : "text-slate-300 cursor-default"
-                  }`}
+                  className={`flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200 ${canGoPrev ? "text-slate-700 hover:bg-slate-100" : "text-slate-300 cursor-default"
+                    }`}
                 >
                   <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -169,9 +167,8 @@ export const VillageCenterSection = () => {
                           className="flex items-center"
                         >
                           <span className="flex size-10 items-center justify-center">
-                            <span className={`box-border flex size-8 items-center justify-center rounded-full border-2 border-solid transition-all duration-300 ${
-                              isActive ? "border-slate-800 scale-110 shadow-md" : "border-transparent opacity-70 hover:opacity-100"
-                            }`}>
+                            <span className={`box-border flex size-8 items-center justify-center rounded-full border-2 border-solid transition-all duration-300 ${isActive ? "border-slate-800 scale-110 shadow-md" : "border-transparent opacity-70 hover:opacity-100"
+                              }`}>
                               <img
                                 src={item.swatch}
                                 alt={item.name}
@@ -180,9 +177,8 @@ export const VillageCenterSection = () => {
                             </span>
                           </span>
                           {/* Expanding name label for the active item only */}
-                          <span className={`flex items-center h-8 overflow-hidden transition-all duration-500 ease-in-out ${
-                            isActive ? "max-w-[130px] opacity-100 pr-2" : "max-w-0 opacity-0 pr-0"
-                          }`}>
+                          <span className={`flex items-center h-8 overflow-hidden transition-all duration-500 ease-in-out ${isActive ? "max-w-[130px] opacity-100 pr-2" : "max-w-0 opacity-0 pr-0"
+                            }`}>
                             <span className="text-[11px] whitespace-nowrap text-slate-800 font-semibold">
                               {item.name}
                             </span>
@@ -198,9 +194,8 @@ export const VillageCenterSection = () => {
                   onClick={() => shiftWindow("next")}
                   disabled={!canGoNext}
                   aria-label="Next"
-                  className={`flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200 ${
-                    canGoNext ? "text-slate-700 hover:bg-slate-100" : "text-slate-300 cursor-default"
-                  }`}
+                  className={`flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200 ${canGoNext ? "text-slate-700 hover:bg-slate-100" : "text-slate-300 cursor-default"
+                    }`}
                 >
                   <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -217,7 +212,7 @@ export const VillageCenterSection = () => {
               {facilitiesData.map((facility) => (
                 <div
                   key={facility.name}
-                  className="group flex items-center justify-between rounded-xl bg-white/60 backdrop-blur-sm border border-sandstone-300/60 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-sm"
+                  className="group flex items-center justify-between rounded-2xl bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 p-4 transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10"
                 >
                   <div className="flex items-center gap-4">
                     <div className={`h-2.5 w-2.5 rounded-full ${facility.color}`} />
@@ -232,7 +227,7 @@ export const VillageCenterSection = () => {
               ))}
             </div>
           </RevealOnScroll>
-          
+
         </div>
       </div>
     </section>

@@ -131,8 +131,7 @@ export const ProblemSection = () => {
                 >
                   {cards.map((card) => (
                     <li key={card.id} className="snap-start shrink-0">
-                      <div className="p-[1px] rounded-2xl bg-gradient-to-r from-[#4ade80]/40 to-[#a855f7]/40 shadow-sm">
-                        <article className="flex h-full flex-col p-6 w-[75vw] md:w-[60vw] min-h-[140px] bg-white backdrop-blur-xl rounded-2xl">
+                      <article className="flex h-full flex-col p-6 w-[75vw] md:w-[60vw] min-h-[140px] bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 rounded-2xl transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10">
                           <div className={`relative z-10 w-2.5 h-2.5 rounded-full ${card.dot}`} />
                           <div className="flex-1" />
                           <div className="relative z-10">
@@ -144,7 +143,6 @@ export const ProblemSection = () => {
                             </p>
                           </div>
                         </article>
-                      </div>
                     </li>
                   ))}
                 </ul>
@@ -156,8 +154,7 @@ export const ProblemSection = () => {
         <div className="hidden grid-cols-2 gap-4 lg:grid">
           {cards.map((card, idx) => (
             <RevealOnScroll key={card.id} delay={`delay-${(idx + 1) * 100}` as any}>
-              <div className="p-[1px] rounded-2xl transition-all duration-500 group hover:-translate-y-1 shadow-md">
-                <article className="flex flex-col p-8 min-h-[160px] bg-white/5 backdrop-blur-sm rounded-2xl">
+              <article className="flex flex-col p-8 min-h-[160px] bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 rounded-2xl transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10">
                   <div className={`relative z-10 w-2.5 h-2.5 rounded-full ${card.dot}`} />
                   <div className="flex-1" />
                   <div className="relative z-10">
@@ -169,7 +166,6 @@ export const ProblemSection = () => {
                     </p>
                   </div>
                 </article>
-              </div>
             </RevealOnScroll>
           ))}
         </div>

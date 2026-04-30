@@ -138,12 +138,11 @@ export const TransactionFlowSection = () => {
                   <div className={`absolute w-full ${isTop ? 'bottom-[calc(50%+70px)]' : 'top-[calc(50%+70px)]'}`}>
                     <RevealOnScroll delay={`delay-${(idx + 1) * 100}` as any} className="w-full">
                       <article
-                        className="relative w-full flex flex-col h-full min-h-[260px] backdrop-blur-xl bg-white/40 border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.04)] rounded-2xl p-6 xl:p-8 transition-all duration-500 group-hover:-translate-y-3 group-data-[active=true]:-translate-y-3 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] group-data-[active=true]:shadow-[0_20px_40px_rgba(0,0,0,0.08)] group-hover:bg-white/60 group-data-[active=true]:bg-white/60 group-hover:border-white/80 group-data-[active=true]:border-white/80"
+                        className="relative w-full flex flex-col h-full min-h-[260px] bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 p-2 rounded-2xl transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10 group-hover:-translate-y-3 group-data-[active=true]:-translate-y-3 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] group-data-[active=true]:shadow-[0_20px_40px_rgba(0,0,0,0.08)] group-hover:bg-white/60 group-data-[active=true]:bg-white/60 group-hover:border-white/80 group-data-[active=true]:border-white/80"
                       >
                         {/* Glow effect on hover */}
                         <div 
                           className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 group-data-[active=true]:opacity-100 transition-opacity duration-500 pointer-events-none" 
-                          style={{ boxShadow: `inset 0 0 30px ${step.dotColor}15` }} 
                         />
                         
                         <header className="flex flex-col gap-3 relative z-10">
@@ -177,68 +176,42 @@ export const TransactionFlowSection = () => {
           </div>
         </div>
 
-        {/* Mobile Timeline */}
-        <div className="lg:hidden relative pl-[20px] md:pl-[40px] py-8">
-          {/* Vertical Background Line */}
-          <div className="absolute top-0 left-[20px] md:left-[40px] w-[1px] h-full bg-gradient-to-b from-transparent via-[#1c1b1a]/20 to-transparent" />
-          
-          {/* Moving Flowline Light */}
-          <div className="absolute top-0 left-[19px] md:left-[39px] w-[3px] h-[100px] bg-gradient-to-b from-transparent via-white to-transparent blur-[1px] animate-[slideDown_8s_linear_infinite]" />
-          
-          {/* Moving Glowing Dot */}
-          <div className="absolute top-0 left-[17px] md:left-[37px] w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_12px_3px_rgba(255,255,255,0.9)] animate-[slideDown_8s_linear_infinite] z-20" />
-
-          <div className="flex flex-col gap-12">
-            {flowSteps.map((step, idx) => (
-              <div key={step.id} className="relative group ml-[60px] md:ml-[80px]" data-active={activeIndex === idx}>
-                {/* Added explicit left margin to create the gap */}
-                
-                {/* Node on Line - Positioned precisely on the vertical line */}
-                <div 
-                  className="absolute top-10 -left-[68px] md:-left-[88px] w-4 h-4 rounded-full border-[3px] border-white bg-[#f4f2ea] shadow-[0_0_10px_rgba(0,0,0,0.1)] z-10 transition-transform duration-500 group-hover:scale-125 group-data-[active=true]:scale-125 group-hover:bg-white group-data-[active=true]:bg-white" 
-                  style={{ borderColor: step.dotColor }}
+        {/* Mobile: Vertical stack */}
+        <div className="flex lg:hidden flex-col gap-4" role="list">
+          {flowSteps.map((step, idx) => (
+            <div key={step.id} className="flex flex-col items-center">
+              <RevealOnScroll delay={`delay-${(idx + 1) * 100}` as any} className="w-full">
+                <article
+                  role="listitem"
+                  className="flex flex-col bg-[#f7f1e8] text-[#1c1b1a] rounded-xl p-6 w-full"
                 >
-                  <div className="absolute inset-0 rounded-full animate-ping opacity-20" style={{ backgroundColor: step.dotColor }} />
+                  <header className="flex flex-col gap-2 mb-4">
+                    <p className="font-bold font-sans text-[#1c1b1a]/50 tracking-widest uppercase text-[0.7rem]">
+                      {step.step}
+                    </p>
+                    <p className="text-[1.125rem] font-sans font-bold leading-snug text-[#1c1b1a]">
+                      {step.title}
+                    </p>
+                    <p className="text-[0.875rem] text-[#1c1b1a]/60 font-sans leading-relaxed">
+                      {step.description}
+                    </p>
+                  </header>
+                  <footer className="pt-4 border-t border-[#1c1b1a]/15 flex items-center gap-2">
+                    <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: step.dotColor }} />
+                    <span className="text-[0.7rem] font-sans font-medium text-[#1c1b1a]/50 uppercase tracking-widest">Active</span>
+                  </footer>
+                </article>
+              </RevealOnScroll>
+
+              {idx < flowSteps.length - 1 && (
+                <div className="py-2 text-[#1c1b1a]/25">
+                  <svg width="12" height="20" viewBox="0 0 12 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.46967 20.5303C5.76256 20.8232 6.23744 20.8232 6.53033 20.5303L11.3033 15.7574C11.5962 15.4645 11.5962 14.9896 11.3033 14.6967C11.0104 14.4038 10.5355 14.4038 10.2426 14.6967L6 18.9393L1.75736 14.6967C1.46447 14.4038 0.989592 14.4038 0.696699 14.6967C0.403806 14.9896 0.403806 15.4645 0.696699 15.7574L5.46967 20.5303ZM5.25 0L5.25 20H6.75L6.75 0L5.25 0Z" fill="currentColor"/>
+                  </svg>
                 </div>
-
-                {/* Horizontal Connector Line (creates the gap visually) */}
-                <div className="absolute top-[47px] -left-[60px] md:-left-[80px] w-[60px] md:w-[80px] h-[1px] bg-gradient-to-r from-[#1c1b1a]/20 to-transparent transition-all duration-500 group-hover:w-[70px] group-data-[active=true]:w-[70px] md:group-hover:w-[90px] md:group-data-[active=true]:w-[90px]" />
-
-                {/* Card */}
-                <RevealOnScroll delay={`delay-${(idx + 1) * 100}` as any} className="w-full">
-                  <article className="relative w-full flex flex-col h-full min-h-[260px] backdrop-blur-xl bg-white/40 border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.04)] rounded-2xl p-6 transition-all duration-500 group-hover:-translate-y-2 group-data-[active=true]:-translate-y-2 group-hover:shadow-[0_16px_32px_rgba(0,0,0,0.08)] group-data-[active=true]:shadow-[0_16px_32px_rgba(0,0,0,0.08)] group-hover:bg-white/60 group-data-[active=true]:bg-white/60 group-hover:border-white/80 group-data-[active=true]:border-white/80">
-                    <div 
-                      className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 group-data-[active=true]:opacity-100 transition-opacity duration-500 pointer-events-none" 
-                      style={{ boxShadow: `inset 0 0 30px ${step.dotColor}15` }} 
-                    />
-                    
-                    <header className="flex flex-col gap-3 relative z-10">
-                      <div className="flex items-center gap-3">
-                        <span 
-                          className="font-bold font-sans text-[0.7rem] tracking-widest uppercase px-2 py-1 rounded-md bg-white/50 border border-white/40"
-                          style={{ color: step.dotColor }}
-                        >
-                          {step.step}
-                        </span>
-                      </div>
-                      <h3 className="text-[1.125rem] font-sans font-bold leading-snug text-[#1c1b1a]">
-                        {step.title}
-                      </h3>
-                      <p className="text-[0.875rem] text-[#1c1b1a]/70 font-sans leading-relaxed">
-                        {step.description}
-                      </p>
-                    </header>
-
-                    <footer className="mt-auto pt-4 border-t border-[#1c1b1a]/10 flex items-center gap-2 relative z-10">
-                      <div className="w-2 h-2 rounded-full flex-shrink-0 shadow-[0_0_5px_rgba(0,0,0,0.2)]" style={{ backgroundColor: step.dotColor }} />
-                      <span className="text-[0.65rem] font-sans font-medium text-[#1c1b1a]/50 uppercase tracking-widest">Active</span>
-                    </footer>
-                  </article>
-                </RevealOnScroll>
-
-              </div>
-            ))}
-          </div>
+              )}
+            </div>
+          ))}
         </div>
 
       </div>
