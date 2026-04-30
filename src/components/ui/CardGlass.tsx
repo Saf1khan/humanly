@@ -3,29 +3,12 @@ import { ReactNode } from "react";
 interface CardGlassProps {
   children?: ReactNode;
   className?: string;
-  backgroundImage?: string;
-  overlayImage?: string;
 }
 
-export const CardGlass = ({ children, className = "", backgroundImage, overlayImage }: CardGlassProps) => {
+export const CardGlass = ({ children, className = "" }: CardGlassProps) => {
   return (
     <article
-      className={`
-        relative h-full overflow-hidden
-        rounded-[20px]
-        bg-[#4A4741]/10
-        backdrop-blur-md
-        border border-[#4A4741]/10
-        shadow-lg
-        flex flex-col
-        transition-all duration-300 ease-out
-        hover:-translate-y-2
-        hover:bg-[#4A4741]/15
-        hover:border-[#4A4741]/30
-        hover:shadow-2xl
-        group
-        ${className}
-      `}
+      className={`relative h-full flex flex-col group bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 p-2 rounded-2xl transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10 ${className}`}
     >
       <div className="relative z-10 h-full flex flex-col transition-transform duration-300 group-hover:scale-[1.02]">
         {children}

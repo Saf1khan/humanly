@@ -142,9 +142,9 @@ const TeamCarousel = ({ members, title }: { members: any[], title: string }) => 
               const isExpanded = activeIdx === idx;
 
               return (
-                <div 
-                  key={member.id} 
-                  className={`relative shrink-0 overflow-hidden rounded-xl transition-all duration-300 ${isExpanded ? "w-[277px] lg:w-[565px]" : "w-[277px]"} h-[370px] bg-white/80 backdrop-blur-md border border-[#1c1b1a]/5 shadow-sm hover:shadow-md transition-shadow`} 
+                <div
+                  key={member.id}
+                  className={`relative shrink-0 overflow-hidden rounded-2xl transition-all duration-500 ${isExpanded ? "w-[277px] lg:w-[565px]" : "w-[277px]"} h-[370px] bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10`}
                   data-cy="landing-page-profile-card"
                 >
                   {/* Expand Button (Desktop) */}
@@ -186,7 +186,7 @@ const TeamCarousel = ({ members, title }: { members: any[], title: string }) => 
 
                     {/* Desktop Expansion Panel */}
                     <div className={`h-full overflow-hidden transition-all duration-300 sm:hidden lg:block ${isExpanded ? "w-72" : "w-0"}`}>
-                      <div 
+                      <div
                         className="flex h-full w-72 flex-col justify-end gap-4 overflow-hidden p-6 text-[#1c1b1a]"
                       >
                         <p className="tracking-normal text-left text-inherit font-sans leading-normal text-2xl font-bold">{member.name}</p>
@@ -203,7 +203,7 @@ const TeamCarousel = ({ members, title }: { members: any[], title: string }) => 
                     </div>
 
                     {/* Mobile Always-Visible Panel */}
-                    <div 
+                    <div
                       className="flex h-full w-[277px] grow flex-col justify-between overflow-hidden p-6 transition-all lg:hidden bg-transparent"
                     >
                       <div className="flex flex-col justify-between gap-2 text-[#1c1b1a]">
@@ -274,11 +274,11 @@ export const TeamSection = () => {
   return (
     <section className="relative w-full bg-transparent py-20 pb-32 overflow-hidden">
       {/* Background Gradients — exact match to DataRoom */}
-       <div
+      <div
         className="absolute pointer-events-none left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
         style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.10) 50%, rgba(255, 182, 55, 0))" }}
       />
-       
+
       <div className="relative z-10 gap-y-2 gridContainerV3" data-cy="landing-page-profile-cards">
 
         {/* Title Section */}

@@ -19,8 +19,6 @@ const communitiesCards = [
     id: "card-1",
     title: "Attainable Housing",
     description: "Quality homes at 80–120% AMI for workforce families.",
-    bgImage: "https://ourahealth.imgix.net/blue-sky/home/take-walk-mask-mobile.jpg",
-    overlayImage: "https://ourahealth.imgix.net/home-scenarios-walk-steps-ui-en.png"
   },
   {
     id: "card-2",
@@ -147,16 +145,12 @@ export const CommunitiesSection = () => {
                 >
                   {communitiesCards.map((card) => (
                     <li key={card.id} className="snap-start shrink-0 h-auto">
-                      <CardGlass
-                        className="w-[65vw] md:w-[50vw] min-h-[260px]"
-                        backgroundImage={card.bgImage}
-                        overlayImage={card.overlayImage}
-                      >
+                      <CardGlass className="w-[65vw] md:w-[50vw] min-h-[260px]">
                         <div className="p-6">
-                          <h3 className="text-left text-[#1C1B1A] font-sans leading-tight font-bold mb-2 text-[1.15rem] transition-colors duration-300 group-hover:text-white">
+                          <h3 className="text-left text-[#1C1B1A] font-sans leading-tight font-bold mb-2 text-[1.15rem] transition-colors duration-300 group-hover:text-gray-800">
                             {card.title}
                           </h3>
-                          <p className="text-left text-[#1C1B1A]/70 font-sans leading-relaxed font-medium text-base transition-colors duration-300 group-hover:text-white/90">
+                          <p className="text-left text-[#1C1B1A]/70 font-sans leading-relaxed font-medium text-base transition-colors duration-300 group-hover:text-gray-800">
                             {card.description}
                           </p>
                         </div>
@@ -173,16 +167,12 @@ export const CommunitiesSection = () => {
         <div className="hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:grid ">
           {communitiesCards.map((card, idx) => (
             <RevealOnScroll key={card.id} delay={`delay-${(idx + 1) * 100}` as any}>
-              <CardGlass
-                className="h-full min-h-[260px]"
-                backgroundImage={card.bgImage}
-                overlayImage={card.overlayImage}
-              >
+              <CardGlass className="bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 p-2 rounded-2xl transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10">
                 <div className="p-8">
-                  <h3 className="text-left text-[#1C1B1A] font-sans leading-tight font-bold mb-3 text-2xl transition-colors duration-300 group-hover:text-white">
+                  <h3 className="text-left text-[#1C1B1A] font-sans leading-tight font-bold mb-3 text-2xl transition-colors duration-300 group-hover:text-gray-800">
                     {card.title}
                   </h3>
-                  <p className="text-left text-[#1C1B1A]/70 font-sans leading-relaxed font-medium text-lg transition-colors duration-300 group-hover:text-white/90">
+                  <p className="text-left text-[#1C1B1A]/70 font-sans leading-relaxed font-medium text-lg transition-colors duration-300 group-hover:text-gray-800">
                     {card.description}
                   </p>
                 </div>
