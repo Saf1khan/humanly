@@ -43,68 +43,6 @@ export const InvestmentThesisSection = () => {
 
   return (
     <section className="relative w-full bg-transparent text-[#1c1b1a] py-24 lg:py-36 overflow-hidden">
-      {/* Curved Luminous Line */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-35 z-0">
-        <svg
-          viewBox="0 0 1000 1000"
-          preserveAspectRatio="none"
-          className="w-full h-full"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            {/* Gradient for First Line */}
-            <linearGradient id="luminousGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#AA3DAD" />
-              <stop offset="50%" stopColor="#0c007a" />
-              <stop offset="100%" stopColor="#6BCEFF" />
-            </linearGradient>
-
-            {/* Gradient for Second Line */}
-            <linearGradient id="luminousGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#FF6136" />
-              <stop offset="100%" stopColor="#FFE366" />
-            </linearGradient>
-
-            <filter id="sharpGlow" x="-100%" y="-100%" width="300%" height="300%">
-              {/* Layer 1: Wide atmospheric glow */}
-              <feGaussianBlur stdDeviation="30" in="SourceGraphic" result="glow30" />
-              {/* Layer 2: Medium bloom */}
-              <feGaussianBlur stdDeviation="12" in="SourceGraphic" result="glow12" />
-              {/* Layer 3: Tight intense glow */}
-              <feGaussianBlur stdDeviation="4" in="SourceGraphic" result="glow4" />
-
-              <feMerge>
-                <feMergeNode in="glow30" />
-                <feMergeNode in="glow30" /> {/* Stacked for intensity */}
-                <feMergeNode in="glow12" />
-                <feMergeNode in="glow12" /> {/* Stacked for intensity */}
-                <feMergeNode in="glow4" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
-
-          {/* First Line */}
-          <path
-            d="M 0,0 C 400,0 600,1000 1000,1000"
-            stroke="url(#luminousGradient1)"
-            strokeWidth="0.5"
-            strokeLinecap="round"
-            filter="url(#sharpGlow)"
-          />
-
-          {/* Second Line - Lifted up and shifted right */}
-          <path
-            d="M 1750,-15 C 400,0 700,900 1100,900"
-            stroke="url(#luminousGradient2)"
-            strokeWidth="0.5"
-            strokeLinecap="round"
-            filter="url(#sharpGlow)"
-            className="opacity-80"
-          />
-        </svg>
-      </div>
 
       {/* Background Gradients — exact match to DataRoom */}
       <div
