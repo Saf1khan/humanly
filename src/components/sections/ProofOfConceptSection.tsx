@@ -23,7 +23,7 @@ export const ProofOfConceptSection = () => {
               <span className="block text-xs md:text-sm font-bold tracking-[0.2em] text-[#1C1B1A]/60 uppercase mb-2 md:mb-3">
                 Proof of Concept
               </span>
-              <div className="h-[1px] w-[176] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full mb-2 md:mb-3"></div>
+              <div className="h-[1px] w-[188] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full mb-2 md:mb-3"></div>
               <h2 className="text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] text-left font-bold leading-tight text-sandstone-500 tracking-tight mb-6">
                 $5M flagship investment.<br className="hidden md:block" />
                 $100M projected value.

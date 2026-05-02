@@ -76,8 +76,8 @@ export const HumanlyOSSection = () => {
               <div key={feature.id} className="flex-1">
                 <article className="relative flex h-44 flex-col justify-center rounded-3xl group transition-colors duration-500 shadow-[0_16px_40px_rgba(0,0,0,0.15)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.25)]">
                   {/* Glass Background Layer */}
-                  <div className="absolute inset-0 rounded-3xl bg-[#4A4741]/10 backdrop-blur-md border border-white/30 transition-colors duration-500 group-hover:bg-white/5 group-hover:border-white/[0.12]"></div>
-                  
+                  <div className="absolute inset-0 rounded-3xl bg-black/15 backdrop-blur-xl border border-white/20"></div>
+
                   <div className="relative z-10 p-6 lg:p-8 flex flex-col h-full justify-center">
                     {/* ── Title + icon row ── */}
                     <div className="flex items-center justify-between mb-2">
@@ -109,8 +109,8 @@ export const HumanlyOSSection = () => {
                   className="relative flex-shrink-0 w-[75vw] snap-center flex flex-col justify-center rounded-3xl min-h-[200px] shadow-[0_16px_40px_rgba(0,0,0,0.15)] transition-colors duration-500 hover:shadow-[0_16px_40px_rgba(0,0,0,0.25)] group"
                 >
                   {/* Glass Background Layer */}
-                  <div className="absolute inset-0 rounded-3xl bg-black/20 backdrop-blur-xl border border-white/[0.08] transition-colors duration-500 group-hover:bg-black/30 group-hover:border-white/[0.12]"></div>
-                  
+                  <div className="absolute inset-0 bg-black backdrop-blur-md border border-white/30"></div>
+
                   <div className="relative z-10 p-6 flex flex-col h-full justify-center">
                     {/* ── Title + icon row ── */}
                     <div className="flex items-center justify-between mb-2">
