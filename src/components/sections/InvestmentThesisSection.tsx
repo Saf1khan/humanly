@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import clsx from "clsx";
+import { RevealOnScroll } from "../ui/RevealOnScroll";
 
 const accordionData = [
   {
@@ -36,132 +37,112 @@ const accordionData = [
   }
 ];
 
-import { RevealOnScroll } from "../ui/RevealOnScroll";
-
 export const InvestmentThesisSection = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null); // Start with all items closed
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const goPrev = () => {
+    setActiveIndex((prev) => (prev - 1 + accordionData.length) % accordionData.length);
+  };
+
+  const goNext = () => {
+    setActiveIndex((prev) => (prev + 1) % accordionData.length);
+  };
 
   return (
-    <section className="relative w-full bg-transparent text-[#1c1b1a] py-24 lg:py-36 overflow-hidden">
+    <section className="w-full min-h-[1024px] flex items-stretch justify-center p-4 md:p-10 bg-slate-50/50">
 
-      {/* Background Gradients — exact match to DataRoom */}
-      <div
-        className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
-      />
-      <div
-        className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-[-30%] w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.03), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
-      />
-      <div
-        className="absolute pointer-events-none left-0 -translate-x-1/3 top-1/2 -translate-y-1/4 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)] z-0"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
-      />
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative flex flex-col gap-10 md:gap-16 z-10">
+      {/* The SINGLE container div */}
+      <div className="relative w-full rounded-[2rem] overflow-hidden shadow-2xl flex flex-col items-start justify-between min-h-[1024px]">
 
-        {/* Header */}
-        <RevealOnScroll>
-          <header className="grid grid-cols-1 gap-6">
-            <div className="flex flex-col gap-4 lg:gap-6">
+        {/* Background Image (Absolute inside the single div) */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/images/pexels-ianr-21853691.jpg"
+            alt="Neighborhood"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/5"></div>
+        </div>
 
-              {/* Badge */}
-              <div className="flex flex-col items-start gap-2">
-                <span className="text-[#A8A5A0] text-xs font-bold tracking-widest uppercase">
-                  INVESTMENT THESIS
-                </span>
-                <div className="h-[2px] w-[140px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
-              </div>
+        {/* Top Content Row: Header and Cards */}
+        <div className="relative z-10 w-full flex flex-col lg:flex-row items-start justify-between pl-6 md:pl-12 pt-6 md:pt-12 lg:pl-20 lg:pt-20">
 
-              <h2 className="text-4xl md:text-5xl lg:text-[4rem] leading-tight tracking-tight max-w-3xl text-sandstone-500">
+          {/* Left Side: Header */}
+          <div className="flex flex-col items-start lg:w-1/2">
+            <div className="bg-white/40 backdrop-blur-md rounded-full px-5 py-2 mb-6 shadow-sm border border-white/40 overflow-hidden">
+              <span className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-slate-950 block">
+                INVESTMENT THESIS
+              </span>
+            </div>
+            <RevealOnScroll delay="delay-100">
+              <h2 className="text-4xl md:text-5xl lg:text-[60px] leading-[1.1] tracking-tight text-white font-serif lg:whitespace-nowrap">
                 Five revenue layers.<br />
                 One integrated platform.
               </h2>
-
-              <p className="text-base text-[#4a4741] max-w-2xl leading-relaxed mt-2">
-                Traditional real estate captures one revenue stream. Humanly captures five — compounding returns through vertical integration from land to living to lifelong services.
-              </p>
-            </div>
-          </header>
-        </RevealOnScroll>
-
-        {/* Content Body */}
-        <div className="relative flex flex-col-reverse gap-10 md:gap-16 xl:gap-24 md:items-start md:flex-row-reverse">
-
-          {/* Accordion Column */}
-          <div className="md:grow md:shrink md:basis-1/2 flex flex-col gap-3 relative z-10 w-full" role="region" aria-label="Accordion content">
-            {accordionData.map((item, index) => {
-              const isOpen = openIndex === index;
-              return (
-                <RevealOnScroll key={item.id} delay={`delay-${(index + 1) * 100}` as any}>
-                  <div className="bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 p-2 rounded-2xl transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10">
-                    <button
-                      onClick={() => setOpenIndex(isOpen ? null : index)}
-                      aria-expanded={isOpen}
-                      type="button"
-                      className="w-full p-3 md:p-5 flex items-center justify-between gap-4 md:gap-6 text-left group rounded-lg cursor-pointer"
-                    >
-                      <div className="flex flex-col gap-1">
-                        <span className="text-[0.65rem] md:text-xs font-medium tracking-wider uppercase text-[#8f96a3]">
-                          {item.eyebrow}
-                        </span>
-                        <h3 className={clsx(
-                          "text-lg md:text-xl font-medium transition-colors duration-300",
-                          isOpen ? "text-blue-600" : "text-sandstone-500 group-hover:text-blue-500"
-                        )}>
-                          {item.title}
-                        </h3>
-                      </div>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 15 15"
-                        className={clsx(
-                          "w-4 h-auto transition-all duration-300 shrink-0",
-                          isOpen ? "fill-mustard-200" : "fill-[#c2c9d6] group-hover:fill-mustard-100"
-                        )}
-                      >
-                        {isOpen ? (
-                          <path d="M14.25 8.25H0.75A0.75.75 0 0 1 0.75 6.75H14.25A0.75.75 0 0 1 14.25 8.25Z" fill="currentColor" />
-                        ) : (
-                          <path d="M7.5 0a.75.75 0 0 1 .75.75v6h6a.75.75 0 0 1 0 1.5h-6v6a.75.75 0 0 1-1.5 0v-6h-6a.75.75 0 0 1 0-1.5h6v-6A.75.75 0 0 1 7.5 0" fill="currentColor" />
-                        )}
-                      </svg>
-                    </button>
-
-                    {/* Expandable Content Area */}
-                    <div
-                      className={clsx(
-                        "overflow-hidden transition-all duration-500 ease-in-out px-3 md:px-5",
-                        isOpen ? "max-h-48 opacity-100 pb-4" : "max-h-0 opacity-0"
-                      )}
-                    >
-                      <p className="text-[#4a4741] text-base leading-relaxed">
-                        {item.content}
-                      </p>
-                    </div>
-                  </div>
-                </RevealOnScroll>
-              );
-            })}
+            </RevealOnScroll>
+            <div className="h-[2px] w-[80%] md:w-[600px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full mt-3"></div>
           </div>
 
-          {/* Image Column */}
-          <div className="md:grow md:shrink md:basis-1/2 w-full md:max-w-[600px] relative z-10" role="img" aria-label="Accompanying illustration">
-            <RevealOnScroll delay="delay-100">
-              <div className="relative aspect-square md:aspect-auto md:h-[600px] w-full bg-slate-800/50 rounded-2xl overflow-hidden border border-white/5 shadow-2xl">
-                <img
-                  alt="Healthcare insights illustration"
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
-                  src="/images/pexels-ron-lach-10037036.jpg"
-                />
-                {/* Dynamic subtle overlay to map beautifully with the dark theme */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1e2427]/60 to-transparent pointer-events-none"></div>
-              </div>
-            </RevealOnScroll>
+          {/* Right Side: Stacked Glass Cards */}
+          <div className="lg:w-1/2 flex justify-center w-full pb-36 lg:pb-0 absolute top-56 right-10">
+            <div className="relative w-[280px] sm:w-[380px] md:w-[420px] h-[450px] shrink-0 mr-10 md:mr-20 lg:mr-32 lg:mt-16">
+              {accordionData.map((slide, index) => {
+                const offset = (index - activeIndex + accordionData.length) % accordionData.length;
+                const isVisible = offset < 5;
+
+                if (!isVisible) return null;
+
+                return (
+                  <div
+                    key={index}
+                    className={clsx(
+                      "absolute top-0 right-0 w-full h-full p-8 md:p-10 rounded-[2rem] transition-all duration-700 ease-in-out backdrop-blur-xl border border-white/40 shadow-2xl",
+                      offset === 0 ? "z-50 translate-x-0 scale-100 bg-white/20 opacity-100 blur-none border border-white/30" :
+                        offset === 1 ? "z-40 translate-x-8 scale-[0.96] bg-white/15 opacity-90 blur-[1px] border border-white/30" :
+                          offset === 2 ? "z-30 translate-x-16 scale-[0.92] bg-white/15 opacity-80 blur-[1px] border border-white/30" :
+                            offset === 3 ? "z-20 translate-x-24 scale-[0.88] bg-white/15 opacity-70 blur-[1px] border border-white/30" :
+                              "z-10 translate-x-32 scale-[0.84] bg-white/15 opacity-60 blur-[1px] border border-white/30"
+                    )}
+                  >
+                    <h3 className="text-3xl font-serif text-slate-800 mb-3 leading-tight pr-4">{slide.title}</h3>
+                    <p className="text-sm font-semibold text-slate-600 mb-6">{slide.eyebrow}</p>
+                    <p className="text-base text-slate-800/90 leading-relaxed">
+                      {slide.content}
+                    </p>
+                  </div>
+                )
+              })}
+
+              {/* Arrows */}
+              <button
+                onClick={goPrev}
+                className="absolute top-1/2 -translate-y-1/2 -left-6 z-50 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-xl hover:bg-slate-50 transition-colors border border-slate-100 text-slate-500"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6" /></svg>
+              </button>
+
+              <button
+                onClick={goNext}
+                className="absolute top-1/2 -translate-y-1/2 -right-6 z-50 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-xl hover:bg-slate-50 transition-colors border border-slate-100 text-slate-500"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6" /></svg>
+              </button>
+            </div>
           </div>
 
         </div>
+
+        {/* Bottom Left White Overlay */}
+        <div className="absolute bottom-0 left-0 w-full md:w-[700px] z-20 mt-auto">
+          <div className="bg-white rounded-tr-[80px] p-10 md:p-16 lg:p-20 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] border-t border-r border-white/50">
+            <RevealOnScroll delay="delay-400">
+              <p className="text-base md:text-xl font-serif italic text-slate-800 leading-relaxed pr-8">
+                Traditional real estate captures one revenue stream. Humanly captures five — compounding returns through vertical integration from land to living to lifelong services.
+              </p>
+            </RevealOnScroll>
+          </div>
+        </div>
+
       </div>
     </section>
   );
