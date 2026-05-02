@@ -75,7 +75,7 @@ export const CommunitiesSection = () => {
   };
 
   return (
-    <section 
+    <section
       className="relative w-full bg-transparent py-14 lg:py-24 overflow-hidden"
       style={{ fontFamily: "'Neue Haas Grotesk', sans-serif" }}
     >
@@ -105,7 +105,7 @@ export const CommunitiesSection = () => {
               <h2 className="text-4xl md:text-5xl lg:text-[4rem] leading-tight tracking-tight text-sandstone-500 max-w-4xl">
                 Not just housing.<br />Launchpads for human potential.
               </h2>
-              <div className="h-[1px] w-[800px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
+              <div className="h-[1px] w-[880px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
             </div>
           </header>
         </RevealOnScroll>
