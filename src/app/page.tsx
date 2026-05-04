@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black">
       {/* Seamless Light Background Container */}
-      <div className="relative bg-[#fcfaf7] overflow-hidden">
+      <div className="relative bg-[#fcfaf7] overflow-x-clip">
         
         {/* Continuous Background Gradients */}
         <div 
