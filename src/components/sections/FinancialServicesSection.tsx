@@ -18,64 +18,47 @@ const financialCards = [
     id: "card-1",
     title: "Credit Building",
     description: "Rent reporting and credit coaching from move-in.",
+    image: "/images/pexels-anastasia-shuraeva-8466021.jpg"
   },
   {
     id: "card-2",
     title: "Savings Programs",
     description: "Automated savings with community-matched deposits.",
+    image: "/images/pexels-cottonbro-7484164.jpg"
   },
   {
     id: "card-3",
     title: "Insurance Products",
     description: "Renters, health, and life insurance at group rates.",
+    image: "/images/pexels-shkrabaanthony-5214992.jpg"
   },
   {
     id: "card-4",
     title: "Bill Pay",
     description: "Unified billing for rent, utilities, and services.",
+    image: "/images/pexels-tima-miroshnichenko-6914062.jpg"
   },
   {
     id: "card-5",
     title: "Emergency Fund",
     description: "Community safety net for unexpected expenses.",
+    image: "/images/pexels-rdne-6647050.jpg"
   },
   {
     id: "card-6",
     title: "Financial Coaching",
     description: "1:1 financial literacy and goal planning.",
+    image: "/images/pexels-silverkblack-23496452.jpg"
   },
 ];
 
 export const FinancialServicesSection = () => {
-  const sliderRef = useRef<HTMLUListElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-
-  const updateScrollState = () => {
-    const el = sliderRef.current;
-    if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 0);
-    setCanScrollRight(Math.ceil(el.scrollLeft + el.clientWidth) < el.scrollWidth);
-  };
-
-  useEffect(() => {
-    const el = sliderRef.current;
-    if (!el) return;
-    el.addEventListener("scroll", updateScrollState);
-    updateScrollState();
-    return () => el.removeEventListener("scroll", updateScrollState);
-  }, []);
-
-  const scrollTo = (direction: "left" | "right") => {
-    const el = sliderRef.current;
-    if (!el) return;
-    const itemWidth = el.clientWidth * 0.75 + 24;
-    el.scrollBy({ left: direction === "left" ? -itemWidth : itemWidth, behavior: "smooth" });
-  };
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeCard = financialCards[activeIndex];
 
   return (
     <section className="relative w-full bg-transparent py-14 lg:py-24">
-      {/* Background Gradients — exact match to DataRoom */}
+      {/* Background Gradients */}
       <div
         className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
         style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
@@ -85,7 +68,7 @@ export const FinancialServicesSection = () => {
         style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
       />
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
 
         {/* Section Header */}
         <RevealOnScroll>
@@ -103,74 +86,71 @@ export const FinancialServicesSection = () => {
           </header>
         </RevealOnScroll>
 
-        {/* Mobile Slider */}
-        <div className="lg:hidden">
-          <RevealOnScroll delay="delay-100">
-            <div className="overflow-hidden">
-              <div className="flex flex-col-reverse">
-                <div className="relative mt-6 mr-6">
-                  <div className="relative h-[1px] w-full overflow-hidden bg-black/10" role="presentation">
-                    <div className="absolute inset-0 h-[1px] origin-left bg-black/40" />
-                  </div>
-                  <div className="flex justify-end gap-x-4 pt-6 pb-4">
-                    <button
-                      type="button"
-                      aria-label="go to previous slide"
-                      onClick={() => scrollTo("left")}
-                      disabled={!canScrollLeft}
-                      className="rounded-full px-3 py-4 bg-[#f7f1e8] border border-[#1c1b1a]/10 text-[#1c1b1a]/50 disabled:opacity-30 transition-all hover:bg-white hover:text-black shadow-sm"
-                    >
-                      <ArrowIcon direction="left" />
-                    </button>
-                    <button
-                      type="button"
-                      aria-label="go to next slide"
-                      onClick={() => scrollTo("right")}
-                      disabled={!canScrollRight}
-                      className="rounded-full px-3 py-4 bg-[#f7f1e8] border border-[#1c1b1a]/10 text-[#1c1b1a]/50 disabled:opacity-30 transition-all hover:bg-white hover:text-black shadow-sm"
-                    >
-                      <ArrowIcon direction="right" />
-                    </button>
-                  </div>
-                </div>
+        {/* Gallery Carousel */}
+        <div className="mt-12 flex flex-col gap-10">
 
-                <ul
-                  ref={sliderRef}
-                  className="no-scrollbar flex snap-x snap-mandatory snap-always items-stretch overflow-x-auto gap-x-6 pr-6"
-                  tabIndex={0}
-                >
-                  {financialCards.map((card) => (
-                    <li key={card.id} className="snap-start shrink-0 h-auto">
-                      <article className="flex h-full flex-col justify-center overflow-hidden rounded-2xl p-8 w-[75vw] bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 md:w-[60vw] lg:w-full min-h-[160px] transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10">
-                        <h3 className="text-left text-sandstone-500 leading-tight font-bold mb-3 text-[1.125rem]">
-                          {card.title}
-                        </h3>
-                        <p className="text-left text-[#4a4741] leading-relaxed text-[0.95rem]">
-                          {card.description}
-                        </p>
-                      </article>
-                    </li>
-                  ))}
-                </ul>
+          {/* Main Display Area */}
+          <RevealOnScroll delay="delay-100">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-center bg-[#4A4741]/5 backdrop-blur-xl border border-[#4A4741]/10 rounded-[2.5rem] overflow-hidden p-6 md:p-10 shadow-[0_32px_64px_rgba(0,0,0,0.08)]">
+
+              {/* Main Image Container */}
+              <div className="lg:col-span-2 relative aspect-video md:aspect-[16/9] lg:aspect-auto lg:h-[480px] rounded-3xl overflow-hidden shadow-2xl">
+                {financialCards.map((card, index) => (
+                  <div
+                    key={card.id}
+                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === activeIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+                      }`}
+                  >
+                    <img
+                      src={card.image}
+                      alt={card.title}
+                      className="w-full h-full object-cover transition-transform duration-[3000ms] ease-out group-hover:scale-105"
+                    />
+                  </div>
+                ))}
+                {/* Subtle Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none z-20"></div>
               </div>
+
+              {/* Text Content */}
+              <div className="flex flex-col gap-6 p-2 lg:p-4">
+                <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-sandstone-500 leading-[1.1] transition-all duration-500">
+                  {activeCard.title}
+                </h3>
+                <p className="text-lg md:text-xl text-[#1C1B1A]/70 leading-relaxed max-w-md font-medium">
+                  {activeCard.description}
+                </p>
+              </div>
+
             </div>
           </RevealOnScroll>
-        </div>
 
-        {/* Desktop 3-column grid */}
-        <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {financialCards.map((card, idx) => (
-            <RevealOnScroll key={card.id} delay={`delay-${(idx % 3 + 1) * 100}` as any}>
-              <article className="flex flex-col justify-center overflow-hidden rounded-2xl p-8 bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 min-h-[160px] transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10 group">
-                <h3 className="text-left text-sandstone-500 leading-tight font-bold mb-3 text-[1.125rem] group-hover:text-blue-600 transition-colors">
-                  {card.title}
-                </h3>
-                <p className="text-left text-[#4a4741] leading-relaxed text-[0.95rem] pr-4">
-                  {card.description}
-                </p>
-              </article>
-            </RevealOnScroll>
-          ))}
+          {/* Thumbnails Area */}
+          <RevealOnScroll delay="delay-200">
+            <div className="flex flex-wrap md:flex-nowrap justify-center gap-4 md:gap-6 px-4">
+              {financialCards.map((card, index) => (
+                <button
+                  key={card.id}
+                  onClick={() => setActiveIndex(index)}
+                  className={`relative flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden transition-all duration-500 transform ${index === activeIndex
+                      ? "ring-4 ring-blue-500 ring-offset-4 ring-offset-white scale-110 shadow-2xl z-20"
+                      : "opacity-40 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-105 z-10"
+                    }`}
+                  aria-label={`View ${card.title}`}
+                >
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="w-full h-full object-cover"
+                  />
+                  {index === activeIndex && (
+                    <div className="absolute inset-0 bg-blue-500/10 pointer-events-none" />
+                  )}
+                </button>
+              ))}
+            </div>
+          </RevealOnScroll>
+
         </div>
 
       </div>
