@@ -63,7 +63,7 @@ export const HumanlyOSSection = () => {
             </div>
 
             <h2 className="text-left text-white font-sans leading-tight font-bold mb-4 text-[2.5rem] md:text-[3rem] lg:text-[4rem] tracking-tight">
-              HumanlyOS&reg;
+              HumanlyOS<sup>&reg;</sup>
             </h2>
             <p className="text-left text-white/90 font-sans leading-relaxed text-[1rem] md:text-[1.125rem] max-w-xl">
               The AI-native operating system that transforms community management from fragmented services into an integrated, revenue-generating platform.
