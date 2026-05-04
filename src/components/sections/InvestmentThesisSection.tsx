@@ -42,7 +42,10 @@ export const InvestmentThesisSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null); // Start with all items closed
 
   return (
-    <section className="relative w-full bg-transparent text-[#1c1b1a] py-24 lg:py-36 overflow-hidden">
+    <section 
+      className="relative w-full text-[#1c1b1a] py-24 lg:py-36 overflow-hidden"
+      style={{ background: "linear-gradient(135deg, , #EAF0FA 0% #F5F0EC, #F7FFFF)" }}
+    >
 
       {/* Background Gradients — exact match to DataRoom */}
       <div

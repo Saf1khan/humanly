@@ -76,8 +76,10 @@ export const CommunitiesSection = () => {
 
   return (
     <section 
-      className="relative w-full bg-transparent py-14 lg:py-24 overflow-hidden"
-      style={{ fontFamily: "'Neue Haas Grotesk', sans-serif" }}
+      className="relative w-full py-14 lg:py-24 overflow-hidden"
+      style={{ 
+        fontFamily: "'Neue Haas Grotesk', sans-serif" 
+      }}
     >
       {/* Background Gradients — exact match to DataRoom */}
       <div

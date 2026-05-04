@@ -66,7 +66,9 @@ import { RevealOnScroll } from "../ui/RevealOnScroll";
 
 export const StatsSection = () => {
   return (
-    <section className="relative w-full bg-transparent py-20 lg:py-32 overflow-hidden">
+    <section 
+      className="relative w-full py-20 lg:py-32 overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         <div className="grid grid-cols-1 gap-16 md:grid-cols-3 md:gap-x-24 md:gap-y-12 lg:gap-8 xl:gap-24">
           

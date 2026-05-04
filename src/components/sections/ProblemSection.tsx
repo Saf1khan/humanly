@@ -74,7 +74,9 @@ export const ProblemSection = () => {
   };
 
   return (
-    <section className="gridContainerV3 relative w-full bg-transparent pt-14 lg:py-20 overflow-hidden">
+    <section 
+      className="gridContainerV3 relative w-full pt-14 lg:py-20 overflow-hidden"
+    >
       {/* Background Gradients — exact match to DataRoom */}
       <div
         className="absolute pointer-events-none right-0 translate-x-1/3 top-1/3 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"

@@ -73,7 +73,9 @@ export const VillageCenterSection = () => {
   const canGoNext = windowStart + VISIBLE_SWATCHES < carouselItems.length;
 
   return (
-    <section className="relative w-full bg-transparent py-14 lg:py-24 overflow-hidden">
+    <section 
+      className="relative w-full py-14 lg:py-24 overflow-hidden"
+    >
       {/* Background Gradients — exact match to DataRoom */}
       <div
         className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"

@@ -116,7 +116,9 @@ export const PlatformSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full bg-transparent text-[#1c1b1a] py-24 lg:py-36 overflow-hidden">
+    <section 
+      className="relative w-full text-[#1c1b1a] py-24 lg:py-36 overflow-hidden"
+    >
       {/* Background Gradients */}
       <div
         className="absolute pointer-events-none left-[-30%] translate-x-0 top-0 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
