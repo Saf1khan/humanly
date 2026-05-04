@@ -238,7 +238,10 @@ export const PlatformSection = () => {
                 })}
 
                 {/* Scroll Indicator */}
-                <div className={`absolute bottom-12 left-1/2 -translate-x-1/2 z-[100] flex flex-col items-center pointer-events-none transition-opacity duration-500 ${activeIndex === layerRows.length - 1 ? 'opacity-0' : 'opacity-100'}`}>
+                <div
+                  className="absolute bottom-12 left-1/2 -translate-x-1/2 z-[100] flex flex-col items-center pointer-events-none transition-opacity duration-500"
+                  style={{ opacity: activeIndex === layerRows.length - 1 ? 0 : 1 }}
+                >
                   <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center p-1.5 shadow-[0_0_15px_rgba(0,0,0,0.5)] backdrop-blur-[2px]">
                     <div className="text-white animate-mouse-scroll">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
