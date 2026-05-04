@@ -4,7 +4,9 @@ import { RevealOnScroll } from "../ui/RevealOnScroll";
 
 export const ProofOfConceptSection = () => {
   return (
-    <section className="relative w-full bg-transparent py-16 lg:py-24 overflow-hidden">
+    <section 
+      className="relative w-full py-16 lg:py-24 overflow-hidden"
+    >
       {/* Background Gradients — exact match to DataRoom */}
       <div
         className="absolute pointer-events-none right-0 translate-x-1/3 top-1/3 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
