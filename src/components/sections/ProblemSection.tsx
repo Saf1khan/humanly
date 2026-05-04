@@ -77,15 +77,6 @@ export const ProblemSection = () => {
     <section 
       className="gridContainerV3 relative w-full pt-14 lg:py-20 overflow-hidden"
     >
-      {/* Background Gradients — exact match to DataRoom */}
-      <div
-        className="absolute pointer-events-none right-0 translate-x-1/3 top-1/3 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
-      />
-      <div
-        className="absolute pointer-events-none left-1/5 -translate-x-1/3 top-2/3 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
-      />
 
       {/* Section Header */}
       <div className="col-start-main col-end-main relative z-10 pl-6 md:pl-16 lg:pl-24 xl:pl-32">
