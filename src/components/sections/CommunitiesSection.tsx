@@ -19,59 +19,92 @@ const communitiesCards = [
     id: "card-1",
     title: "Attainable Housing",
     description: "Quality homes at 80–120% AMI for workforce families.",
+    image: "/images/pexels-anastasia-shuraeva-8466021.jpg"
   },
   {
     id: "card-2",
     title: "Integrated Services",
     description: "Healthcare, education, wellness — all on-site.",
+    image: "/images/pexels-cottonbro-7484164.jpg"
   },
   {
     id: "card-3",
     title: "Financial Empowerment",
     description: "Credit building and savings from day one.",
+    image: "/images/pexels-shkrabaanthony-5214992.jpg"
   },
   {
     id: "card-4",
     title: "Community Connection",
     description: "Designed spaces that foster real relationships.",
+    image: "/images/pexels-tima-miroshnichenko-6914062.jpg"
   },
   {
     id: "card-5",
     title: "Economic Mobility",
     description: "Job training, co-working, and business incubation.",
+    image: "/images/pexels-rdne-6647050.jpg"
   },
   {
     id: "card-6",
     title: "Health & Wellness",
     description: "Preventative care integrated into daily life.",
+    image: "/images/pexels-silverkblack-23496452.jpg"
   },
 ];
 
 export const CommunitiesSection = () => {
-  const sliderRef = useRef<HTMLUListElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const updateScrollState = () => {
-    const el = sliderRef.current;
-    if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 0);
-    setCanScrollRight(Math.ceil(el.scrollLeft + el.clientWidth) < el.scrollWidth);
+  const next = () => {
+    setActiveIndex((current) => (current + 1) % communitiesCards.length);
   };
 
-  useEffect(() => {
-    const el = sliderRef.current;
-    if (!el) return;
-    el.addEventListener("scroll", updateScrollState);
-    updateScrollState();
-    return () => el.removeEventListener("scroll", updateScrollState);
-  }, []);
+  const prev = () => {
+    setActiveIndex((current) => (current - 1 + communitiesCards.length) % communitiesCards.length);
+  };
 
-  const scrollTo = (direction: "left" | "right") => {
-    const el = sliderRef.current;
-    if (!el) return;
-    const itemWidth = el.clientWidth * 0.75 + 24;
-    el.scrollBy({ left: direction === "left" ? -itemWidth : itemWidth, behavior: "smooth" });
+  const handleMouseEnter = (index: number) => {
+    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+
+    hoverTimeoutRef.current = setTimeout(() => {
+      let relativeOffset = index - activeIndex;
+      const length = communitiesCards.length;
+      if (relativeOffset > length / 2) relativeOffset -= length;
+      if (relativeOffset < -length / 2) relativeOffset += length;
+
+      if (relativeOffset === -1) prev();
+      else if (relativeOffset === 1) next();
+    }, 1000); // Increased to 500ms for more deliberate navigation
+  };
+
+  const handleMouseLeave = () => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+  };
+
+  // calculate relative position for 3D effect
+  const getCardStyle = (index: number) => {
+    const offset = index - activeIndex;
+    const length = communitiesCards.length;
+
+    // Normalize offset for wrapping
+    let relativeOffset = offset;
+    if (relativeOffset > length / 2) relativeOffset -= length;
+    if (relativeOffset < -length / 2) relativeOffset += length;
+
+    if (relativeOffset === 0) {
+      return "z-30 scale-100 opacity-100 translate-x-0 pointer-events-auto shadow-2xl";
+    } else if (relativeOffset === -1) {
+      return "z-20 scale-[0.85] opacity-60 -translate-x-[60%] md:-translate-x-[55%] pointer-events-auto cursor-pointer shadow-lg";
+    } else if (relativeOffset === 1) {
+      return "z-20 scale-[0.85] opacity-60 translate-x-[60%] md:translate-x-[55%] pointer-events-auto cursor-pointer shadow-lg";
+    } else {
+      return "z-10 scale-75 opacity-0 pointer-events-none translate-x-0";
+    }
   };
 
   return (
@@ -79,7 +112,7 @@ export const CommunitiesSection = () => {
       className="relative w-full bg-transparent py-14 lg:py-24 overflow-hidden"
       style={{ fontFamily: "'Neue Haas Grotesk', sans-serif" }}
     >
-      {/* Background Gradients — exact match to DataRoom */}
+      {/* Background Gradients */}
       <div
         className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
         style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
@@ -90,99 +123,113 @@ export const CommunitiesSection = () => {
       />
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
 
-        {/* Section Header */}
+        {/* Section Header - Centered for more balance */}
         <RevealOnScroll>
-          <header className="grid grid-cols-1 gap-6 mb-10 lg:mb-14">
-            <div className="flex flex-col gap-4 lg:gap-6">
-
+          <header className="flex flex-col items-center text-center gap-6 mb-16 lg:mb-20">
+            <div className="flex flex-col items-center gap-4 lg:gap-6">
               {/* Badge */}
-              <div className="flex flex-col items-start gap-2">
-                <span className="text-[#1C1B1A]/60 text-xs font-bold tracking-[0.2em] uppercase">
-                  THE COMMUNITIES
-                </span>
-              </div>
+              <span className="text-[#1C1B1A]/60 text-xs font-bold tracking-[0.2em] uppercase">
+                THE COMMUNITIES
+              </span>
 
-              <h2 className="text-4xl md:text-5xl lg:text-[4rem] leading-tight tracking-tight text-sandstone-500 max-w-4xl">
+              <h2 className="text-4xl md:text-5xl lg:text-[4.5rem] leading-tight tracking-tight text-sandstone-500 max-w-5xl">
                 Not just housing.<br />Launchpads for human potential.
               </h2>
-              <div className="h-[1px] w-[880px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
+              <div className="h-[1.5px] w-full max-w-[600px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
             </div>
           </header>
         </RevealOnScroll>
 
-        {/* Mobile Slider */}
-        <div className="lg:hidden">
-          <RevealOnScroll delay="delay-100">
-            <div className="overflow-hidden">
-              <div className="flex flex-col-reverse">
-                <div className="relative mt-6 mr-6">
-                  <div className="relative h-[1px] w-full overflow-hidden bg-gray-400" role="presentation">
-                    <div className="absolute inset-0 h-[1px] origin-left bg-sandstone-500" />
-                  </div>
-                  <div className="flex justify-end gap-x-4 pt-6 pb-4">
-                    <button
-                      type="button"
-                      aria-label="go to previous slide"
-                      onClick={() => scrollTo("left")}
-                      disabled={!canScrollLeft}
-                      className="rounded-full px-3 py-4 bg-[#e6ded3] text-gray-500 disabled:opacity-40 transition-opacity hover:text-[#1e2427]"
-                    >
-                      <ArrowIcon direction="left" />
-                    </button>
-                    <button
-                      type="button"
-                      aria-label="go to next slide"
-                      onClick={() => scrollTo("right")}
-                      disabled={!canScrollRight}
-                      className="rounded-full px-3 py-4 bg-[#e6ded3] text-gray-500 disabled:opacity-40 transition-opacity hover:text-[#1e2427]"
-                    >
-                      <ArrowIcon direction="right" />
-                    </button>
-                  </div>
-                </div>
+        {/* 3D Carousel - Increased height for larger cards */}
+        <RevealOnScroll delay="delay-100">
+          <div className="relative w-full max-w-7xl mx-auto mt-12 mb-12 h-[550px] md:h-[650px] flex items-center justify-center">
 
-                <ul
-                  ref={sliderRef}
-                  className="no-scrollbar flex snap-x snap-mandatory snap-always items-stretch overflow-x-auto gap-x-6 pr-6"
-                  tabIndex={0}
-                >
-                  {communitiesCards.map((card) => (
-                    <li key={card.id} className="snap-start shrink-0 h-auto">
-                      <CardGlass className="w-[65vw] md:w-[50vw] min-h-[260px]">
-                        <div className="p-6">
-                          <h3 className="text-left text-sandstone-500 leading-tight font-bold mb-2 text-[1.15rem] transition-colors duration-300 group-hover:text-gray-800">
-                            {card.title}
-                          </h3>
-                          <p className="text-left text-[#1C1B1A]/70 leading-relaxed font-medium text-base transition-colors duration-300 group-hover:text-gray-800">
-                            {card.description}
-                          </p>
-                        </div>
-                      </CardGlass>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {/* Left Nav Arrow */}
+            <button
+              onClick={prev}
+              className="absolute left-0 md:left-4 lg:left-0 z-40 p-5 rounded-full bg-[#e6ded3]/80 backdrop-blur-md text-gray-500 shadow-[0_4px_24px_rgba(0,0,0,0.1)] hover:bg-white hover:text-[#1e2427] transition-all -translate-x-4 md:-translate-x-1/2"
+              aria-label="Previous slide"
+            >
+              <ArrowIcon direction="left" />
+            </button>
+
+            {/* Cards Container */}
+            <div className="relative w-full h-full flex items-center justify-center perspective-[1200px]">
+              {communitiesCards.map((card, index) => {
+                const className = getCardStyle(index);
+                // Handle clicking on adjacent cards to navigate
+                const handleClick = () => {
+                  handleMouseLeave(); // Clear timeout on click
+                  let relativeOffset = index - activeIndex;
+                  const length = communitiesCards.length;
+                  if (relativeOffset > length / 2) relativeOffset -= length;
+                  if (relativeOffset < -length / 2) relativeOffset += length;
+
+                  if (relativeOffset === -1) prev();
+                  else if (relativeOffset === 1) next();
+                };
+
+                return (
+                  <div
+                    key={card.id}
+                    className={`absolute w-[85vw] sm:w-[70vw] md:w-[480px] lg:w-[550px] h-[480px] md:h-[580px] rounded-[2.5rem] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] origin-center ${className}`}
+                    onClick={handleClick}
+                    onMouseEnter={() => handleMouseEnter(index)}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <div className="bg-transparent rounded-[2.5rem] w-full h-full flex flex-col overflow-hidden transition-all duration-500 relative group shadow-[0_12px_48px_rgba(0,0,0,0.08)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.15)]">
+                      {/* Background Image */}
+                      <div
+                        className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
+                        style={{ backgroundImage: `url('${card.image}')` }}
+                      >
+                        {/* Gradient Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent"></div>
+                      </div>
+
+                      <div className="relative z-10 p-10 md:p-14 flex flex-col justify-end h-full transition-transform duration-500 group-hover:translate-y-[-8px]">
+                        <h3 className="text-left text-white leading-tight font-bold mb-5 text-3xl md:text-4xl transition-colors duration-300">
+                          {card.title}
+                        </h3>
+                        <p className="text-left text-white/90 leading-relaxed font-medium text-lg md:text-xl transition-colors duration-300">
+                          {card.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-          </RevealOnScroll>
-        </div>
 
-        {/* Desktop 3-column grid */}
-        <div className="hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:grid ">
-          {communitiesCards.map((card, idx) => (
-            <RevealOnScroll key={card.id} delay={`delay-${(idx + 1) * 100}` as any}>
-              <CardGlass className="bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 p-2 rounded-2xl transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10">
-                <div className="p-8">
-                  <h3 className="text-left text-sandstone-500 leading-tight font-bold mb-3 text-2xl transition-colors duration-300 group-hover:text-gray-800">
-                    {card.title}
-                  </h3>
-                  <p className="text-left text-[#1C1B1A]/70 leading-relaxed font-medium text-lg transition-colors duration-300 group-hover:text-gray-800">
-                    {card.description}
-                  </p>
-                </div>
-              </CardGlass>
-            </RevealOnScroll>
-          ))}
-        </div>
+            {/* Right Nav Arrow */}
+            <button
+              onClick={next}
+              className="absolute right-0 md:right-4 lg:right-0 z-40 p-5 rounded-full bg-[#e6ded3]/80 backdrop-blur-md text-gray-500 shadow-[0_4px_24px_rgba(0,0,0,0.1)] hover:bg-white hover:text-[#1e2427] transition-all translate-x-4 md:translate-x-1/2"
+              aria-label="Next slide"
+            >
+              <ArrowIcon direction="right" />
+            </button>
+
+          </div>
+
+          {/* Pagination Indicators */}
+          <div className="flex justify-center items-center gap-3 mt-6">
+            {communitiesCards.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  handleMouseLeave();
+                  setActiveIndex(index);
+                }}
+                aria-label={`Go to slide ${index + 1}`}
+                className={`h-2.5 rounded-full transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${index === activeIndex
+                  ? "w-10 bg-[#1e2427] shadow-sm"
+                  : "w-2.5 bg-[#1e2427]/30 hover:bg-[#1e2427]/50"
+                  }`}
+              />
+            ))}
+          </div>
+        </RevealOnScroll>
 
       </div>
     </section>

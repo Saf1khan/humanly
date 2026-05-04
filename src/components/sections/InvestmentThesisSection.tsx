@@ -74,7 +74,7 @@ export const InvestmentThesisSection = () => {
                 INVESTMENT THESIS
               </span>
             </div>
-            <RevealOnScroll delay="delay-100">
+            <RevealOnScroll delay="delay-300">
               <h2 className="text-4xl md:text-5xl lg:text-[60px] leading-[1.1] tracking-tight text-white font-serif lg:whitespace-nowrap">
                 Five revenue layers.<br />
                 One integrated platform.
@@ -135,7 +135,7 @@ export const InvestmentThesisSection = () => {
         {/* Bottom Left White Overlay */}
         <div className="absolute bottom-0 left-0 w-full md:w-[700px] z-20 mt-auto">
           <div className="bg-white rounded-tr-[80px] p-10 md:p-16 lg:p-20 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] border-t border-r border-white/50">
-            <RevealOnScroll delay="delay-400">
+            <RevealOnScroll delay="delay-300">
               <p className="text-base md:text-xl font-serif italic text-slate-800 leading-relaxed pr-8">
                 Traditional real estate captures one revenue stream. Humanly captures five — compounding returns through vertical integration from land to living to lifelong services.
               </p>
