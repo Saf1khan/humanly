@@ -49,7 +49,7 @@ export const InvestmentThesisSection = () => {
   };
 
   return (
-    <section className="w-full min-h-[1024px] flex items-stretch justify-center p-4 md:p-10 bg-slate-50/50">
+    <section className="w-full min-h-[1024px] flex items-stretch justify-center p-4 md:p-10 bg-transparent">
 
       {/* The SINGLE container div */}
       <div className="relative w-full rounded-[2rem] overflow-hidden shadow-2xl flex flex-col items-start justify-between min-h-[1024px]">
