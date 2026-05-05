@@ -1,4 +1,38 @@
 @tailwind base;
+
+@font-face {
+  font-family: "Neue Haas Grotesk";
+  src: url("/fonts/neue-haas/NHaasGroteskDSPro-45Lt.woff2") format("woff2");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk";
+  src: url("/fonts/neue-haas/NHaasGroteskDSPro-55Rg.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk";
+  src: url("/fonts/neue-haas/NHaasGroteskDSPro-65Md.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk";
+  src: url("/fonts/neue-haas/NHaasGroteskDSPro-75Bd.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* Apply globally */
+body {
+  font-family: "Neue Haas Grotesk" !important;
+}
+
 @tailwind components;
 @tailwind utilities;
 
@@ -10,14 +44,14 @@
     --color-sandstone-400: #efe6db;
     --color-sandstone-450: #e6ded3;
     --color-sandstone-500: #4a4741;
-    
+
     --color-mustard-50: #ffefd8;
     --color-mustard-100: #ddaa61;
     --color-mustard-200: #ddbe78;
     --color-mustard-350: #bc924c;
     --color-mustard-500: #af751b;
     --color-mustard-700: #684d07;
-    
+
     --color-slate-900: #1e2427;
   }
 }
@@ -42,13 +76,33 @@
 }
 
 /* Staggered Delays for transitions */
-.delay-100  { transition-delay: 100ms; }
-.delay-200  { transition-delay: 200ms; }
-.delay-300  { transition-delay: 300ms; }
-.delay-400  { transition-delay: 400ms; }
-.delay-500  { transition-delay: 500ms; }
-.delay-600  { transition-delay: 600ms; }
-.delay-700  { transition-delay: 700ms; }
+.delay-100 {
+  transition-delay: 100ms;
+}
+
+.delay-200 {
+  transition-delay: 200ms;
+}
+
+.delay-300 {
+  transition-delay: 300ms;
+}
+
+.delay-400 {
+  transition-delay: 400ms;
+}
+
+.delay-500 {
+  transition-delay: 500ms;
+}
+
+.delay-600 {
+  transition-delay: 600ms;
+}
+
+.delay-700 {
+  transition-delay: 700ms;
+}
 
 /* ============================================================
    HERO REVEAL (Soft Blur & Fade)
@@ -58,7 +112,7 @@
   opacity: 0;
   filter: blur(10px);
   transform: translateY(20px);
-  transition: 
+  transition:
     opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1),
     filter 1.2s cubic-bezier(0.2, 0.8, 0.2, 1),
     transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -72,11 +126,12 @@
 }
 
 .reveal-line {
-  display: inline-block; /* Required for transform to work */
+  display: inline-block;
+  /* Required for transform to work */
   opacity: 0;
   filter: blur(12px);
   transform: translateY(30px);
-  
+
   /* Shared transition settings */
   transition-property: opacity, filter, transform;
   transition-duration: 1.2s;
@@ -95,7 +150,8 @@
 .hero-emphasis {
   font-style: italic;
   font-family: serif;
-  display: block; /* Moves it to a new line */
+  display: block;
+  /* Moves it to a new line */
   margin-top: 10px;
 }
 
@@ -120,6 +176,7 @@
 .col-start-main {
   grid-column-start: main;
 }
+
 .col-end-main {
   grid-column-end: main;
 }
@@ -127,6 +184,7 @@
 .col-start-full {
   grid-column-start: full;
 }
+
 .col-end-full {
   grid-column-end: full;
 }
@@ -137,7 +195,8 @@
 .oura-exact-glass {
   /* 1. The Exact Blur Value */
   backdrop-filter: blur(32px);
-  -webkit-backdrop-filter: blur(32px); /* Vital for Safari support */
+  -webkit-backdrop-filter: blur(32px);
+  /* Vital for Safari support */
 
   /* 2. The Exact Background Tint */
   /* This is a 10% opacity 'Sandstone' color (Dark Warm Gray) */
@@ -156,11 +215,10 @@
 .oura-dark-glass {
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  
+
   /* A deeper, 40% opacity dark tint */
-  background-color: rgba(20, 20, 20, 0.4); 
-  
+  background-color: rgba(20, 20, 20, 0.4);
+
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 12px;
 }
-
