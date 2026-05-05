@@ -1,15 +1,16 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
-const CountUpNumber = ({ 
-  end, 
-  prefix = "", 
-  suffix = "" 
-}: { 
-  end: number; 
-  prefix?: string; 
-  suffix?: string; 
+const CountUpNumber = ({
+  end,
+  prefix = "",
+  suffix = "",
+}: {
+  end: number;
+  prefix?: string;
+  suffix?: string;
 }) => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -23,7 +24,7 @@ const CountUpNumber = ({
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (ref.current) {
@@ -42,9 +43,9 @@ const CountUpNumber = ({
     const step = (timestamp: number) => {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      
+
       const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-      
+
       setCount(Math.floor(easeProgress * end));
 
       if (progress < 1) {
@@ -56,58 +57,102 @@ const CountUpNumber = ({
   }, [isVisible, end]);
 
   return (
-    <span ref={ref}>
-      {prefix}{count}{suffix}
+    <span ref={ref} className="tabular-nums">
+      {prefix}
+      {count}
+      {suffix}
     </span>
   );
 };
 
-import { RevealOnScroll } from "../ui/RevealOnScroll";
+const StatCard = ({
+  value,
+  prefix,
+  suffix,
+  label,
+  description,
+  delay,
+  className,
+}: {
+  value: number;
+  prefix?: string;
+  suffix?: string;
+  label: string;
+  description?: string;
+  delay: string;
+  className?: string;
+}) => {
+  return (
+    <motion.div
+      whileHover={{ y: -4, scale: 1.02, transition: { duration: 0.2 } }}
+      className={`group relative h-full flex flex-col p-6 transition-all duration-500 overflow-hidden ${className || ""}`}
+    >
+
+
+      <div className="relative z-10 flex flex-row items-center justify-between w-full h-full gap-6">
+        <div className="flex flex-col flex-1">
+          <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#f7f1e8] mb-2 tracking-tight">
+            <CountUpNumber prefix={prefix} end={value} suffix={suffix} />
+          </p>
+          <h3 className="text-[1.25rem] font-bold text-[#f7f1e8] mb-1">
+            {label}
+          </h3>
+          {description && (
+            <p className="text-[0.95rem] text-white/70 leading-relaxed ">
+              {description}
+            </p>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 export const StatsSection = () => {
-  return (
-    <section 
-      className="relative w-full py-20 lg:py-32 overflow-hidden"
-    >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-3 md:gap-x-24 md:gap-y-12 lg:gap-8 xl:gap-24">
-          
-          {/* Stat 1 */}
-          <RevealOnScroll delay="delay-100">
-            <div className="flex w-full flex-col items-center text-center md:items-start md:text-left">
-              <p className="text-[2rem] tracking-normal md:text-[2.5rem] lg:text-[3.5rem] text-sandstone-500 leading-none mb-4 font-normal flex items-end min-h-[3.5rem] md:min-h-[2.5rem] lg:min-h-[3.5rem]">
-                <CountUpNumber prefix="$" end={5} suffix="M" />
-              </p>
-              <p className="text-base tracking-normal text-sandstone-500 font-normal max-w-96 leading-snug">
-                Flagship Investment
-              </p>
-            </div>
-          </RevealOnScroll>
-          
-          {/* Stat 2 */}
-          <RevealOnScroll delay="delay-200">
-            <div className="flex w-full flex-col items-center text-center md:items-start md:text-left">
-              <p className="text-[2rem] tracking-normal md:text-[2.5rem] lg:text-[3.5rem] text-sandstone-500 leading-none mb-4 font-normal flex items-end min-h-[3.5rem] md:min-h-[2.5rem] lg:min-h-[3.5rem]">
-                <CountUpNumber prefix="$" end={100} suffix="M" />
-              </p>
-              <p className="text-base tracking-normal text-sandstone-500 font-normal max-w-96 leading-snug">
-                Projected Value
-              </p>
-            </div>
-          </RevealOnScroll>
-          
-          {/* Stat 3 */}
-          <RevealOnScroll delay="delay-300">
-            <div className="flex w-full flex-col items-center text-center md:items-start md:text-left">
-              <p className="text-[2rem] tracking-normal md:text-[2.5rem] lg:text-[3.5rem] text-sandstone-500 leading-none mb-4 font-normal flex items-end min-h-[3.5rem] md:min-h-[2.5rem] lg:min-h-[3.5rem]">
-                <CountUpNumber prefix="$" end={20} suffix="M" />
-              </p>
-              <p className="text-base tracking-normal text-sandstone-500 font-normal max-w-96 leading-snug">
-                Raising for Next 4 Communities
-              </p>
-            </div>
-          </RevealOnScroll>
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
 
+  const blob1Y = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const blob2Y = useTransform(scrollYProgress, [0, 1], [0, 100]);
+
+  return (
+    <section
+      ref={containerRef}
+      className="relative w-full flex flex-col justify-center py-16 lg:py-0 overflow-hidden bg-transparent"
+    >
+      <div className="max-w-5xl   mx-auto  px-6 md:px-12 lg:px-1 relative z-10">
+        <div className="grid grid-cols-1 mt-4 -mb-1 md:grid-cols-3 gap-8 lg:gap-12 ">
+          <StatCard
+            value={5}
+            prefix="$"
+            suffix="M"
+            label="Flagship Investment"
+            className="
+
+"
+            delay="delay-100"
+          />
+
+          <StatCard
+            value={100}
+            prefix="$"
+            suffix="M"
+            label="Projected Value"
+            delay="delay-200"
+
+          />
+
+          <StatCard
+            value={20}
+            prefix="$"
+            suffix="M"
+            label="Capital Expansion"
+            delay="delay-300"
+
+          />
         </div>
       </div>
     </section>
