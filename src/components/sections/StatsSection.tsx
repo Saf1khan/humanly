@@ -91,14 +91,14 @@ const StatCard = ({
 
       <div className="relative z-10 flex flex-row items-center justify-between w-full h-full gap-6">
         <div className="flex flex-col flex-1">
-          <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#f7f1e8] mb-2 tracking-tight">
+          <p className="text-4xl md:text-5xl lg:text-6xl  text-[#f7f1e8] mb-2 tracking-tight font-medium">
             <CountUpNumber prefix={prefix} end={value} suffix={suffix} />
           </p>
-          <h3 className="text-[1.25rem] font-bold text-[#f7f1e8] mb-1">
+          <h3 className="text-[1.25rem] font-medium text-[#f7f1e8] mb-1">
             {label}
           </h3>
           {description && (
-            <p className="text-[0.95rem] text-white/70 leading-relaxed ">
+            <p className="text-[0.95rem] text-white/70 leading-relaxed font-normal">
               {description}
             </p>
           )}
@@ -123,8 +123,8 @@ export const StatsSection = () => {
       ref={containerRef}
       className="relative w-full flex flex-col justify-center py-16 lg:py-0 overflow-hidden bg-transparent"
     >
-      <div className="max-w-5xl   mx-auto  px-6 md:px-12 lg:px-1 relative z-10">
-        <div className="grid grid-cols-1 mt-4 -mb-1 md:grid-cols-3 gap-8 lg:gap-12 ">
+      <div className="max-w-5xl mx-auto  px-6 md:px-12 lg:px-1 z-10">
+        <div className="grid grid-cols-1 mt-4 -mb-1 md:grid-cols-3 gap-8 lg:gap-12">
           <StatCard
             value={5}
             prefix="$"

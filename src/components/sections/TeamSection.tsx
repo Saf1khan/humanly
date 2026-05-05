@@ -125,7 +125,7 @@ const TeamCarousel = ({ members, title }: { members: any[], title: string }) => 
     <div className="col-start-main col-end-main flex flex-col 2xl:justify-self-center 2xl:w-fit max-w-full">
       {/* Sub-label */}
       <div className="relative mb-4">
-        <h3 className="text-xl font-bold text-sandstone-500 tracking-tight">{title}</h3>
+        <h3 className="text-xl font-medium text-sandstone-500 tracking-tight">{title}</h3>
       </div>
 
       {/* CARDS */}
@@ -284,7 +284,7 @@ export const TeamSection = () => {
         {/* Title Section */}
         <div className="col-start-main col-end-main relative flex flex-col items-center mb-16 pt-8">
           <div className="flex flex-col items-center gap-2 mb-6">
-            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#A8A5A0]">
+            <p className="text-[11px] font-normal tracking-[0.2em] uppercase text-[#A8A5A0]">
               THE TEAM
             </p>
             <div className="h-[1px] w-[72px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>

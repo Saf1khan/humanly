@@ -70,12 +70,12 @@ export const InvestmentThesisSection = () => {
           {/* Left Side: Header */}
           <div className="flex flex-col items-start lg:w-1/2">
             <div className="bg-white/40 backdrop-blur-md rounded-full px-5 py-2 mb-6 shadow-sm border border-white/40 overflow-hidden">
-              <span className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-slate-950 block">
+              <span className="text-[10px] md:text-xs font-normal tracking-[0.2em] uppercase text-slate-950 block">
                 INVESTMENT THESIS
               </span>
             </div>
             <RevealOnScroll delay="delay-300">
-              <h2 className="text-4xl md:text-5xl lg:text-[60px] leading-[1.1] tracking-tight text-white lg:whitespace-nowrap">
+              <h2 className="text-4xl md:text-5xl lg:text-[60px] leading-[1.1] tracking-tight text-white lg:whitespace-nowrap font-medium">
                 Five revenue layers.<br />
                 One integrated platform.
               </h2>
@@ -104,9 +104,9 @@ export const InvestmentThesisSection = () => {
                               "z-10 translate-x-32 scale-[0.84] bg-white/15 opacity-60 blur-[1px] border border-white/30"
                     )}
                   >
-                    <h3 className="text-3xl text-slate-800 mb-3 leading-tight pr-4">{slide.title}</h3>
-                    <p className="text-sm font-medium text-slate-600 mb-6">{slide.eyebrow}</p>
-                    <p className="text-base text-slate-800/90 leading-relaxed">
+                    <h3 className="text-3xl font-medium text-slate-800 mb-3 leading-tight pr-4">{slide.title}</h3>
+                    <p className="text-sm font-normal text-slate-600 mb-6">{slide.eyebrow}</p>
+                    <p className="text-base font-normal text-slate-800/90 leading-relaxed">
                       {slide.content}
                     </p>
                   </div>
@@ -136,7 +136,7 @@ export const InvestmentThesisSection = () => {
         <div className="absolute bottom-0 left-0 w-full md:w-[700px] z-20 mt-auto">
           <div className="bg-white rounded-tr-[80px] p-10 md:p-16 lg:p-20 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] border-t border-r border-white/50">
             <RevealOnScroll delay="delay-300">
-              <p className="text-base md:text-xl italic text-slate-800 leading-relaxed pr-8">
+              <p className="text-base md:text-xl font-normal italic text-slate-800 leading-relaxed pr-8">
                 Traditional real estate captures one revenue stream. Humanly captures five — compounding returns through vertical integration from land to living to lifelong services.
               </p>
             </RevealOnScroll>
