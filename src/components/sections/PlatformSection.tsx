@@ -155,15 +155,15 @@ export const PlatformSection = () => {
       {/* Top Intro Section */}
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 pt-8 pb-0 lg:pt-12 relative flex flex-col items-center text-center gap-6 z-10 bg-[#fefaef]">
         <div className="flex flex-col items-center gap-2">
-          <span className="text-[#A8A5A0] text-xs font-bold tracking-widest uppercase">
+          <span className="text-[#A8A5A0] text-xs font-normal tracking-widest uppercase">
             THE PLATFORM
           </span>
           <div className="h-[1px] w-[104px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full" />
         </div>
-        <h2 className="text-4xl md:text-5xl lg:text-[4rem] leading-tight tracking-tight text-sandstone-500">
+        <h2 className="text-4xl md:text-5xl lg:text-[4rem] leading-tight font-medium tracking-tight text-sandstone-500">
           Seven layers.<br />One vertical stack.
         </h2>
-        <p className="text-base text-[#4a4741] max-w-2xl mx-auto leading-relaxed">
+        <p className="text-base text-[#4a4741] max-w-2xl mx-auto leading-relaxed font-normal">
           From intelligence-driven site selection through compounding
           network effects — every layer feeds the next, creating a moat
           no horizontal competitor can replicate.
@@ -291,19 +291,19 @@ export const PlatformSection = () => {
                   >
                     <div className="mb-4 md:mb-6">
                       <div className="inline-flex px-4 py-1.5 bg-black/15 backdrop-blur-2xl saturate-[180%] border border-white/20 rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.2)]">
-                        <span className="text-white text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase">
+                        <span className="text-white text-[10px] md:text-xs font-normal tracking-[0.2em] uppercase">
                           {layer.eyebrow}
                         </span>
                       </div>
                     </div>
                     <h2 
-                      className="text-heading-lg md:text-heading-xl lg:text-heading-3xl text-left text-white mb-4 md:mb-6 leading-tighter font-normal tracking-tighter"
+                      className="text-heading-lg md:text-heading-xl lg:text-heading-3xl text-left text-white mb-4 md:mb-6 leading-relaxed font-medium"
                       style={{ textShadow: "0 2px 16px rgba(0,0,0,0.8)" }}
                     >
                       {layer.title}
                     </h2>
                     <p 
-                      className="text-left text-[#fefaef] font-normal text-lg md:text-xl leading-snug tracking-tighter lg:text-2xl"
+                      className="text-left text-[#fefaef] font-normal text-lg md:text-xl leading-relaxed lg:text-2xl"
                       style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}
                     >
                       {layer.content}

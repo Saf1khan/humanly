@@ -154,17 +154,17 @@ export const TransactionFlowSection = () => {
                               {step.step}
                             </span>
                           </div>
-                          <h3 className="text-[1.1rem] xl:text-[1.25rem] font-bold leading-snug text-sandstone-500">
+                          <h3 className="text-[1.1rem] xl:text-[1.25rem] leading-snug text-sandstone-500 font-medium">
                             {step.title}
                           </h3>
-                          <p className="text-[0.85rem] text-[#1c1b1a]/70 leading-relaxed mt-1">
+                          <p className="text-[0.85rem] text-[#1c1b1a]/70 leading-relaxed mt- font-normal">
                             {step.description}
                           </p>
                         </header>
 
                         <footer className="mt-auto pt-4 border-t border-[#1c1b1a]/10 flex items-center gap-2 relative z-10">
                           <div className="w-2 h-2 rounded-full flex-shrink-0 shadow-[0_0_5px_rgba(0,0,0,0.2)]" style={{ backgroundColor: step.dotColor }} />
-                          <span className="text-[0.65rem] font-medium text-[#1c1b1a]/50 uppercase tracking-widest">Active</span>
+                          <span className="text-[0.65rem] font-normal text-[#1c1b1a]/50 uppercase tracking-widest">Active</span>
                         </footer>
                       </article>
                     </RevealOnScroll>

@@ -82,9 +82,9 @@ export const ProblemSection = () => {
       <div className="col-start-main col-end-main relative z-10 pl-6 md:pl-16 lg:pl-24 xl:pl-32">
         <RevealOnScroll>
           <div className="mb-10 lg:mb-14">
-            <p className="text-xs font-bold tracking-widest uppercase text-sandstone-500 mb-3">The Problem</p>
+            <p className="text-xs font-normal tracking-widest uppercase text-sandstone-500 mb-3">The Problem</p>
             <div className="h-[1px] w-[96px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full mb-3"></div>
-            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-tight tracking-tight text-sandstone-500 max-w-3xl">
+            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-tight tracking-tight font-bold text-sandstone-500 max-w-3xl">
               Housing is broken.<br />Communities are fragmented.
             </h2>
           </div>
@@ -138,11 +138,11 @@ export const ProblemSection = () => {
                             </div>
                             <div className="col-start-1 col-end-4 row-start-1 row-end-2 pt-6 pl-6">
                               <div className="relative inline-flex items-center justify-center overflow-hidden px-4 py-2 md:px-5 md:py-2.5 rounded-full border border-white/30 bg-white/20 backdrop-blur-lg shadow-sm">
-                                <span className="text-sm md:text-base text-left text-white leading-normal font-medium relative tracking-wide drop-shadow-sm">{card.title}</span>
+                                <span className="text-sm md:text-base text-left text-white leading-normal font-normal relative tracking-wide drop-shadow-sm">{card.title}</span>
                               </div>
                             </div>
                             <div className="col-start-1 md:col-start-1 lg:col-start-1 col-end-5 md:col-end-5 lg:col-end-4 row-start-4 row-end-5 relative self-end px-6 pb-6 md:pb-8 md:pr-0">
-                              <h3 className="text-xl md:text-2xl lg:text-3xl text-left text-white leading-tight font-medium">{card.description}</h3>
+                              <h3 className="text-xl md:text-2xl lg:text-3xl text-left text-white leading-tight font-normal">{card.description}</h3>
                             </div>
                           </div>
                         </div>
