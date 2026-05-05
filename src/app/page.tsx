@@ -39,8 +39,34 @@ export default function Home() {
         />
 
         <HeroSection />
-          <StatsSection />
-          <InvestmentThesisSection />
+        {/* Shared Background for Stats and Investment Thesis */}
+          <div className="relative w-full overflow-hidden">
+            {/* Minimized Horizontal Gradient Overlay */}
+            <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] opacity-80 pointer-events-none" />
+
+            {/* Warm Vibrant Minimal Gradient Background */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,239,216,0.4)_0%,transparent_70%)] bg-[radial-gradient(circle_at_50%_25%,rgba(255,239,216,0.4)_100%,transparent_10%)]" />
+
+              {/* Subtle SVG Noise Pattern */}
+                <div className="absolute inset-0 mix-blend-overlay opacity-30">
+                  <svg className="h-full w-full">
+                  <filter id="sharedNoise">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+                  </filter>
+                  <rect width="100%" height="100%" filter="url(#sharedNoise)" />
+                </svg>
+              </div>
+              <div className=" z-10">
+              
+            </div>
+            </div>
+            <StatsSection />
+            <InvestmentThesisSection />
+            </div>
+
+          
+              
           <ProblemSection />
           <PlatformSection />
           <CommunitiesSection />
@@ -51,6 +77,7 @@ export default function Home() {
           <FinancialServicesSection />
           <TransactionFlowSection />
           <TeamSection />
+      
       </div>
 
       <DataRoomForm />
