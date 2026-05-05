@@ -87,43 +87,43 @@ export const FinancialServicesSection = () => {
         </RevealOnScroll>
 
         {/* Gallery Carousel */}
-        <div className="mt-12 flex flex-col gap-10">
+        <div className="mt-12 flex flex-col  gap-10">
 
           {/* Main Display Area */}
-          <RevealOnScroll delay="delay-100">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-center bg-[#4A4741]/5 backdrop-blur-xl border border-[#4A4741]/10 rounded-[2.5rem] overflow-hidden p-6 md:p-10 shadow-[0_32px_64px_rgba(0,0,0,0.08)]">
 
-              {/* Main Image Container */}
-              <div className="lg:col-span-2 relative aspect-video md:aspect-[16/9] lg:aspect-auto lg:h-[480px] rounded-3xl overflow-hidden shadow-2xl">
-                {financialCards.map((card, index) => (
-                  <div
-                    key={card.id}
-                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === activeIndex ? "opacity-100 z-10" : "opacity-0 z-0"
-                      }`}
-                  >
-                    <img
-                      src={card.image}
-                      alt={card.title}
-                      className="w-full h-full object-cover transition-transform duration-[3000ms] ease-out group-hover:scale-105"
-                    />
-                  </div>
-                ))}
-                {/* Subtle Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none z-20"></div>
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-8 items-center border border-[#4A4741]/15 shadow-[0_16px_40px_rgba(0,0,0,0.15)] bg-[#4A4741]/5 backdrop-blur-xl transition-opacity rounded-[2.5rem] overflow-hidden">
 
-              {/* Text Content */}
-              <div className="flex flex-col gap-6 p-2 lg:p-4">
-                <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-sandstone-500 leading-[1.1] transition-all duration-500">
+            {/* Main Image Container */}
+            <div className="lg:col-span-2 relative aspect-video md:aspect-[16/9] lg:aspect-auto lg:h-[560px] rounded-3xl overflow-hidden">
+              {financialCards.map((card, index) => (
+                <div
+                  key={card.id}
+                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === activeIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+                    }`}
+                >
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="w-full h-full object-cover transition-transform duration-[3000ms] ease-out group-hover:scale-105"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Text Content */}
+            <div className="flex flex-col justify-end p-2 lg:pb-10 lg:pr-10 h-full">
+              <RevealOnScroll delay="delay-100">
+                <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-sandstone-500 leading-[1.1] transition-all duration-500 lg:mb-4">
                   {activeCard.title}
                 </h3>
                 <p className="text-lg md:text-xl text-[#1C1B1A]/70 leading-relaxed max-w-md font-medium">
                   {activeCard.description}
                 </p>
-              </div>
-
+              </RevealOnScroll>
             </div>
-          </RevealOnScroll>
+
+          </div>
+
 
           {/* Thumbnails Area */}
           <RevealOnScroll delay="delay-200">
@@ -133,8 +133,8 @@ export const FinancialServicesSection = () => {
                   key={card.id}
                   onClick={() => setActiveIndex(index)}
                   className={`relative flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden transition-all duration-500 transform ${index === activeIndex
-                      ? "ring-4 ring-blue-500 ring-offset-4 ring-offset-white scale-110 shadow-2xl z-20"
-                      : "opacity-40 grayscale hover:grayscale-0 hover:opacity-100 hover:scale-105 z-10"
+                    ? "ring-4 ring-blue-500 ring-offset-4 ring-offset-white scale-110 shadow-2xl z-20"
+                    : "opacity-100 hover:grayscale-0 hover:opacity-100 hover:scale-105 z-10"
                     }`}
                   aria-label={`View ${card.title}`}
                 >
