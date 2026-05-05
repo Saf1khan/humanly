@@ -39,7 +39,6 @@ export default function Home() {
         />
 
         <HeroSection />
-        <div style={{ fontFamily: "'Neue Haas Grotesk', sans-serif" }}>
           <StatsSection />
           <InvestmentThesisSection />
           <ProblemSection />
@@ -52,7 +51,6 @@ export default function Home() {
           <FinancialServicesSection />
           <TransactionFlowSection />
           <TeamSection />
-        </div>
       </div>
 
       <DataRoomForm />

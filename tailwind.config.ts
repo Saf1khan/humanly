@@ -29,7 +29,14 @@ const config: Config = {
         },
         slate: {
           900: "var(--color-slate-900)",
-        }
+        },
+      },
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Neue Haas Grotesk"', 'ui-sans-serif', 'system-ui'],
+          },
+        },
       },
     },
   },
