@@ -94,7 +94,7 @@ export const TransactionFlowSection = () => {
         {/* Section Header */}
         <RevealOnScroll>
           <header className="flex flex-col items-center text-center mb-20 lg:mb-32">
-            <h2 className="text-[2.25rem] md:text-[3rem] lg:text-[4rem] font-sans font-bold text-sandstone-500 tracking-tight leading-tight">
+            <h2 className="text-[2.25rem] md:text-[3rem] lg:text-[4rem] font-bold text-sandstone-500 tracking-tight leading-tight">
               Transaction Flow
             </h2>
           </header>
@@ -148,23 +148,23 @@ export const TransactionFlowSection = () => {
                         <header className="flex flex-col gap-3 relative z-10">
                           <div className="flex items-center gap-3">
                             <span 
-                              className="font-bold font-sans text-[0.7rem] tracking-widest uppercase px-2 py-1 rounded-md bg-white/50 border border-white/40"
+                              className="font-bold text-[0.7rem] tracking-widest uppercase px-2 py-1 rounded-md bg-white/50 border border-white/40"
                               style={{ color: step.dotColor }}
                             >
                               {step.step}
                             </span>
                           </div>
-                          <h3 className="text-[1.1rem] xl:text-[1.25rem] font-sans font-bold leading-snug text-sandstone-500">
+                          <h3 className="text-[1.1rem] xl:text-[1.25rem] font-bold leading-snug text-sandstone-500">
                             {step.title}
                           </h3>
-                          <p className="text-[0.85rem] text-[#1c1b1a]/70 font-sans leading-relaxed mt-1">
+                          <p className="text-[0.85rem] text-[#1c1b1a]/70 leading-relaxed mt-1">
                             {step.description}
                           </p>
                         </header>
 
                         <footer className="mt-auto pt-4 border-t border-[#1c1b1a]/10 flex items-center gap-2 relative z-10">
                           <div className="w-2 h-2 rounded-full flex-shrink-0 shadow-[0_0_5px_rgba(0,0,0,0.2)]" style={{ backgroundColor: step.dotColor }} />
-                          <span className="text-[0.65rem] font-sans font-medium text-[#1c1b1a]/50 uppercase tracking-widest">Active</span>
+                          <span className="text-[0.65rem] font-medium text-[#1c1b1a]/50 uppercase tracking-widest">Active</span>
                         </footer>
                       </article>
                     </RevealOnScroll>
@@ -186,13 +186,13 @@ export const TransactionFlowSection = () => {
                   className="flex flex-col bg-[#f7f1e8] text-[#1c1b1a] rounded-xl p-6 w-full"
                 >
                   <header className="flex flex-col gap-2 mb-4">
-                    <p className="font-bold font-sans text-[#1c1b1a]/50 tracking-widest uppercase text-[0.7rem]">
+                    <p className="font-bold text-[#1c1b1a]/50 tracking-widest uppercase text-[0.7rem]">
                       {step.step}
                     </p>
-                    <p className="text-[1.125rem] font-sans font-bold leading-snug text-sandstone-500">
+                    <p className="text-[1.125rem] font-bold leading-snug text-sandstone-500">
                       {step.title}
                     </p>
-                    <p className="text-[0.875rem] text-[#1c1b1a]/60 font-sans leading-relaxed">
+                    <p className="text-[0.875rem] text-[#1c1b1a]/60 leading-relaxed">
                       {step.description}
                     </p>
                   </header>

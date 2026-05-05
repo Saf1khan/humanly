@@ -189,8 +189,8 @@ const TeamCarousel = ({ members, title }: { members: any[], title: string }) => 
                       <div
                         className="flex h-full w-72 flex-col justify-end gap-4 overflow-hidden p-6 text-[#1c1b1a]"
                       >
-                        <p className="tracking-normal text-left text-inherit font-sans leading-normal text-2xl font-bold">{member.name}</p>
-                        <p className="text-base tracking-normal text-left text-blue-600 font-sans leading-normal font-normal">{member.title}</p>
+                        <p className="tracking-normal text-left text-inherit leading-normal text-2xl font-bold">{member.name}</p>
+                        <p className="text-base tracking-normal text-left text-blue-600 leading-normal font-normal">{member.title}</p>
                         <button className="rounded-full inline-block transition text-stroke-color-transparent text-stroke-width-0.5 hover:text-stroke-color-current p-0 text-left text-[#1c1b1a] hover:opacity-70" data-cy="landing-page-profile-card-desktop-button" type="button" aria-label="View Full Bio" tabIndex={isExpanded ? 0 : -1}>
                           <span className="items-center inline-flex gap-2 content-center justify-center underline" data-cy="button-compartment">
                             <span><span className="underline">View Full Bio</span></span>
@@ -207,8 +207,8 @@ const TeamCarousel = ({ members, title }: { members: any[], title: string }) => 
                       className="flex h-full w-[277px] grow flex-col justify-between overflow-hidden p-6 transition-all lg:hidden bg-transparent"
                     >
                       <div className="flex flex-col justify-between gap-2 text-[#1c1b1a]">
-                        <p className="tracking-normal text-left text-inherit font-sans leading-normal text-lg font-bold">{member.name}</p>
-                        <p className="text-[0.875rem] tracking-normal text-left text-blue-600 font-sans leading-normal font-normal">{member.title}</p>
+                        <p className="tracking-normal text-left text-inherit leading-normal text-lg font-bold">{member.name}</p>
+                        <p className="text-[0.875rem] tracking-normal text-left text-blue-600 leading-normal font-normal">{member.title}</p>
                       </div>
                       <button className="rounded-full inline-block transition text-stroke-color-transparent text-stroke-width-0.5 hover:text-stroke-color-current p-0 text-left text-[#1c1b1a] hover:opacity-70 mt-4" data-cy="landing-page-profile-card-mobile-button" type="button" aria-label="View Full Bio">
                         <span className="items-center inline-flex gap-2 content-center justify-center underline" data-cy="button-compartment">

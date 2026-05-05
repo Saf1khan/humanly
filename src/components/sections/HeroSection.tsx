@@ -85,7 +85,7 @@ export const HeroSection = () => {
 
       <div className="absolute inset-0 flex flex-col justify-start pl-16 md:pl-24 lg:pl-32 pr-6 pt-[320px] z-20 pointer-events-none">
         <div className="pointer-events-auto">
-          <h1 ref={titleRef} className="hero-title text-left font-sans text-[36px] md:text-[48px] lg:text-[72px] leading-[1.1] text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] m-0 max-w-[85%] lg:max-w-[45%]">
+          <h1 ref={titleRef} className="hero-title text-left text-[36px] md:text-[48px] lg:text-[72px] leading-[1.1] text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] m-0 max-w-[85%] lg:max-w-[45%]">
             <HeroReveal delay="delay-100">
               <span className="block drop-shadow-none font-medium">
                 The neighborhood,
@@ -115,7 +115,7 @@ export const HeroSection = () => {
       <div className="absolute bottom-0 left-0 w-[75%] lg:w-[65%] h-[20%] lg:h-[20%] z-20 pointer-events-none flex flex-col justify-center pl-16 md:pl-24 lg:pl-32 pr-12 lg:pr-24">
         <div className="pointer-events-auto">
           <HeroReveal delay="delay-400">
-            <p className="text-base md:text-lg leading-[1.6] text-[#241f21] font-sans drop-shadow-[0_1px_3px_rgba(0,0,0,0.15)]">
+            <p className="text-base md:text-lg leading-[1.6] text-[#241f21] drop-shadow-[0_1px_3px_rgba(0,0,0,0.15)]">
               Humanly uplifts people’s lives by creating financially attainable, exceptional master-planned communities that champion health, wellness and education for all. Powered by intelligence. Sustained by services. We build places that make daily life simpler and more connected.
             </p>
           </HeroReveal>
@@ -145,7 +145,7 @@ export const HeroSection = () => {
 
             {/* Text & CTA */}
             <div className="flex flex-col justify-center px-4 py-3 lg:pl-6 lg:pr-7">
-              <p className="text-[0.875rem] text-[#e8e4db] font-sans font-medium mb-2 leading-snug">
+              <p className="text-[0.875rem] text-[#e8e4db] font-medium mb-2 leading-snug">
                 Humanly.<br />Explore the neighborhood.
               </p>
               <a href="/shop" className="inline-flex items-center gap-2">

@@ -141,7 +141,6 @@ export const PlatformSection = () => {
         .leading-snug { line-height: 1.375; }
         .leading-tighter { line-height: 1.1; }
         .tracking-tighter { letter-spacing: -0.05em; }
-        .font-sans { font-family: "AkkuratLL", sans-serif; }
         @keyframes mouse-scroll {
           0% { transform: translateY(0); opacity: 0; }
           20% { opacity: 1; }
@@ -298,13 +297,13 @@ export const PlatformSection = () => {
                       </div>
                     </div>
                     <h2 
-                      className="text-heading-lg md:text-heading-xl lg:text-heading-3xl text-left text-white font-sans mb-4 md:mb-6 leading-tighter font-normal tracking-tighter"
+                      className="text-heading-lg md:text-heading-xl lg:text-heading-3xl text-left text-white mb-4 md:mb-6 leading-tighter font-normal tracking-tighter"
                       style={{ textShadow: "0 2px 16px rgba(0,0,0,0.8)" }}
                     >
                       {layer.title}
                     </h2>
                     <p 
-                      className="text-left text-[#fefaef] font-sans font-normal text-lg md:text-xl leading-snug tracking-tighter lg:text-2xl"
+                      className="text-left text-[#fefaef] font-normal text-lg md:text-xl leading-snug tracking-tighter lg:text-2xl"
                       style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}
                     >
                       {layer.content}

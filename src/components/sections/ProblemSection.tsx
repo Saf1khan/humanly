@@ -138,11 +138,11 @@ export const ProblemSection = () => {
                             </div>
                             <div className="col-start-1 col-end-4 row-start-1 row-end-2 pt-6 pl-6">
                               <div className="relative inline-flex items-center justify-center overflow-hidden px-4 py-2 md:px-5 md:py-2.5 rounded-full border border-white/30 bg-white/20 backdrop-blur-lg shadow-sm">
-                                <span className="text-sm md:text-base text-left text-white font-sans leading-normal font-medium relative tracking-wide drop-shadow-sm">{card.title}</span>
+                                <span className="text-sm md:text-base text-left text-white leading-normal font-medium relative tracking-wide drop-shadow-sm">{card.title}</span>
                               </div>
                             </div>
                             <div className="col-start-1 md:col-start-1 lg:col-start-1 col-end-5 md:col-end-5 lg:col-end-4 row-start-4 row-end-5 relative self-end px-6 pb-6 md:pb-8 md:pr-0">
-                              <h3 className="text-xl md:text-2xl lg:text-3xl text-left text-white font-sans leading-tight font-medium">{card.description}</h3>
+                              <h3 className="text-xl md:text-2xl lg:text-3xl text-left text-white leading-tight font-medium">{card.description}</h3>
                             </div>
                           </div>
                         </div>

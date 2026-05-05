@@ -164,7 +164,7 @@ export const VillageCenterSection = () => {
                             {/* Expanding name label for the active item only */}
                             <span className={`flex items-center h-8 overflow-hidden transition-all duration-500 ease-in-out ${isActive ? "max-w-[130px] opacity-100 pr-2" : "max-w-0 opacity-0 pr-0"
                               }`}>
-                              <span className="text-[11px] whitespace-nowrap text-slate-800 font-semibold">
+                              <span className="text-[11px] whitespace-nowrap text-slate-800 font-medium">
                                 {item.name}
                               </span>
                             </span>
@@ -187,7 +187,7 @@ export const VillageCenterSection = () => {
 
                 </div>
 
-                <p className="text-white/80 text-xs font-semibold tracking-widest uppercase mb-1 drop-shadow-lg">
+                <p className="text-white/80 text-xs font-medium tracking-widest uppercase mb-1 drop-shadow-lg">
                   {activeIndex + 1} / {carouselItems.length}
                 </p>
               </div>
