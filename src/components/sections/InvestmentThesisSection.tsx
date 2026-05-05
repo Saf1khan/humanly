@@ -57,7 +57,7 @@ export const InvestmentThesisSection = () => {
         {/* Background Image (Absolute inside the single div) */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/pexels-ianr-21853691.jpg"
+            src="/images/AdobeStock_1909482653.jpeg"
             alt="Neighborhood"
             className="w-full h-full object-cover"
           />

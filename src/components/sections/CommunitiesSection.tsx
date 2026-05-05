@@ -19,37 +19,37 @@ const communitiesCards = [
     id: "card-1",
     title: "Attainable Housing",
     description: "Quality homes at 80–120% AMI for workforce families.",
-    image: "/images/pexels-anastasia-shuraeva-8466021.jpg"
+    image: "/images/AdobeStock_170554793.jpeg"
   },
   {
     id: "card-2",
     title: "Integrated Services",
     description: "Healthcare, education, wellness — all on-site.",
-    image: "/images/pexels-cottonbro-7484164.jpg"
+    image: "/images/AdobeStock_279224695.jpeg"
   },
   {
     id: "card-3",
     title: "Financial Empowerment",
     description: "Credit building and savings from day one.",
-    image: "/images/pexels-shkrabaanthony-5214992.jpg"
+    image: "/images/AdobeStock_386176147.jpeg"
   },
   {
     id: "card-4",
     title: "Community Connection",
     description: "Designed spaces that foster real relationships.",
-    image: "/images/pexels-tima-miroshnichenko-6914062.jpg"
+    image: "/images/AdobeStock_192330637.jpeg"
   },
   {
     id: "card-5",
     title: "Economic Mobility",
     description: "Job training, co-working, and business incubation.",
-    image: "/images/pexels-rdne-6647050.jpg"
+    image: "/images/AdobeStock_416790222.jpeg"
   },
   {
     id: "card-6",
     title: "Health & Wellness",
     description: "Preventative care integrated into daily life.",
-    image: "/images/pexels-silverkblack-23496452.jpg"
+    image: "/images/AdobeStock_536583618.jpeg"
   },
 ];
 
