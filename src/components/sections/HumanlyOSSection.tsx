@@ -56,16 +56,16 @@ export const HumanlyOSSection = () => {
           <RevealOnScroll delay="delay-100" className="w-full lg:w-[63%] flex flex-col justify-end pt-48 lg:pt-64 pb-4">
             <div className="mb-6">
               <div className="font-bold py-2 rounded-md uppercase inline-block bg-[#f7f1e8] text-xs px-3">
-                <p className="text-left text-[#1c1b1a] font-sans leading-normal font-bold">
+                <p className="text-left text-[#1c1b1a] leading-normal font-bold">
                   THE OPERATING SYSTEM
                 </p>
               </div>
             </div>
 
-            <h2 className="text-left text-white font-sans leading-tight font-bold mb-4 text-[2.5rem] md:text-[3rem] lg:text-[4rem] tracking-tight">
+            <h2 className="text-left text-white  leading-tight font-bold mb-4 text-[2.5rem] md:text-[3rem] lg:text-[4rem] tracking-tight">
               HumanlyOS<sup>&reg;</sup>
             </h2>
-            <p className="text-left text-white/90 font-sans leading-relaxed text-[1rem] md:text-[1.125rem] max-w-xl">
+            <p className="text-left text-white/90  leading-relaxed text-[1rem] md:text-[1.125rem] max-w-xl">
               The AI-native operating system that transforms community management from fragmented services into an integrated, revenue-generating platform.
             </p>
           </RevealOnScroll>
@@ -81,14 +81,14 @@ export const HumanlyOSSection = () => {
                   <div className="relative z-10 p-6 lg:p-8 flex flex-col h-full justify-center">
                     {/* ── Title + icon row ── */}
                     <div className="flex items-center justify-between mb-2">
-                      <h2 className="text-left font-sans leading-tight font-bold text-[1.25rem] text-[#f7f1e8]">
+                      <h2 className="text-left leading-tight font-bold text-[1.25rem] text-[#f7f1e8]">
                         {feature.title}
                       </h2>
                       <div className="text-white/80 shrink-0 ml-3">
                         <feature.icon className="w-6 h-6" strokeWidth={1.5} />
                       </div>
                     </div>
-                    <p className="text-left font-sans text-white/70 text-[0.95rem]">
+                    <p className="text-left text-white/70 text-[0.95rem]">
                       {feature.description}
                     </p>
                   </div>
@@ -114,14 +114,14 @@ export const HumanlyOSSection = () => {
                   <div className="relative z-10 p-6 flex flex-col h-full justify-center">
                     {/* ── Title + icon row ── */}
                     <div className="flex items-center justify-between mb-2">
-                      <h2 className="text-left text-[#f7f1e8] font-sans leading-tight font-bold text-[1.25rem]">
+                      <h2 className="text-left text-[#f7f1e8] leading-tight font-bold text-[1.25rem]">
                         {feature.title}
                       </h2>
                       <div className="text-white/80 shrink-0 ml-3">
                         <feature.icon className="w-6 h-6" strokeWidth={1.5} />
                       </div>
                     </div>
-                    <p className="text-left font-sans text-white/70 text-[0.95rem]">
+                    <p className="text-left text-white/70 text-[0.95rem]">
                       {feature.description}
                     </p>
                   </div>
