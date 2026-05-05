@@ -44,7 +44,7 @@ export const HeroSection = () => {
           className="absolute inset-0 w-full h-[120%] -top-[10%]"
         >
           <img
-            src="/images/pexels-pixabay-265755.jpg"
+            src="/images/AdobeStock_524972490.jpeg"
             alt="Hero Background"
             className="absolute inset-0 w-full h-full object-cover"
           />

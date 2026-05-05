@@ -18,28 +18,28 @@ const cards = [
     dot: "bg-orange-400",
     title: "Fragmented Development",
     description: "Housing, services, and technology developed in silos with no integration.",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop"
+    image: "/images/AdobeStock_446591769.jpeg"
   },
   {
     id: "problem-2",
     dot: "bg-blue-400",
     title: "Affordability Crisis",
     description: "Workforce families priced out of quality housing in thriving communities.",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop"
+    image: "/images/AdobeStock_322369552.jpeg"
   },
   {
     id: "problem-3",
     dot: "bg-purple-400",
     title: "Disconnected Services",
     description: "Residents navigate dozens of providers with no unified access point.",
-    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop"
+    image: "/images/AdobeStock_308963762.jpeg"
   },
   {
     id: "problem-4",
     dot: "bg-yellow-400",
     title: "No Wealth Building",
     description: "Traditional rentership extracts value with zero path to financial growth.",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop"
+    image: "/images/AdobeStock_289876368.jpeg"
   },
 ];
 
@@ -130,11 +130,13 @@ export const ProblemSection = () => {
                     <li key={card.id} className="snap-start shrink-0">
                       <div aria-label={card.title} className="motion-safe:transition-all motion-safe:duration-500 motion-safe:ease-in-out h-[388px] w-[80vw] max-w-[1440px] pb-8 md:h-[658px] md:w-[493px] group cursor-pointer">
                         <div className="h-full w-full overflow-hidden rounded-xl">
-                          <div className="grid h-full grid-cols-4 grid-rows-4 gap-4">
-                            <div className="col-start-1 col-end-5 row-start-1 row-end-5 relative">
+                          <div className="grid h-full grid-cols-4 grid-rows-4 gap-4 ">
+                            <div className="col-start-1 col-end-5 row-start-1 row-end-5 relative ">
                               <div style={{ height: "110%", position: "relative", transform: "translateY(-5.41763%)" }} className="transition-transform duration-700 group-hover:scale-105">
                                 <img alt={card.title} src={card.image} className="object-cover absolute w-full h-full left-0 top-0 right-0 bottom-0" draggable="false" loading="lazy" />
                               </div>
+                              {/* Top Overlay */}
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/15 pointer-events-none" />
                             </div>
                             <div className="col-start-1 col-end-4 row-start-1 row-end-2 pt-6 pl-6">
                               <div className="relative inline-flex items-center justify-center overflow-hidden px-4 py-2 md:px-5 md:py-2.5 rounded-full border border-white/30 bg-white/20 backdrop-blur-lg shadow-sm">
@@ -142,7 +144,7 @@ export const ProblemSection = () => {
                               </div>
                             </div>
                             <div className="col-start-1 md:col-start-1 lg:col-start-1 col-end-5 md:col-end-5 lg:col-end-4 row-start-4 row-end-5 relative self-end px-6 pb-6 md:pb-8 md:pr-0">
-                              <h3 className="text-xl md:text-2xl lg:text-3xl text-left text-white leading-tight font-medium">{card.description}</h3>
+                              <h3 className="text-xl md:text-2xl lg:text-3xl text-left text-white leading-tight font-medium drop-shadow-md">{card.description}</h3>
                             </div>
                           </div>
                         </div>
