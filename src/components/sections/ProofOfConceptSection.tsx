@@ -13,18 +13,18 @@ export const ProofOfConceptSection = () => {
           {/* Text Content Block */}
           <div className="order-2 lg:order-1 flex flex-col pt-8 lg:py-12">
             <RevealOnScroll>
-              <span className="block text-xs md:text-sm font-bold tracking-[0.2em] text-[#1C1B1A]/60 uppercase mb-2 md:mb-3">
+              <span className="block text-xs md:text-sm font-medium tracking-[0.2em] text-[#1C1B1A]/60 uppercase mb-2 md:mb-3">
                 Proof of Concept
               </span>
               <div className="h-[1px] w-[176] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full mb-2 md:mb-3"></div>
-              <h2 className="text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] text-left font-bold leading-tight text-sandstone-500 tracking-tight mb-6">
+              <h2 className="text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] text-left font-medium leading-tight text-sandstone-500 tracking-tight mb-6">
                 $5M flagship investment.<br className="hidden md:block" />
                 $100M projected value.
               </h2>
             </RevealOnScroll>
 
             <RevealOnScroll delay="delay-100">
-              <p className="text-base md:text-[1.125rem] text-sandstone-500/80 leading-relaxed mb-8 max-w-[540px]">
+              <p className="text-base md:text-[1.125rem] text-sandstone-500/80 font-normal leading-relaxed mb-8 max-w-[540px]">
                 Our first community demonstrates the full model — from AI-driven site selection through integrated services and compounding returns.
               </p>
             </RevealOnScroll>
@@ -35,7 +35,7 @@ export const ProofOfConceptSection = () => {
                   href="#" 
                   className="rounded-full text-center inline-block transition bg-[#1C1B1A] text-white hover:bg-black py-4 px-10 whitespace-nowrap shadow-xl hover:shadow-2xl hover:-translate-y-1"
                 >
-                  <span className="items-center inline-flex gap-2 content-center justify-center font-medium">
+                  <span className="items-center inline-flex gap-2 content-center justify-center font-normal">
                     View Investment Details
                   </span>
                 </a>

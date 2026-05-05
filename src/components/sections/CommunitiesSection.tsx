@@ -128,11 +128,11 @@ export const CommunitiesSection = () => {
           <header className="flex flex-col items-center text-center gap-6 mb-16 lg:mb-20">
             <div className="flex flex-col items-center gap-4 lg:gap-6">
               {/* Badge */}
-              <span className="text-[#1C1B1A]/60 text-xs font-bold tracking-[0.2em] uppercase">
+              <span className="text-[#1C1B1A]/60 text-xs font-normal tracking-[0.2em] uppercase">
                 THE COMMUNITIES
               </span>
 
-              <h2 className="text-4xl md:text-5xl lg:text-[4.5rem] leading-tight tracking-tight text-sandstone-500 max-w-5xl">
+              <h2 className="text-4xl md:text-5xl lg:text-[4.5rem] leading-tight font-medium tracking-tight text-sandstone-500 max-w-5xl">
                 Not just housing.<br />Launchpads for human potential.
               </h2>
               <div className="h-[1.5px] w-full max-w-[600px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
@@ -188,10 +188,10 @@ export const CommunitiesSection = () => {
                       </div>
 
                       <div className="relative z-10 p-10 md:p-14 flex flex-col justify-end h-full transition-transform duration-500 group-hover:translate-y-[-8px]">
-                        <h3 className="text-left text-white leading-tight font-bold mb-5 text-3xl md:text-4xl transition-colors duration-300">
+                        <h3 className="text-left text-white leading-tight font-medium mb-5 text-3xl md:text-4xl transition-colors duration-300">
                           {card.title}
                         </h3>
-                        <p className="text-left text-white/90 leading-relaxed font-medium text-lg md:text-xl transition-colors duration-300">
+                        <p className="text-left text-white/90 leading-relaxed font-normal text-lg md:text-xl transition-colors duration-300">
                           {card.description}
                         </p>
                       </div>

@@ -78,7 +78,7 @@ export const VillageCenterSection = () => {
               </h2>
             </RevealOnScroll>
             <RevealOnScroll delay="delay-100">
-              <p className="text-sandstone-500/80 text-base md:text-lg tracking-wide">
+              <p className="text-sandstone-500/80 text-base md:text-lg tracking-wide font-normal">
                 15 Integrated facilities · 90,000+ SF of community space
               </p>
             </RevealOnScroll>
@@ -111,14 +111,14 @@ export const VillageCenterSection = () => {
 
               {/* Active facility label - Title (Left Top) */}
               <div className="absolute top-6 left-6 md:top-10 md:left-10 z-10">
-                <p className="text-white text-2xl md:text-3xl font-bold drop-shadow-lg">
+                <p className="text-white text-2xl md:text-3xl font-medium drop-shadow-lg">
                   {carouselItems[activeIndex].name}
                 </p>
               </div>
 
               {/* Active facility label - Size (Right Top) */}
               <div className="absolute top-6 right-6 md:top-10 md:right-10 z-10">
-                <span className="text-white text-xl md:text-2xl font-bold drop-shadow-lg">
+                <span className="text-white text-xl md:text-2xl font-medium drop-shadow-lg">
                   {carouselItems[activeIndex].size}
                 </span>
               </div>
@@ -187,7 +187,7 @@ export const VillageCenterSection = () => {
 
                 </div>
 
-                <p className="text-white/80 text-xs font-medium tracking-widest uppercase mb-1 drop-shadow-lg">
+                <p className="text-white/80 text-xs tracking-widest uppercase mb-1 drop-shadow- font-medium">
                   {activeIndex + 1} / {carouselItems.length}
                 </p>
               </div>

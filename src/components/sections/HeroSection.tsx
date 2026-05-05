@@ -100,10 +100,10 @@ export const HeroSection = () => {
 
           <HeroReveal delay="delay-500">
             <div className="flex flex-col xl:flex-row gap-4 mt-8">
-              <a href="#" className="px-6 py-3 bg-white text-[#1a1818] rounded-full font-medium text-xs text-center transition-opacity hover:opacity-80 shadow-2xl drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)] whitespace-nowrap">
+              <a href="#" className="px-6 py-3 bg-white text-[#1a1818] rounded-full font-normal text-xs text-center transition-opacity hover:opacity-80 shadow-2xl drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)] whitespace-nowrap">
                 FOR INVESTORS
               </a>
-              <a href="#" className="px-6 py-3 bg-black/20 text-white rounded-full font-medium text-xs text-center border border-white/40 transition-colors hover:bg-white hover:text-[#1a1818] shadow-2xl drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)] whitespace-nowrap backdrop-blur-md">
+              <a href="#" className="px-6 py-3 bg-black/20 text-white rounded-full font-normal text-xs text-center border border-white/40 transition-colors hover:bg-white hover:text-[#1a1818] shadow-2xl drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)] whitespace-nowrap backdrop-blur-md">
                 FOR STRATEGIC PARTNERS
               </a>
             </div>
@@ -115,7 +115,7 @@ export const HeroSection = () => {
       <div className="absolute bottom-0 left-0 w-[75%] lg:w-[65%] h-[20%] lg:h-[20%] z-20 pointer-events-none flex flex-col justify-center pl-16 md:pl-24 lg:pl-32 pr-12 lg:pr-24">
         <div className="pointer-events-auto">
           <HeroReveal delay="delay-400">
-            <p className="text-base md:text-lg leading-[1.6] text-[#241f21] drop-shadow-[0_1px_3px_rgba(0,0,0,0.15)]">
+            <p className="text-base md:text-lg font-normal leading-[1.6] text-[#241f21] drop-shadow-[0_1px_3px_rgba(0,0,0,0.15)]">
               Humanly uplifts people’s lives by creating financially attainable, exceptional master-planned communities that champion health, wellness and education for all. Powered by intelligence. Sustained by services. We build places that make daily life simpler and more connected.
             </p>
           </HeroReveal>
@@ -145,11 +145,11 @@ export const HeroSection = () => {
 
             {/* Text & CTA */}
             <div className="flex flex-col justify-center px-4 py-3 lg:pl-6 lg:pr-7">
-              <p className="text-[0.875rem] text-[#e8e4db] font-medium mb-2 leading-snug">
+              <p className="text-[0.875rem] text-[#e8e4db] mb-2 leading-snug font-normal">
                 Humanly.<br />Explore the neighborhood.
               </p>
               <a href="/shop" className="inline-flex items-center gap-2">
-                <span className="text-[0.875rem] font-bold text-[#e8e4db]">Explore Now</span>
+                <span className="text-[0.875rem] font-normal text-[#e8e4db]">Explore Now</span>
                 <svg className="w-4 h-4 text-[#e8e4db] transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                 </svg>
