@@ -8,6 +8,7 @@ import { LandLeasingSection } from "@/components/sections/LandLeasingSection";
 import { VillageCenterSection } from "@/components/sections/VillageCenterSection";
 import { ProofOfConceptSection } from "@/components/sections/ProofOfConceptSection";
 import { HumanlyOSSection } from "@/components/sections/HumanlyOSSection";
+import { CircleOfServicesSection } from "@/components/sections/CircleOfServicesSection";
 import { FinancialServicesSection } from "@/components/sections/FinancialServicesSection";
 import { TransactionFlowSection } from "@/components/sections/TransactionFlowSection";
 import { TeamSection } from "@/components/sections/TeamSection";
@@ -74,6 +75,7 @@ export default function Home() {
           <VillageCenterSection />
           <ProofOfConceptSection />
           <HumanlyOSSection />
+          <CircleOfServicesSection />
           <FinancialServicesSection />
           <TransactionFlowSection />
           <TeamSection />

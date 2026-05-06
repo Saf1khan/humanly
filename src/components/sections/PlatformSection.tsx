@@ -214,9 +214,9 @@ export const PlatformSection = () => {
                         pointerEvents: isVisible ? "auto" : "none",
                       }}
                     >
-                      <div className="size-full overflow-hidden" style={{ height: "100%" }}>
+                      <div className="size-full overflow-hidden bg-black" style={{ height: "100%" }}>
                         <div
-                          className="relative size-full"
+                          className="relative size-full bg-black"
                           style={{
                             height: "100%",
                             transform: isVisible ? "scale(1)" : "scale(1.2)",
@@ -229,14 +229,10 @@ export const PlatformSection = () => {
                               loop
                               muted
                               playsInline
+                              src={layer.media.src}
                               className="size-full object-cover object-center w-full h-full"
                               style={{ maskImage: "none", backfaceVisibility: "hidden" }}
-                            >
-                              <source
-                                type="video/mp4"
-                                src={layer.media.src}
-                              />
-                            </video>
+                            />
                           ) : (
                             <img
                               alt={layer.title}
