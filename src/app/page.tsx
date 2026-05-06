@@ -18,23 +18,23 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black">
       {/* Seamless Light Background Container */}
-      <div className="relative bg-[#fcfaf7] overflow-x-clip">
-
+      <div className="relative bg-[#fcfaf7] overflow-hidden">
+        
         {/* Continuous Background Gradients */}
-        <div
-          className="absolute pointer-events-none left-0 -translate-x-1/2 top-0 w-[1200px] h-[1200px] opacity-20"
+        <div 
+          className="absolute pointer-events-none left-0 -translate-x-1/2 top-0 w-[1200px] h-[1200px] opacity-20" 
           style={{ background: "radial-gradient(50% 50%, #827E7A 0%, rgba(130, 126, 122, 0) 100%)" }}
         />
-        <div
-          className="absolute pointer-events-none right-0 translate-x-1/4 top-1/4 w-[1000px] h-[1000px] opacity-15"
+        <div 
+          className="absolute pointer-events-none right-0 translate-x-1/4 top-1/4 w-[1000px] h-[1000px] opacity-15" 
           style={{ background: "radial-gradient(50% 50%, #827E7A 0%, rgba(130, 126, 122, 0) 100%)" }}
         />
-        <div
-          className="absolute pointer-events-none left-1/4 -translate-x-1/2 top-1/2 w-[1200px] h-[1200px] opacity-20"
+        <div 
+          className="absolute pointer-events-none left-1/4 -translate-x-1/2 top-1/2 w-[1200px] h-[1200px] opacity-20" 
           style={{ background: "radial-gradient(50% 50%, #827E7A 0%, rgba(130, 126, 122, 0) 100%)" }}
         />
-        <div
-          className="absolute pointer-events-none right-1/4 translate-x-1/2 bottom-0 w-[1200px] h-[1200px] opacity-15"
+        <div 
+          className="absolute pointer-events-none right-1/4 translate-x-1/2 bottom-0 w-[1200px] h-[1200px] opacity-15" 
           style={{ background: "radial-gradient(50% 50%, #827E7A 0%, rgba(130, 126, 122, 0) 100%)" }}
         />
 
