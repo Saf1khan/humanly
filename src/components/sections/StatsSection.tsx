@@ -85,20 +85,18 @@ const StatCard = ({
   return (
     <motion.div
       whileHover={{ y: -4, scale: 1.02, transition: { duration: 0.2 } }}
-      className={`group relative h-full flex flex-col p-6 transition-all duration-500 overflow-hidden ${className || ""}`}
+      className={`group relative h-full flex flex-col p-8 transition-all duration-500 overflow-hidden items-center text-center ${className || ""}`}
     >
-
-
-      <div className="relative z-10 flex flex-row items-center justify-between w-full h-full gap-6">
-        <div className="flex flex-col flex-1">
-          <p className="text-4xl md:text-5xl lg:text-6xl  text-[#f7f1e8] mb-2 tracking-tight font-medium">
+      <div className="relative z-10 flex flex-col items-center justify-center w-full h-full gap-4">
+        <div className="flex flex-col items-center">
+          <p className="text-4xl md:text-5xl lg:text-6xl text-[#0c007a]/70  mb-3 tracking-tight font-medium">
             <CountUpNumber prefix={prefix} end={value} suffix={suffix} />
           </p>
-          <h3 className="text-[1.25rem] font-medium text-[#f7f1e8] mb-1">
+          <h3 className="text-[1.25rem] font-bold text-[#0c007a]/80 mb-2">
             {label}
           </h3>
           {description && (
-            <p className="text-[0.95rem] text-white/70 leading-relaxed font-normal">
+            <p className="text-[0.95rem] text-[#241f21]/70 leading-relaxed font-normal max-w-[280px]">
               {description}
             </p>
           )}
@@ -121,38 +119,43 @@ export const StatsSection = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full flex flex-col justify-center py-16 lg:py-0 overflow-hidden bg-transparent"
+      className="relative w-full flex flex-col justify-center p-4 md:p-10 pb-0 md:pb-0"
     >
-      <div className="max-w-5xl mx-auto  px-6 md:px-12 lg:px-1 z-10">
-        <div className="grid grid-cols-1 mt-4 -mb-1 md:grid-cols-3 gap-8 lg:gap-12">
-          <StatCard
-            value={5}
-            prefix="$"
-            suffix="M"
-            label="Flagship Investment"
-            className="
+      <div className="relative w-full rounded-[2rem] overflow-hidden pt-16 lg:pt-0 pb-0 z-10 border border-white/20 flex flex-col justify-center items-center">
+        {/* Background Image replaced the CSS gradient */}
+        <img
+          src="/images/HeroGradient.jpg"
+          alt="Background Gradient"
+          className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none opacity-75"
+        />
 
-"
-            delay="delay-100"
-          />
+        <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 mt-4 -mb-1 md:grid-cols-3 gap-8 lg:gap-12">
+            <StatCard
+              value={5}
+              prefix="$"
+              suffix="M"
+              label="Flagship Investment"
+              className=""
+              delay="delay-100"
+            />
 
-          <StatCard
-            value={100}
-            prefix="$"
-            suffix="M"
-            label="Projected Value"
-            delay="delay-200"
+            <StatCard
+              value={100}
+              prefix="$"
+              suffix="M"
+              label="Projected Value"
+              delay="delay-200"
+            />
 
-          />
-
-          <StatCard
-            value={20}
-            prefix="$"
-            suffix="M"
-            label="Capital Expansion"
-            delay="delay-300"
-
-          />
+            <StatCard
+              value={20}
+              prefix="$"
+              suffix="M"
+              label="Capital Expansion"
+              delay="delay-300"
+            />
+          </div>
         </div>
       </div>
     </section>
