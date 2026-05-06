@@ -13,6 +13,7 @@ import { TransactionFlowSection } from "@/components/sections/TransactionFlowSec
 import { TeamSection } from "@/components/sections/TeamSection";
 import { DataRoomForm } from "@/components/features/DataRoomForm";
 import { Footer } from "@/components/layout/Footer";
+import { CircleOfServicesSection } from "@/components/sections/CircleOfServicesSection";
 
 export default function Home() {
   return (
@@ -50,6 +51,7 @@ export default function Home() {
         <VillageCenterSection />
         <ProofOfConceptSection />
         <HumanlyOSSection />
+        <CircleOfServicesSection />
         <FinancialServicesSection />
         <TransactionFlowSection />
         <TeamSection />
