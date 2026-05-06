@@ -18,7 +18,7 @@ const cards = [
     dot: "bg-orange-400",
     title: "Fragmented Development",
     description: "Housing, services, and technology developed in silos with no integration.",
-    image: "/images/AdobeStock_446591769.jpeg"
+    image: "/images/pexels-pavel-danilyuk-7937750.jpg"
   },
   {
     id: "problem-2",

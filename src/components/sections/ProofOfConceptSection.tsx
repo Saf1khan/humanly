@@ -4,12 +4,12 @@ import { RevealOnScroll } from "../ui/RevealOnScroll";
 
 export const ProofOfConceptSection = () => {
   return (
-    <section 
+    <section
       className="relative w-full py-16 lg:py-24 overflow-hidden"
     >
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          
+
           {/* Text Content Block */}
           <div className="order-2 lg:order-1 flex flex-col pt-8 lg:py-12">
             <RevealOnScroll>
@@ -31,8 +31,8 @@ export const ProofOfConceptSection = () => {
 
             <RevealOnScroll delay="delay-200">
               <div className="flex flex-col sm:flex-row items-start gap-4">
-                <a 
-                  href="#" 
+                <a
+                  href="#"
                   className="rounded-full text-center inline-block transition bg-[#1C1B1A] text-white hover:bg-black py-4 px-10 whitespace-nowrap shadow-xl hover:shadow-2xl hover:-translate-y-1"
                 >
                   <span className="items-center inline-flex gap-2 content-center justify-center font-normal">
@@ -47,12 +47,12 @@ export const ProofOfConceptSection = () => {
           <div className="order-1 lg:order-2 w-full">
             <RevealOnScroll delay="delay-300">
               <div className="relative overflow-hidden rounded-[2rem] aspect-square lg:aspect-[4/3] shadow-xl border border-white/20">
-                <img 
-                  alt="M.D. in a lab coat reviewing data" 
-                  loading="lazy" 
-                  decoding="async" 
-                  className="object-cover absolute inset-0 w-full h-full transition-transform duration-1000 hover:scale-105" 
-                  src="/images/pexels-ninobur-16808494.jpg" 
+                <img
+                  alt="M.D. in a lab coat reviewing data"
+                  loading="lazy"
+                  decoding="async"
+                  className="object-cover absolute inset-0 w-full h-full transition-transform duration-1000 hover:scale-105"
+                  src="/images/AdobeStock_1011273017.jpeg"
                 />
               </div>
             </RevealOnScroll>
