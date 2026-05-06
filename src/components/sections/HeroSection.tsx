@@ -41,12 +41,12 @@ export const HeroSection = () => {
         {/* The Parallax Image */}
         <motion.div
           style={{ y, scale }}
-          className="absolute inset-0 w-full h-[120%] -top-[10%]"
+          className="absolute inset-0 w-full h-[100%] -top-[0%]"
         >
           <img
-            src="/images/AdobeStock_524972490.jpeg"
+            src="/images/pexels-gustavo-fring-4871790.jpg"
             alt="Hero Background"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover object-top"
           />
         </motion.div>
 

@@ -9,7 +9,7 @@ const layerRows = [
     title: "Intelligence",
     content:
       "AI-driven site selection, market analysis, and community design. Machine learning models evaluate 200+ data points per site.",
-    media: { type: "video", src: "/images/5031099-uhd_3840_2160_30fps.mp4" }
+    media: { type: "image", src: "/images/AdobeStock_117288790.jpeg" }
   },
   {
     id: "layer1",
@@ -17,7 +17,7 @@ const layerRows = [
     title: "Land & Entitlement",
     content:
       "Strategic acquisition paired with municipal partnerships to secure entitlements, tax incentives, and below-market financing.",
-    media: { type: "image", src: "/images/pexels-anastasia-shuraeva-8466021.jpg" }
+    media: { type: "image", src: "/images/pexels-khwanchai-4175028.jpg" }
   },
   {
     id: "layer2",
@@ -25,7 +25,7 @@ const layerRows = [
     title: "Development",
     content:
       "A hybrid construction approach combining modular efficiency with traditional quality — reducing build timelines by 30% and costs by 20%.",
-    media: { type: "image", src: "/images/pexels-cedric-fauntleroy-4269934.jpg" }
+    media: { type: "image", src: "/images/AdobeStock_446591769.jpeg" }
   },
   {
     id: "layer3",
@@ -33,7 +33,7 @@ const layerRows = [
     title: "Operations",
     content:
       "HumanlyOS® manages leasing, maintenance, resident communications, and compliance — reducing cost per unit while improving resident satisfaction.",
-    media: { type: "image", src: "/images/pexels-cflaten-5767823.jpg" }
+    media: { type: "image", src: "/images/AdobeStock_481834806.jpeg" }
   },
   {
     id: "layer4",
@@ -41,7 +41,7 @@ const layerRows = [
     title: "Services",
     content:
       "Eight integrated service categories transacted through the Humanly platform — healthcare, childcare, education, food, legal, mobility, financial wellness, and workforce.",
-    media: { type: "image", src: "/images/pexels-cottonbro-7484164.jpg" }
+    media: { type: "image", src: "/images/AdobeStock_316858529.jpeg" }
   },
   {
     id: "layer5",
@@ -49,7 +49,7 @@ const layerRows = [
     title: "Financial",
     content:
       "HumanlyPay™ delivers embedded credit building, savings, micro-lending, and insurance products directly to residents.",
-    media: { type: "image", src: "/images/pexels-enginakyurt-19996231.jpg" }
+    media: { type: "image", src: "/images/AdobeStock_197456585.jpeg" }
   },
   {
     id: "layer6",
@@ -57,7 +57,7 @@ const layerRows = [
     title: "Compounding",
     content:
       "Every resident interaction generates anonymized data that improves service delivery and creates compounding network effects across the ecosystem.",
-    media: { type: "image", src: "/images/pexels-hiroom-17227606.jpg" }
+    media: { type: "image", src: "/images/AdobeStock_474955912.jpeg" }
   },
   {
     id: "capture-rev",
@@ -65,7 +65,7 @@ const layerRows = [
     title: "Revenue Aggregation",
     content:
       "Five discrete revenue streams — NOI, service fees, financial product margins, data licensing, and platform fees — compound into a diversified return profile.",
-    media: { type: "video", src: "/images/7982599-hd_1920_1080_30fps.mp4" }
+    media: { type: "image", src: "/images/AdobeStock_331233554.jpeg" }
   },
   {
     id: "moat",
@@ -84,11 +84,11 @@ export const PlatformSection = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (!containerRef.current) return;
-      
+
       const { top } = containerRef.current.getBoundingClientRect();
       const scrollY = -top;
       const sectionHeight = window.innerHeight;
-      
+
       if (scrollY < 0) {
         setActiveIndex(0);
       } else {
@@ -103,7 +103,7 @@ export const PlatformSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full bg-[#fefaef] overflow-x-clip text-sandstone-500">
+    <section className="relative w-full bg-[#fefaef] overflow-x-clip text-sandstone-500 ">
       <style>{`
         .gridContainerV3 {
           --smallGutter: 24px;
@@ -119,6 +119,7 @@ export const PlatformSection = () => {
           }
         }
         .col-start-main { grid-column-start: main-start; }
+        .col-start-full { grid-column-start: full-start; }
         .col-end-main { grid-column-end: main-end; }
         
         @media (min-width: 1024px) {
@@ -241,7 +242,7 @@ export const PlatformSection = () => {
                               style={{ maskImage: "none", backfaceVisibility: "hidden" }}
                             />
                           )}
-                          <div className="absolute inset-0 bg-black/10 mix-blend-overlay"></div>
+                          <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-transparent to-transparent"></div>
                         </div>
                       </div>
                     </div>
@@ -263,9 +264,9 @@ export const PlatformSection = () => {
 
             {/* Left Side Text Content Overlaid */}
             <div
-              className="col-start-main col-end-main lg:col-end-11 xl:col-end-8 relative h-full flex items-center z-10 px-6 md:px-12 lg:px-16"
+              className="col-start-full col-end-main lg:col-end-11 xl:col-end-8 relative h-full flex items-center z-10"
               data-cy="gridItem_div"
-              style={{ gridRow: "1 / -1" }}
+              style={{ gridRow: "1 / -1", paddingLeft: "48px", paddingRight: "24px" }}
             >
               {layerRows.map((layer, index) => {
                 const isActive = activeIndex === index;
@@ -282,6 +283,8 @@ export const PlatformSection = () => {
                       transform: isActive ? "translateY(0px)" : isFuture ? "translateY(32px)" : "translateY(-32px)",
                       pointerEvents: isActive ? "auto" : "none",
                       zIndex: isActive ? 10 : 0,
+                      paddingLeft: "72px",
+                      paddingRight: "120px",
                     }}
                     data-cy="pop-highlighted-features-content"
                   >
@@ -299,7 +302,7 @@ export const PlatformSection = () => {
                       {layer.title}
                     </h2>
                     <p 
-                      className="text-left text-[#fefaef] font-normal text-lg md:text-xl leading-relaxed lg:text-2xl"
+                      className="text-left text-[#fefaef] font-normal text-lg md:text-xl leading-snug tracking-tighter lg:text-2xl"
                       style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}
                     >
                       {layer.content}
