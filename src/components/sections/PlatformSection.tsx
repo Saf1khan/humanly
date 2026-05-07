@@ -49,7 +49,7 @@ const layerRows = [
     title: "Financial",
     content:
       "HumanlyPay™ delivers embedded credit building, savings, micro-lending, and insurance products directly to residents.",
-    media: { type: "image", src: "/images/AdobeStock_197456585.jpeg" }
+    media: { type: "image", src: "/images/AdobeStock_456566813.jpeg" }
   },
   {
     id: "layer6",
@@ -57,7 +57,7 @@ const layerRows = [
     title: "Compounding",
     content:
       "Every resident interaction generates anonymized data that improves service delivery and creates compounding network effects across the ecosystem.",
-    media: { type: "image", src: "/images/AdobeStock_474955912.jpeg" }
+    media: { type: "image", src: "/images/AdobeStock_815248903.jpeg" }
   },
   {
     id: "capture-rev",
@@ -73,7 +73,7 @@ const layerRows = [
     title: "Vertical Integration",
     content:
       "By owning the land, building, operating system, services, and financial layer, Humanly creates a defensible moat no horizontal competitor can replicate.",
-    media: { type: "image", src: "/images/pexels-ron-lach-10037036.jpg" }
+    media: { type: "image", src: "/images/Aerial_image_of_Schwerin_Castle_(view_from_the_east).jpg" }
   },
 ];
 
@@ -215,7 +215,7 @@ export const PlatformSection = () => {
                         pointerEvents: isVisible ? "auto" : "none",
                       }}
                     >
-                      <div className="size-full overflow-hidden bg-black" style={{ height: "100%" }}>
+                      <div className="size-full overflow-hidden bg-black" style={{ height: "130%" }}>
                         <div
                           className="relative size-full bg-black"
                           style={{
@@ -295,13 +295,13 @@ export const PlatformSection = () => {
                         </span>
                       </div>
                     </div>
-                    <h2 
+                    <h2
                       className="text-heading-lg md:text-heading-xl lg:text-heading-3xl text-left text-white mb-4 md:mb-6 leading-relaxed font-medium"
                       style={{ textShadow: "0 2px 16px rgba(0,0,0,0.8)" }}
                     >
                       {layer.title}
                     </h2>
-                    <p 
+                    <p
                       className="text-left text-[#fefaef] font-normal text-lg md:text-xl leading-snug tracking-tighter lg:text-2xl"
                       style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}
                     >
