@@ -50,15 +50,24 @@ export const CircleOfServicesSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full bg-[#020108] flex flex-col items-center overflow-hidden pt-24 pb-32">
+    <section className="relative w-full bg-transparent flex flex-col items-center overflow-hidden pt-24 pb-32">
+      {/* Background Gradients */}
+      <div
+        className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
+      />
+      <div
+        className="absolute pointer-events-none left-0 -translate-x-1/2 top-1/2 -translate-y-1/4 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
+      />
       
       {/* Title & Description - Top Left */}
       <div className="w-full z-20 mb-16 md:mb-24">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 w-full flex flex-col items-start">
-          <h2 className="text-left text-white font-sans leading-tight font-bold text-[2.5rem] md:text-[3rem] lg:text-[4rem] tracking-tight">
+          <h2 className="text-left text-sandstone-500 font-sans leading-tight font-bold text-[2.5rem] md:text-[3rem] lg:text-[4rem] tracking-tight">
             Circle of Services
           </h2>
-          <p className="mt-4 md:mt-6 text-left text-white/80 max-w-[22rem] md:max-w-lg lg:max-w-xl text-[1.1rem] md:text-[1.25rem] leading-relaxed font-sans">
+          <p className="mt-4 md:mt-6 text-left text-[#1C1B1A]/70 max-w-[22rem] md:max-w-lg lg:max-w-xl text-[1.1rem] md:text-[1.25rem] leading-relaxed font-sans">
             Humanly’s Circle of Services is a fully integrated ecosystem designed to support the whole person by bringing everyday essentials together in one seamless experience.
           </p>
         </div>
@@ -91,7 +100,7 @@ export const CircleOfServicesSection = () => {
             return (
               <div 
                 key={index}
-                className={`absolute w-28 h-28 md:w-36 md:h-36 -translate-x-1/2 -translate-y-1/2 rounded-[2rem] overflow-hidden pointer-events-auto group cursor-pointer transition-all duration-[1000ms] ease-in-out ${activeIndex === index ? 'opacity-100 scale-125 shadow-[0_0_40px_rgba(255,255,255,0.15)] z-20' : 'opacity-40 scale-95 shadow-[0_8px_24px_rgba(0,0,0,0.2)] z-10'}`}
+                className={`absolute w-28 h-28 md:w-36 md:h-36 -translate-x-1/2 -translate-y-1/2 rounded-[2rem] overflow-hidden pointer-events-auto group cursor-pointer transition-all duration-[1000ms] ease-in-out ${activeIndex === index ? 'opacity-100 scale-125 bg-white shadow-[0_0_60px_rgba(245,93,51,0.3)] z-20' : 'opacity-80 scale-95 bg-white shadow-[0_8px_24px_rgba(0,0,0,0.08)] z-10'}`}
                 style={{ left: `${x}%`, top: `${y}%` }}
               >
                 <div 
@@ -150,13 +159,13 @@ export const CircleOfServicesSection = () => {
               className={`absolute inset-0 z-10 transition-opacity duration-500 ease-in-out flex flex-col justify-center items-start ${activeIndex === index ? 'opacity-100' : 'opacity-0'}`}
             >
 
-              <h3 className="text-[#f7f1e8] text-[1.5rem] font-bold tracking-tight mb-6 uppercase">
+              <h3 className="text-sandstone-500 text-[1.5rem] font-bold tracking-tight mb-6 uppercase">
                 {item.label}
               </h3>
               <ul className="flex flex-col gap-4">
                 {item.details.map((detail, idx) => (
-                  <li key={idx} className="flex items-start text-white/80 text-[1.05rem] leading-snug">
-                    <span className="mr-3 text-white/50 font-bold mt-1">•</span>
+                  <li key={idx} className="flex items-start text-[#1C1B1A]/80 text-[1.05rem] leading-snug">
+                    <span className="mr-3 text-sandstone-500/50 font-bold mt-1">•</span>
                     <span>{detail}</span>
                   </li>
                 ))}
