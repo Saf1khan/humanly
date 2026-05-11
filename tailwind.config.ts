@@ -33,7 +33,7 @@ const config: Config = {
       },
       theme: {
         extend: {
-          fontFamily: {
+      fontFamily: {
             sans: ['"Neue Haas Grotesk"', 'ui-sans-serif', 'system-ui'],
           },
         },
