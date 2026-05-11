@@ -31,12 +31,8 @@ const config: Config = {
           900: "var(--color-slate-900)",
         },
       },
-      theme: {
-        extend: {
       fontFamily: {
-            sans: ['"Neue Haas Grotesk"', 'ui-sans-serif', 'system-ui'],
-          },
-        },
+        sans: ['"Neue Haas Grotesk"', 'ui-sans-serif', 'system-ui'],
       },
     },
   },
