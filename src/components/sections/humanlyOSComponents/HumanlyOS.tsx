@@ -243,7 +243,7 @@ export const HumanlyOSSection = () => {
                 className={`group relative p-8 bg-[#ffffff]/60 backdrop-blur-xl border border-black/5 rounded-2xl cursor-pointer transition-all duration-500 hover:bg-[#ffffff] hover:border-black/10 shadow-sm ${idx === 2 ? 'md:col-span-2' : ''} ${activePillar === pillar.id ? 'bg-[#ffffff] ring-1 ring-black/5 shadow-xl' : ''}`}
               >
                 <div className="h-0.5 w-10 rounded-full mb-6" style={{ backgroundColor: pillar.color }} />
-                <div className="font-sans text-[10px] font-medium tracking-[0.2em] text-[#8a8880] mb-2 uppercase">{pillar.label}</div>
+
                 <h4 className="font-sans text-xl font-bold text-[#1e2427] mb-3 uppercase">{pillar.name}</h4>
                 <p className="text-[#8a8880] text-xs font-light leading-relaxed mb-4">{pillar.desc}</p>
 
@@ -342,7 +342,7 @@ export const HumanlyOSSection = () => {
         <section className="bg-white/20 backdrop-blur-lg border border-white/30 rounded-b-[40px] p-8 md:p-14 shadow-[0_20px_50px_rgba(0,0,0,0.01)]">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div className="space-y-4">
-             
+
               <h2 className="font-sans text-4xl md:text-6xl font-bold text-[#1e2427]/90 uppercase leading-[0.95] tracking-tight">
                 Transaction<br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e8622a]/80 to-[#c9a84c]/80">Flow</span>
