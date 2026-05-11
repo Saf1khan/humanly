@@ -15,11 +15,12 @@ import { DataRoomForm } from "@/components/features/DataRoomForm";
 import { Footer } from "@/components/layout/Footer";
 import { CircleOfServicesSection } from "@/components/sections/CircleOfServicesSection";
 
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-black">
       {/* Seamless Light Background Container */}
-      <div className="relative bg-[#fcfaf7] overflow-x-clip">
+      <div className="relative bg-white overflow-x-clip">
 
         {/* Continuous Background Gradients */}
         <div

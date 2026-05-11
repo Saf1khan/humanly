@@ -18,13 +18,13 @@ const financialCards = [
     id: "card-1",
     title: "Credit Building",
     description: "Rent reporting and credit coaching from move-in.",
-    image: "/images/pexels-anastasia-shuraeva-8466021.jpg"
+    image: "/images/AdobeStock_571214762.jpeg"
   },
   {
     id: "card-2",
     title: "Savings Programs",
     description: "Automated savings with community-matched deposits.",
-    image: "/images/pexels-cottonbro-7484164.jpg"
+    image: "/images/AdobeStock_536583618.jpeg"
   },
   {
     id: "card-3",

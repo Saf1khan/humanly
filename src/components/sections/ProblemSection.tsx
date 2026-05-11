@@ -16,8 +16,8 @@ const ArrowIcon = ({ direction }: { direction: "left" | "right" }) => (
 const cards = [
   {
     id: "problem-1",
-    title: "Fragmented Development",
-    description: "Housing, services, and technology developed in silos with no integration.",
+    title: "EXPENSIVE AND SLOW TO BUILD",
+    description: "Margin stacking across intermediaries makes attainable housing structurally inefficient. Each handoff adds cost, fragments intelligence, and weakens alignment with real resident needs causing value leakage, rising prices, and constrained supply.",
     image: "/images/pexels-pavel-danilyuk-7937750.jpg"
   },
   {
@@ -46,7 +46,7 @@ const cards = [
     title: "Isolated Communities",
     description:
       "A lack of central gathering spaces leads to social isolation and reduced community engagement.",
-    image: "/images/AdobeStock_416790222.jpeg", 
+    image: "/images/AdobeStock_416790222.jpeg",
   }
 ];
 
