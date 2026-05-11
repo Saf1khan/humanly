@@ -51,9 +51,6 @@ export default function Home() {
         <VillageCenterSection />
         <ProofOfConceptSection />
         <HumanlyOSSection />
-        <CircleOfServicesSection />
-        <FinancialServicesSection />
-        <TransactionFlowSection />
         <TeamSection />
 
       </div>

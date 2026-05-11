@@ -54,14 +54,14 @@ export const Nav = () => {
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-center gap-16">
               
               {/* Dropdown Card 1 */}
-              <div className="w-[300px] group cursor-pointer">
+              <a href="/humanly-os" className="w-[300px] group cursor-pointer">
                  <div className="aspect-[320/136] bg-[#4A4741] rounded-[2rem] overflow-hidden mb-4 relative">
                    <img src="/images/pexels-ianr-21853691.jpg" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Humanly OS" />
                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-5">
                       <p className="text-white text-lg font-medium">Humanly OS</p>
                    </div>
                  </div>
-              </div>
+              </a>
 
               {/* Dropdown List Items and Action */}
               <div className="flex flex-col gap-6 justify-center">
@@ -122,6 +122,14 @@ export const Nav = () => {
                 <a href="#" className={`group relative px-6 py-3 transition-all duration-300 ${useDarkText ? 'text-[#4A4741] hover:text-black' : 'text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80'}`}>
                   <span className="relative font-medium tracking-wide">
                     Communities
+                    <span className={`absolute -left-1 -bottom-1 h-[2px] w-[calc(100%+8px)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-60 ${useDarkText ? 'bg-[#4A4741]' : 'bg-white'}`}></span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="/humanly-os" className={`group relative px-6 py-3 transition-all duration-300 ${useDarkText ? 'text-[#4A4741] hover:text-black' : 'text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80'}`}>
+                  <span className="relative font-medium tracking-wide">
+                    HumanlyOS
                     <span className={`absolute -left-1 -bottom-1 h-[2px] w-[calc(100%+8px)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-60 ${useDarkText ? 'bg-[#4A4741]' : 'bg-white'}`}></span>
                   </span>
                 </a>
