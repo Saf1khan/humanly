@@ -111,8 +111,8 @@ export const Footer = () => {
             <div className="flex flex-col gap-4">
               <span className="text-base font-bold text-[#a8a5a0]">Our Company</span>
               <ul className="flex flex-col gap-2 text-sandstone-200">
-                {['About Us', 'Leadership', 'Impact', 'Careers', 'Newsroom'].map((link) => (
-                  <li key={link}><Link href="#" className="hover:text-white transition-colors">{link}</Link></li>
+                {['About Us', 'Team', 'Impact', 'Careers', 'Newsroom'].map((link) => (
+                  <li key={link}><Link href={link === 'Team' ? '/team' : '#'} className="hover:text-white transition-colors">{link}</Link></li>
                 ))}
               </ul>
             </div>
@@ -121,7 +121,7 @@ export const Footer = () => {
             <div className="flex flex-col gap-4">
               <span className="text-base font-bold text-[#a8a5a0]">Support</span>
               <ul className="flex flex-col gap-2 text-sandstone-200">
-                {['Help Center', 'Resident Support', 'Leasing Help', 'Financial FAQs', 'Contact'].map((link) => (
+                {['Help Center', 'Resident Support', 'Leasing Help', 'Financial FAQs', 'Invest'].map((link) => (
                   <li key={link}><Link href="#" className="hover:text-white transition-colors">{link}</Link></li>
                 ))}
               </ul>
