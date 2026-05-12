@@ -119,7 +119,7 @@ export const Nav = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className={`group relative px-6 py-3 transition-all duration-300 ${useDarkText ? 'text-[#4A4741] hover:text-black' : 'text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80'}`}>
+                <a href="/why-humanly" className={`group relative px-6 py-3 transition-all duration-300 ${useDarkText ? 'text-[#4A4741] hover:text-black' : 'text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80'}`}>
                   <span className="relative font-medium tracking-wide">
                     Why Humanly
                     <span className={`absolute -left-1 -bottom-1 h-[2px] w-[calc(100%+8px)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-60 ${useDarkText ? 'bg-[#4A4741]' : 'bg-white'}`}></span>
