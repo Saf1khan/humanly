@@ -32,7 +32,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['"Neue Haas Grotesk"', 'ui-sans-serif', 'system-ui'],
+        sans: ['"Neue Haas Grotesk Display Pro"', 'sans-serif', 'system-ui'],
       },
     },
   },

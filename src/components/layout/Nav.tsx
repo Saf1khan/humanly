@@ -67,7 +67,7 @@ export const Nav = () => {
               <div className="flex flex-col gap-6 justify-center">
                 <ul className="flex flex-col gap-4">
                   <li>
-                    <a href="#" className="group flex items-center gap-4">
+                    <a href="/team" className="group flex items-center gap-4">
                       <div className="size-10 bg-sandstone-300 rounded-lg overflow-hidden flex items-center justify-center">
                         <svg className="w-5 h-5 text-[#4A4741] group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -76,10 +76,21 @@ export const Nav = () => {
                       <span className="text-[#4A4741] transition-all group-hover:text-black group-hover:font-bold">The Team</span>
                     </a>
                   </li>
+                  <li>
+                    <a href="/invest" className="group flex items-center gap-4">
+                      <div className="size-10 bg-sandstone-300 rounded-lg overflow-hidden flex items-center justify-center">
+                        <svg className="w-5 h-5 text-[#4A4741] group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z" />
+                        </svg>
+                      </div>
+                      <span className="text-[#4A4741] transition-all group-hover:text-black group-hover:font-bold">Investors</span>
+                    </a>
+                  </li>
                 </ul>
 
                 <div className="pt-2">
-                  <a href="#" className="inline-flex items-center justify-center px-6 py-3 bg-slate-900 text-sandstone-200 font-bold rounded-full hover:bg-mustard-500 transition-colors shadow-lg">
+                  <a href="/invest#dataroom" className="inline-flex items-center justify-center px-6 py-3 bg-slate-900 text-sandstone-200 font-bold rounded-full hover:bg-mustard-500 transition-colors shadow-lg">
                     Request Data Room
                   </a>
                 </div>
@@ -138,6 +149,22 @@ export const Nav = () => {
                 <a href="/humanly-os" className={`group relative px-6 py-3 transition-all duration-300 ${useDarkText ? 'text-[#4A4741] hover:text-black' : 'text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80'}`}>
                   <span className="relative font-medium tracking-wide">
                     HumanlyOS
+                    <span className={`absolute -left-1 -bottom-1 h-[2px] w-[calc(100%+8px)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-60 ${useDarkText ? 'bg-[#4A4741]' : 'bg-white'}`}></span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="/team" className={`group relative px-6 py-3 transition-all duration-300 ${useDarkText ? 'text-[#4A4741] hover:text-black' : 'text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80'}`}>
+                  <span className="relative font-medium tracking-wide">
+                    Team
+                    <span className={`absolute -left-1 -bottom-1 h-[2px] w-[calc(100%+8px)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-60 ${useDarkText ? 'bg-[#4A4741]' : 'bg-white'}`}></span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="/invest" className={`group relative px-6 py-3 transition-all duration-300 ${useDarkText ? 'text-[#4A4741] hover:text-black' : 'text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80'}`}>
+                  <span className="relative font-medium tracking-wide">
+                    Invest
                     <span className={`absolute -left-1 -bottom-1 h-[2px] w-[calc(100%+8px)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-60 ${useDarkText ? 'bg-[#4A4741]' : 'bg-white'}`}></span>
                   </span>
                 </a>
