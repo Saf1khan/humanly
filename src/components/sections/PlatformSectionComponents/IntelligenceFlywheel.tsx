@@ -12,7 +12,7 @@ export const IntelligenceFlywheel = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="p-8 md:p-[72px] rounded-[32px] bg-[#1a1618]/80 border border-white/5 relative overflow-hidden backdrop-blur-xl"
+          className="p-8 md:p-[72px] rounded-[32px] bg-[#1a1618] border border-white/5 relative overflow-hidden"
         >
           {/* Subtle Background Glows */}
           <div className="absolute -top-20 -left-20 w-[400px] h-[400px] rounded-full blur-[120px] opacity-15 bg-[#4179F2]" />
