@@ -1,7 +1,6 @@
 import React from 'react';
 import { TeamHero } from '@/components/sections/teamComponents/TeamHero';
-import { LeadershipGrid } from '@/components/sections/teamComponents/LeadershipGrid';
-import { DevTeamGrid } from '@/components/sections/teamComponents/DevTeamGrid';
+import { TeamGrid } from '@/components/sections/teamComponents/TeamGrid';
 import { PartnersAdvisors } from '@/components/sections/teamComponents/PartnersAdvisors';
 import { CredentialsStrip } from '@/components/sections/teamComponents/CredentialsStrip';
 import { CultureSection } from '@/components/sections/teamComponents/CultureSection';
@@ -13,8 +12,7 @@ export default function TeamPage() {
     <main className="min-h-screen">
       <Nav />
       <TeamHero />
-      <LeadershipGrid />
-      <DevTeamGrid />
+      <TeamGrid />
       <PartnersAdvisors />
       <CredentialsStrip />
       <CultureSection />
