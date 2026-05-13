@@ -57,7 +57,7 @@ export const AcquisitionsPhase = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative p-8 md:p-12 rounded-[24px] bg-white/60 border border-black/5 overflow-hidden backdrop-blur-xl transition-all hover:bg-white/80 hover:border-black/10 shadow-sm border-l-4 border-l-[#D6C3A5]"
+              className="group relative p-8 md:p-12 rounded-[24px] bg-white border border-black/5 overflow-hidden transition-all hover:bg-slate-50 hover:border-black/10 shadow-sm border-l-4 border-l-[#D6C3A5]"
             >
               <div className="transition-all duration-500 ease-out group-hover:pl-8">
                 <div className={`absolute -top-5 -right-5 w-[110px] h-[110px] rounded-full blur-[70px] opacity-10 ${card.color}`} />

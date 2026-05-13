@@ -37,8 +37,8 @@ const Layer = ({ label, title, desc, cap, detail, phase, delay = 0 }: LayerProps
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
-      className="group rounded-[20px] bg-white/60 border border-black/5 overflow-hidden backdrop-blur-xl transition-all hover:bg-white/80 hover:border-black/10 shadow-sm relative"
-      style={{ 
+      className="group rounded-[24px] bg-white border border-black/5 overflow-hidden transition-all hover:border-black/10 shadow-xl relative"
+      style={{
         borderLeft: `4px solid ${colors[phase]}`
       }}
     >
@@ -91,9 +91,9 @@ export const VerticalStack = () => {
   return (
     <section className="py-[160px] relative overflow-hidden bg-white">
       {/* Background Image Layer with fixed opacity */}
-      <div 
+      <div
         className="absolute inset-0 pointer-events-none opacity-[21]"
-        style={{ 
+        style={{
           backgroundImage: "url('/images/AdobeStock_322369552.jpeg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -103,7 +103,7 @@ export const VerticalStack = () => {
 
       {/* Subtle Luminous Glows */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(214,195,165,0.4),transparent_50%)] pointer-events-none" />
-      
+
       {/* Logo-inspired Background Shapes */}
       <div
         className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.03]"
@@ -244,13 +244,13 @@ export const VerticalStack = () => {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="hidden lg:flex sticky top-[110px] flex-col gap-[10px]"
           >
-            <div className="rounded-[24px] p-[14px_12px] min-h-[150px] bg-white/40 border border-black/5 border-r-[3px] border-r-[#6BCEFF] backdrop-blur-md flex items-center justify-center text-center">
+            <div className="rounded-[24px] p-[14px_12px] min-h-[150px] bg-white border border-black/5 border-r-[3px] border-r-[#6BCEFF] flex items-center justify-center text-center shadow-sm">
               <span className="[writing-mode:vertical-rl] rotate-180 text-[11px] font-extrabold tracking-[0.12em] uppercase text-[#6BCEFF]">Management</span>
             </div>
-            <div className="rounded-[24px] p-[14px_12px] min-h-[150px] bg-white/40 border border-black/5 border-r-[3px] border-r-[#4179F2] backdrop-blur-md flex items-center justify-center text-center">
+            <div className="rounded-[24px] p-[14px_12px] min-h-[150px] bg-white border border-black/5 border-r-[3px] border-r-[#4179F2] flex items-center justify-center text-center shadow-sm">
               <span className="[writing-mode:vertical-rl] rotate-180 text-[11px] font-extrabold tracking-[0.12em] uppercase text-[#4179F2]">Lease-up</span>
             </div>
-            <div className="rounded-[24px] p-[14px_12px] min-h-[150px] bg-white/40 border border-black/5 border-r-[3px] border-r-[#D6C3A5] backdrop-blur-md flex items-center justify-center text-center">
+            <div className="rounded-[24px] p-[14px_12px] min-h-[150px] bg-white border border-black/5 border-r-[3px] border-r-[#D6C3A5] flex items-center justify-center text-center shadow-sm">
               <span className="[writing-mode:vertical-rl] rotate-180 text-[11px] font-extrabold tracking-[0.12em] uppercase text-[#D6C3A5]">Acquisitions</span>
             </div>
           </motion.div>

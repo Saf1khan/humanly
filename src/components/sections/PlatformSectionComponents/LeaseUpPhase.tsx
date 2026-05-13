@@ -49,7 +49,7 @@ export const LeaseUpPhase = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.2 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  className="group relative p-7 md:p-10 rounded-[24px] bg-white/60 border border-black/5 overflow-hidden backdrop-blur-xl transition-all hover:bg-white/80 hover:border-black/10 shadow-sm border-l-4 border-l-[#4179F2]"
+                  className="group relative p-7 md:p-10 rounded-[24px] bg-white border border-black/5 overflow-hidden transition-all hover:bg-slate-50 hover:border-black/10 shadow-sm border-l-4 border-l-[#4179F2]"
                 >
                   <div className="transition-all duration-500 ease-out group-hover:pl-8">
                     <h5 className="text-[20px] font-extrabold tracking-[-0.4px] text-slate-900 mb-3">{call.title}</h5>

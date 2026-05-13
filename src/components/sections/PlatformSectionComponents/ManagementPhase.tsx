@@ -58,7 +58,7 @@ export const ManagementPhase = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="group relative p-8 md:p-12 rounded-[24px] bg-white/60 border border-black/5 overflow-hidden backdrop-blur-xl transition-all hover:bg-white/80 hover:border-black/10 shadow-sm border-l-4 border-l-[#6BCEFF]"
+            className="group relative p-8 md:p-12 rounded-[24px] bg-white border border-black/5 overflow-hidden transition-all hover:bg-slate-50 hover:border-black/10 shadow-sm border-l-4 border-l-[#6BCEFF]"
           >
             <div className="transition-all duration-500 ease-out group-hover:pl-8">
               <div className="absolute -top-6 -right-6 w-[120px] h-[120px] rounded-full blur-[80px] opacity-10 bg-[#6BCEFF]" />
@@ -77,7 +77,7 @@ export const ManagementPhase = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="group relative p-8 md:p-12 rounded-[24px] bg-white/60 border border-black/5 overflow-hidden backdrop-blur-xl transition-all hover:bg-white/80 hover:border-black/10 shadow-sm border-l-4 border-l-[#6BCEFF]"
+            className="group relative p-8 md:p-12 rounded-[24px] bg-white border border-black/5 overflow-hidden transition-all hover:bg-slate-50 hover:border-black/10 shadow-sm border-l-4 border-l-[#6BCEFF]"
           >
             <div className="transition-all duration-500 ease-out group-hover:pl-8">
               <div className="absolute -top-6 -right-6 w-[120px] h-[120px] rounded-full blur-[80px] opacity-10 bg-[#6BCEFF]" />
