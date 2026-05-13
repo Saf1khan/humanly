@@ -54,14 +54,23 @@ export const Nav = () => {
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-center gap-16">
               
               {/* Dropdown Card 1 */}
-              <a href="/humanly-os" className="w-[300px] group cursor-pointer">
-                 <div className="aspect-[320/136] bg-[#4A4741] rounded-[2rem] overflow-hidden mb-4 relative">
-                   <img src="/images/pexels-ianr-21853691.jpg" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Humanly OS" />
-                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-5">
-                      <p className="text-white text-lg font-medium">Humanly OS</p>
-                   </div>
-                 </div>
-              </a>
+               <a href="/humanly-os" className="w-[300px] group cursor-pointer">
+                  <div className="aspect-[320/136] bg-[#4A4741] rounded-[2rem] overflow-hidden mb-4 relative">
+                    <img src="/images/pexels-ianr-21853691.jpg" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Humanly OS" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-5">
+                       <p className="text-white text-lg font-medium">Humanly OS</p>
+                    </div>
+                  </div>
+               </a>
+
+               <a href="/platform" className="w-[300px] group cursor-pointer">
+                  <div className="aspect-[320/136] bg-[#4A4741] rounded-[2rem] overflow-hidden mb-4 relative">
+                    <img src="/images/AdobeStock_446591769.jpeg" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="The Platform" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-5">
+                       <p className="text-white text-lg font-medium">The Platform</p>
+                    </div>
+                  </div>
+               </a>
 
               {/* Dropdown List Items and Action */}
               <div className="flex flex-col gap-6 justify-center">
@@ -170,8 +179,8 @@ export const Nav = () => {
                 </a>
               </li>
               <li>
-                <button 
-                  onClick={toggleDrawer} 
+                <a 
+                  href="/platform"
                   onMouseEnter={() => setIsMenuOpen(true)}
                   className={`group relative px-6 py-3 transition-all duration-300 flex items-center gap-1.5 ${useDarkText ? 'text-[#4A4741] hover:text-black' : 'text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80'}`}
                 >
@@ -182,7 +191,7 @@ export const Nav = () => {
                   <svg className={`w-4 h-4 transition-transform duration-300 ${isMenuOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path d="M19 9l-7 7-7-7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-                </button>
+                </a>
               </li>
             </ul>
 
