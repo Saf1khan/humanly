@@ -2,7 +2,6 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { StatsSection } from "@/components/sections/StatsSection";
 import { InvestmentThesisSection } from "@/components/sections/InvestmentThesisSection";
 import { ProblemSection } from "@/components/sections/ProblemSection";
-import { PlatformSection } from "@/components/sections/PlatformSection";
 import { CommunitiesSection } from "@/components/sections/CommunitiesSection";
 import { LandLeasingSection } from "@/components/sections/LandLeasingSection";
 import { VillageCenterSection } from "@/components/sections/VillageCenterSection";
@@ -14,6 +13,7 @@ import { TeamSection } from "@/components/sections/TeamSection";
 import { DataRoomForm } from "@/components/features/DataRoomForm";
 import { Footer } from "@/components/layout/Footer";
 import { CircleOfServicesSection } from "@/components/sections/CircleOfServicesSection";
+import { PlatformSection } from "@/components/sections/PlatformSection";
 
 
 export default function Home() {
@@ -42,7 +42,7 @@ export default function Home() {
 
         <HeroSection />
         <StatsSection />
-    <InvestmentThesisSection />
+        <InvestmentThesisSection />
 
 
         <ProblemSection />

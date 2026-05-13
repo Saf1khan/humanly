@@ -63,10 +63,10 @@ export const WProblemSection = () => {
     const ctx = gsap.context(() => {
       const sections = gsap.utils.toArray<HTMLElement>(".wh-prob-pin-container");
 
-      sections.forEach((section, i) => {
+      sections.forEach((section: HTMLElement, i: number) => {
         const card = section.querySelector(".wh-prob-main");
         const isLast = i === sections.length - 1;
-        
+
         // We only pin and shrink if there's a NEXT card to overlap this one
         if (!isLast) {
           const tl = gsap.timeline({
@@ -100,15 +100,15 @@ export const WProblemSection = () => {
         <section key={i} className="wh-prob-pin-container">
           <div className="wh-prob-main">
             <div className="wh-prob-grid">
-              
+
               {/* Left Column: Info */}
               <div className="wh-prob-info">
                 <div className="wh-prob-info-top">
-                   <div className="wh-prob-stats-top">
-                     <p className="wh-prob-stat-line">from <span>$ {p.stat1.value}</span> /metric</p>
-                     <p className="wh-prob-stat-line">Impact range <strong>{p.stat2.value}</strong> level</p>
-                     <p className="wh-prob-stat-line">System status <strong>{p.stat3.value}</strong></p>
-                   </div>
+                  <div className="wh-prob-stats-top">
+                    <p className="wh-prob-stat-line">from <span>$ {p.stat1.value}</span> /metric</p>
+                    <p className="wh-prob-stat-line">Impact range <strong>{p.stat2.value}</strong> level</p>
+                    <p className="wh-prob-stat-line">System status <strong>{p.stat3.value}</strong></p>
+                  </div>
                 </div>
 
                 <div className="wh-prob-info-bottom">
@@ -117,7 +117,7 @@ export const WProblemSection = () => {
                     <h3 className="wh-prob-title">{p.title}</h3>
                     <p className="wh-prob-tagline">{p.tagline}</p>
                   </div>
-                  
+
                   <div className="wh-prob-actions">
                     <button className="wh-prob-btn wh-prob-btn-primary">DETAILS</button>
                     <button className="wh-prob-btn wh-prob-btn-outline">ANALYSIS</button>
@@ -135,7 +135,7 @@ export const WProblemSection = () => {
                   </div>
                 </div>
               </div>
-              
+
             </div>
           </div>
         </section>

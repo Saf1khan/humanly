@@ -269,6 +269,47 @@ export const HumanlyOSSection = () => {
           </div>
         </div>
 
+        {/* Continuous curved background shape spanning across the page */}
+        <div className="pointer-events-none absolute inset-0 opacity-[0.08]">
+          <svg
+            viewBox="0 0 500 1000"
+            preserveAspectRatio="none"
+            className="h-full w-full"
+          >
+            <defs>
+              <linearGradient id="fullShapeGradient" x1="10" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="#67e8f9" />
+                <stop offset="50%" stopColor="#3b82f6" />
+                <stop offset="100%" stopColor="#6d28d9" />
+              </linearGradient>
+            </defs>
+            <path
+              d="
+                M 0 0
+                H 210
+                Q 245 0 245 35
+                V 270
+                Q 245 310 285 310
+                H 360
+                Q 400 310 400 350
+                V 475
+                Q 400 515 360 515
+                H 290
+                Q 250 515 250 555
+                V 720
+                Q 250 760 210 760
+                H 165
+                Q 125 760 125 800
+                V 960
+                Q 125 1000 85 1000
+                H 0
+                Z
+              "
+              fill="url(#fullShapeGradient)"
+            />
+          </svg>
+        </div>
+
         {/* ─── Financial Layer ─── */}
         <section className="bg-white/10 border border-white/20 rounded-[40px] p-8 md:p-14 mb-32 relative overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.03)]"
           style={{ backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)' }}
@@ -339,21 +380,31 @@ export const HumanlyOSSection = () => {
       {/* Container for Transaction Flow */}
       <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 pb-24 md:pb-32">
         {/* ─── Transaction Flow ─── */}
-        <section className="bg-white/20 backdrop-blur-lg border border-white/30 rounded-b-[40px] p-8 md:p-14 shadow-[0_20px_50px_rgba(0,0,0,0.01)]">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+        <section className="relative bg-white/20 backdrop-blur-lg border border-white/30 rounded-[40px] p-8 md:p-14 shadow-[0_20px_50px_rgba(0,0,0,0.01)] overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0 pointer-events-none">
+            <img
+              src="/images/transaction-flow-bg.jpg"
+              alt=""
+              className="w-full h-full object-cover opacity-[10]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#f2ece4]/80 via-transparent to-[#f2ece4]/60" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#f2ece4]/50 via-transparent to-[#f2ece4]/50" />
+          </div>
+          <div className="relative z-20 flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div className="space-y-4">
 
-              <h2 className="font-sans text-4xl md:text-6xl font-bold text-[#1e2427]/90 uppercase leading-[0.95] tracking-tight">
+              <h2 className="font-sans text-4xl md:text-6xl font-bold text-[#1e2427] uppercase leading-[0.95] tracking-tight" style={{ textShadow: '0 2px 12px rgba(242,236,228,0.9)' }}>
                 Transaction<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e8622a]/80 to-[#c9a84c]/80">Flow</span>
+                <span className=" bg-clip-text bg-gradient-to-r from-[#e8622a] to-[#c9a84c]">Flow</span>
               </h2>
             </div>
-            <p className="text-[#5c5a56] text-base md:text-lg max-w-[360px] text-left md:text-right font-normal leading-relaxed">
+            <p className="text-[#3a3834] text-base md:text-lg max-w-[360px] text-left md:text-right font-medium leading-relaxed" style={{ textShadow: '0 1px 8px rgba(242,236,228,0.8)' }}>
               The journey from discovery to residency.
             </p>
           </div>
 
-          <div className="flex flex-col lg:flex-row items-stretch gap-2 lg:gap-0">
+          <div className="relative z-20 flex flex-col lg:flex-row items-stretch gap-2 lg:gap-0">
             {FLOW_STEPS.map((step, i) => (
               <React.Fragment key={i}>
                 <motion.div
