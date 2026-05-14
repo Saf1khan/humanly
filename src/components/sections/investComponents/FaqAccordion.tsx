@@ -21,21 +21,47 @@ export const FaqAccordion = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="bg-[#f2f0eb] py-20 lg:py-32">
-      <div className="container mx-auto px-6 max-w-[1200px]">
+    <section className="relative bg-[#0e1b26] py-20 lg:py-32 overflow-hidden">
+      {/* Background Gradients & Grid (Consistent with Hero) */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: `
+              radial-gradient(ellipse 60% 50% at 50% 0%, rgba(45,125,210,0.15) 0%, transparent 70%),
+              radial-gradient(ellipse 40% 40% at 90% 90%, rgba(217,106,43,0.08) 0%, transparent 60%)
+            `
+          }}
+        />
+        <div 
+          className="absolute inset-0 opacity-[0.15]"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px'
+          }}
+        />
+      </div>
+
+      <div className="container relative z-10 mx-auto px-6 max-w-[1200px]">
         <div className="text-center mb-16">
           <div className="h-[3px] w-[72px] rounded-full bg-gradient-to-r from-[#1a4f82] via-[#2d7dd2] to-[#d96a2b] mx-auto mb-4" />
-          <h2 className="font-serif text-3xl md:text-4xl text-[#1a1a1a]">Frequently Asked Questions</h2>
+          <h2 className="font-serif text-3xl md:text-5xl text-white">Frequently Asked Questions</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
           {faqs.map((faq, idx) => (
-            <div key={idx} className="bg-white rounded-2xl border border-black/5 overflow-hidden shadow-sm">
+            <div 
+              key={idx} 
+              className="group bg-white/[0.03] backdrop-blur-md rounded-2xl border border-white/10 overflow-hidden transition-all hover:border-white/20"
+            >
               <button 
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                className="w-full text-left px-6 py-5 flex items-start justify-between gap-4 hover:bg-[#1a4f82]/[0.02] transition-colors group"
+                className="w-full text-left px-7 py-6 flex items-start justify-between gap-4 transition-colors hover:bg-white/[0.02]"
               >
-                <span className="font-serif text-[1.05rem] text-[#1a1a1a] leading-snug">{faq.q}</span>
+                <span className="font-serif text-[1.1rem] text-white/90 leading-snug group-hover:text-white transition-colors">{faq.q}</span>
                 <span className={`text-[#2d7dd2] transition-transform duration-300 flex-shrink-0 mt-1 ${openIndex === idx ? 'rotate-180' : ''}`}>
                   ▼
                 </span>
@@ -49,7 +75,7 @@ export const FaqAccordion = () => {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-6 text-[0.93rem] text-[#5a5a5a] leading-relaxed border-t border-black/5 pt-4">
+                    <div className="px-7 pb-7 text-[0.95rem] text-white/60 leading-relaxed border-t border-white/5 pt-5">
                       {faq.a}
                     </div>
                   </motion.div>
@@ -62,3 +88,4 @@ export const FaqAccordion = () => {
     </section>
   );
 };
+
