@@ -257,8 +257,6 @@ export const VerticalStack = () => {
         </div>
       </div>
 
-      {/* Divider */}
-      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
     </section>
   );
 };
