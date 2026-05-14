@@ -10,9 +10,31 @@ const metrics = [
 
 export const MetricsCards = () => {
   return (
-    <section className="bg-[#12212f] py-10 md:py-14 border-y border-white/5">
-      <div className="container mx-auto px-6 max-w-[1200px]">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-white/10 rounded-2xl overflow-hidden shadow-2xl">
+    <section className="relative bg-[#0e1b26] py-12 md:py-20 border-y border-white/5 overflow-hidden">
+      {/* Background Gradients & Grid */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: `
+              radial-gradient(ellipse 50% 50% at 50% 50%, rgba(45,125,210,0.12) 0%, transparent 80%)
+            `
+          }}
+        />
+        <div 
+          className="absolute inset-0 opacity-[0.1]"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)
+            `,
+            backgroundSize: '100px 100px'
+          }}
+        />
+      </div>
+
+      <div className="container relative z-10 mx-auto px-6 max-w-[1200px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-white/10 rounded-3xl overflow-hidden shadow-2xl backdrop-blur-sm border border-white/10">
           {metrics.map((metric, index) => (
             <motion.div 
               key={index}
@@ -20,15 +42,15 @@ export const MetricsCards = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-[#12212f] p-10 text-center hover:bg-white/[0.03] transition-colors group"
+              className="bg-[#0e1b26]/80 p-12 text-center hover:bg-white/[0.05] transition-all group"
             >
-              <div className="font-serif text-5xl lg:text-6xl text-white leading-none">
-                {metric.prefix}<span className="text-[#f09050] italic">{metric.num}</span>{metric.suffix}
+              <div className="font-serif text-5xl lg:text-7xl text-white leading-none">
+                {metric.prefix}<span className="text-[#f09050] italic font-light">{metric.num}</span>{metric.suffix}
               </div>
-              <div className="text-[0.82rem] font-bold tracking-[0.08em] uppercase text-[#f7f6f2]/50 mt-4 mb-1 group-hover:text-[#f7f6f2]/70 transition-colors">
+              <div className="text-[0.85rem] font-bold tracking-[0.15em] uppercase text-[#3daf98] mt-6 mb-2 group-hover:text-white transition-colors">
                 {metric.label}
               </div>
-              <div className="text-[0.85rem] text-[#f7f6f2]/40">
+              <div className="text-[0.9rem] text-white/40 font-light max-w-[20ch] mx-auto">
                 {metric.sub}
               </div>
             </motion.div>
@@ -38,3 +60,4 @@ export const MetricsCards = () => {
     </section>
   );
 };
+
