@@ -15,26 +15,58 @@ export const metadata = {
 
 export default function WhyHumanlyPage() {
   return (
-    <main className="wh-page">
+    <main className="wh-page font-['Plus_Jakarta_Sans',system-ui,sans-serif] bg-[#f0edeb] text-[#111111] overflow-x-hidden min-h-screen">
+      <style dangerouslySetInnerHTML={{ __html: `
+        /* ============================================================
+           Why Humanly — Scoped Styles  (wh- prefix)
+           Light Theme based on Design Tokens
+           ============================================================ */
+
+        .wh-page {
+          /* --- design token colors --- */
+          --wh-primary:   #ff7e5d;   /* color-9  — single main accent */
+          --wh-blue:      #0099ff;   /* color-10 — secondary blue     */
+          --wh-bg:        #f0edeb;   /* color-4  — page background    */
+          --wh-surface:   #ffffff;   /* color-5  — card surface       */
+          --wh-text:      #111111;   /* color-2  — primary text       */
+          --wh-muted:     #827e7a;   /* color-6  — muted text         */
+          --wh-border:    #e0e4e5;   /* color-8  — border/divider     */
+          
+          --wh-ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* --- reveal animations --- */
+        .wh-rv, .wh-rvl, .wh-rvr, .wh-rvs, .wh-sg { opacity: 0; }
+        .wh-rv  { transform: translateY(60px);  transition: opacity 1s var(--wh-ease), transform 1.2s var(--wh-ease); }
+        .wh-rvl { transform: translateX(-60px); transition: opacity 1s var(--wh-ease), transform 1.2s var(--wh-ease); }
+        .wh-rvr { transform: translateX(60px);  transition: opacity 1s var(--wh-ease), transform 1.2s var(--wh-ease); }
+        .wh-rvs { transform: scale(.92);        transition: opacity 1s var(--wh-ease), transform 1.2s var(--wh-ease); }
+        .wh-sg  { transform: translateY(40px);  transition: opacity .8s var(--wh-ease), transform 1s var(--wh-ease); }
+        .wh-on  { opacity: 1 !important; transform: none !important; }
+
+        @media (prefers-reduced-motion: reduce) {
+          .wh-rv, .wh-rvl, .wh-rvr, .wh-rvs, .wh-sg { opacity: 1; transform: none; }
+        }
+      ` }} />
       <Nav />
 
       <WHeroSection />
 
       <WStatsSection />
 
-      <div className="wh-divider" />
+      <div className="h-[1px] bg-gradient-to-r from-transparent via-[rgba(224,228,229,0.3)] to-transparent mx-auto max-w-[1200px]" />
 
       <WProblemSection />
 
-      <div className="wh-divider" />
+      <div className="h-[1px] bg-gradient-to-r from-transparent via-[rgba(224,228,229,0.3)] to-transparent mx-auto max-w-[1200px]" />
 
       <WShiftSection />
 
-      <div className="wh-divider" />
+      <div className="h-[1px] bg-gradient-to-r from-transparent via-[rgba(224,228,229,0.3)] to-transparent mx-auto max-w-[1200px]" />
 
       <WRevenueSection />
 
-      <div className="wh-divider" />
+      <div className="h-[1px] bg-gradient-to-r from-transparent via-[rgba(224,228,229,0.3)] to-transparent mx-auto max-w-[1200px]" />
 
       <WCompetitiveSection />
 
