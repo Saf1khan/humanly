@@ -166,50 +166,44 @@ export const WCompetitiveSection = () => {
   }, [startRadar]);
 
   return (
-    <section className="wh-sp">
-      <div className="wh-container">
+    <section className="py-[140px] md:py-[100px]">
+      <div className="max-w-[1200px] mx-auto px-12 md:px-6">
         <p
-          className="wh-eyebrow wh-rv"
+          className="wh-eyebrow wh-rv text-[11px] font-bold uppercase tracking-[0.15em] text-[#ff7e5d]"
           ref={(el) => { headRefs.current[0] = el; }}
         >
           Competitive Landscape
         </p>
         <div
-          className="wh-gline wh-rv"
+          className="wh-gline wh-rv h-[2px] w-16 bg-gradient-to-r from-[#ff7e5d] to-[#0099ff] rounded-[1px] my-4 mb-3"
           ref={(el) => { headRefs.current[1] = el as HTMLElement | null; }}
         />
         <h2
-          className="wh-rv"
+          className="wh-rv text-[clamp(26px,2.8vw,40px)] font-extrabold tracking-[-1.2px] max-w-[760px] text-[#111111]"
           ref={(el) => { headRefs.current[2] = el; }}
-          style={{
-            fontSize: "clamp(26px,2.8vw,40px)",
-            fontWeight: 800,
-            letterSpacing: "-1.2px",
-            maxWidth: 760,
-          }}
         >
           Humanly occupies a category no traditional housing player fully covers.
         </h2>
 
-        <div className="wh-matrix-wrap">
+        <div className="wh-matrix-wrap grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mt-10">
           {/* Left — axis list */}
           <div>
-            <div className="wh-axis-list wh-rvl" ref={axisRef}>
+            <div className="wh-axis-list wh-rvl grid gap-[9px]" ref={axisRef}>
               {axes.map((a, i) => (
-                <div key={i} className="wh-axis-item">
+                <div key={i} className="wh-axis-item flex gap-3 items-start p-[10px_16px] rounded-xl bg-white border border-[#e0e4e5]">
                   <div
-                    className="wh-axis-dot"
+                    className="wh-axis-dot w-[10px] h-[10px] rounded-full mt-1.5 flex-shrink-0"
                     style={{ background: a.color }}
                   />
                   <div>
-                    <h5>{a.title}</h5>
-                    <p>{a.desc}</p>
+                    <h5 className="text-sm font-bold mb-1 text-[#111111]">{a.title}</h5>
+                    <p className="text-xs leading-normal text-[#827e7a]">{a.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
             <p
-              className="wh-tagline wh-rvl"
+              className="wh-tagline wh-rvl mt-5 text-sm font-bold text-[#0099ff]"
               style={{ transitionDelay: "0.1s" }}
             >
               Control the full vertical. Compound the intelligence. No one else
@@ -218,7 +212,7 @@ export const WCompetitiveSection = () => {
           </div>
 
           {/* Right — radar chart */}
-          <div className="wh-chart-shell wh-rvs" ref={chartRef}>
+          <div className="wh-chart-shell wh-rvs p-6 rounded-[20px] bg-white border border-[#e0e4e5] shadow-[0_4px_20px_rgba(0,0,0,0.03)]" ref={chartRef}>
             <canvas
               ref={canvasRef}
               id="whRadarChart"
@@ -227,28 +221,28 @@ export const WCompetitiveSection = () => {
               aria-label="Competitive radar chart"
               role="img"
             />
-            <div className="wh-chart-legend">
-              <div className="wh-leg">
-                <span className="wh-sw" style={{ background: "#0099ff" }} />
+            <div className="wh-chart-legend flex flex-wrap gap-4 mt-4">
+              <div className="wh-leg flex items-center gap-2 text-xs text-[#827e7a]">
+                <span className="wh-sw w-[10px] h-[10px] rounded-full inline-block" style={{ background: "#0099ff" }} />
                 Humanly®
               </div>
-              <div className="wh-leg">
+              <div className="wh-leg flex items-center gap-2 text-xs text-[#827e7a]">
                 <span
-                  className="wh-sw"
+                  className="wh-sw w-[10px] h-[10px] rounded-full inline-block"
                   style={{ background: "rgba(17,17,17,.4)" }}
                 />
                 Traditional Developer
               </div>
-              <div className="wh-leg">
+              <div className="wh-leg flex items-center gap-2 text-xs text-[#827e7a]">
                 <span
-                  className="wh-sw"
+                  className="wh-sw w-[10px] h-[10px] rounded-full inline-block"
                   style={{ background: "rgba(17,17,17,.25)" }}
                 />
                 PropTech
               </div>
-              <div className="wh-leg">
+              <div className="wh-leg flex items-center gap-2 text-xs text-[#827e7a]">
                 <span
-                  className="wh-sw"
+                  className="wh-sw w-[10px] h-[10px] rounded-full inline-block"
                   style={{ background: "rgba(17,17,17,.15)" }}
                 />
                 REIT
