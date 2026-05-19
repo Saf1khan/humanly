@@ -8,84 +8,106 @@ const partnerCategories = [
     label: "Strategic Partners",
     type: "strategic",
     items: [
-      { role: "Strategic Land Partner — provides access to large-acreage sites across Sun Belt markets at favorable terms.", icon: "/images/CJSarchitects.png" },
-      { role: "Community Development Finance Partner — supports resident financial literacy and CDFI-backed mortgage programs.", icon: "/images/Figure.png"},
-      { role: "Manufactured Housing Partner — preferred manufacturer for homes built to Humanly® quality and design standards.", icon: "/images/HeyHomie.png"}
+      { icon: "/images/CJSarchitects.png" },
+      { icon: "/images/Figure.png" },
+      { icon: "/images/HeyHomie.png" }
     ]
   },
   {
     label: "Advisory Board",
     type: "advisory",
     items: [
-      { role: "AI Technology Advisor — former executive at leading AI platform. Advises on HumanlyOS® architecture and LLM strategy.", icon: "/images/AutoDesk360.png" },
-      { role: "Housing Policy Advisor — 20 years in federal and state housing policy. Guides regulatory navigation and AMI compliance.", icon: "/images/HarrisBeachMurtha.png" },
-      { role: "Capital Markets Advisor — institutional real estate investor. Bridges Humanly® to REIT and family office capital channels.", icon: "/images/Tesla.png" }
+      { icon: "/images/AutoDesk360.png" },
+      { icon: "/images/HarrisBeachMurtha.png" },
+      { icon: "/images/Tesla.png" }
     ]
   },
   {
     label: "Institutional Partners",
     type: "institutional",
     items: [
-      { role: "Healthcare Integration Partner — provides on-site medical services, staffing, and telehealth infrastructure to village centers.", icon: "/images/FountainLife.png" },
-      { role: "Education & Workforce Partner — delivers AI learning labs, job training programs, and continuous education pathways.", icon: "/images/GolisanoInstitute.png" },
-      { role: "Technology Infrastructure Partner — provides connectivity, smart home integration, and digital twin data systems.", icon: "/images/Starlink.png" }
+      { icon: "/images/FountainLife.png" },
+      { icon: "/images/GolisanoInstitute.png" },
+      { icon: "/images/Starlink.png" }
     ]
   }
 ];
 
 export const PartnersAdvisors = () => {
   return (
-    <section className="relative w-full bg-[#fdfcfb] py-24 overflow-hidden border-t border-black/5">
-      {/* Subtle Background Decoration */}
+    <section className="relative w-full bg-[#faf9f6] py-24 lg:py-32 overflow-hidden">
+      {/* Background */}
       <div
         className="absolute pointer-events-none left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.03), rgba(255, 182, 55, 0.05) 50%, rgba(255, 182, 55, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(194,160,119,0.04), rgba(194,160,119,0.07) 50%, rgba(194,160,119,0))" }}
       />
 
       <div className="container relative z-10 mx-auto px-6 max-w-[1200px]">
-        <div className="mb-12">
-          <div className="h-[3px] w-[72px] rounded-full bg-gradient-to-r from-[#1a4f82] via-[#2d7dd2] to-[#d96a2b] mb-4" />
-          <h2 className="font-serif text-3xl md:text-4xl text-[#1a1a1a] mb-3">Partners & Advisors</h2>
-          <p className="text-[#5a5a5a] max-w-2xl font-normal">The organizations and individuals who amplify Humanly®'s reach, credibility, and capabilities.</p>
-        </div>
 
-        {partnerCategories.map((category, catIndex) => (
-          <div key={catIndex} className="mb-12 last:mb-0">
-            <p className="text-[0.78rem] font-bold tracking-[0.12em] uppercase text-[#5a5a5a] pb-3 border-b border-black/10 mb-6">
-              {category.label}
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {category.items.map((item, itemIndex) => (
-                <motion.div 
-                  key={itemIndex}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: itemIndex * 0.1 }}
-                  className={`bg-[#f2f0eb] rounded-2xl overflow-hidden flex items-stretch shadow-sm hover:shadow-md transition-all duration-300 border-l-[3px] ${
-                    category.type === 'strategic' ? 'border-[#1a4f82]' : 
-                    category.type === 'advisory' ? 'border-[#d96a2b]' : 
-                    'border-[#0d7d6a]'
-                  }`}
-                >
-                  <div className="w-24 shrink-0 flex items-center justify-center bg-white border-r border-black/5 p-4">
-                    <div className="relative w-full h-full scale-150">
-                      <Image 
-                        src={item.icon} 
-                        alt="Partner Icon" 
-                        fill 
-                        className="object-contain grayscale hover:grayscale-0 transition-all duration-500"
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-20"
+        >
+          <div className="h-[1px] w-12 bg-[#c2a077] mb-6" />
+          <h2 className="font-serif text-3xl md:text-4xl text-[#11161a] mb-4 tracking-tight">Partners & Advisors</h2>
+          <p className="text-[#11161a]/50 max-w-xl font-light text-[1.05rem] leading-relaxed">
+            The organizations and individuals who amplify Humanly®'s reach, credibility, and capabilities.
+          </p>
+        </motion.div>
+
+        {/* Category Sections */}
+        <div className="space-y-20">
+          {partnerCategories.map((category, catIndex) => (
+            <motion.div
+              key={catIndex}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 1.5, delay: catIndex * 0.1, ease: [0.16, 1, 0.3, 1] }}
+            >
+              {/* Category Label */}
+              <div className="flex items-center gap-4 mb-10">
+                <span className="text-[0.7rem] font-semibold tracking-[0.2em] uppercase text-[#c2a077]">
+                  {category.label}
+                </span>
+                <div className="flex-1 h-[1px] bg-[#11161a]/8" />
+              </div>
+
+              {/* Logo Grid */}
+              <div className="grid grid-cols-3 gap-4 md:gap-6">
+                {category.items.map((item, itemIndex) => (
+                  <motion.div
+                    key={itemIndex}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 2, delay: itemIndex * 0.08, ease: "easeOut" }}
+                    className="group relative bg-white border border-[#11161a]/[0.06] rounded-2xl p-8 md:p-10 flex items-center justify-center overflow-hidden cursor-pointer hover:-translate-y-1 transition-all duration-500 hover:shadow-lg hover:shadow-[#c2a077]/[0.07] hover:border-[#c2a077]/20"
+                  >
+                    {/* Hover gold shimmer */}
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(194,160,119,0.07),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                    {/* Top gold line reveal */}
+                    <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#c2a077] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                    <div className="relative w-full h-36 md:h-44">
+                      <Image
+                        src={item.icon}
+                        alt="Partner Logo"
+                        fill
+                        className="object-contain grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-out"
                       />
                     </div>
-                  </div>
-                  <div className="p-5 flex items-center">
-                    <p className="text-[0.82rem] text-[#5a5a5a] leading-relaxed line-clamp-4">{item.role}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        ))}
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
       </div>
     </section>
   );

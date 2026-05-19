@@ -108,6 +108,7 @@ body {
    HERO REVEAL (Soft Blur & Fade)
    Triggers on page load for hero elements.
    ============================================================ */
+   
   .hero-reveal {
     opacity: 0;
     filter: blur(10px);
@@ -188,6 +189,7 @@ body {
   .col-end-full {
     grid-column-end: full;
   }
+  
 
   /* ============================================================
    OURA-STYLE PREMIUM GLASSMORPHISM
@@ -778,4 +780,4 @@ body {
 }
 @media (prefers-reduced-motion: reduce) {
   .wh-rv, .wh-rvl, .wh-rvr, .wh-rvs, .wh-sg { opacity: 1; transform: none; }
-}
+}
