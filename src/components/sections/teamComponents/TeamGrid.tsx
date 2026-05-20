@@ -129,19 +129,33 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
     setTimeout(() => {
       if (scrollRef.current) {
         const el = scrollRef.current;
-        const ratio = el.clientWidth / el.scrollWidth;
-        setIndicatorWidth(Math.max(10, ratio * 100));
 
         if (isExpanding) {
-          // Don't auto-scroll on expand — flex layout naturally pushes the next card right.
-          // Just recalculate the indicator width after the card grows.
-          const ratio = el.clientWidth / el.scrollWidth;
-          setIndicatorWidth(Math.max(10, ratio * 100));
+          // Find the card element by its position in the flex container
+          const cards = el.querySelectorAll<HTMLElement>(':scope > div:not([aria-hidden])');
+          const card = cards[idx];
+          if (card) {
+            // Expanded card width is 565px; card's left offset relative to the scroll container
+            const cardLeft = card.offsetLeft;
+            const expandedWidth = 565;
+            const cardRight = cardLeft + expandedWidth;
+            const visibleRight = el.scrollLeft + el.clientWidth;
+
+            if (cardRight > visibleRight) {
+              // Scroll so the expanded card's right edge is visible (with a small margin)
+              const targetScroll = cardRight - el.clientWidth + 32;
+              el.scrollTo({ left: Math.max(0, targetScroll), behavior: 'smooth' });
+            }
+          }
         } else {
           el.scrollTo({ left: lastScrollRef.current, behavior: 'smooth' });
         }
+
+        // Recalculate scroll indicator
+        const ratio = el.clientWidth / el.scrollWidth;
+        setIndicatorWidth(Math.max(10, ratio * 100));
       }
-    }, 100);
+    }, 50);
   };
 
   const indicatorLeft = scrollProgress * (100 - indicatorWidth);
@@ -150,52 +164,48 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
     <div className="mb-24 last:mb-0">
       <div className="relative mb-8">
         <h3 className="text-4xl font-serif text-[#11161a] tracking-tight">{title}</h3>
-        <div className="h-[1px] w-12 bg-[#c2a077] mt-3" />
+        <div className="h-[1px] w-full bg-[#c2a077] mt-3" />
       </div>
 
       <div className="relative w-full">
         <div
           ref={scrollRef}
-          className="no-scrollbar flex flex-row gap-4 overflow-x-scroll sm:snap-x sm:snap-mandatory lg:snap-none pb-4 max-w-full pr-[300px]"
+          className="no-scrollbar flex flex-row gap-4 overflow-x-scroll sm:snap-x sm:snap-mandatory lg:snap-none pb-4 max-w-full"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {members.map((member, idx) => {
             const isExpanded = activeIdx === idx;
+            const isFirst = idx === 0;
+            
+            let shiftClass = "";
+            if (isFirst && activeIdx !== -1) {
+              if (activeIdx === 1) shiftClass = "lg:-ml-[96px]";
+              else if (activeIdx === 2) shiftClass = "lg:-ml-[192px]";
+              else if (activeIdx === 3) shiftClass = "lg:-ml-[288px]";
+            }
+
             return (
               <div
                 key={member.id}
-                className={`relative shrink-0 overflow-hidden rounded-2xl transition-all duration-500 ${isExpanded ? "w-[277px] lg:w-[565px]" : "w-[277px]"} h-[370px] shadow-[0_8px_32px_rgba(17,22,26,0.04)] hover:shadow-[0_8px_32px_rgba(17,22,26,0.1)]`}
+                className={`relative shrink-0 overflow-hidden rounded-2xl transition-all duration-500 ${
+                  isExpanded ? "w-[277px] lg:w-[565px]" : "w-[277px]"
+                } ${shiftClass} h-[370px] shadow-[0_8px_32px_rgba(17,22,26,0.04)] hover:shadow-[0_8px_32px_rgba(17,22,26,0.1)] ${isExpanded ? "z-20" : "z-10"}`}
+                onMouseEnter={() => { if (activeIdx !== idx) toggleCard(idx); }}
+                onMouseLeave={() => { if (activeIdx === idx) toggleCard(idx); }}
               >
-                <div className="absolute top-4 right-4 z-10 hidden lg:block">
-                  <button
-                    className="rounded-full text-center inline-block transition bg-white/90 text-[#11161a] hover:bg-white border border-[#11161a]/10 p-5 hover:border-[#c2a077]/40"
-                    onClick={() => toggleCard(idx)}
-                  >
-                    <svg aria-hidden="true" fill="none" height="13" viewBox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg">
-                      {isExpanded ? (
-                        <rect fill="currentColor" height="2" width="13" x="0" y="5.5" />
-                      ) : (
-                        <>
-                          <rect fill="currentColor" height="13" width="2" x="5.5" y="0"></rect>
-                          <rect fill="currentColor" height="13" transform="rotate(90 13 5)" width="2" x="13" y="5"></rect>
-                        </>
-                      )}
-                    </svg>
-                  </button>
-                </div>
 
                 <div className="flex h-full flex-col lg:flex-row">
                   <motion.div
                     initial={{ opacity: 0, clipPath: "inset(20% 20% 20% 20%)" }}
                     whileInView={{ opacity: 1, clipPath: "inset(0% 0% 0% 0%)" }}
-                    viewport={{ once: false, margin: "-60px" }}
+                    viewport={{ once: true, margin: "-60px" }}
                     transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
                     className="relative w-[277px] shrink-0 overflow-hidden lg:h-full"
                   >
                     <motion.div 
                       initial={{ scale: 1.1, filter: "grayscale(40%)" }}
                       whileInView={{ scale: 1, filter: "grayscale(0%)" }}
-                      viewport={{ once: false, margin: "-60px" }}
+                      viewport={{ once: true, margin: "-60px" }}
                       transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
                       className="absolute inset-0 w-full h-full"
                     >
@@ -238,11 +248,10 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
               </div>
             );
           })}
-          <div className="shrink-0 w-24 lg:w-48" aria-hidden="true" />
         </div>
       </div>
 
-      <div className="relative mt-4 h-[1px] bg-[#11161a]/8 rounded-full overflow-hidden">
+      <div className="relative mt-4 h-[4px] bg-[#11161a]/8 rounded-full overflow-hidden">
         <div
           className="absolute inset-y-0 h-full bg-[#c2a077] rounded-full transition-all duration-300"
           style={{ left: `${indicatorLeft}%`, width: `${indicatorWidth}%` }}
