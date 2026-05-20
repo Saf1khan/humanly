@@ -1,4 +1,3 @@
-import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { WHeroSection } from "@/components/sections/why-humanly/WHeroSection";
 import { WStatsSection } from "@/components/sections/why-humanly/WStatsSection";
@@ -48,7 +47,6 @@ export default function WhyHumanlyPage() {
           .wh-rv, .wh-rvl, .wh-rvr, .wh-rvs, .wh-sg { opacity: 1; transform: none; }
         }
       ` }} />
-      <Nav />
 
       <WHeroSection />
 

@@ -8,14 +8,12 @@ import { CircleOfServicesSection } from '@/components/sections/home/CircleOfServ
 import { CommunityPreview } from '@/components/sections/home/CommunityPreview';
 import { WhyNow } from '@/components/sections/home/WhyNow';
 import { TeamSection } from '@/components/sections/home/TeamTeaser';
-import { Nav } from '@/components/layout/Nav';
 import { Footer } from '@/components/layout/Footer';
 import { InvestmentThesisSection } from '@/components/sections/InvestmentThesisSection';
 
 export default function HomeV2() {
   return (
     <div className="home-v2-root">
-      <Nav />
       <main>
         <Hero />
         <ProblemStats />

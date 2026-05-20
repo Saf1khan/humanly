@@ -6,20 +6,20 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 // ─────────────────────────────────────────────────────────────────────────────
 
 const flowSteps = [
-  { label: 'Community',      color: '#2d7dd2' },
-  { label: 'Home Buying',    color: '#0d9e87' },
+  { label: 'Community', color: '#2d7dd2' },
+  { label: 'Home Buying', color: '#0d9e87' },
   { label: 'Home Financing', color: '#8b5cf6' },
   { label: 'Home Insurance', color: '#d96a2b' },
 ];
 
 const serviceCards = [
-  { title: 'Healthcare',      desc: 'Preventative / Proactive, On-call Consultants, Emotional Intelligence Programs', accent: '#2d7dd2' },
-  { title: 'Wellness',        desc: 'AI-Enabled Fitness, Pro Sports Ambassador Events, Fitness Studios & Programs, Pool & Spa', accent: '#0d9e87' },
-  { title: 'Food',            desc: 'Restaurant, Food Market, Commercial Garden', accent: '#f59e0b' },
-  { title: 'Education',       desc: 'AI-Based Learning Lab, AI Tutoring, Weekly Workshops, Continuous Learning Programs', accent: '#8b5cf6' },
-  { title: 'General',         desc: 'Home Maintenance, Landscaping, Housekeeping, Dog Park / Pet Services', accent: '#3a7d44' },
-  { title: 'Entertainment',   desc: 'Movie Theater, Music Events, Daily Events & Activities', accent: '#c0392b' },
-  { title: 'Transportation',  desc: 'Autonomous Car Service, Ride Sharing, Trail Systems', accent: '#06b6d4' },
+  { title: 'Healthcare', desc: 'Preventative / Proactive, On-call Consultants, Emotional Intelligence Programs', accent: '#2d7dd2' },
+  { title: 'Wellness', desc: 'AI-Enabled Fitness, Pro Sports Ambassador Events, Fitness Studios & Programs, Pool & Spa', accent: '#0d9e87' },
+  { title: 'Food', desc: 'Restaurant, Food Market, Commercial Garden', accent: '#f59e0b' },
+  { title: 'Education', desc: 'AI-Based Learning Lab, AI Tutoring, Weekly Workshops, Continuous Learning Programs', accent: '#8b5cf6' },
+  { title: 'General', desc: 'Home Maintenance, Landscaping, Housekeeping, Dog Park / Pet Services', accent: '#3a7d44' },
+  { title: 'Entertainment', desc: 'Movie Theater, Music Events, Daily Events & Activities', accent: '#c0392b' },
+  { title: 'Transportation', desc: 'Autonomous Car Service, Ride Sharing, Trail Systems', accent: '#06b6d4' },
   { title: 'Work & Business', desc: 'Shared & Private Office Space, Conference Rooms, Daycare Services', accent: '#c9a227' },
 ];
 
@@ -111,7 +111,7 @@ const OSTransactionIntegration = () => {
 
             {flowSteps.map((step, idx) => {
               const isActive = idx === activeStep;
-              const isPast   = idx < activeStep;
+              const isPast = idx < activeStep;
 
               return (
                 <motion.button
@@ -130,8 +130,8 @@ const OSTransactionIntegration = () => {
                       borderColor: isActive
                         ? `${step.color}50`
                         : isPast
-                        ? `${step.color}22`
-                        : 'rgba(255,255,255,0.07)',
+                          ? `${step.color}22`
+                          : 'rgba(255,255,255,0.07)',
                       backdropFilter: 'blur(16px)',
                       transition: 'background 0.35s ease, border-color 0.35s ease',
                     }}
