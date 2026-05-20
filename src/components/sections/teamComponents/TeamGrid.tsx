@@ -133,10 +133,10 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
         setIndicatorWidth(Math.max(10, ratio * 100));
 
         if (isExpanding) {
-          const cardWidth = 277 + 16;
-          const targetScroll = cardWidth;
-          const maxScroll = el.scrollWidth - el.clientWidth;
-          el.scrollTo({ left: Math.min(targetScroll, maxScroll), behavior: 'smooth' });
+          // Don't auto-scroll on expand — flex layout naturally pushes the next card right.
+          // Just recalculate the indicator width after the card grows.
+          const ratio = el.clientWidth / el.scrollWidth;
+          setIndicatorWidth(Math.max(10, ratio * 100));
         } else {
           el.scrollTo({ left: lastScrollRef.current, behavior: 'smooth' });
         }
@@ -148,8 +148,9 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
 
   return (
     <div className="mb-24 last:mb-0">
-      <div className="relative mb-6">
-        <h3 className="text-4xl font-medium text-sandstone-500 tracking-tight">{title}</h3>
+      <div className="relative mb-8">
+        <h3 className="text-4xl font-serif text-[#11161a] tracking-tight">{title}</h3>
+        <div className="h-[1px] w-12 bg-[#c2a077] mt-3" />
       </div>
 
       <div className="relative w-full">
@@ -163,11 +164,11 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
             return (
               <div
                 key={member.id}
-                className={`relative shrink-0 overflow-hidden rounded-2xl transition-all duration-500 ${isExpanded ? "w-[277px] lg:w-[565px]" : "w-[277px]"} h-[370px] bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10`}
+                className={`relative shrink-0 overflow-hidden rounded-2xl transition-all duration-500 ${isExpanded ? "w-[277px] lg:w-[565px]" : "w-[277px]"} h-[370px] shadow-[0_8px_32px_rgba(17,22,26,0.04)] hover:shadow-[0_8px_32px_rgba(17,22,26,0.1)]`}
               >
                 <div className="absolute top-4 right-4 z-10 hidden lg:block">
                   <button
-                    className="rounded-full text-center inline-block transition bg-white/90 text-sandstone-500 hover:bg-white p-5"
+                    className="rounded-full text-center inline-block transition bg-white/90 text-[#11161a] hover:bg-white border border-[#11161a]/10 p-5 hover:border-[#c2a077]/40"
                     onClick={() => toggleCard(idx)}
                   >
                     <svg aria-hidden="true" fill="none" height="13" viewBox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg">
@@ -184,22 +185,37 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
                 </div>
 
                 <div className="flex h-full flex-col lg:flex-row">
-                  <div className="relative w-[277px] shrink-0 overflow-hidden lg:h-full">
-                    <Image
-                      src={member.srcFallback}
-                      alt={`${member.name} headshot`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 300px"
-                      quality={100}
-                      style={{ objectPosition: member.objectPosition || "center 5%" }}
-                    />
-                  </div>
+                  <motion.div
+                    initial={{ opacity: 0, clipPath: "inset(20% 20% 20% 20%)" }}
+                    whileInView={{ opacity: 1, clipPath: "inset(0% 0% 0% 0%)" }}
+                    viewport={{ once: false, margin: "-60px" }}
+                    transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
+                    className="relative w-[277px] shrink-0 overflow-hidden lg:h-full"
+                  >
+                    <motion.div 
+                      initial={{ scale: 1.1, filter: "grayscale(40%)" }}
+                      whileInView={{ scale: 1, filter: "grayscale(0%)" }}
+                      viewport={{ once: false, margin: "-60px" }}
+                      transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
+                      className="absolute inset-0 w-full h-full"
+                    >
+                      <Image
+                        src={member.srcFallback}
+                        alt={`${member.name} headshot`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 300px"
+                        quality={100}
+                        style={{ objectPosition: member.objectPosition || "center 5%" }}
+                      />
+                    </motion.div>
+                  </motion.div>
                   <div className={`h-full overflow-hidden transition-all duration-300 sm:hidden lg:block ${isExpanded ? "w-72" : "w-0"}`}>
-                    <div className="flex h-full w-72 flex-col justify-end gap-4 overflow-hidden p-6 text-[#1c1b1a]">
-                      <p className="text-2xl font-bold">{member.name}</p>
-                      <p className="text-base text-blue-600 font-normal">{member.title}</p>
-                      <button className="rounded-full inline-block transition text-left text-[#1c1b1a] underline" type="button">
+                    <div className="flex h-full w-72 flex-col justify-end gap-4 overflow-hidden p-6 text-[#11161a]">
+                      <div className="h-[1px] w-8 bg-[#c2a077] mb-1" />
+                      <p className="text-2xl font-serif tracking-tight">{member.name}</p>
+                      <p className="text-base text-[#c2a077] font-light">{member.title}</p>
+                      <button className="rounded-full inline-block transition text-left text-[#11161a] underline" type="button">
                         <span className="items-center inline-flex gap-2">
                           <span>View Full Bio</span>
                           <svg aria-hidden="true" fill="none" height="6" viewBox="0 0 20 6" width="20" xmlns="http://www.w3.org/2000/svg">
@@ -210,11 +226,11 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
                     </div>
                   </div>
                   <div className="flex h-full w-[277px] grow flex-col justify-between p-6 lg:hidden bg-transparent">
-                    <div className="flex flex-col gap-2 text-[#1c1b1a]">
-                      <p className="text-lg font-bold">{member.name}</p>
-                      <p className="text-[0.875rem] text-blue-600 font-normal">{member.title}</p>
+                    <div className="flex flex-col gap-2 text-[#11161a]">
+                      <p className="text-lg font-serif tracking-tight">{member.name}</p>
+                      <p className="text-[0.875rem] text-[#c2a077] font-light">{member.title}</p>
                     </div>
-                    <button className="rounded-full inline-block transition text-left text-[#1c1b1a] underline mt-4" type="button">
+                    <button className="rounded-full inline-block transition text-left text-[#11161a] underline mt-4" type="button">
                       <span>View Full Bio</span>
                     </button>
                   </div>
@@ -226,20 +242,20 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
         </div>
       </div>
 
-      <div className="relative mt-4 h-1 bg-sandstone-500/10 rounded-full overflow-hidden">
+      <div className="relative mt-4 h-[1px] bg-[#11161a]/8 rounded-full overflow-hidden">
         <div
-          className="absolute inset-y-0 h-full bg-[#1a4f82] rounded-full transition-all duration-300"
+          className="absolute inset-y-0 h-full bg-[#c2a077] rounded-full transition-all duration-300"
           style={{ left: `${indicatorLeft}%`, width: `${indicatorWidth}%` }}
         />
       </div>
 
       <div className="flex flex-row justify-end gap-4 pt-6">
-        <button className="rounded-full p-5 rotate-180 bg-white/10 backdrop-blur-md border border-black/5 text-[#1c1b1a] hover:bg-white/20" onClick={handlePrev}>
+        <button className="rounded-full p-5 rotate-180 bg-white border border-[#11161a]/[0.08] text-[#11161a] hover:border-[#c2a077]/40 hover:shadow-md transition-all duration-300" onClick={handlePrev}>
           <svg aria-hidden="true" fill="none" height="13" viewBox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg">
             <path d="M12.5303 6.53033C12.8232 6.23744 12.8232 5.76256 12.5303 5.46967L7.75736 0.696699C7.46447 0.403806 6.98959 0.403806 6.6967 0.696699C6.40381 0.989593 6.40381 1.46447 6.6967 1.75736L10.9393 6L6.6967 10.2426C6.40381 10.5355 6.40381 11.0104 6.6967 11.3033C6.98959 11.5962 7.46447 11.5962 7.75736 11.3033L12.5303 6.53033ZM0 6.75L12 6.75V5.25L0 5.25L0 6.75Z" fill="currentColor"></path>
           </svg>
         </button>
-        <button className="rounded-full p-5 bg-[#f7f1e8] backdrop-blur-md border border-[#1c1b1a]/10 text-[#1c1b1a] hover:bg-white" onClick={handleNext}>
+        <button className="rounded-full p-5 bg-[#11161a] text-[#faf9f6] hover:bg-[#c2a077] transition-all duration-300" onClick={handleNext}>
           <svg aria-hidden="true" fill="none" height="13" viewBox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg">
             <path d="M12.5303 6.53033C12.8232 6.23744 12.8232 5.76256 12.5303 5.46967L7.75736 0.696699C7.46447 0.403806 6.98959 0.403806 6.6967 0.696699C6.40381 0.989593 6.40381 1.46447 6.6967 1.75736L10.9393 6L6.6967 10.2426C6.40381 10.5355 6.40381 11.0104 6.6967 11.3033C6.98959 11.5962 7.46447 11.5962 7.75736 11.3033L12.5303 6.53033ZM0 6.75L12 6.75V5.25L0 5.25L0 6.75Z" fill="currentColor"></path>
           </svg>
@@ -251,10 +267,10 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
 
 export const TeamGrid = () => {
   return (
-    <section className="relative w-full bg-[#fdfcfb] py-24 overflow-hidden border-t border-black/5">
+    <section className="relative w-full bg-[#faf9f6] py-24 overflow-hidden border-t border-[#11161a]/5">
       <div
         className="absolute pointer-events-none left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.03), rgba(255, 182, 55, 0.05) 50%, rgba(255, 182, 55, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(194,160,119,0.04), rgba(194,160,119,0.06) 50%, rgba(194,160,119,0))" }}
       />
       
       <div className="container mx-auto px-6 relative z-10 max-w-[1200px]">
