@@ -77,8 +77,8 @@ const milestones = [
 ];
 
 // Natural ease curves
-const EASE_OUT  = [0.16, 1, 0.3, 1] as const;   // gentle spring-out for opening
-const EASE_IN   = [0.4, 0, 0.6, 1] as const;    // snappy ease-in for closing
+const EASE_OUT = [0.16, 1, 0.3, 1] as const;   // gentle spring-out for opening
+const EASE_IN = [0.4, 0, 0.6, 1] as const;    // snappy ease-in for closing
 
 const OSJourney = () => {
   const [openIndex, setOpenIndex] = useState(0);
@@ -191,8 +191,8 @@ const OSJourney = () => {
                       color: isOpen
                         ? step.color
                         : isPast
-                        ? `${step.color}50`
-                        : 'rgba(255,255,255,0.13)',
+                          ? `${step.color}50`
+                          : 'rgba(255,255,255,0.13)',
                       transition: 'color 0.45s ease',
                     }}
                   >
@@ -250,7 +250,7 @@ const OSJourney = () => {
                     }}
                   >
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                      <path d="M6 1V11M1 6H11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                      <path d="M6 1V11M1 6H11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                     </svg>
                   </motion.div>
                 </div>

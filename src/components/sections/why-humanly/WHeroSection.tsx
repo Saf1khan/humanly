@@ -85,7 +85,7 @@ export const WHeroSection = () => {
         <div className="pointer-events-auto">
 
           <HeroReveal delay="delay-100">
-            <p className="wh-eyebrow mb-4">The Mission</p>
+            <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#ff7e5d] mb-4">The Mission</p>
           </HeroReveal>
 
           <h1
@@ -105,7 +105,7 @@ export const WHeroSection = () => {
           </h1>
 
           <HeroReveal delay="delay-500">
-            <p className="wh-hero-kicker mt-8">
+            <p className="mt-8 text-sm font-bold tracking-[0.08em] uppercase text-[#0099ff]">
               One community in every state by 2032
             </p>
           </HeroReveal>

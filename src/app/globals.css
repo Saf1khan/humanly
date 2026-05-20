@@ -54,728 +54,171 @@ body {
 
     --color-slate-900: #1e2427;
   }
-  }
+}
 
-  @layer base {
-    body {
-      @apply bg-sandstone-200 text-slate-900 antialiased font-sans flex flex-col min-h-screen selection:bg-slate-900 selection:text-white;
-    }
+@layer base {
+  body {
+    @apply bg-sandstone-200 text-slate-900 antialiased font-sans flex flex-col min-h-screen selection:bg-slate-900 selection:text-white;
   }
+}
 
-  /* Oura-style Reveal: opacity + translateY transition */
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    will-change: opacity, transform;
-  }
+/* Oura-style Reveal: opacity + translateY transition */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
 
-  .reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-  /* Staggered Delays for transitions */
-  .delay-100 {
-    transition-delay: 100ms;
-  }
+/* Staggered Delays for transitions */
+.delay-100 {
+  transition-delay: 100ms;
+}
 
-  .delay-200 {
-    transition-delay: 200ms;
-  }
+.delay-200 {
+  transition-delay: 200ms;
+}
 
-  .delay-300 {
-    transition-delay: 300ms;
-  }
+.delay-300 {
+  transition-delay: 300ms;
+}
 
-  .delay-400 {
-    transition-delay: 400ms;
-  }
+.delay-400 {
+  transition-delay: 400ms;
+}
 
-  .delay-500 {
-    transition-delay: 500ms;
-  }
+.delay-500 {
+  transition-delay: 500ms;
+}
 
-  .delay-600 {
-    transition-delay: 600ms;
-  }
+.delay-600 {
+  transition-delay: 600ms;
+}
 
-  .delay-700 {
-    transition-delay: 700ms;
-  }
+.delay-700 {
+  transition-delay: 700ms;
+}
 
-  /* ============================================================
+/* ============================================================
    HERO REVEAL (Soft Blur & Fade)
    Triggers on page load for hero elements.
    ============================================================ */
-  .hero-reveal {
-    opacity: 0;
-    filter: blur(10px);
-    transform: translateY(20px);
-    transition:
-      opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1),
-      filter 1.2s cubic-bezier(0.2, 0.8, 0.2, 1),
-      transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-    will-change: opacity, filter, transform;
+.hero-reveal {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(20px);
+  transition:
+    opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 1.2s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, filter, transform;
+}
+
+.hero-reveal.is-visible {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0);
+}
+
+.reveal-line {
+  display: inline-block;
+  /* Required for transform to work */
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(30px);
+
+  /* Shared transition settings */
+  transition-property: opacity, filter, transform;
+  transition-duration: 1.2s;
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, filter, transform;
+}
+
+/* The class added by JavaScript to trigger the animation */
+.hero-title.is-active .reveal-line {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0);
+}
+
+/* Specific styling for the Oura-style emphasis line */
+.hero-emphasis {
+  font-style: italic;
+  font-family: serif;
+  display: block;
+  /* Moves it to a new line */
+  margin-top: 10px;
+}
+
+/* Desktop-specific layout tweaks */
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: repeat(12, 1fr);
   }
+}
 
-  .hero-reveal.is-visible {
-    opacity: 1;
-    filter: blur(0px);
-    transform: translateY(0);
-  }
+.gridContainerV3 {
+  --smallGutter: 24px;
+  --largeGutter: 64px;
+  --spacing: 0.25rem;
+  --maxContent: 1440px;
+  --maxCol: calc(var(--maxContent) / 22);
+  display: grid;
+  grid-template-columns: [full-start] var(--largeGutter) [main-start] repeat(22, minmax(0, 1fr)) [main-end] var(--largeGutter) [full-end];
+  row-gap: calc(var(--spacing) * 2);
+}
 
-  .reveal-line {
-    display: inline-block;
-    /* Required for transform to work */
-    opacity: 0;
-    filter: blur(12px);
-    transform: translateY(30px);
+.col-start-main {
+  grid-column-start: main;
+}
 
-    /* Shared transition settings */
-    transition-property: opacity, filter, transform;
-    transition-duration: 1.2s;
-    transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
-    will-change: opacity, filter, transform;
-  }
+.col-end-main {
+  grid-column-end: main;
+}
 
-  /* The class added by JavaScript to trigger the animation */
-  .hero-title.is-active .reveal-line {
-    opacity: 1;
-    filter: blur(0px);
-    transform: translateY(0);
-  }
+.col-start-full {
+  grid-column-start: full;
+}
 
-  /* Specific styling for the Oura-style emphasis line */
-  .hero-emphasis {
-    font-style: italic;
-    font-family: serif;
-    display: block;
-    /* Moves it to a new line */
-    margin-top: 10px;
-  }
-
-  /* Desktop-specific layout tweaks */
-  @media (min-width: 1024px) {
-    .hero-grid {
-      grid-template-columns: repeat(12, 1fr);
-    }
-  }
-
-  .gridContainerV3 {
-    --smallGutter: 24px;
-    --largeGutter: 64px;
-    --spacing: 0.25rem;
-    --maxContent: 1440px;
-    --maxCol: calc(var(--maxContent) / 22);
-    display: grid;
-    grid-template-columns: [full-start] var(--largeGutter) [main-start] repeat(22, minmax(0, 1fr)) [main-end] var(--largeGutter) [full-end];
-    row-gap: calc(var(--spacing) * 2);
-  }
-
-  .col-start-main {
-    grid-column-start: main;
-  }
-
-  .col-end-main {
-    grid-column-end: main;
-  }
-
-  .col-start-full {
-    grid-column-start: full;
-  }
-
-  .col-end-full {
-    grid-column-end: full;
-  }
-
-  /* ============================================================
-   OURA-STYLE PREMIUM GLASSMORPHISM
-   ============================================================ */
-  .oura-exact-glass {
-    /* 1. The Exact Blur Value */
-    backdrop-filter: blur(32px);
-    -webkit-backdrop-filter: blur(32px);
-    /* Vital for Safari support */
-
-    /* 2. The Exact Background Tint */
-    /* This is a 10% opacity 'Sandstone' color (Dark Warm Gray) */
-    background-color: rgba(60, 60, 55, 0.1);
-
-    /* 3. The Subtle Border */
-    /* This gives the glass a physical "edge" */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-
-    /* 4. Layering Context */
-    border-radius: 16px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .oura-dark-glass {
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-
-    /* A deeper, 40% opacity dark tint */
-    background-color: rgba(20, 20, 20, 0.4);
-
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-  }
+.col-end-full {
+  grid-column-end: full;
+}
 
 /* ============================================================
-   Why Humanly — Scoped Styles  (wh- prefix)
-   Light Theme based on Design Tokens
+   OURA-STYLE PREMIUM GLASSMORPHISM
    ============================================================ */
+.oura-exact-glass {
+  /* 1. The Exact Blur Value */
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  /* Vital for Safari support */
 
-.wh-page {
-  /* --- design token colors --- */
-  --wh-primary:   #ff7e5d;   /* color-9  — single main accent */
-  --wh-blue:      #0099ff;   /* color-10 — secondary blue     */
-  --wh-bg:        #f0edeb;   /* color-4  — page background    */
-  --wh-surface:   #ffffff;   /* color-5  — card surface       */
-  --wh-text:      #111111;   /* color-2  — primary text       */
-  --wh-muted:     #827e7a;   /* color-6  — muted text         */
-  --wh-border:    #e0e4e5;   /* color-8  — border/divider     */
-  
-  --wh-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  /* 2. The Exact Background Tint */
+  /* This is a 10% opacity 'Sandstone' color (Dark Warm Gray) */
+  background-color: rgba(60, 60, 55, 0.1);
 
-  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
-  background: var(--wh-bg);
-  color: var(--wh-text);
-  overflow-x: hidden;
-}
+  /* 3. The Subtle Border */
+  /* This gives the glass a physical "edge" */
+  border: 1px solid rgba(255, 255, 255, 0.1);
 
-/* --- layout --- */
-.wh-container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
-.wh-sp        { padding: 140px 0; }
-
-.wh-divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(224,228,229,.3), transparent);
-  margin: 0 auto;
-  max-width: 1200px;
-}
-
-/* --- eyebrow / gline --- */
-.wh-eyebrow {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .15em;
-  color: var(--wh-primary);
-}
-.wh-gline {
-  height: 2px;
-  width: 64px;
-  background: linear-gradient(90deg, var(--wh-primary), var(--wh-blue));
-  border-radius: 1px;
-  margin: 16px 0 12px;
-}
-
-/* --- section backgrounds --- */
-.wh-bg-warm {
-  background:
-    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(255,126,93,.05) 0, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(0,153,255,.04) 0, transparent 50%),
-    var(--wh-bg);
-}
-.wh-bg-cool {
-  background:
-    radial-gradient(ellipse 80% 50% at 10% 30%, rgba(0,153,255,.05) 0, transparent 50%),
-    radial-gradient(ellipse 60% 60% at 90% 70%, rgba(255,126,93,.04) 0, transparent 50%),
-    var(--wh-bg);
-}
-
-/* --- reveal animations --- */
-.wh-rv, .wh-rvl, .wh-rvr, .wh-rvs, .wh-sg { opacity: 0; }
-.wh-rv  { transform: translateY(60px);  transition: opacity 1s var(--wh-ease), transform 1.2s var(--wh-ease); }
-.wh-rvl { transform: translateX(-60px); transition: opacity 1s var(--wh-ease), transform 1.2s var(--wh-ease); }
-.wh-rvr { transform: translateX(60px);  transition: opacity 1s var(--wh-ease), transform 1.2s var(--wh-ease); }
-.wh-rvs { transform: scale(.92);        transition: opacity 1s var(--wh-ease), transform 1.2s var(--wh-ease); }
-.wh-sg  { transform: translateY(40px);  transition: opacity .8s var(--wh-ease), transform 1s var(--wh-ease); }
-.wh-on  { opacity: 1 !important; transform: none !important; }
-
-/* --- orbs --- */
-.wh-orb { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; will-change: transform; opacity: 0.4; }
-@keyframes whF1 { 0%,100%{transform:translate(0,0)} 33%{transform:translate(-30px,-20px)} 66%{transform:translate(20px,15px)} }
-@keyframes whF2 { 0%,100%{transform:translate(0,0)} 33%{transform:translate(25px,-15px)} 66%{transform:translate(-15px,25px)} }
-
-/* --- hero --- */
-.wh-hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(ellipse 100% 80% at 50% 100%, rgba(255,126,93,.06) 0, transparent 50%),
-    radial-gradient(ellipse 80% 60% at 80% 20%,  rgba(0,153,255,.05)  0, transparent 50%),
-    var(--wh-bg);
-}
-.wh-hero-tag {
-  font-size: clamp(46px,7vw,92px);
-  font-weight: 800;
-  line-height: 1.02;
-  letter-spacing: -3px;
-  max-width: 860px;
-  margin: 24px 0;
-  color: var(--wh-text);
-}
-.wh-hero-sub {
-  font-size: clamp(16px,1.45vw,22px);
-  line-height: 1.6;
-  max-width: 760px;
-  color: var(--wh-muted);
-}
-.wh-hero-kicker {
-  margin-top: 20px;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--wh-blue);
-}
-
-/* --- stats accordion expansion (Lagom/Oura inspired) --- */
-.wh-stats-section {
-  padding: 80px 0;
-  overflow: hidden;
-  background: var(--wh-bg);
-}
-
-.wh-stats-wrapper {
-  display: flex;
-  gap: 20px;
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
-.wh-stats-slide {
-  /* Inactive state */
-  flex: 20 1 0%; 
-  min-width: 0;
-  transition: flex 0.45s ease-in-out;
-  cursor: pointer;
-  overflow: hidden;
-  border-left: 1px solid rgba(56, 51, 47, 0.1);
-  padding-left: 20px;
-}
-
-.wh-stats-slide.active {
-  /* Active/Expanded state */
-  flex: 41 1 0%; 
-}
-
-.wh-stats-item {
-  display: flex;
-  flex-direction: row; /* Layout is side-by-side when expanded */
-  height: 600px; /* Adjusted from 792px to better fit viewport */
-  width: 100%;
-}
-
-.wh-stats-info {
-  flex: 0 0 320px; /* Fixed width for text area */
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding-right: 20px;
-}
-
-.wh-stats-thumb {
-  flex: 1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-/* Show image only when active */
-.wh-stats-slide.active .wh-stats-thumb {
-  opacity: 1;
-}
-
-.wh-stats-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.wh-stats-count { 
-  font-size: clamp(64px, 6vw, 99px); 
-  font-weight: 600; 
-  color: rgba(56, 51, 47, 0.4); 
-  margin: 0; 
-  line-height: 1;
-}
-.wh-stats-count sub {
-  font-size: 16px;
-  font-weight: 400;
-  vertical-align: baseline;
-  margin-left: 4px;
-  color: var(--wh-muted);
-}
-.wh-stats-title { 
-  font-size: 24px; 
-  color: #7e7975; 
-  margin-bottom: 20px;
-}
-.wh-stats-line {
-  width: 40px;
-  height: 1px;
-  background: rgba(56, 51, 47, 0.1);
-  margin: 20px 0;
-}
-.wh-stats-desc { 
-  font-size: 18px; 
-  color: rgba(56, 51, 47, 0.6); 
-  margin-top: auto; 
-  padding-bottom: 20px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.wh-stats-slide.active .wh-stats-desc {
-  opacity: 1;
-}
-
-/* Responsive adjustment */
-@media (max-width: 1024px) {
-  .wh-stats-wrapper {
-    flex-direction: column;
-    padding: 0 20px;
-  }
-  .wh-stats-slide {
-    flex: none !important;
-    width: 100%;
-    height: auto;
-    border-left: none;
-    border-top: 1px solid rgba(56, 51, 47, 0.1);
-    padding-left: 0;
-    padding-top: 20px;
-  }
-  .wh-stats-item {
-    flex-direction: column;
-    height: auto;
-  }
-  .wh-stats-info {
-    flex: none;
-    width: 100%;
-  }
-  .wh-stats-thumb {
-    height: 300px;
-    margin-top: 20px;
-  }
-}
-
-/* --- problem section v3 (GSAP Pinning & 24-Col Grid) --- */
-.wh-prob-wrapper {
-  width: 100%;
-  background: var(--wh-bg);
-}
-
-.wh-prob-header-fixed {
-  padding: 100px 0 40px;
-  text-align: center;
-  background: var(--wh-bg);
-}
-
-.wh-prob-pin-container {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  perspective: 1000px; /* Adds depth for shrinking effect */
-}
-
-.wh-prob-main {
-  width: 95%;
-  max-width: 1787px;
-  height: 85vh;
-  background: var(--wh-surface);
-  border-radius: 40px;
-  overflow: hidden;
-  border: 1px solid var(--wh-border);
-  box-shadow: 0 40px 100px rgba(0,0,0,0.06);
-  
-  /* Stacking Effect Logic */
-  transform-origin: center center;
-  will-change: transform, opacity;
-  position: relative;
-}
-
-/* Add shadow to the next card to make overlap clear */
-.wh-prob-pin-container:not(:first-child) .wh-prob-main {
-  box-shadow: 0 -20px 80px rgba(0,0,0,0.12), 0 40px 100px rgba(0,0,0,0.06);
-}
-
-.wh-prob-grid {
-  display: grid;
-  grid-template-columns: repeat(24, 1fr); 
-  height: 100%;
-  gap: 24px;
-}
-
-/* Info Column (Left 8/24) */
-.wh-prob-info {
-  grid-column: 1 / span 8;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 60px 0 60px 60px;
-}
-
-.wh-prob-info-top {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.wh-prob-stats-top {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.wh-prob-stat-line {
-  font-size: 15px;
-  color: var(--wh-muted);
-  margin: 0;
-}
-
-.wh-prob-stat-line span {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--wh-primary);
-  margin-left: 4px;
-}
-
-.wh-prob-stat-line strong {
-  color: var(--wh-text);
-  font-weight: 700;
-}
-
-.wh-prob-info-bottom {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.wh-prob-title-section {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.wh-prob-count {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--wh-muted);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-
-.wh-prob-count span {
-  color: var(--wh-primary);
-}
-
-.wh-prob-title {
-  font-size: clamp(36px, 4vw, 56px);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -2px;
-  color: var(--wh-text);
-  margin: 0;
-}
-
-.wh-prob-tagline {
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--wh-muted);
-  line-height: 1.5;
-  max-width: 90%;
-}
-
-.wh-prob-actions {
-  display: flex;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.wh-prob-btn {
-  padding: 16px 32px;
-  border-radius: 100px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition: all 0.3s var(--wh-ease);
-  cursor: pointer;
-}
-
-.wh-prob-btn-primary {
-  background: var(--wh-primary);
-  color: white;
-  border: none;
-}
-
-.wh-prob-btn-primary:hover {
-  background: var(--wh-text);
-  transform: translateY(-2px);
-}
-
-.wh-prob-btn-outline {
-  background: transparent;
-  border: 1px solid var(--wh-border);
-  color: var(--wh-text);
-}
-
-.wh-prob-btn-outline:hover {
-  background: var(--wh-bg);
-  border-color: var(--wh-text);
-}
-
-/* Image Column (Right 16/24) */
-.wh-prob-slider {
-  grid-column: 9 / span 16;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
-.wh-prob-image-wrapper {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.wh-prob-image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.wh-prob-badge {
-  position: absolute;
-  bottom: 40px;
-  left: 40px;
-  background: var(--wh-text);
-  color: white;
-  padding: 24px 32px;
-  border-radius: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 140px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-.wh-prob-badge-number {
-  font-size: 48px;
-  font-weight: 800;
-  line-height: 1;
-  color: var(--wh-primary);
-}
-
-.wh-prob-badge p {
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-top: 8px;
-  text-align: center;
-  line-height: 1.4;
-  opacity: 0.9;
-}
-
-/* Responsive Grid Adjustments */
-@media (max-width: 1200px) {
-  .wh-prob-info { grid-column: 1 / span 10; padding: 40px; }
-  .wh-prob-slider { grid-column: 11 / span 14; }
-}
-
-@media (max-width: 900px) {
-  .wh-prob-pin-container { height: auto; min-height: 100vh; padding: 40px 0; }
-  .wh-prob-main { height: auto; border-radius: 24px; }
-  .wh-prob-grid { grid-template-columns: 1fr; display: flex; flex-direction: column; }
-  .wh-prob-info { padding: 40px; order: 2; }
-  .wh-prob-slider { height: 400px; order: 1; }
-  .wh-prob-badge { bottom: 20px; left: 20px; padding: 16px; min-width: 100px; }
-  .wh-prob-badge-number { font-size: 32px; }
-}
-
-/* --- shift --- */
-.wh-shift {
-  text-align: center;
-  padding: 80px 0;
-  border-top:    1px solid var(--wh-border);
-  border-bottom: 1px solid var(--wh-border);
-}
-.wh-shift h2 { font-size: clamp(30px,3.8vw,52px); font-weight: 800; letter-spacing: -1.6px; max-width: 840px; margin: 16px auto; line-height: 1.08; color: var(--wh-text); }
-.wh-shift p  { max-width: 760px; margin: 20px auto 0; font-size: 16px; line-height: 1.75; color: var(--wh-muted); }
-
-/* --- revenue --- */
-.wh-rev-grid  { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-.wh-rev-stack { display: flex; flex-direction: column; gap: 8px; margin-top: 24px; }
-.wh-rev-card {
-  padding: 16px 24px;
+  /* 4. Layering Context */
   border-radius: 16px;
-  transition: all .4s var(--wh-ease);
-  background: var(--wh-surface);
-  border: 1px solid var(--wh-border);
-  border-left: 3px solid var(--wh-primary);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+  position: relative;
+  overflow: hidden;
 }
-.wh-rev-card:hover {
-  border-color: var(--wh-primary);
-  padding-left: 32px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-}
-.wh-rev-num { font-size: 11px; font-weight: 700; color: var(--wh-primary); letter-spacing: .08em; text-transform: uppercase; }
-.wh-rev-card h4 { font-size: 16px; font-weight: 700; margin: 8px 0 4px; color: var(--wh-text); }
-.wh-rev-card p  { font-size: 13px; color: var(--wh-muted); line-height: 1.5; }
 
-/* --- competitive --- */
-.wh-matrix-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-top: 40px; }
-.wh-axis-list { display: grid; gap: 9px; }
-.wh-axis-item {
-  display: flex; gap: 12px; align-items: flex-start;
-  padding: 10px 16px;
+.oura-dark-glass {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+
+  /* A deeper, 40% opacity dark tint */
+  background-color: rgba(20, 20, 20, 0.4);
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 12px;
-  background: var(--wh-surface);
-  border: 1px solid var(--wh-border);
 }
-.wh-axis-dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 6px; background: var(--wh-primary); flex-shrink: 0; }
-.wh-axis-item h5 { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: var(--wh-text); }
-.wh-axis-item p  { font-size: 12px; line-height: 1.5; color: var(--wh-muted); }
-.wh-chart-shell {
-  padding: 24px;
-  border-radius: 20px;
-  background: var(--wh-surface);
-  border: 1px solid var(--wh-border);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-}
-.wh-chart-legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; }
-.wh-leg { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--wh-muted); }
-.wh-sw  { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-.wh-tagline { margin-top: 20px; font-size: 14px; font-weight: 700; color: var(--wh-blue); }
-
-/* --- responsive --- */
-@media (max-width: 1024px) {
-  .wh-container { padding: 0 32px; }
-  .wh-rev-grid, .wh-matrix-wrap { grid-template-columns: 1fr; }
-}
-@media (max-width: 768px) {
-  .wh-container { padding: 0 24px; }
-  .wh-sp { padding: 100px 0; }
-  .wh-stats, .wh-prob-grid { grid-template-columns: 1fr; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .wh-rv, .wh-rvl, .wh-rvr, .wh-rvs, .wh-sg { opacity: 1; transform: none; }
-}
