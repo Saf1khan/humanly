@@ -22,20 +22,20 @@ export const CredentialsStrip = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
         >
-          <p className="text-[#c2a077] text-[0.75rem] font-medium tracking-[0.25em] uppercase mb-4">The Experience Behind the Vision</p>
-          <h2 className="font-serif text-3xl md:text-4xl text-[#11161a] mb-12 tracking-tight">Numbers that prove execution capability.</h2>
+          <p className="text-[#c2a077] text-[1.2rem] font-medium tracking-[0.25em] uppercase mb-4">The Experience Behind the Vision</p>
+          <h2 className="font-serif text-3xl md:text-5xl text-[#11161a] mb-20 tracking-tight">Numbers that prove execution capability.</h2>
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {stats.map((stat, index) => (
             <motion.div 
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 0 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1.5, delay: index * 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="bg-[#EBDCD0]/30 backdrop-blur-2xl border border-[#11161a]/[0.07] rounded-2xl p-10 text-center relative overflow-hidden group hover:shadow-xl hover:shadow-[#c2a077]/[0.06] hover:-translate-y-1 transition-all duration-500"
             >
               {/* Subtle Card Glow */}
