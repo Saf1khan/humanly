@@ -119,7 +119,7 @@ function PlatformCard({ step, idx, scrollYProgress }: CardProps) {
     idx === 0 ? [0, 1] : [segStart, segEnd],
     idx === 0 ? ['0%', '0%'] : ['-150%', '0%']
   );
-  
+
   const imageContainerScale = useTransform(
     scrollYProgress,
     idx === 0 ? [0, 1] : [segStart, segEnd],
@@ -205,7 +205,7 @@ function PlatformCard({ step, idx, scrollYProgress }: CardProps) {
               </div>
               <div className="relative w-12 h-12 rounded-full border border-slate-900/20 flex items-center justify-center overflow-hidden transition-colors duration-300 group-hover:border-slate-900">
                 <div className="absolute inset-0 flex items-center justify-center">
-                   <div className="w-2 h-2 rounded-full bg-slate-900 transition-transform duration-500 ease-out group-hover:scale-[15]" />
+                  <div className="w-2 h-2 rounded-full bg-slate-900 transition-transform duration-500 ease-out group-hover:scale-[15]" />
                 </div>
                 <div className="relative z-10 flex items-center justify-center w-full h-full overflow-hidden">
                   <ArrowUpRight className="w-5 h-5 text-slate-900 transition-all duration-500 ease-out group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -217,15 +217,15 @@ function PlatformCard({ step, idx, scrollYProgress }: CardProps) {
           {/* Image */}
           <motion.div
             className="hidden lg:block lg:w-[45%] h-[40vh] lg:h-[65vh] w-full"
-            style={{ 
-              y: contentY, 
+            style={{
+              y: contentY,
               opacity: contentOpacity,
               x: imageContainerX,
               scale: imageContainerScale,
               transformOrigin: "100% 100%"
             }}
           >
-            <motion.div 
+            <motion.div
               className="w-full h-full rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] relative"
               style={{
                 scale: imageInnerScale,
