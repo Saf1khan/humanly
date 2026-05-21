@@ -18,7 +18,7 @@ export const WhyNow = () => {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.2 }}
           className="text-center mb-20"
         >
           <div className="flex flex-col items-center gap-2 mb-6">
@@ -32,23 +32,40 @@ export const WhyNow = () => {
           </h2>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
-          {points.map((point, idx) => (
-            <motion.div 
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1, duration: 0.8 }}
-              className="oura-exact-glass rounded-[2rem] p-10 text-left border border-white/40 shadow-xl group hover:scale-[1.02] transition-all duration-500 flex flex-col h-full"
-            >
-              <div className={`inline-flex px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest ${point.color} mb-6 w-fit`}>
-                {point.badge}
-              </div>
-              <h3 className="text-2xl font-bold font-display text-h-dark mb-4 tracking-tight leading-tight">{point.title}</h3>
-              <p className="text-[0.95rem] text-h-muted leading-relaxed font-medium mt-auto">{point.desc}</p>
-            </motion.div>
-          ))}
+        <div className="relative max-w-6xl mx-auto px-4">
+          {/* Railway Track Line */}
+          <motion.div 
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="hidden md:block absolute top-1/2 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-h-primary/30 to-transparent -translate-y-1/2 origin-left z-0"
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+            {points.map((point, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false, margin: "-50px" }}
+                transition={{ 
+                  delay: idx * 0.2, 
+                  duration: 0.8,
+                  type: "spring",
+                  stiffness: 50,
+                  damping: 15
+                }}
+                className="oura-exact-glass rounded-[2rem] p-10 text-left border border-white/40 shadow-xl group hover:scale-[1.02] transition-all duration-500 flex flex-col h-full bg-white/80 backdrop-blur-md"
+              >
+                <div className={`inline-flex px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest ${point.color} mb-6 w-fit relative`}>
+                  {point.badge}
+                </div>
+                <h3 className="text-2xl font-bold font-display text-h-dark mb-4 tracking-tight leading-tight">{point.title}</h3>
+                <p className="text-[0.95rem] text-h-muted leading-relaxed font-medium mt-auto">{point.desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
