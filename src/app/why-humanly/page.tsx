@@ -5,6 +5,7 @@ import { WProblemSection } from "@/components/sections/why-humanly/WProblemSecti
 import { WShiftSection } from "@/components/sections/why-humanly/WShiftSection";
 import { WRevenueSection } from "@/components/sections/why-humanly/WRevenueSection";
 import { WCompetitiveSection } from "@/components/sections/why-humanly/WCompetitiveSection";
+import { Nav } from "@/components/layout/Nav";
 
 export const metadata = {
   title: "Why Humanly — Humanly®",
@@ -14,8 +15,10 @@ export const metadata = {
 
 export default function WhyHumanlyPage() {
   return (
-    <main className="wh-page font-['Plus_Jakarta_Sans',system-ui,sans-serif] bg-[#f0edeb] text-[#111111] overflow-x-hidden min-h-screen">
-      <style dangerouslySetInnerHTML={{ __html: `
+    <main className="wh-page bg-sandstone-200 text-[#111111] min-h-screen">
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         /* ============================================================
            Why Humanly — Scoped Styles  (wh- prefix)
            Light Theme based on Design Tokens
@@ -23,15 +26,34 @@ export default function WhyHumanlyPage() {
 
         .wh-page {
           /* --- design token colors --- */
-          --wh-primary:   #ff7e5d;   /* color-9  — single main accent */
-          --wh-blue:      #0099ff;   /* color-10 — secondary blue     */
-          --wh-bg:        #f0edeb;   /* color-4  — page background    */
-          --wh-surface:   #ffffff;   /* color-5  — card surface       */
-          --wh-text:      #111111;   /* color-2  — primary text       */
-          --wh-muted:     #827e7a;   /* color-6  — muted text         */
-          --wh-border:    #e0e4e5;   /* color-8  — border/divider     */
-          
+          --wh-primary:   #6E7C8D;   /* Premium Accent */
+          --wh-blue:      #A3B2C3;   /* Highlight Accent */
+          --wh-bg:        #E7E3DC;   /* Primary Background */
+          --wh-surface:   rgba(255,255,255,0.32); /* Glass Surface */
+          --wh-text:      #111111;   /* Primary Text */
+          --wh-muted:     #5F646B;   /* Secondary Text */
+          --wh-border:    rgba(17,17,17,0.08); /* Soft Border */
+
           --wh-ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .wh-page,
+        .wh-page button,
+        .wh-page input,
+        .wh-page select,
+        .wh-page textarea {
+          font-family: 'Albert Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+        }
+
+        .wh-page h1,
+        .wh-page h1 *,
+        .wh-page h2,
+        .wh-page h2 *,
+        .wh-page h3,
+        .wh-page h3 *,
+        .wh-page .font-serif,
+        .wh-page em {
+          font-family: 'Cormorant Garamond', Georgia, Cambria, 'Times New Roman', Times, serif !important;
         }
 
         /* --- reveal animations --- */
@@ -46,25 +68,28 @@ export default function WhyHumanlyPage() {
         @media (prefers-reduced-motion: reduce) {
           .wh-rv, .wh-rvl, .wh-rvr, .wh-rvs, .wh-sg { opacity: 1; transform: none; }
         }
-      ` }} />
+      `,
+        }}
+      />
+      <Nav />
 
       <WHeroSection />
 
-      <WStatsSection />
+      {/* <WStatsSection />
 
-      <div className="h-[1px] bg-gradient-to-r from-transparent via-[rgba(224,228,229,0.3)] to-transparent mx-auto max-w-[1200px]" />
+      <div className="h-[1px] bg-gradient-to-r from-transparent via-[#6E7C8D]/20 to-transparent mx-auto max-w-[1200px]" /> */}
 
       <WProblemSection />
 
-      <div className="h-[1px] bg-gradient-to-r from-transparent via-[rgba(224,228,229,0.3)] to-transparent mx-auto max-w-[1200px]" />
+      <div className="h-[1px] bg-gradient-to-r from-transparent via-[#6E7C8D]/20 to-transparent mx-auto max-w-[1200px]" />
 
-      <WShiftSection />
+      {/* <WShiftSection />
 
-      <div className="h-[1px] bg-gradient-to-r from-transparent via-[rgba(224,228,229,0.3)] to-transparent mx-auto max-w-[1200px]" />
+      <div className="h-[1px] bg-gradient-to-r from-transparent via-[#6E7C8D]/20 to-transparent mx-auto max-w-[1200px]" /> */}
 
       <WRevenueSection />
 
-      <div className="h-[1px] bg-gradient-to-r from-transparent via-[rgba(224,228,229,0.3)] to-transparent mx-auto max-w-[1200px]" />
+      <div className="h-[1px] bg-gradient-to-r from-transparent via-[#6E7C8D]/20 to-transparent mx-auto max-w-[1200px]" />
 
       <WCompetitiveSection />
 
