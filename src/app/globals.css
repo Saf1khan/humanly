@@ -1,36 +1,9 @@
 @tailwind base;
 
-@font-face {
-  font-family: "Neue Haas Grotesk";
-  src: url("/fonts/neue-haas/NHaasGroteskDSPro-45Lt.woff2") format("woff2");
-  font-weight: 300;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Neue Haas Grotesk";
-  src: url("/fonts/neue-haas/NHaasGroteskDSPro-55Rg.woff2") format("woff2");
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Neue Haas Grotesk";
-  src: url("/fonts/neue-haas/NHaasGroteskDSPro-65Md.woff2") format("woff2");
-  font-weight: 500;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Neue Haas Grotesk";
-  src: url("/fonts/neue-haas/NHaasGroteskDSPro-75Bd.woff2") format("woff2");
-  font-weight: 700;
-  font-display: swap;
-}
-
-/* Apply globally */
-body {
-  font-family: "Neue Haas Grotesk" !important;
+@theme inline {
+  --font-albert: var(--font-albert-sans);
+  --font-cormorant: var(--font-cormorant-garamond);
+  --font-bodoni: var(--font-bodoni-moda);
 }
 
 @tailwind components;

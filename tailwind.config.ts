@@ -32,7 +32,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['"Neue Haas Grotesk"', 'sans-serif', 'system-ui'],
+        albert: ['var(--font-albert-sans)', 'sans-serif'],
+        cormorant: ['var(--font-cormorant-garamond)', 'serif'],
+        bodoni: ['var(--font-bodoni-moda)', 'serif'],
       },
     },
   },
