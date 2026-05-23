@@ -43,7 +43,7 @@ const getFeatureGradient = (row: typeof rows[0]) => {
   if (row.r) activeColors.push('#2d7dd2');
   if (row.o) activeColors.push('#d96a2b');
   if (row.m) activeColors.push('#0d9e87');
-  
+
   if (activeColors.length === 1) return activeColors[0];
   if (activeColors.length === 2) return `linear-gradient(to bottom, ${activeColors[0]}, ${activeColors[1]})`;
   if (activeColors.length === 3) return `linear-gradient(to bottom, ${activeColors[0]}, ${activeColors[1]}, ${activeColors[2]})`;
@@ -120,15 +120,15 @@ const OSPlatformMatrix = () => {
               whileHover={{ y: -1 }}
               whileTap={{ y: 1 }}
             >
-              <div 
-                className="w-2 h-2 rounded-full" 
-                style={{ 
+              <div
+                className="w-2 h-2 rounded-full"
+                style={{
                   background: s.color,
                   boxShadow: hoveredStakeholder === s.key ? `0 0 10px ${s.color}` : 'none'
-                }} 
+                }}
               />
-              <span 
-                className="text-[0.68rem] font-bold tracking-[0.16em] uppercase" 
+              <span
+                className="text-[0.68rem] font-bold tracking-[0.16em] uppercase"
                 style={{ color: hoveredStakeholder === s.key ? '#ffffff' : s.color }}
               >
                 {s.label}
@@ -175,9 +175,9 @@ const OSPlatformMatrix = () => {
                     <th key={s.key} className="px-5 py-6 text-center">
                       <span
                         className="text-[0.62rem] font-bold tracking-[0.2em] uppercase transition-opacity duration-300"
-                        style={{ 
+                        style={{
                           color: s.color,
-                          opacity: hoveredStakeholder && hoveredStakeholder !== s.key ? 0.35 : 1 
+                          opacity: hoveredStakeholder && hoveredStakeholder !== s.key ? 0.35 : 1
                         }}
                       >
                         {s.label}
@@ -208,9 +208,9 @@ const OSPlatformMatrix = () => {
                         <motion.div
                           className="absolute left-0 top-3.5 bottom-3.5 w-[3px] rounded-r-full"
                           style={{ background: gradient }}
-                          animate={{ 
-                            scaleY: hoveredRow === idx ? 1 : 0.4, 
-                            opacity: hoveredRow === idx ? 1 : 0.12 
+                          animate={{
+                            scaleY: hoveredRow === idx ? 1 : 0.4,
+                            opacity: hoveredRow === idx ? 1 : 0.12
                           }}
                           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                         />
@@ -227,7 +227,7 @@ const OSPlatformMatrix = () => {
                       </td>
 
                       {/* Stakeholder check/dash cells */}
-                      {([ 'r', 'o', 'm' ] as StakeholderKey[]).map((key, sIdx) => {
+                      {(['r', 'o', 'm'] as StakeholderKey[]).map((key, sIdx) => {
                         const s = stakeholders[sIdx];
                         const active = row[key];
                         const isFilteredDimmed = hoveredStakeholder && hoveredStakeholder !== key;
@@ -236,7 +236,7 @@ const OSPlatformMatrix = () => {
                           <td key={key} className="px-5 py-5.5 text-center relative z-10">
                             <motion.div
                               className="flex justify-center"
-                              animate={{ 
+                              animate={{
                                 scale: hoveredRow === idx && active ? 1.15 : 1,
                                 opacity: isFilteredDimmed ? 0.15 : (hoveredRow === idx || active ? 1 : 0.45)
                               }}
@@ -254,19 +254,21 @@ const OSPlatformMatrix = () => {
                       {/* Cinematic liquid glass spotlight sweep sliding on layout */}
                       <AnimatePresence>
                         {hoveredRow === idx && (
-                          <motion.div
-                            layoutId="rowHighlight"
-                            className="absolute inset-0 pointer-events-none z-0"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ type: 'spring', stiffness: 350, damping: 32 }}
-                          >
-                            {/* Volumetric backlight glass sheet */}
-                            <div className="absolute inset-0 bg-white/[0.045]" />
-                            {/* Subtle micro shine ribbon */}
-                            <div className="absolute top-0 bottom-0 left-[20%] w-[1px] bg-gradient-to-b from-white/10 to-transparent blur-[0.5px]" />
-                          </motion.div>
+                          <td className="absolute inset-0 pointer-events-none z-0 p-0" colSpan={4}>
+                            <motion.div
+                              layoutId="rowHighlight"
+                              className="absolute inset-0 pointer-events-none"
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              exit={{ opacity: 0 }}
+                              transition={{ type: 'spring', stiffness: 350, damping: 32 }}
+                            >
+                              {/* Volumetric backlight glass sheet */}
+                              <div className="absolute inset-0 bg-white/[0.045]" />
+                              {/* Subtle micro shine ribbon */}
+                              <div className="absolute top-0 bottom-0 left-[20%] w-[1px] bg-gradient-to-b from-white/10 to-transparent blur-[0.5px]" />
+                            </motion.div>
+                          </td>
                         )}
                       </AnimatePresence>
 

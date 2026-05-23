@@ -139,7 +139,7 @@ export const HeroSection = () => {
               <img
                 src="/images/asset%200.png"
                 alt="Humanly Logo"
-                className="object-contain w-full h-full"
+                className="object-contain w-full h-full brightness-0 invert"
               />
             </div>
 

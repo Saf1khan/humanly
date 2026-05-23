@@ -6,7 +6,6 @@ import OSPlatformMatrix from "@/components/sections/humanlyOSComponents/OSPlatfo
 import OSServicesQuote from "@/components/sections/humanlyOSComponents/OSServicesQuote";
 import OSTransactionIntegration from "@/components/sections/humanlyOSComponents/OSTransactionIntegration";
 import OSCircleOfServices from "@/components/sections/humanlyOSComponents/OSCircleOfServices";
-import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 
 export const metadata = {
@@ -17,7 +16,6 @@ export const metadata = {
 export default function HumanlyOSPage() {
   return (
     <main className="bg-[#0f0f0e]">
-      <Nav />
       <OSHero />
       <OSFinancialFoundation />
       <OSServicesQuote />
