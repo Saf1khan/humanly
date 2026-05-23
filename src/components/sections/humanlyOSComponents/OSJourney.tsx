@@ -77,8 +77,8 @@ const milestones = [
 ];
 
 // Natural ease curves
-const EASE_OUT  = [0.16, 1, 0.3, 1] as const;   // gentle spring-out for opening
-const EASE_IN   = [0.4, 0, 0.6, 1] as const;    // snappy ease-in for closing
+const EASE_OUT = [0.16, 1, 0.3, 1] as const;   // gentle spring-out for opening
+const EASE_IN = [0.4, 0, 0.6, 1] as const;    // snappy ease-in for closing
 
 const OSJourney = () => {
   const [openIndex, setOpenIndex] = useState(0);
@@ -96,12 +96,12 @@ const OSJourney = () => {
     return () => clearInterval(t);
   }, [isInView, isUserHovering]);
 
-  // Debounced hover — 120ms intent delay so fast mouse sweeps don't flap
+  // Debounced hover — 60ms intent delay so fast mouse sweeps don't flap, yielding instant but stable response
   const handleRowHover = useCallback((idx: number) => {
     if (hoverTimer.current) clearTimeout(hoverTimer.current);
     hoverTimer.current = setTimeout(() => {
       setOpenIndex(idx);
-    }, 120);
+    }, 60);
   }, []);
 
   const cancelHover = useCallback(() => {
@@ -113,17 +113,19 @@ const OSJourney = () => {
       ref={sectionRef}
       className="bg-[#4C5C68] py-[clamp(5rem,10vw,8rem)] relative overflow-hidden"
     >
-      {/* Live colored spine */}
+
+      {/* Directional ambient glow (left for mobile, bottom-centered for desktop) */}
       <motion.div
-        className="absolute left-0 top-0 bottom-0 w-[3px] pointer-events-none"
-        animate={{ background: milestones[openIndex].color }}
-        transition={{ duration: 0.6, ease: 'easeInOut' }}
-      />
-      {/* Directional ambient glow */}
-      <motion.div
-        className="absolute left-0 top-1/2 -translate-y-1/2 w-[360px] h-[700px] pointer-events-none"
+        className="absolute left-0 top-1/2 -translate-y-1/2 w-[360px] h-[700px] pointer-events-none lg:hidden"
         animate={{
           background: `radial-gradient(ellipse at left, ${milestones[openIndex].color}12 0%, transparent 72%)`,
+        }}
+        transition={{ duration: 0.9, ease: 'easeInOut' }}
+      />
+      <motion.div
+        className="absolute left-1/2 bottom-0 -translate-x-1/2 w-[900px] h-[400px] pointer-events-none hidden lg:block"
+        animate={{
+          background: `radial-gradient(ellipse at bottom, ${milestones[openIndex].color}15 0%, transparent 75%)`,
         }}
         transition={{ duration: 0.9, ease: 'easeInOut' }}
       />
@@ -153,195 +155,312 @@ const OSJourney = () => {
           </p>
         </motion.div>
 
-        {/* ── Accordion ── */}
+        {/* ── Interactive Containers ── */}
         <div
           onMouseEnter={() => setIsUserHovering(true)}
           onMouseLeave={() => {
             cancelHover();
             setIsUserHovering(false);
           }}
-          className="space-y-[1px]"
         >
-          {milestones.map((step, idx) => {
-            const isOpen = idx === openIndex;
-            const isPast = idx < openIndex;
+          {/* 1. Desktop Layout (Horizontal Accordion Row) */}
+          <div className="hidden lg:flex w-full h-[480px] gap-3 items-stretch">
+            {milestones.map((step, idx) => {
+              const isOpen = idx === openIndex;
 
-            return (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, x: -16 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: '-20px' }}
-                transition={{ delay: idx * 0.055, duration: 0.55, ease: EASE_OUT }}
-                onMouseEnter={() => handleRowHover(idx)}
-                onMouseLeave={cancelHover}
-              >
-                {/* Row header */}
-                <div
-                  className="flex items-center gap-6 lg:gap-10 py-5 border-t cursor-default select-none"
-                  style={{
-                    borderColor: isOpen ? `${step.color}35` : 'rgba(255,255,255,0.07)',
-                    transition: 'border-color 0.45s ease',
+              return (
+                <motion.div
+                  key={idx}
+                  className="relative overflow-hidden rounded-[24px] border cursor-default select-none group"
+                  animate={{
+                    flexGrow: isOpen ? 6 : 1,
+                    flexShrink: 1,
+                    flexBasis: '0%',
+                    backgroundColor: isOpen ? 'rgba(0, 0, 0, 0.28)' : 'rgba(255, 255, 255, 0.02)',
+                    borderColor: isOpen ? `${step.color}35` : 'rgba(255, 255, 255, 0.05)',
                   }}
+                  onMouseEnter={() => handleRowHover(idx)}
+                  onMouseLeave={cancelHover}
+                  transition={{
+                    type: 'spring',
+                    stiffness: 140,
+                    damping: 22,
+                    mass: 0.9
+                  }}
+                  style={{ willChange: 'flex-grow, background-color, border-color' }}
                 >
-                  {/* Oversized number */}
-                  <div
-                    className="font-serif text-[clamp(2.8rem,5vw,4.5rem)] font-normal leading-none shrink-0 w-[3.5rem] lg:w-[5rem] text-right"
-                    style={{
-                      color: isOpen
-                        ? step.color
-                        : isPast
-                        ? `${step.color}50`
-                        : 'rgba(255,255,255,0.13)',
-                      transition: 'color 0.45s ease',
-                    }}
-                  >
-                    {String(step.num).padStart(2, '0')}
-                  </div>
-
-                  {/* Title + timeframe */}
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-baseline gap-4 flex-wrap">
-                      <h3
-                        className="font-serif text-[clamp(1.25rem,2.5vw,1.75rem)] font-normal leading-tight"
-                        style={{
-                          color: isOpen ? '#ffffff' : 'rgba(255,255,255,0.5)',
-                          transition: 'color 0.45s ease',
-                        }}
-                      >
-                        {step.title}
-                      </h3>
-                      <span
-                        className="text-[0.62rem] font-semibold tracking-[0.15em] uppercase"
-                        style={{
-                          color: isOpen ? step.color : '#6b7a87',
-                          transition: 'color 0.45s ease',
-                        }}
-                      >
-                        {step.timeframe}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Metric peek */}
-                  <div
-                    className="hidden lg:block shrink-0 text-right"
-                    style={{
-                      opacity: isOpen ? 0 : isPast ? 0.28 : 0.2,
-                      transition: 'opacity 0.45s ease',
-                    }}
-                  >
-                    <span
-                      className="font-serif text-[1.75rem] font-light leading-none"
-                      style={{ color: step.color }}
-                    >
-                      {step.metric}
-                    </span>
-                  </div>
-
-                  {/* + chevron */}
+                  {/* Subtle top indicator bar */}
                   <motion.div
-                    animate={{ rotate: isOpen ? 45 : 0 }}
-                    transition={{ duration: 0.35, ease: EASE_OUT }}
-                    className="shrink-0 w-5 h-5 flex items-center justify-center"
-                    style={{
-                      color: isOpen ? step.color : 'rgba(255,255,255,0.22)',
-                      transition: 'color 0.45s ease',
-                    }}
-                  >
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                      <path d="M6 1V11M1 6H11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                    </svg>
-                  </motion.div>
-                </div>
+                    className="absolute top-0 left-0 right-0 h-[3px]"
+                    animate={{ background: isOpen ? step.color : 'transparent' }}
+                    transition={{ duration: 0.4 }}
+                  />
 
-                {/* Expanded content */}
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      key="content"
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{
-                        height: { duration: 0.48, ease: EASE_OUT },
-                        opacity: { duration: isOpen ? 0.35 : 0.22, ease: isOpen ? EASE_OUT : EASE_IN },
-                      }}
-                      style={{ willChange: 'height, opacity' }}
-                      className="overflow-hidden"
-                    >
-                      <div className="pl-[calc(3.5rem+1.5rem)] lg:pl-[calc(5rem+2.5rem)] pb-8 pr-4">
-                        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 items-start">
+                  {/* Parallel cross-fade for seamless content transitions (removed mode="wait") */}
+                  <AnimatePresence initial={false}>
+                    {isOpen ? (
+                      <motion.div
+                        key="open"
+                        initial={{ opacity: 0, scale: 0.97, y: 5 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.97, y: 5 }}
+                        transition={{ duration: 0.35, ease: 'easeOut' }}
+                        className="absolute inset-0 w-full h-full p-8 flex flex-col justify-between"
+                      >
+                        {/* Header of Active Card */}
+                        <div className="flex justify-between items-start">
+                          <div>
+                            <div className="flex items-center gap-3 mb-2">
+                              <span className="text-[0.62rem] font-bold tracking-[0.2em] uppercase" style={{ color: step.color }}>
+                                Milestone 0{step.num}
+                              </span>
+                              <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: step.color }} />
+                              <span className="text-[0.62rem] font-medium tracking-[0.1em] text-white/40 uppercase">
+                                {step.timeframe}
+                              </span>
+                            </div>
+                            <h3 className="font-serif text-3xl font-normal text-white">
+                              {step.title}
+                            </h3>
+                          </div>
 
-                          {/* Description + outcome */}
-                          <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.12, duration: 0.4, ease: EASE_OUT }}
-                            className="space-y-5 max-w-xl"
-                          >
-                            <p className="text-[#e2e8f0] text-[1rem] leading-[1.85] font-light">
+                          <span className="font-serif text-5xl font-light text-white/10">
+                            0{step.num}
+                          </span>
+                        </div>
+
+                        {/* Description & Impact Grid */}
+                        <div className="grid grid-cols-[1fr_210px] gap-8 items-end mt-4">
+                          <div className="space-y-6">
+                            <p className="text-white/80 text-[0.95rem] leading-[1.75] font-light">
                               {step.desc}
                             </p>
-                            <div
-                              className="flex items-start gap-3 pt-5 border-t"
-                              style={{ borderColor: 'rgba(255,255,255,0.07)' }}
-                            >
-                              <div
-                                className="w-[2px] rounded-full mt-1 shrink-0 self-stretch"
-                                style={{ background: step.color, minHeight: '2.5rem' }}
-                              />
+
+                            <div className="flex items-start gap-3 pt-5 border-t border-white/5">
+                              <div className="w-[2px] rounded-full shrink-0 self-stretch" style={{ background: step.color }} />
                               <div>
-                                <span className="block text-[0.6rem] font-bold tracking-[0.18em] uppercase text-[#7a8a96] mb-1">
+                                <span className="block text-[0.58rem] font-bold tracking-[0.15em] uppercase text-[#7a8a96] mb-0.5">
                                   Outcome
                                 </span>
-                                <span className="text-[0.92rem] text-white font-light">
+                                <p className="text-[0.88rem] text-white/90 font-light leading-snug">
                                   {step.outcome}
-                                </span>
+                                </p>
                               </div>
                             </div>
-                          </motion.div>
+                          </div>
 
-                          {/* Metric block */}
-                          <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2, duration: 0.4, ease: EASE_OUT }}
-                            className="rounded-2xl p-6 min-w-[180px] lg:min-w-[200px] border shrink-0"
-                            style={{
-                              background: 'rgba(0,0,0,0.2)',
-                              borderColor: `${step.color}22`,
-                              backdropFilter: 'blur(12px)',
-                            }}
+                          {/* Metric box */}
+                          <div
+                            className="rounded-2xl p-5 border shrink-0 text-left bg-black/35 backdrop-blur-md"
+                            style={{ borderColor: `${step.color}25` }}
                           >
-                            <span className="block text-[0.58rem] font-bold tracking-[0.18em] uppercase text-[#7a8a96] mb-3">
+                            <span className="block text-[0.55rem] font-bold tracking-[0.18em] uppercase text-[#7a8a96] mb-2">
                               Impact
                             </span>
-                            <div
-                              className="font-serif leading-none mb-2"
-                              style={{
-                                fontSize: 'clamp(2.5rem, 4vw, 3.25rem)',
-                                color: step.color,
-                                fontWeight: 300,
-                              }}
-                            >
+                            <div className="font-serif leading-none mb-1 text-3xl font-light" style={{ color: step.color }}>
                               {step.metric}
                             </div>
-                            <span className="block text-[0.78rem] text-[#94a3b8] font-light leading-snug">
+                            <span className="block text-[0.72rem] text-white/60 font-light leading-snug">
                               {step.metricLabel}
                             </span>
-                          </motion.div>
-
+                          </div>
                         </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            );
-          })}
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="closed"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute inset-0 w-full h-full p-6 flex flex-col justify-between items-center"
+                      >
+                        <span className="font-serif text-2xl font-light text-white/20 group-hover:text-white/40 transition-colors duration-300">
+                          0{step.num}
+                        </span>
 
-          <div className="border-t border-white/[0.07]" />
+                        <div
+                          className="font-serif text-[1rem] tracking-wider text-white/35 group-hover:text-white/60 uppercase whitespace-nowrap transition-colors duration-300"
+                          style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+                        >
+                          {step.title}
+                        </div>
+
+                        <div
+                          className="w-2.5 h-2.5 rounded-full border border-white/10 transition-transform duration-300 group-hover:scale-125"
+                          style={{ backgroundColor: `${step.color}40` }}
+                        />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* 2. Mobile Layout (Vertical Accordion List) */}
+          <div className="space-y-[1px] lg:hidden">
+            {milestones.map((step, idx) => {
+              const isOpen = idx === openIndex;
+              const isPast = idx < openIndex;
+
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: '-20px' }}
+                  transition={{ delay: idx * 0.055, duration: 0.55, ease: EASE_OUT }}
+                  onMouseEnter={() => handleRowHover(idx)}
+                  onMouseLeave={cancelHover}
+                >
+                  {/* Row header */}
+                  <div
+                    className="flex items-center gap-6 py-5 border-t cursor-default select-none"
+                    style={{
+                      borderColor: isOpen ? `${step.color}35` : 'rgba(255,255,255,0.07)',
+                      transition: 'border-color 0.45s ease',
+                    }}
+                  >
+                    {/* Oversized number */}
+                    <div
+                      className="font-serif text-[clamp(2.8rem,5vw,4.5rem)] font-normal leading-none shrink-0 w-[3.5rem] text-right"
+                      style={{
+                        color: isOpen
+                          ? step.color
+                          : isPast
+                            ? `${step.color}50`
+                            : 'rgba(255,255,255,0.13)',
+                        transition: 'color 0.45s ease',
+                      }}
+                    >
+                      {String(step.num).padStart(2, '0')}
+                    </div>
+
+                    {/* Title + timeframe */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-baseline gap-4 flex-wrap">
+                        <h3
+                          className="font-serif text-[clamp(1.25rem,2.5vw,1.75rem)] font-normal leading-tight"
+                          style={{
+                            color: isOpen ? '#ffffff' : 'rgba(255,255,255,0.5)',
+                            transition: 'color 0.45s ease',
+                          }}
+                        >
+                          {step.title}
+                        </h3>
+                        <span
+                          className="text-[0.62rem] font-semibold tracking-[0.15em] uppercase"
+                          style={{
+                            color: isOpen ? step.color : '#6b7a87',
+                            transition: 'color 0.45s ease',
+                          }}
+                        >
+                          {step.timeframe}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* + chevron */}
+                    <motion.div
+                      animate={{ rotate: isOpen ? 45 : 0 }}
+                      transition={{ duration: 0.35, ease: EASE_OUT }}
+                      className="shrink-0 w-5 h-5 flex items-center justify-center"
+                      style={{
+                        color: isOpen ? step.color : 'rgba(255,255,255,0.22)',
+                        transition: 'color 0.45s ease',
+                      }}
+                    >
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M6 1V11M1 6H11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                      </svg>
+                    </motion.div>
+                  </div>
+
+                  {/* Expanded content */}
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        key="content"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{
+                          height: { duration: 0.48, ease: EASE_OUT },
+                          opacity: { duration: isOpen ? 0.35 : 0.22, ease: isOpen ? EASE_OUT : EASE_IN },
+                        }}
+                        style={{ willChange: 'height, opacity' }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pl-[calc(3.5rem+1.5rem)] pb-8 pr-4">
+                          <div className="grid grid-cols-1 gap-8 items-start">
+
+                            {/* Description + outcome */}
+                            <motion.div
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.12, duration: 0.4, ease: EASE_OUT }}
+                              className="space-y-5 max-w-xl"
+                            >
+                              <p className="text-[#e2e8f0] text-[1rem] leading-[1.85] font-light">
+                                {step.desc}
+                              </p>
+                              <div
+                                className="flex items-start gap-3 pt-5 border-t"
+                                style={{ borderColor: 'rgba(255,255,255,0.07)' }}
+                              >
+                                <div
+                                  className="w-[2px] rounded-full mt-1 shrink-0 self-stretch"
+                                  style={{ background: step.color, minHeight: '2.5rem' }}
+                                />
+                                <div>
+                                  <span className="block text-[0.6rem] font-bold tracking-[0.18em] uppercase text-[#7a8a96] mb-1">
+                                    Outcome
+                                  </span>
+                                  <span className="text-[0.92rem] text-white font-light">
+                                    {step.outcome}
+                                  </span>
+                                </div>
+                              </div>
+                            </motion.div>
+
+                            {/* Metric block */}
+                            <motion.div
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.2, duration: 0.4, ease: EASE_OUT }}
+                              className="rounded-2xl p-6 min-w-[180px] border shrink-0 bg-black/20 backdrop-blur-md"
+                              style={{
+                                borderColor: `${step.color}22`,
+                              }}
+                            >
+                              <span className="block text-[0.58rem] font-bold tracking-[0.18em] uppercase text-[#7a8a96] mb-3">
+                                Impact
+                              </span>
+                              <div
+                                className="font-serif leading-none mb-2 text-4xl font-light"
+                                style={{
+                                  color: step.color,
+                                }}
+                              >
+                                {step.metric}
+                              </div>
+                              <span className="block text-[0.78rem] text-[#94a3b8] font-light leading-snug">
+                                {step.metricLabel}
+                              </span>
+                            </motion.div>
+
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
+
+            <div className="border-t border-white/[0.07]" />
+          </div>
         </div>
 
       </div>

@@ -1,4 +1,3 @@
-import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { WHeroSection } from "@/components/sections/why-humanly/WHeroSection";
 import { WStatsSection } from "@/components/sections/why-humanly/WStatsSection";

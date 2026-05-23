@@ -87,12 +87,12 @@ export const HeroSection = () => {
         <div className="pointer-events-auto">
           <h1 ref={titleRef} className="hero-title text-left text-[36px] md:text-[48px] lg:text-[72px] leading-[1.1] text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] m-0 max-w-[85%] lg:max-w-[45%]">
             <HeroReveal delay="delay-100">
-              <span className="block drop-shadow-none font-medium">
+              <span className="block font-bodoni drop-shadow-none font-medium">
                 The neighborhood,
               </span>
             </HeroReveal>
             <HeroReveal delay="delay-200">
-              <span className="pl-[308px] block drop-shadow-none opacity-90 italic font-light tracking-tighter">
+              <span className="pl-[308px] font-cormorant block drop-shadow-none opacity-90 italic font-light tracking-tighter">
                 reimagined.
               </span>
             </HeroReveal>
@@ -100,10 +100,10 @@ export const HeroSection = () => {
 
           <HeroReveal delay="delay-500">
             <div className="flex flex-col xl:flex-row gap-4 mt-8">
-              <a href="#" className="px-6 py-3 bg-white text-[#1a1818] rounded-full font-normal text-xs text-center transition-opacity hover:opacity-80 shadow-2xl drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)] whitespace-nowrap">
+              <a href="#" className="px-6 py-3 bg-white font-albert text-[#1a1818] rounded-full font-normal text-xs text-center transition-opacity hover:opacity-80 shadow-2xl drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)] whitespace-nowrap">
                 FOR INVESTORS
               </a>
-              <a href="#" className="px-6 py-3 bg-black/20 text-white rounded-full font-normal text-xs text-center border border-white/40 transition-colors hover:bg-white hover:text-[#1a1818] shadow-2xl drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)] whitespace-nowrap backdrop-blur-md">
+              <a href="#" className="px-6 py-3 bg-black/20 font-albert text-white rounded-full font-normal text-xs text-center border border-white/40 transition-colors hover:bg-white hover:text-[#1a1818] shadow-2xl drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)] whitespace-nowrap backdrop-blur-md">
                 FOR STRATEGIC PARTNERS
               </a>
             </div>
@@ -115,7 +115,7 @@ export const HeroSection = () => {
       <div className="absolute bottom-0 left-0 w-[75%] lg:w-[65%] h-[20%] lg:h-[20%] z-20 pointer-events-none flex flex-col justify-center pl-16 md:pl-24 lg:pl-32 pr-12 lg:pr-24">
         <div className="pointer-events-auto">
           <HeroReveal delay="delay-400">
-            <p className="text-base md:text-lg font-normal leading-[1.6] text-[#241f21] drop-shadow-[0_1px_3px_rgba(0,0,0,0.15)]">
+            <p className="text-base md:text-lg font-albert font-normal leading-[1.6] text-[#241f21] drop-shadow-[0_1px_3px_rgba(0,0,0,0.15)]">
               Humanly uplifts people’s lives by creating financially attainable, exceptional master-planned communities that champion health, wellness and education for all. Powered by intelligence. Sustained by services. We build places that make daily life simpler and more connected.
             </p>
           </HeroReveal>
@@ -139,17 +139,17 @@ export const HeroSection = () => {
               <img
                 src="/images/asset%200.png"
                 alt="Humanly Logo"
-                className="object-contain w-full h-full"
+                className="object-contain w-full h-full brightness-0 invert"
               />
             </div>
 
             {/* Text & CTA */}
             <div className="flex flex-col justify-center px-4 py-3 lg:pl-6 lg:pr-7">
-              <p className="text-[0.875rem] text-[#e8e4db] mb-2 leading-snug font-normal">
+              <p className="text-[0.875rem] font-albert text-[#e8e4db] mb-2 leading-snug font-normal">
                 Humanly.<br />Explore the neighborhood.
               </p>
               <a href="/shop" className="inline-flex items-center gap-2">
-                <span className="text-[0.875rem] font-normal text-[#e8e4db]">Explore Now</span>
+                <span className="text-[0.875rem] font-normal font-albert text-[#e8e4db]">Explore Now</span>
                 <svg className="w-4 h-4 text-[#e8e4db] transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                 </svg>
