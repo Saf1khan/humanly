@@ -3,27 +3,27 @@ import React, { useEffect, useRef, useCallback } from "react";
 
 const axes = [
   {
-    color: "#4179F2",
+    color: "#6E7C8D", // Premium Accent
     title: "Vertical Integration",
     desc: "From land to living, Humanly controls the stack instead of relying on disconnected intermediaries.",
   },
   {
-    color: "#6BCEFF",
+    color: "#A3B2C3", // Highlight Accent
     title: "AMI / Workforce Focus",
     desc: "The business is intentionally designed around workforce households often overlooked by market-rate players.",
   },
   {
-    color: "#AA3DAD",
+    color: "#6E7C8D", // Premium Accent
     title: "Recurring Revenue Layers",
     desc: "Revenue is designed to extend beyond rent into services, finance, data, and licensing.",
   },
   {
-    color: "#FF6136",
+    color: "#A3B2C3", // Highlight Accent
     title: "Data & OS Ownership",
     desc: "Humanly owns the operational layer and digital feedback loop rather than outsourcing community intelligence.",
   },
   {
-    color: "#FFE366",
+    color: "#6E7C8D", // Premium Accent
     title: "Community Design Depth",
     desc: "The neighborhood itself is designed as a human outcomes system, not just an asset container.",
   },
@@ -59,11 +59,11 @@ export const WCompetitiveSection = () => {
             label: "Humanly®",
             data: [10, 10, 10, 10, 10],
             fill: true,
-            backgroundColor: "rgba(0,153,255,.2)",
-            borderColor: "#0099ff",
+            backgroundColor: "rgba(110,124,141,.18)",
+            borderColor: "#6E7C8D",
             borderWidth: 2.5,
-            pointBackgroundColor: "#0099ff",
-            pointBorderColor: "#0099ff",
+            pointBackgroundColor: "#6E7C8D",
+            pointBorderColor: "#6E7C8D",
             pointRadius: 2.5,
             pointHoverRadius: 4,
           },
@@ -71,7 +71,7 @@ export const WCompetitiveSection = () => {
             label: "Traditional Developer",
             data: [4, 3, 2, 1, 3],
             fill: false,
-            borderColor: "rgba(17,17,17,.4)",
+            borderColor: "rgba(95,100,107,.4)",
             borderDash: [7, 7],
             borderWidth: 1.6,
             pointRadius: 0,
@@ -80,7 +80,7 @@ export const WCompetitiveSection = () => {
             label: "PropTech",
             data: [3, 1, 4, 5, 1],
             fill: false,
-            borderColor: "rgba(17,17,17,.25)",
+            borderColor: "rgba(95,100,107,.25)",
             borderDash: [7, 7],
             borderWidth: 1.4,
             pointRadius: 0,
@@ -89,7 +89,7 @@ export const WCompetitiveSection = () => {
             label: "REIT",
             data: [5, 4, 3, 2, 2],
             fill: false,
-            borderColor: "rgba(17,17,17,.15)",
+            borderColor: "rgba(95,100,107,.15)",
             borderDash: [7, 7],
             borderWidth: 1.2,
             pointRadius: 0,
@@ -106,8 +106,8 @@ export const WCompetitiveSection = () => {
             backgroundColor: "rgba(255,255,255,.95)",
             borderColor: "rgba(17,17,17,.08)",
             borderWidth: 1,
-            titleColor: "#111",
-            bodyColor: "rgba(17,17,17,.75)",
+            titleColor: "#111111",
+            bodyColor: "#5F646B",
             padding: 12,
           },
         },
@@ -119,8 +119,8 @@ export const WCompetitiveSection = () => {
             angleLines: { color: "rgba(17,17,17,.08)" },
             grid: { color: "rgba(17,17,17,.07)" },
             pointLabels: {
-              color: "rgba(17,17,17,.72)",
-              font: { size: 11, weight: 600, family: "Plus Jakarta Sans" },
+              color: "#5F646B",
+              font: { size: 11, weight: 600, family: "Albert Sans" },
             },
             ticks: { display: false, stepSize: 2 },
           },
@@ -169,17 +169,17 @@ export const WCompetitiveSection = () => {
     <section className="py-[140px] md:py-[100px]">
       <div className="max-w-[1200px] mx-auto px-12 md:px-6">
         <p
-          className="wh-eyebrow wh-rv text-[11px] font-bold uppercase tracking-[0.15em] text-[#ff7e5d]"
+          className="wh-eyebrow wh-rv text-[11px] font-bold uppercase tracking-[0.15em] text-[#6E7C8D]"
           ref={(el) => { headRefs.current[0] = el; }}
         >
           Competitive Landscape
         </p>
         <div
-          className="wh-gline wh-rv h-[2px] w-16 bg-gradient-to-r from-[#ff7e5d] to-[#0099ff] rounded-[1px] my-4 mb-3"
+          className="wh-gline wh-rv h-[2px] w-16 bg-[#6E7C8D] rounded-[1px] my-4 mb-3"
           ref={(el) => { headRefs.current[1] = el as HTMLElement | null; }}
         />
         <h2
-          className="wh-rv text-[clamp(26px,2.8vw,40px)] font-extrabold tracking-[-1.2px] max-w-[760px] text-[#111111]"
+          className="wh-rv text-[clamp(26px,2.8vw,40px)] font-serif font-bold tracking-[-1.2px] max-w-[760px] text-[#111111]"
           ref={(el) => { headRefs.current[2] = el; }}
         >
           Humanly occupies a category no traditional housing player fully covers.
@@ -190,20 +190,20 @@ export const WCompetitiveSection = () => {
           <div>
             <div className="wh-axis-list wh-rvl grid gap-[9px]" ref={axisRef}>
               {axes.map((a, i) => (
-                <div key={i} className="wh-axis-item flex gap-3 items-start p-[10px_16px] rounded-xl bg-white border border-[#e0e4e5]">
+                <div key={i} className="wh-axis-item flex gap-3 items-start p-[10px_16px] rounded-xl bg-[rgba(255,255,255,0.32)] backdrop-blur-md border border-[rgba(17,17,17,0.08)]">
                   <div
                     className="wh-axis-dot w-[10px] h-[10px] rounded-full mt-1.5 flex-shrink-0"
                     style={{ background: a.color }}
                   />
                   <div>
                     <h5 className="text-sm font-bold mb-1 text-[#111111]">{a.title}</h5>
-                    <p className="text-xs leading-normal text-[#827e7a]">{a.desc}</p>
+                    <p className="text-xs leading-normal text-[#5F646B]">{a.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
             <p
-              className="wh-tagline wh-rvl mt-5 text-sm font-bold text-[#0099ff]"
+              className="wh-tagline wh-rvl mt-5 text-sm font-bold text-[#6E7C8D]"
               style={{ transitionDelay: "0.1s" }}
             >
               Control the full vertical. Compound the intelligence. No one else
@@ -212,7 +212,7 @@ export const WCompetitiveSection = () => {
           </div>
 
           {/* Right — radar chart */}
-          <div className="wh-chart-shell wh-rvs p-6 rounded-[20px] bg-white border border-[#e0e4e5] shadow-[0_4px_20px_rgba(0,0,0,0.03)]" ref={chartRef}>
+          <div className="wh-chart-shell wh-rvs p-6 rounded-[20px] bg-[rgba(255,255,255,0.32)] backdrop-blur-md border border-[rgba(17,17,17,0.08)] shadow-[0_4px_20px_rgba(17,17,17,0.03)]" ref={chartRef}>
             <canvas
               ref={canvasRef}
               id="whRadarChart"
@@ -222,28 +222,28 @@ export const WCompetitiveSection = () => {
               role="img"
             />
             <div className="wh-chart-legend flex flex-wrap gap-4 mt-4">
-              <div className="wh-leg flex items-center gap-2 text-xs text-[#827e7a]">
-                <span className="wh-sw w-[10px] h-[10px] rounded-full inline-block" style={{ background: "#0099ff" }} />
+              <div className="wh-leg flex items-center gap-2 text-xs text-[#5F646B]">
+                <span className="wh-sw w-[10px] h-[10px] rounded-full inline-block" style={{ background: "#6E7C8D" }} />
                 Humanly®
               </div>
-              <div className="wh-leg flex items-center gap-2 text-xs text-[#827e7a]">
+              <div className="wh-leg flex items-center gap-2 text-xs text-[#5F646B]">
                 <span
                   className="wh-sw w-[10px] h-[10px] rounded-full inline-block"
-                  style={{ background: "rgba(17,17,17,.4)" }}
+                  style={{ background: "rgba(95,100,107,.4)" }}
                 />
                 Traditional Developer
               </div>
-              <div className="wh-leg flex items-center gap-2 text-xs text-[#827e7a]">
+              <div className="wh-leg flex items-center gap-2 text-xs text-[#5F646B]">
                 <span
                   className="wh-sw w-[10px] h-[10px] rounded-full inline-block"
-                  style={{ background: "rgba(17,17,17,.25)" }}
+                  style={{ background: "rgba(95,100,107,.25)" }}
                 />
                 PropTech
               </div>
-              <div className="wh-leg flex items-center gap-2 text-xs text-[#827e7a]">
+              <div className="wh-leg flex items-center gap-2 text-xs text-[#5F646B]">
                 <span
                   className="wh-sw w-[10px] h-[10px] rounded-full inline-block"
-                  style={{ background: "rgba(17,17,17,.15)" }}
+                  style={{ background: "rgba(95,100,107,.15)" }}
                 />
                 REIT
               </div>

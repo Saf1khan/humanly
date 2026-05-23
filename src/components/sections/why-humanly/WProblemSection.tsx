@@ -1,167 +1,428 @@
 "use client";
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import SplitType from "split-type";
 
-gsap.registerPlugin(ScrollTrigger);
+// Register ScrollTrigger outside component to avoid re-registration
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const problems = [
   {
     id: "01",
     title: "Fragmented Development",
     tagline: "Siloed housing systems weaken outcomes.",
-    description: "Housing, services, financing, and operations are built in silos. Every handoff adds cost, loses intelligence, and weakens resident outcomes.",
+    description:
+      "Housing, services, financing, and operations are built in silos. Every handoff adds cost, loses intelligence, and weakens resident outcomes.",
     stat1: { label: "Cost Inefficiency", value: "30%" },
     stat2: { label: "Intelligence Loss", value: "High" },
     stat3: { label: "Handover Gaps", value: "Frequent" },
-    image: "/images/AdobeStock_194151140.jpeg",
+    image: "/images/pexels-kalpesh-patel-1333170-19672044.jpg",
     badge: "30%",
-    badgeLabel: "more expensive"
+    badgeLabel: "more expensive",
   },
   {
     id: "02",
     title: "Affordability Crisis",
     tagline: "Workforce families are routinely priced out.",
-    description: "Workforce families earning 80–120% AMI are routinely priced out of quality housing options in the communities that rely on them.",
+    description:
+      "Workforce families earning 80–120% AMI are routinely priced out of quality housing options in the communities that rely on them.",
     stat1: { label: "AMI Target", value: "80-120%" },
     stat2: { label: "Housing Gap", value: "7M+" },
     stat3: { label: "Price Increase", value: "12%/yr" },
-    image: "/images/AdobeStock_288039334.jpeg",
+    image: "/images/pexels-khwanchai-4174740.jpg",
     badge: "120%",
-    badgeLabel: "AMI average"
+    badgeLabel: "AMI average",
   },
   {
     id: "03",
     title: "Disconnected Services",
     tagline: "Residents navigate providers with no unified access.",
-    description: "Residents must navigate disconnected providers for healthcare, education, food, transport, and support with no unified point of access.",
+    description:
+      "Residents must navigate disconnected providers for healthcare, education, food, transport, and support with no unified point of access.",
     stat1: { label: "Time Wasted", value: "15hr/mo" },
     stat2: { label: "Trust Gap", value: "Widening" },
     stat3: { label: "Unified Access", value: "0%" },
-    image: "/images/AdobeStock_289876368.jpeg",
+    image: "/images/pexels-digitaljames-31561003.jpg",
     badge: "15h",
-    badgeLabel: "time lost"
+    badgeLabel: "time lost",
   },
   {
     id: "04",
     title: "No Wealth Building",
     tagline: "Traditional rentership extracts value every month.",
-    description: "Traditional rentership extracts value every month without helping residents build credit, savings, financial literacy, or long-term security.",
+    description:
+      "Traditional rentership extracts value every month without helping residents build credit, savings, financial literacy, or long-term security.",
     stat1: { label: "Wealth Built", value: "$0" },
     stat2: { label: "Equity Gap", value: "$240k" },
     stat3: { label: "Savings Rate", value: "Neg." },
-    image: "/images/AdobeStock_1909482653.jpeg",
+    image: "/images/pexels-joslyn-pickens-2185980-3848193.jpg",
     badge: "0$",
-    badgeLabel: "equity built"
-  }
+    badgeLabel: "equity built",
+  },
 ];
+
+const ChevronLeft = () => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <polyline points="15 18 9 12 15 6"></polyline>
+  </svg>
+);
+
+const ChevronRight = () => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+);
 
 export const WProblemSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const bodyRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const coverRef = useRef<HTMLDivElement>(null);
+  const imageContainerRef = useRef<HTMLDivElement>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % problems.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + problems.length) % problems.length);
+  };
+
+  // GSAP ScrollTrigger Animations
   useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const sections = gsap.utils.toArray<HTMLElement>(".wh-prob-pin-container");
+    const container = containerRef.current;
+    const title = titleRef.current;
+    const body = bodyRef.current;
+    const image = imageRef.current;
+    const cover = coverRef.current;
+    const imageContainer = imageContainerRef.current;
 
-      sections.forEach((section: HTMLElement, i: number) => {
-        const card = section.querySelector(".wh-prob-main");
-        const isLast = i === sections.length - 1;
+    if (!container || !title || !body || !image || !cover || !imageContainer)
+      return;
 
-        // We only pin and shrink if there's a NEXT card to overlap this one
-        if (!isLast) {
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: section,
-              start: "top top",      // Start shrinking when card hits the top
-              end: "+=100%",         // Finish shrinking when the next card is fully up
-              scrub: true,           // Link animation to scroll position
-              pin: true,             // Keep the card fixed
-              pinSpacing: false      // Allow next card to overlap
-            }
-          });
+    // 1. Split the title text into lines and characters
+    const split = new SplitType(title, { types: "lines,chars" });
 
-          if (tl.scrollTrigger) {
-            const spacer = (tl.scrollTrigger as any).spacer;
-            if (spacer) {
-              spacer.style.zIndex = String(i + 10);
-            }
-          }
+    // Immediately reveal the title container
+    gsap.set(title, { opacity: 1 });
 
-          if (card) {
-            tl.to(card, {
-              scale: 0.6,              // Shrinks to 60%
-              autoAlpha: 0,            // Fades out and sets visibility: hidden to completely prevent background text leaks
-              ease: "none"
-            });
-          }
-        }
+    let ctx = gsap.context(() => {
+      // 2. Character sliding entrance animation (same as WHeroSection)
+      gsap.to(split.chars, {
+        y: "0%",
+        scale: 1,
+        rotate: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power4.out",
+        stagger: {
+          each: 0.02,
+          from: "center",
+          grid: "auto",
+        },
       });
-    }, containerRef);
 
-    return () => ctx.revert();
-  }, []);
+      // 4. THE REVEAL (The Curtain)
+      // If the image container is already in the viewport, use a smooth timed transition.
+      // Otherwise, let ScrollTrigger trigger it when it enters the viewport.
+      const isImgInViewport = ScrollTrigger.isInViewport(".image-container");
+      if (isImgInViewport) {
+        gsap.fromTo(
+          cover,
+          { yPercent: 0 },
+          {
+            yPercent: 100,
+            duration: 1.2,
+            ease: "power3.inOut",
+          },
+        );
+      } else {
+        gsap.fromTo(
+          cover,
+          { yPercent: 0 },
+          {
+            yPercent: 100,
+            scrollTrigger: {
+              trigger: ".image-container",
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+            duration: 1.2,
+            ease: "power3.inOut",
+          },
+        );
+      }
 
+      // 3. THE SLIDE (The Smooth Parallax)
+      // This moves the image SLOWLY inside the frame as you scroll, synchronized with the title scaling.
+      gsap.fromTo(
+        image,
+        { yPercent: 4 },
+        {
+          yPercent: -4,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".ac-animated-heading", // Same parent trigger as the title
+            start: "top bottom", // Same start position as the title
+            end: "bottom center", // Same end position as the title
+            scrub: 1, // Same smooth scrub effect as the title
+          },
+        },
+      );
+
+      // 5. Image Container Slide Down (when title is large)
+      gsap.fromTo(
+        imageContainer,
+        { y: window.innerWidth > 1024 ? 120 : 40 },
+        {
+          y: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".ac-animated-heading", // Same trigger as title and image
+            start: "top bottom", // Same start point
+            end: "bottom center", // Same end point
+            scrub: 1, // Same smooth scrub effect
+          },
+        },
+      );
+
+      // 6. Body Text Reveal
+      // If the body text is already in the viewport, fade and slide it up beautifully.
+      // Otherwise, let it scrub on initial scroll.
+      const isBodyInViewport = ScrollTrigger.isInViewport(body);
+      if (isBodyInViewport) {
+        gsap.fromTo(
+          body,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1.0,
+            ease: "power3.out",
+          },
+        );
+      } else {
+        gsap.fromTo(
+          body,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            scrollTrigger: {
+              trigger: body,
+              start: "top 90%",
+              end: "top 70%",
+              scrub: true,
+            },
+          },
+        );
+      }
+    }, containerRef); // Scope to container
+
+    return () => {
+      ctx.revert(); // Cleanup GSAP animations on unmount
+      split.revert(); // Revert SplitType changes on unmount/re-run
+    };
+  }, [currentIndex]); // Re-run animation when slide index changes
+
+  const p = problems[currentIndex];
+  // Split title to emulate the snippet style
+  const words = p.title.split(" ");
+  const firstPart = words[0];
+  const secondPart = words.slice(1).join(" ");
   return (
-    <div className="wh-prob-wrapper w-full bg-[#f0edeb]" ref={containerRef}>
-      {problems.map((p, i) => (
-        <section 
-          key={i} 
-          className="wh-prob-pin-container h-[100vh] w-full flex items-center justify-center relative overflow-hidden [perspective:1000px] max-[900px]:h-auto max-[900px]:min-h-[100vh] max-[900px]:py-10"
-          style={{ zIndex: i + 10 }}
-        >
-          <div 
-            className={`wh-prob-main w-[95%] max-w-[1787px] h-[85vh] bg-white rounded-[40px] overflow-hidden border border-[#e0e4e5] ${i > 0 ? "shadow-[0_-20px_80px_rgba(0,0,0,0.12),0_40px_100px_rgba(0,0,0,0.06)]" : "shadow-[0_40px_100px_rgba(0,0,0,0.06)]"} [transform-origin:center_center] [will-change:transform,opacity] relative max-[900px]:h-auto max-[900px]:rounded-[24px]`}
-            style={{ zIndex: i + 10 }}
-          >
-            <div className="wh-prob-grid grid grid-cols-[repeat(24,1fr)] h-full gap-6 max-[900px]:flex max-[900px]:flex-col">
+    <section
+      ref={containerRef}
+      className="gl-b-container w-full first:pt-[70px] z-30 relative pb-20 md:pb-[100px] bg-[#E7E3DC] font-['Albert_Sans',-apple-system,BlinkMacSystemFont,sans-serif] overflow-x-hidden"
+    >
+      <style>{`
+        .ac-animated-heading {
+            -webkit-tap-highlight-color: transparent;
+            font-variation-settings: normal;
+            tab-size: 4;
+            box-sizing: border-box;
+            scrollbar-width: thin;
+            scrollbar-color: #111111 transparent;
+        }
 
-              {/* Left Column: Info */}
-              <div className="wh-prob-info [grid-column:1/span_8] max-[1200px]:[grid-column:1/span_10] flex flex-col justify-between py-[60px] pl-[60px] pr-0 max-[1200px]:p-10 max-[900px]:p-10 max-[900px]:order-2">
-                <div className="wh-prob-info-top flex flex-col gap-6">
-                  <div className="wh-prob-stats-top flex flex-col gap-4">
-                    <p className="wh-prob-stat-line text-[15px] text-[#827e7a] m-0">
-                      from <span className="text-[22px] font-bold text-[#ff7e5d] ml-1">$ {p.stat1.value}</span> /metric
-                    </p>
-                    <p className="wh-prob-stat-line text-[15px] text-[#827e7a] m-0">
-                      Impact range <strong className="text-[#111111] font-bold">{p.stat2.value}</strong> level
-                    </p>
-                    <p className="wh-prob-stat-line text-[15px] text-[#827e7a] m-0">
-                      System status <strong className="text-[#111111] font-bold">{p.stat3.value}</strong>
-                    </p>
-                  </div>
-                </div>
+        .wp-problem-title {
+            color: #111111;
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: clamp(30px, 4.5vw, 54px);
+            font-weight: 300;
+            line-height: 0.9;
+            letter-spacing: -0.8px;
+            font-variant-ligatures: no-common-ligatures;
+            transform-origin: bottom left;
+            white-space: nowrap;
+            padding-right: 0.15em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            opacity: 0; /* Hidden until SplitType finishes */
+        }
 
-                <div className="wh-prob-info-bottom flex flex-col gap-10">
-                  <div className="wh-prob-title-section flex flex-col gap-3">
-                    <p className="wh-prob-count text-base font-semibold text-[#827e7a] tracking-[0.15em] uppercase">
-                      <span className="text-[#ff7e5d]">{p.id}</span> /04
-                    </p>
-                    <h3 className="wh-prob-title text-[clamp(36px,4vw,56px)] font-extrabold leading-[1.05] tracking-[-2px] text-[#111111] m-0">{p.title}</h3>
-                    <p className="wh-prob-tagline text-lg font-medium text-[#827e7a] leading-normal max-w-[90%]">{p.tagline}</p>
-                  </div>
+        /* SplitType adds .line automatically — overflow:hidden masks the sliding chars */
+        .wp-problem-title .line {
+          overflow: hidden;
+          padding-bottom: 0.15em; /* Prevents clipping descenders */
+        }
 
-                  <div className="wh-prob-actions flex gap-3 mt-5">
-                    <button className="wh-prob-btn px-8 py-4 rounded-[100px] text-[13px] font-bold tracking-[0.08em] uppercase transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer bg-[#ff7e5d] text-white border-none hover:bg-[#111111] hover:-translate-y-[2px]">DETAILS</button>
-                    <button className="wh-prob-btn px-8 py-4 rounded-[100px] text-[13px] font-bold tracking-[0.08em] uppercase transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer bg-transparent border border-[#e0e4e5] text-[#111111] hover:bg-[#f0edeb] hover:border-[#111111]">ANALYSIS</button>
+        /* SplitType adds .char — starts hidden below the line mask with organic scale/rotate */
+        .wp-problem-title .char {
+          display: inline-block;
+          transform: translateY(105%) scale(1.1) rotate(2deg);
+          transform-origin: bottom left;
+          opacity: 0;
+          will-change: transform, opacity;
+        }
+
+        .font-minionPro {
+            font-family: "Cormorant Garamond", Georgia, serif;
+        }
+
+        .font-albertSans {
+            font-family: "Albert Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .scaled-heading {
+            transform-origin: bottom left;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parallax-image {
+            will-change: transform;
+        }
+
+        .reveal-cover {
+            transform: translateY(0%);
+            will-change: transform;
+        }
+
+        .body-text {
+            opacity: 0;
+            will-change: transform, opacity;
+        }
+      `}</style>
+
+      <div className="content-container md:mx-auto">
+        <div className="acf-innerblocks-container">
+          <div key={currentIndex} className="gl-b-alternating-column relative">
+            <div className="ac-animated-heading lg:flex lg:flex-row lg:justify-between px-4 pt-[50px] md:px-8 md:pt-[100px] lg:pt-[120px] 2xl:grid 2xl:grid-cols-2 2xl:gap-x-[126px] !overflow-visible">
+              {/* Left Content: Text */}
+              <div className="information-container order-1 flex flex-col w-full lg:max-w-[550px] 2xl:max-w-full lg:justify-start justify-center">
+                <h1
+                  ref={titleRef}
+                  className="wp-problem-title font-serif font-normal text-[#111111]"
+                >
+                  {firstPart} <span>{secondPart}</span>
+                </h1>
+
+                <div
+                  ref={bodyRef}
+                  className="body-text mt-6 lg:mt-[30px] text-[#111111] text-[14px] leading-[20px] md:text-[15px] md:leading-[22px] lg:text-[16px] lg:leading-[24px] font-light"
+                >
+                  <p className="font-bold mb-4 text-[#111111]">{p.tagline}</p>
+                  <p className="text-[#5F646B]">{p.description}</p>
+
+                  <div className="mt-8 flex flex-col gap-3 border-t border-[rgba(17,17,17,0.08)] pt-6">
+                    <div className="flex justify-between">
+                      <span className="text-[#5F646B]">{p.stat1.label}</span>
+                      <span className="font-bold text-[#111111]">
+                        {p.stat1.value}
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-[#5F646B]">{p.stat2.label}</span>
+                      <span className="font-bold text-[#111111]">
+                        {p.stat2.value}
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-[#5F646B]">{p.stat3.label}</span>
+                      <span className="font-bold text-[#111111]">
+                        {p.stat3.value}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Right Column: Slider/Image */}
-              <div className="wh-prob-slider [grid-column:9/span_16] max-[1200px]:[grid-column:11/span_14] w-full h-full relative overflow-hidden max-[900px]:h-[400px] max-[900px]:order-1">
-                <div className="wh-prob-image-wrapper w-full h-full relative">
-                  <img src={p.image} alt={p.title} className="w-full h-full object-cover" />
-                  <div className="wh-prob-badge absolute bottom-10 left-10 bg-[#111111] text-white px-8 py-6 rounded-[24px] flex flex-col items-center min-w-[140px] shadow-[0_10px_30px_rgba(0,0,0,0.2)] max-[900px]:bottom-5 max-[900px]:left-5 max-[900px]:p-4 max-[900px]:min-w-[100px]">
-                    <span className="wh-prob-badge-number text-[48px] font-extrabold leading-none text-[#ff7e5d] max-[900px]:text-[32px]">{p.badge}</span>
-                    <p className="text-xs font-bold uppercase tracking-[0.1em] mt-2 text-center leading-normal opacity-90">{p.badgeLabel}</p>
-                  </div>
+              {/* Right Content: Image & Navigation */}
+              <div
+                ref={imageContainerRef}
+                className="order-2 flex flex-col w-full lg:max-w-[750px] 2xl:max-w-full"
+              >
+                <div className="image-container relative overflow-hidden aspect-square md:aspect-[332/400] lg:aspect-[750/450] w-full">
+                  {/* THE COVER: Only slides once to reveal */}
+                  <div
+                    ref={coverRef}
+                    className="reveal-cover absolute inset-0 z-20 bg-[#E7E3DC]"
+                  ></div>
+
+                  {/* THE IMAGE: Moves slightly inside the container on scroll */}
+                  <img
+                    ref={imageRef}
+                    loading="lazy"
+                    decoding="async"
+                    src={p.image}
+                    className="parallax-image w-full h-full object-cover absolute top-0 left-0 scale-110"
+                    alt={p.title}
+                  />
+                </div>
+
+                {/* Navigation Arrows below the image */}
+                <div className="flex gap-4 mt-6 justify-start lg:justify-end">
+                  <button
+                    onClick={prevSlide}
+                    className="w-12 h-12 rounded-full border border-[rgba(17,17,17,0.2)] bg-white/90 shadow-sm flex items-center justify-center text-[#111111] hover:bg-[#6E7C8D] hover:text-[#131416] hover:border-[#6E7C8D] transition-all cursor-pointer hover:scale-105 active:scale-95 duration-200"
+                    aria-label="Previous Problem"
+                  >
+                    <ChevronLeft />
+                  </button>
+                  <button
+                    onClick={nextSlide}
+                    className="w-12 h-12 rounded-full border border-[rgba(17,17,17,0.2)] bg-white/90 shadow-sm flex items-center justify-center text-[#111111] hover:bg-[#6E7C8D] hover:text-[#131416] hover:border-[#6E7C8D] transition-all cursor-pointer hover:scale-105 active:scale-95 duration-200"
+                    aria-label="Next Problem"
+                  >
+                    <ChevronRight />
+                  </button>
                 </div>
               </div>
-
             </div>
           </div>
-        </section>
-      ))}
-    </div>
+        </div>
+      </div>
+    </section>
   );
 };

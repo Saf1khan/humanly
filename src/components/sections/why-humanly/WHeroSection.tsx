@@ -1,126 +1,146 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useLayoutEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { HeroReveal } from "../../ui/HeroReveal";
+import gsap from "gsap";
+import SplitType from "split-type";
 
 export const WHeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
+  const btnRevealRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (titleRef.current) {
-      setTimeout(() => {
-        titleRef.current?.classList.add("is-active");
-      }, 100);
-    }
+  useLayoutEffect(() => {
+    if (!titleRef.current) return;
+
+    // 1. Split the title into lines + individual characters
+    const split = new SplitType(titleRef.current, { types: "lines,chars" });
+
+    // Immediately reveal the title — chars are hidden behind .line overflow masks,
+    // so nothing is visible yet. This removes the opacity:0 set before splitting.
+    gsap.set(titleRef.current, { opacity: 1 });
+
+    // 2. Animate characters from translateY(115%) → 0, letter by letter
+    const tl = gsap.timeline();
+
+    tl.to(split.chars, {
+      y: "0%",
+      scale: 1,
+      rotate: 0,
+      opacity: 1,
+      duration: 1.5,
+      ease: "power4.out",
+      stagger: {
+        each: 0.02,
+        from: "center",
+        grid: "auto",
+      },
+      delay: 0.5,
+    });
+
+    // 3. Fade the button in slightly before the text finishes
+    tl.to(
+      btnRevealRef.current,
+      {
+        opacity: 1,
+        duration: 1,
+      },
+      "-=0.5",
+    );
+
+    return () => {
+      split.revert(); // Cleanup: restore original DOM on unmount
+    };
   }, []);
 
-  // Track scroll progress within the Hero section
+  // Parallax for background image
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   });
-
-  // Map scroll progress to parallax transforms
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1.1, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.4]);
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1.1, 1]);
 
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-[100svh] min-h-[800px] overflow-hidden bg-[#f0edeb]"
+      className="hero-section relative w-full min-h-[100svh] flex flex-col justify-end overflow-hidden bg-[#E7E3DC]"
     >
-      {/* LAYER 1: Full Screen Background Image with Masking Rectangles */}
-      <div className="absolute inset-0 overflow-hidden bg-stone-900 shadow-md">
+      {/* Scoped CSS */}
+      <style>{`
+        .wh-hero-title {
+          color: #ffffff;
+          font-family: "Cormorant Garamond", Georgia, serif;
+          font-size: clamp(36px, 6vw, 70px);
+          font-weight: 300;
+          line-height: 0.9;
+          letter-spacing: -0.8px;
+          margin: 0 0 30px 0;
+          /* Hidden until SplitType finishes — prevents layout flash on reload */
+          opacity: 0;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          text-rendering: optimizeLegibility;
+        }
 
-        {/* The Parallax Image */}
+        /* SplitType adds .line automatically — overflow:hidden masks the sliding chars */
+        .wh-hero-title .line {
+          overflow: hidden;
+          padding-bottom: 0.15em; /* Prevents clipping descenders */
+        }
+
+        /* SplitType adds .char — starts hidden below the line mask with organic scale/rotate */
+        .wh-hero-title .char {
+          display: inline-block;
+          transform: translateY(105%) scale(1.1) rotate(2deg);
+          transform-origin: bottom left;
+          opacity: 0;
+          will-change: transform, opacity;
+        }
+
+        /* Button starts invisible, GSAP fades it in */
+        .wh-btn-reveal {
+          opacity: 0;
+          will-change: opacity;
+        }
+      `}</style>
+
+      {/* Background Image with parallax */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
         <motion.div
-          style={{ y, scale }}
-          className="absolute inset-0 w-full h-[100%] -top-[0%]"
+          style={{ y, scale: imgScale }}
+          className="absolute inset-0 w-full h-[120%] -top-[10%]"
         >
           <img
             src="/images/AdobeStock_192330637.jpeg"
             alt="Why Humanly — Every neighborhood a launchpad for human potential"
-            className="absolute inset-0 w-full h-full object-cover object-top"
+            className="w-full h-full object-cover object-[center_12%] scale-[1.1]"
           />
         </motion.div>
 
-        {/* Overlay Tint */}
-        <motion.div
-          style={{ opacity }}
-          className="absolute inset-0 bg-black/20 pointer-events-none"
-        ></motion.div>
-
-        {/* --- The 3 White Rectangles forming the Polygon --- */}
-
-        {/* 1. Top Left Rectangle */}
-        <div className="absolute top-0 left-0 w-[45%] lg:w-[35%] h-[15%] lg:h-[20%] bg-[#f0edeb] rounded-br-[100px] lg:rounded-br-[160px] pointer-events-none z-10"></div>
-
-        {/* 2. Bottom Left Rectangle */}
-        <div className="absolute bottom-0 left-0 w-[75%] lg:w-[65%] h-[20%] lg:h-[20%] bg-[#f0edeb] rounded-tr-[100px] lg:rounded-tr-[160px] pointer-events-none z-10"></div>
-
-        {/* 3. Vertical Left Rectangle */}
-        <div className="absolute top-0 bottom-0 left-0 w-[40px] bg-[#f0edeb] pointer-events-none z-10"></div>
-
-        {/* --- Inner Corner Rounded Fillets (Smooth Concave Curves) --- */}
-
-        {/* Top Inner Fillet: Connects Top Rect to Vertical Rect */}
-        <div
-          className="absolute left-[40px] top-[15%] lg:top-[20%] w-[140px] h-[140px] pointer-events-none z-10"
-          style={{ background: "radial-gradient(circle at 100% 100%, transparent 139px, #f0edeb 140px)" }}
-        ></div>
-
-        {/* Bottom Inner Fillet: Connects Bottom Rect to Vertical Rect */}
-        <div
-          className="absolute left-[40px] bottom-[20%] lg:bottom-[20%] w-[140px] h-[140px] pointer-events-none z-10"
-          style={{ background: "radial-gradient(circle at 100% 0%, transparent 139px, #f0edeb 140px)" }}
-        ></div>
-
+        {/* Bottom-to-top gradient for readability */}
+        <div className="absolute inset-0 z-[2] bg-[linear-gradient(to_top,rgba(19,20,22,0.6)_0%,transparent_55%)] pointer-events-none"></div>
+        {/* Top dark bar */}
+        <div className="absolute inset-0 z-[2] bg-[linear-gradient(0deg,rgba(19,20,22,0)_89.25%,#131416_111.44%)] pointer-events-none"></div>
       </div>
 
-      {/* LAYER 2: Title & Eyebrow */}
-      <div className="absolute inset-0 flex flex-col justify-start pl-16 md:pl-24 lg:pl-32 pr-6 pt-[320px] z-20 pointer-events-none">
-        <div className="pointer-events-auto">
+      {/* Content anchored bottom-left */}
+      <div className="relative z-10 px-4 md:px-8 pb-[50px] md:pb-[90px] w-full">
+        {/* Title — SplitType will split this into .line and .char elements */}
+        <h1 ref={titleRef} className="wh-hero-title font-serif font-normal">
+          Every Neighborhood a Launchpad,
+          <br />
+          <span>For Human Potential.</span>
+        </h1>
 
-          <HeroReveal delay="delay-100">
-            <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#ff7e5d] mb-4">The Mission</p>
-          </HeroReveal>
-
-          <h1
-            ref={titleRef}
-            className="hero-title text-left text-[36px] md:text-[48px] lg:text-[72px] leading-[1.1] text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] m-0 max-w-[85%] lg:max-w-[50%]"
+        {/* Button fades in at the end of the timeline */}
+        <div ref={btnRevealRef} className="wh-btn-reveal mt-[30px]">
+          <a
+            href="/invest"
+            className="inline-block bg-[#6E7C8D] text-[#131416] px-[32px] py-[12px] rounded-[50px] font-sans text-[16px] font-medium no-underline transition-all duration-300 hover:bg-[#131416] hover:text-[#DAD4CB] hover:scale-105"
           >
-            <HeroReveal delay="delay-200">
-              <span className="block drop-shadow-none font-medium">
-                Every neighborhood a
-              </span>
-            </HeroReveal>
-            <HeroReveal delay="delay-300">
-              <span className="block drop-shadow-none opacity-90 italic font-light tracking-tighter">
-                launchpad for human potential.
-              </span>
-            </HeroReveal>
-          </h1>
-
-          <HeroReveal delay="delay-500">
-            <p className="mt-8 text-sm font-bold tracking-[0.08em] uppercase text-[#0099ff]">
-              One community in every state by 2032
-            </p>
-          </HeroReveal>
-
-        </div>
-      </div>
-
-      {/* LAYER 3: Description (On Bottom Rectangle) */}
-      <div className="absolute bottom-0 left-0 w-[75%] lg:w-[65%] h-[20%] lg:h-[20%] z-20 pointer-events-none flex flex-col justify-center pl-16 md:pl-24 lg:pl-32 pr-12 lg:pr-24">
-        <div className="pointer-events-auto">
-          <HeroReveal delay="delay-400">
-            <p className="text-base md:text-lg font-normal leading-[1.6] text-[#241f21] drop-shadow-[0_1px_3px_rgba(0,0,0,0.15)]">
-              We are building AI-native, vertically integrated communities for the workforce families left behind by the housing system.
-            </p>
-          </HeroReveal>
+            Learn More
+          </a>
         </div>
       </div>
     </section>
