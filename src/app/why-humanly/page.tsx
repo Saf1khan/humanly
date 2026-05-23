@@ -5,6 +5,7 @@ import { WProblemSection } from "@/components/sections/why-humanly/WProblemSecti
 import { WShiftSection } from "@/components/sections/why-humanly/WShiftSection";
 import { WRevenueSection } from "@/components/sections/why-humanly/WRevenueSection";
 import { WCompetitiveSection } from "@/components/sections/why-humanly/WCompetitiveSection";
+import { Nav } from "@/components/layout/Nav";
 
 export const metadata = {
   title: "Why Humanly — Humanly®",
