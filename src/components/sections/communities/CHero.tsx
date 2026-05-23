@@ -1,124 +1,161 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { HeroReveal } from "../../ui/HeroReveal";
 
 export const CHero = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
 
-  useEffect(() => {
-    if (titleRef.current) {
-      setTimeout(() => {
-        titleRef.current?.classList.add("is-active");
-      }, 100);
-    }
-  }, []);
+  const [showSecondSubtitle, setShowSecondSubtitle] = useState(false);
 
-  // Track scroll progress within the Hero section
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: sectionRef,
     offset: ["start start", "end start"],
   });
 
-  // Map scroll progress to parallax transforms
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1.1, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.4]);
+  const videoY = useTransform(scrollYProgress, [0, 1], [0, -320]);
+
+  useEffect(() => {
+    if (!titleRef.current) return;
+
+    const timer = setTimeout(() => {
+      titleRef.current?.classList.add("is-active");
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (latest == null) return;
+
+    setShowSecondSubtitle((prev) => {
+      const switchOn = 0.18;
+      const switchOff = 0.1;
+
+      if (!prev && latest > switchOn) return true;
+      if (prev && latest < switchOff) return false;
+      return prev;
+    });
+  });
 
   return (
     <section
-      ref={containerRef}
-      className="relative w-full h-[100svh] min-h-[800px] overflow-hidden bg-[#f0edeb]"
+      ref={sectionRef}
+      className="relative w-full h-[1100px] bg-[#f0edeb]"
     >
-      {/* LAYER 1: Full Screen Background Image with Masking Rectangles */}
-      <div className="absolute inset-0 overflow-hidden bg-stone-900 shadow-md">
-        {/* The Parallax Image */}
-        <motion.div
-          style={{ y, scale }}
-          className="absolute inset-0 w-full h-[100%] -top-[0%]"
+      {/* VIDEO LAYER */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.video
+          autoPlay
+          loop
+          playsInline
+          muted
+          style={{ y: videoY }}
+          className="absolute inset-0 h-[130%] w-full object-cover object-bottom will-change-transform"
         >
-          <img
-            src="/images/AdobeStock_815248903.jpeg"
-            alt="Humanly® Communities — Every community shares a common foundation"
-            className="absolute inset-0 w-full h-full object-cover object-center"
+          <source
+            src="/images/6893579-uhd_3840_2160_25fps.mp4"
+            type="video/mp4"
           />
-        </motion.div>
+        </motion.video>
 
-        {/* Overlay Tint */}
-        <motion.div
-          style={{ opacity }}
-          className="absolute inset-0 bg-black/20 pointer-events-none"
-        ></motion.div>
-
-        {/* --- The 3 White Rectangles forming the Polygon --- */}
-
-        {/* 1. Top Left Rectangle */}
-        <div className="absolute top-0 left-0 w-[45%] lg:w-[35%] h-[15%] lg:h-[20%] bg-[#f0edeb] rounded-br-[100px] lg:rounded-br-[160px] pointer-events-none z-10"></div>
-
-        {/* 2. Bottom Left Rectangle */}
-        <div className="absolute bottom-0 left-0 w-[75%] lg:w-[65%] h-[20%] lg:h-[20%] bg-[#f0edeb] rounded-tr-[100px] lg:rounded-tr-[160px] pointer-events-none z-10"></div>
-
-        {/* 3. Vertical Left Rectangle */}
-        <div className="absolute top-0 bottom-0 left-0 w-[40px] bg-[#f0edeb] pointer-events-none z-10"></div>
-
-        {/* --- Inner Corner Rounded Fillets (Smooth Concave Curves) --- */}
-
-        {/* Top Inner Fillet: Connects Top Rect to Vertical Rect */}
-        <div
-          className="absolute left-[40px] top-[15%] lg:top-[20%] w-[140px] h-[140px] pointer-events-none z-10"
-          style={{ background: "radial-gradient(circle at 100% 100%, transparent 139px, #f0edeb 140px)" }}
-        ></div>
-
-        {/* Bottom Inner Fillet: Connects Bottom Rect to Vertical Rect */}
-        <div
-          className="absolute left-[40px] bottom-[20%] lg:bottom-[20%] w-[140px] h-[140px] pointer-events-none z-10"
-          style={{ background: "radial-gradient(circle at 100% 0%, transparent 139px, #f0edeb 140px)" }}
-        ></div>
+        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
       </div>
 
-      {/* LAYER 2: Title & Eyebrow */}
-      <div className="absolute inset-0 flex flex-col justify-start pl-16 md:pl-24 lg:pl-32 pr-6 pt-[320px] z-20 pointer-events-none">
-        <div className="pointer-events-auto">
-          <HeroReveal delay="delay-100">
-            <p className="wh-eyebrow mb-4">Humanly® Communities</p>
-          </HeroReveal>
+      {/* CONTENT LAYER */}
+      <div className="absolute inset-0 z-10 h-screen">
+        <div className="flex h-full flex-col justify-between px-6 pb-14 pt-24 md:px-12 md:pb-20 md:pt-28 lg:px-20 lg:pb-24 lg:pt-80">
+          {/* Heading */}
+          <div className="grid w-full max-w-[1400px] grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-8">
+            <div className="lg:col-span-8">
+              <div className="mb-5">
+                <HeroReveal delay="delay-100">
+                  <p className="text-[11px] uppercase tracking-[0.28em] text-white/75 md:text-xs">
+                    Humanly® Communities
+                  </p>
+                </HeroReveal>
+              </div>
 
-          <h1
-            ref={titleRef}
-            className="hero-title text-left text-[36px] md:text-[48px] lg:text-[72px] leading-[1.1] text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] m-0 max-w-[85%] lg:max-w-[50%]"
-          >
-            <HeroReveal delay="delay-200">
-              <span className="block drop-shadow-none font-medium">
-                Every Humanly® community
-              </span>
-            </HeroReveal>
-            <HeroReveal delay="delay-300">
-              <span className="block drop-shadow-none opacity-90 italic font-light tracking-tighter">
-                shares a common foundation.
-              </span>
-            </HeroReveal>
-          </h1>
+              <h1 ref={titleRef} className="max-w-[980px] text-left">
+                <HeroReveal delay="delay-200">
+                  <span className="block text-[42px] leading-[0.96] tracking-[-0.05em] md:text-[64px] lg:text-[92px] xl:text-[112px]">
+                    <span className="font-medium text-white">
+                      Every Humanly® community{" "}
+                    </span>
+                    <span className="font-light italic text-blue-300">
+                      shares a common foundation.
+                    </span>
+                  </span>
+                </HeroReveal>
+              </h1>
+            </div>
+          </div>
 
-          <HeroReveal delay="delay-500">
-            <p className="wh-hero-kicker mt-8 max-w-[600px] italic">
-              "Humanly® empowers second chances and brilliant starts for those left behind by the housing crisis."
-            </p>
-          </HeroReveal>
+          {/* Subtitles */}
+          <div className="w-full max-w-[1400px]">
+            <div className="lg:max-w-[760px]">
+              <div className="relative min-h-[180px] md:min-h-[210px] lg:min-h-[230px]">
+                {/* Subtitle 1 */}
+                <motion.div
+                  initial={false}
+                  animate={{
+                    opacity: showSecondSubtitle ? 0 : 1,
+                    y: showSecondSubtitle ? -12 : 0,
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="absolute inset-x-0 bottom-16 md:bottom-20"
+                >
+                  <div className="max-w-[720px] pl-5">
+                    <HeroReveal delay="delay-300">
+                      <p className="text-sm leading-7 text-white/80 md:text-2xl">
+                        "Humanly® empowers second chances and brilliant starts
+                        for those left behind by the housing crisis."
+                      </p>
+                    </HeroReveal>
+                  </div>
+                </motion.div>
+
+                {/* Subtitle 2 */}
+                <motion.div
+                  initial={false}
+                  animate={{
+                    opacity: showSecondSubtitle ? 1 : 0,
+                    y: showSecondSubtitle ? 0 : 20,
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="absolute inset-x-0 bottom-16 md:bottom-20"
+                >
+                  <div className="max-w-[760px] pl-5">
+                    <HeroReveal delay="delay-400">
+                      <p className="text-[20px] font-normal leading-[1.5] tracking-[-0.02em] text-white/80 md:text-[28px] lg:text-2xl">
+                        Our master-planned communities integrate
+                        missing-middle housing products to solve the fractured
+                        building model and unlock uncommon outcomes.
+                      </p>
+                    </HeroReveal>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* LAYER 3: Description (On Bottom Rectangle) */}
-      <div className="absolute bottom-0 left-0 w-[75%] lg:w-[65%] h-[20%] lg:h-[20%] z-20 pointer-events-none flex flex-col justify-center pl-16 md:pl-24 lg:pl-32 pr-12 lg:pr-24">
-        <div className="pointer-events-auto">
-          <HeroReveal delay="delay-400">
-            <p className="text-base md:text-lg font-normal leading-[1.6] text-[#241f21] drop-shadow-[0_1px_3px_rgba(0,0,0,0.15)]">
-              Our master-planned communities integrate missing-middle housing products to solve the fractured building model and unlock uncommon outcomes.
-            </p>
-          </HeroReveal>
-        </div>
-      </div>
+      {/* Spacer */}
+      <div className="h-[1100px]" />
     </section>
   );
 };
