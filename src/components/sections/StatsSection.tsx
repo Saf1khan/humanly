@@ -130,7 +130,7 @@ export const StatsSection = () => {
         />
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 mt-4 -mb-1 md:grid-cols-3 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 font-alberta mt-4 -mb-1 md:grid-cols-3 gap-8 lg:gap-12">
             <StatCard
               value={5}
               prefix="$"

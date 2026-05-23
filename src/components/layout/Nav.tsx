@@ -132,7 +132,7 @@ export const Nav = () => {
             <ul className="hidden lg:flex items-center gap-2">
               <li>
                 <a href="/home" className={`group relative px-6 py-3 transition-all duration-300 ${useDarkText ? 'text-[#4A4741] hover:text-black' : 'text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80'}`}>
-                  <span className="relative font-medium tracking-wide">
+                  <span className="relative font-albert font-medium tracking-wide">
                     Home
                     <span className={`absolute -left-1 -bottom-1 h-[2px] w-[calc(100%+8px)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-60 ${useDarkText ? 'bg-[#4A4741]' : 'bg-white'}`}></span>
                   </span>
@@ -140,7 +140,7 @@ export const Nav = () => {
               </li>
               <li>
                 <a href="/why-humanly" className={`group relative px-6 py-3 transition-all duration-300 ${useDarkText ? 'text-[#4A4741] hover:text-black' : 'text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80'}`}>
-                  <span className="relative font-medium tracking-wide">
+                  <span className="relative font-albert font-medium tracking-wide">
                     Why Humanly
                     <span className={`absolute -left-1 -bottom-1 h-[2px] w-[calc(100%+8px)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-60 ${useDarkText ? 'bg-[#4A4741]' : 'bg-white'}`}></span>
                   </span>
@@ -148,7 +148,7 @@ export const Nav = () => {
               </li>
               <li>
                 <a href="/communities" className={`group relative px-6 py-3 transition-all duration-300 ${useDarkText ? 'text-[#4A4741] hover:text-black' : 'text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80'}`}>
-                  <span className="relative font-medium tracking-wide">
+                  <span className="relative font-albert font-medium tracking-wide">
                     Communities
                     <span className={`absolute -left-1 -bottom-1 h-[2px] w-[calc(100%+8px)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-60 ${useDarkText ? 'bg-[#4A4741]' : 'bg-white'}`}></span>
                   </span>
@@ -156,7 +156,7 @@ export const Nav = () => {
               </li>
               <li>
                 <a href="/humanly-os" className={`group relative px-6 py-3 transition-all duration-300 ${useDarkText ? 'text-[#4A4741] hover:text-black' : 'text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80'}`}>
-                  <span className="relative font-medium tracking-wide">
+                  <span className="relative font-albert font-medium tracking-wide">
                     HumanlyOS
                     <span className={`absolute -left-1 -bottom-1 h-[2px] w-[calc(100%+8px)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-60 ${useDarkText ? 'bg-[#4A4741]' : 'bg-white'}`}></span>
                   </span>
@@ -164,7 +164,7 @@ export const Nav = () => {
               </li>
               <li>
                 <a href="/team" className={`group relative px-6 py-3 transition-all duration-300 ${useDarkText ? 'text-[#4A4741] hover:text-black' : 'text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80'}`}>
-                  <span className="relative font-medium tracking-wide">
+                  <span className="relative font-albert font-medium tracking-wide">
                     Team
                     <span className={`absolute -left-1 -bottom-1 h-[2px] w-[calc(100%+8px)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-60 ${useDarkText ? 'bg-[#4A4741]' : 'bg-white'}`}></span>
                   </span>
@@ -172,7 +172,7 @@ export const Nav = () => {
               </li>
               <li>
                 <a href="/invest" className={`group relative px-6 py-3 transition-all duration-300 ${useDarkText ? 'text-[#4A4741] hover:text-black' : 'text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80'}`}>
-                  <span className="relative font-medium tracking-wide">
+                  <span className="relative font-albert font-medium tracking-wide">
                     Invest
                     <span className={`absolute -left-1 -bottom-1 h-[2px] w-[calc(100%+8px)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-60 ${useDarkText ? 'bg-[#4A4741]' : 'bg-white'}`}></span>
                   </span>
@@ -184,7 +184,7 @@ export const Nav = () => {
                   onMouseEnter={() => setIsMenuOpen(true)}
                   className={`group relative px-6 py-3 transition-all duration-300 flex items-center gap-1.5 ${useDarkText ? 'text-[#4A4741] hover:text-black' : 'text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80'}`}
                 >
-                  <span className="relative font-medium tracking-wide">
+                  <span className="relative font-albert font-medium tracking-wide">
                     Platform
                     <span className={`absolute -left-1 -bottom-1 h-[2px] w-[calc(100%+8px)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-60 ${useDarkText ? 'bg-[#4A4741]' : 'bg-white'}`}></span>
                   </span>
