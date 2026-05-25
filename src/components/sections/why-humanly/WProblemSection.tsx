@@ -256,7 +256,7 @@ export const WProblemSection = () => {
   return (
     <section
       ref={containerRef}
-      className="gl-b-container w-full first:pt-[70px] z-30 relative pb-20 md:pb-[100px] bg-[#E7E3DC] font-['Albert_Sans',-apple-system,BlinkMacSystemFont,sans-serif] overflow-x-hidden"
+      className="gl-b-container w-full first:pt-[70px] z-30 relative pb-20 md:pb-[100px] font-['Albert_Sans',-apple-system,BlinkMacSystemFont,sans-serif] overflow-x-hidden"
     >
       <style>{`
         .ac-animated-heading {
@@ -387,7 +387,7 @@ export const WProblemSection = () => {
                   {/* THE COVER: Only slides once to reveal */}
                   <div
                     ref={coverRef}
-                    className="reveal-cover absolute inset-0 z-20 bg-[#E7E3DC]"
+                    className="reveal-cover absolute inset-0 z-20 bg-[#F5F2ED]"
                   ></div>
 
                   {/* THE IMAGE: Moves slightly inside the container on scroll */}

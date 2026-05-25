@@ -64,15 +64,15 @@ export const WHeroSection = () => {
   return (
     <section
       ref={containerRef}
-      className="hero-section relative w-full min-h-[100svh] flex flex-col justify-end overflow-hidden bg-[#E7E3DC]"
+      className="hero-section relative w-full min-h-[100svh] flex flex-col justify-end overflow-hidden bg-[#F5F2ED]"
     >
       {/* Scoped CSS */}
       <style>{`
         .wh-hero-title {
           color: #ffffff;
           font-family: "Cormorant Garamond", Georgia, serif;
-          font-size: clamp(36px, 6vw, 70px);
-          font-weight: 300;
+          font-size: clamp(36px, 6vw, 80px);
+          font-weight: 400;
           line-height: 0.9;
           letter-spacing: -0.8px;
           margin: 0 0 30px 0;
@@ -112,14 +112,14 @@ export const WHeroSection = () => {
           className="absolute inset-0 w-full h-[120%] -top-[10%]"
         >
           <img
-            src="/images/AdobeStock_192330637.jpeg"
+            src="/images/pexels-cphuyal-15524962.jpg"
             alt="Why Humanly — Every neighborhood a launchpad for human potential"
-            className="w-full h-full object-cover object-[center_12%] scale-[1.1]"
+            className="w-full h-full object-cover object-[top_55%] scale-[1.1]"
           />
         </motion.div>
 
         {/* Bottom-to-top gradient for readability */}
-        <div className="absolute inset-0 z-[2] bg-[linear-gradient(to_top,rgba(19,20,22,0.6)_0%,transparent_55%)] pointer-events-none"></div>
+        <div className="absolute inset-0 z-[2] bg-[linear-gradient(to_top,rgba(19,20,22,0.85)_0%,rgba(19,20,22,0.3)_50%,transparent_80%)] pointer-events-none"></div>
         {/* Top dark bar */}
         <div className="absolute inset-0 z-[2] bg-[linear-gradient(0deg,rgba(19,20,22,0)_89.25%,#131416_111.44%)] pointer-events-none"></div>
       </div>
