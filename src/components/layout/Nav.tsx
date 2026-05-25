@@ -210,19 +210,18 @@ export const Nav = () => {
       >
         {/* THE DRAWER: The Full-Width Menu */}
         <div
-          className={`absolute top-0 left-0 z-0 w-full overflow-hidden bg-[#F0EDEB] shadow-2xl transition-all duration-500 ease-in-out lg:rounded-b-[3rem] ${
-            isMenuOpen
-              ? "max-h-[600px] opacity-100 pointer-events-auto"
-              : "max-h-0 opacity-0 pointer-events-none"
-          }`}
+          className={`absolute top-0 left-0 z-0 w-full overflow-y-auto lg:overflow-hidden bg-[#F0EDEB] shadow-2xl transition-all duration-500 ease-in-out lg:rounded-b-[3rem] ${isMenuOpen
+            ? "max-h-[85vh] lg:max-h-[600px] opacity-100 pointer-events-auto"
+            : "max-h-0 opacity-0 pointer-events-none"
+            }`}
           onMouseEnter={() => setIsMenuOpen(true)}
         >
           <div
-            className={`px-8 pt-28 pb-12 transition-opacity duration-300 ${isMenuOpen ? "opacity-100 delay-150" : "opacity-0"}`}
+            className={`px-8 pt-24 pb-8 lg:pt-28 lg:pb-12 transition-opacity duration-300 ${isMenuOpen ? "opacity-100 delay-150" : "opacity-0"}`}
           >
-            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-center gap-16">
+            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-center gap-8 lg:gap-16">
               {/* Dropdown Card 1 */}
-              <a href="/humanly-os" className="w-[300px] group cursor-pointer">
+              <a href="/humanly-os" className="w-full max-w-[300px] group cursor-pointer">
                 <div className="aspect-[320/136] bg-[#4A4741] rounded-[2rem] overflow-hidden mb-4 relative">
                   <img
                     src="/images/pexels-ianr-21853691.jpg"
@@ -235,7 +234,7 @@ export const Nav = () => {
                 </div>
               </a>
 
-              <a href="/platform" className="w-[300px] group cursor-pointer">
+              <a href="/platform" className="w-full max-w-[300px] group cursor-pointer">
                 <div className="aspect-[320/136] bg-[#4A4741] rounded-[2rem] overflow-hidden mb-4 relative">
                   <img
                     src="/images/AdobeStock_446591769.jpeg"
@@ -319,15 +318,14 @@ export const Nav = () => {
         </div>
 
         {/* THE NAV: The visible floating bar */}
-        <nav className="relative z-10 w-full mt-2 py-2">
+        <nav className="relative z-10 w-full mt-2  py-2 ">
           {/* Glass Background Layer */}
           <div
-            className={`absolute inset-0 mx-4 md:mx-8 rounded-2xl bg-[#4A4741]/5 backdrop-blur-[32px] border border-[#4A4741]/10 transition-opacity duration-400 ${
-              scrolled && !isMenuOpen ? "opacity-100" : "opacity-0"
-            }`}
+            className={`absolute inset-0 mx-4 md:mx-8 rounded-2xl bg-[#4A4741]/5 backdrop-blur-[32px] border border-[#4A4741]/10 transition-opacity duration-400 ${scrolled && !isMenuOpen ? "opacity-100" : "opacity-0"
+              }`}
           ></div>
 
-          <div className="relative z-20 max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 flex items-center justify-between min-h-[60px]">
+          <div className="relative z-20 max-w-[1466px] mx-auto px-6 md:px-12 lg:px-16 flex items-center min-h-[60px]">
             {/* Logo - Restored to larger size */}
             <a
               href="/"
@@ -336,13 +334,14 @@ export const Nav = () => {
               <img
                 src="/images/asset 0.png"
                 alt="Humanly"
-                className={`object-contain h-full w-auto transition-all duration-300 ${
-                  useDarkText ? "brightness-0" : ""
-                }`}
+                className="object-contain h-full w-auto transition-all duration-300"
               />
             </a>
 
-            {/* Desktop Links */}
+            {/* Spacer pushes links to the right */}
+            <div className="flex-1" />
+
+            {/* Desktop Links — right-aligned */}
             <ul className="hidden lg:flex items-center gap-2">
               <li>
                 <a
@@ -383,7 +382,7 @@ export const Nav = () => {
                   </span>
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="/humanly-os"
                   className={`group relative px-6 py-3 transition-all duration-300 ${useDarkText ? "text-[#4A4741] hover:text-black" : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80"}`}
@@ -395,8 +394,8 @@ export const Nav = () => {
                     ></span>
                   </span>
                 </a>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <a
                   href="/team"
                   className={`group relative px-6 py-3 transition-all duration-300 ${useDarkText ? "text-[#4A4741] hover:text-black" : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80"}`}
@@ -408,8 +407,8 @@ export const Nav = () => {
                     ></span>
                   </span>
                 </a>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <a
                   href="/invest"
                   className={`group relative px-6 py-3 transition-all duration-300 ${useDarkText ? "text-[#4A4741] hover:text-black" : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80"}`}
@@ -421,15 +420,15 @@ export const Nav = () => {
                     ></span>
                   </span>
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a
-                  href="/platform"
+
                   onMouseEnter={() => setIsMenuOpen(true)}
                   className={`group relative px-6 py-3 transition-all duration-300 flex items-center gap-1.5 ${useDarkText ? "text-black hover:text-black/70 font-semibold" : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80"}`}
                 >
                   <span className="relative font-albert font-medium tracking-wide">
-                    Platform
+                    Organisation
                     <span
                       className={`absolute -left-1 -bottom-1 h-[2px] w-[calc(100%+8px)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-60 ${useDarkText ? "bg-black" : "bg-white"}`}
                     ></span>
@@ -472,11 +471,10 @@ export const Nav = () => {
 
       {/* Background Overlay */}
       <div
-        className={`fixed inset-0 bg-black/20 backdrop-blur-sm transition-opacity duration-500 z-40 ${
-          isMenuOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 bg-black/20 backdrop-blur-sm transition-opacity duration-500 z-40 ${isMenuOpen
+          ? "opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none"
+          }`}
         onClick={toggleDrawer}
       ></div>
     </>
