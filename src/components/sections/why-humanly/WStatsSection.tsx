@@ -38,7 +38,8 @@ export const WStatsSection = () => {
     <section
       className="py-20 overflow-hidden"
       style={{
-        background: 'radial-gradient(ellipse 80% 60% at 20% 80%, rgba(110,124,141,.05) 0, transparent 60%), radial-gradient(ellipse 60% 50% at 80% 20%, rgba(163,178,195,.04) 0, transparent 50%), #E7E3DC'
+        background:
+          "radial-gradient(ellipse 80% 60% at 20% 80%, rgba(110,124,141,.05) 0, transparent 60%), radial-gradient(ellipse 60% 50% at 80% 20%, rgba(163,178,195,.04) 0, transparent 50%), #F5F2ED",
       }}
     >
       <div className="flex gap-5 w-full max-w-[1440px] mx-auto px-5 lg:px-10 lg:flex-row flex-col">

@@ -96,7 +96,7 @@ export const WRevenueSection = () => {
   };
 
   return (
-    <section className="w-full bg-[#E7E3DC] text-[#111111] font-['Albert_Sans',-apple-system,BlinkMacSystemFont,sans-serif]">
+    <section className="w-full text-[#111111] font-['Albert_Sans',-apple-system,BlinkMacSystemFont,sans-serif]">
       <div className="w-full px-[32px]">
         {/* Desktop View: Exact replica of reference layout */}
         <div className="desktop hidden lg:flex flex-row items-start gap-[105px] pt-[100px]">

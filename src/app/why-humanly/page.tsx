@@ -15,7 +15,7 @@ export const metadata = {
 
 export default function WhyHumanlyPage() {
   return (
-    <main className="wh-page bg-sandstone-200 text-[#111111] min-h-screen">
+    <main className="wh-page bg-[#F5F2ED] text-[#111111] min-h-screen relative">
       <style
         dangerouslySetInnerHTML={{
           __html: `
@@ -71,29 +71,104 @@ export default function WhyHumanlyPage() {
       `,
         }}
       />
-      <Nav />
 
-      <WHeroSection />
+      {/*
+        ── Layered Radial Gradients ──────────────────────────────────────────
+        All stops use px so glow radius is fixed regardless of page height.
+        Page section map (% of total height ~12 600 px):
+          0 –  7%  Hero
+          7 – 30%  WProblemSection
+         30 – 65%  WRevenueSection
+         65 – 85%  WCompetitiveSection
+         85 – 100% Footer
 
-      {/* <WStatsSection />
+        Rule: no gradient should be detectable as a "blob" in isolation.
+        Each one should only be felt as a very soft ambient shift in tone.
+      */}
 
-      <div className="h-[1px] bg-gradient-to-r from-transparent via-[#6E7C8D]/20 to-transparent mx-auto max-w-[1200px]" /> */}
+      {/* 1 — Warm cream · Problem section · top-left bleed
+           Sits in the upper-left corner of the Problem section.
+           Very soft — barely distinguishable from the base bg. */}
+      <div
+        className="absolute w-full h-full top-0 left-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 0% 9%, rgba(234, 220, 207, 0.55) 0px, rgba(0,0,0,0) 480px)",
+        }}
+      />
 
-      <WProblemSection />
+      {/* 2 — Blue-grey · Revenue section · left edge
+           Gives the Revenue left panel its characteristic cool tint. */}
+      <div
+        className="absolute w-full h-full top-0 left-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 0% 36%, rgba(182, 207, 221, 0.38) 0px, rgba(0,0,0,0) 460px)",
+        }}
+      />
 
-      <div className="h-[1px] bg-gradient-to-r from-transparent via-[#6E7C8D]/20 to-transparent mx-auto max-w-[1200px]" />
+      {/* 3 — Pale cream · Revenue section · lower-left
+           Warms the lower-left of the Revenue section subtly. */}
+      <div
+        className="absolute w-full h-full top-0 left-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 0% 57%, rgba(243, 235, 225, 0.5) 0px, rgba(0,0,0,0) 460px)",
+        }}
+      />
 
-      {/* <WShiftSection />
+      {/* 4 — Ice blue · Problem section · right edge
+           Cool accent that bleeds in from the far right. */}
+      <div
+        className="absolute w-full h-full top-0 left-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 100% 13%, rgba(181, 228, 254, 0.35) 0px, rgba(0,0,0,0) 440px)",
+        }}
+      />
 
-      <div className="h-[1px] bg-gradient-to-r from-transparent via-[#6E7C8D]/20 to-transparent mx-auto max-w-[1200px]" /> */}
+      {/* 5 — Centre ambient · Revenue section · very wide, very faint
+           Keeps the wide mid-page area from looking completely flat.
+           Opacity is intentionally low (0.10) — must NOT read as a blob. */}
+      <div
+        className="absolute w-full h-full top-0 left-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(at 40% 48%, rgba(213, 195, 171, 0.10) 0px, rgba(0,0,0,0) 800px)",
+        }}
+      />
 
-      <WRevenueSection />
+      {/* 6 — Amber · Competitive section · tucked to bottom-left edge
+           Moved away from centre so it doesn't spotlight the heading.
+           Very low opacity (0.08) — felt not seen. */}
+      <div
+        className="absolute w-full h-full top-0 left-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 8% 76%, rgba(255, 182, 72, 0.08) 0px, rgba(0,0,0,0) 380px)",
+        }}
+      />
 
-      <div className="h-[1px] bg-gradient-to-r from-transparent via-[#6E7C8D]/20 to-transparent mx-auto max-w-[1200px]" />
+      {/* Main Content */}
+      <div className="relative z-10">
+        <Nav />
 
-      <WCompetitiveSection />
+        <WHeroSection />
 
-      <Footer />
+        <WProblemSection />
+
+        <WRevenueSection />
+
+        <WCompetitiveSection />
+
+        <WStatsSection />
+
+        <div className="bg-black">
+          <WShiftSection />
+        </div>
+
+        <Footer />
+      </div>
     </main>
   );
 }
