@@ -1,16 +1,16 @@
 "use client";
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
-import { 
-  ArrowUpRight, 
-  MapPin, 
-  Hammer, 
-  Activity, 
-  Database, 
-  CheckCircle, 
-  TrendingUp, 
-  Clock, 
-  DollarSign 
+import {
+  ArrowUpRight,
+  MapPin,
+  Hammer,
+  Activity,
+  Database,
+  CheckCircle,
+  TrendingUp,
+  Clock,
+  DollarSign
 } from 'lucide-react';
 
 /* ─────────────────────────────────────────────
@@ -87,13 +87,13 @@ const LandMockup = () => {
       <div className="flex-1 rounded-2xl border border-slate-800 bg-[#0c0e11] overflow-hidden relative flex items-center justify-center">
         {/* Grid pattern background */}
         <div className="absolute inset-0 opacity-15 bg-[linear-gradient(to_right,#334155_1px,transparent_1px),linear-gradient(to_bottom,#334155_1px,transparent_1px)] bg-[size:20px_20px]" />
-        
+
         {/* Pulsing selection ring */}
         <div className="absolute w-24 h-24 rounded-full border border-teal-500/30 flex items-center justify-center animate-ping duration-[3s]" />
         <div className="absolute w-12 h-12 rounded-full bg-teal-500/10 border border-teal-400/50 flex items-center justify-center">
           <div className="w-3 h-3 rounded-full bg-teal-400" />
         </div>
-        
+
         {/* Scatter points representing site options */}
         <div className="absolute top-1/4 left-1/3 flex flex-col items-center">
           <div className="w-2 h-2 rounded-full bg-slate-500/40" />
@@ -103,7 +103,7 @@ const LandMockup = () => {
           <div className="w-2 h-2 rounded-full bg-slate-500/40" />
           <span className="text-[7px] text-slate-500/60 font-mono mt-1">#402</span>
         </div>
-        
+
         {/* Active site tag popup */}
         <div className="absolute top-12 right-12 bg-slate-900/90 backdrop-blur border border-teal-500/30 rounded-lg p-2.5 flex flex-col gap-1 shadow-lg text-left">
           <div className="flex items-center gap-1.5">
@@ -189,8 +189,8 @@ const BuildMockup = () => {
             ASSEMBLY OPTIMIZATION...
           </div>
           <div className="w-32 bg-slate-800 h-1.5 rounded-full overflow-hidden relative">
-            <motion.div 
-              className="h-full bg-sky-400 rounded-full" 
+            <motion.div
+              className="h-full bg-sky-400 rounded-full"
               initial={{ width: "0%" }}
               animate={{ width: "100%" }}
               transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
@@ -237,7 +237,7 @@ const OperateMockup = () => {
       const now = new Date();
       const timeStr = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
       const logMsg = `[${timeStr}] ${randomLog}`;
-      
+
       setLogs((prev) => {
         const next = [...prev, logMsg];
         if (next.length > 5) {
@@ -269,15 +269,14 @@ const OperateMockup = () => {
         </div>
         <div className="flex-1 flex flex-col gap-2 overflow-y-auto [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: "none" }}>
           {logs.map((log, idx) => (
-            <div 
-              key={idx} 
-              className={`leading-relaxed ${
-                log.includes("HumanlyPay") 
-                  ? "text-emerald-400 font-semibold" 
-                  : log.includes("dispatched") 
-                    ? "text-amber-400" 
+            <div
+              key={idx}
+              className={`leading-relaxed ${log.includes("HumanlyPay")
+                  ? "text-emerald-400 font-semibold"
+                  : log.includes("dispatched")
+                    ? "text-amber-400"
                     : "text-slate-300"
-              }`}
+                }`}
             >
               {log}
             </div>
@@ -312,14 +311,14 @@ const CompoundMockup = () => {
     <div className="w-full h-full bg-[#110c09] text-slate-200 font-sans flex flex-col p-5 overflow-hidden relative select-none">
       {/* Vector visual */}
       <div className="flex-1 rounded-2xl border border-slate-800 bg-[#090605] overflow-hidden relative flex flex-col lg:flex-row items-center justify-around p-4 gap-4">
-        
+
         {/* Flywheel animation */}
         <div className="relative w-36 h-36 flex items-center justify-center flex-shrink-0">
           {/* Pulsing circular rings */}
           <div className="absolute inset-0 rounded-full border border-orange-500/10 animate-pulse" />
           <div className="absolute inset-4 rounded-full border border-dashed border-orange-500/20 animate-[spin_40s_linear_infinite]" />
           <div className="absolute inset-8 rounded-full border border-orange-500/30 animate-[spin_20s_linear_infinite_reverse]" />
-          
+
           {/* Core logo */}
           <div className="relative z-10 flex flex-col items-center">
             <Database className="w-5 h-5 text-orange-400" />
@@ -338,23 +337,23 @@ const CompoundMockup = () => {
             <TrendingUp className="w-3.5 h-3.5 text-orange-400" />
             Cumulative Yield Curve
           </div>
-          
+
           <div className="flex-1 relative flex items-end border-b border-l border-slate-800/80 p-1 min-h-[75px]">
             {/* SVG line chart */}
             <svg className="w-full h-full absolute inset-0 text-orange-500" viewBox="0 0 100 40" preserveAspectRatio="none">
-              <motion.path 
-                d="M0,40 Q25,38 50,30 T100,5" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="1.5" 
+              <motion.path
+                d="M0,40 Q25,38 50,30 T100,5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
                 transition={{ duration: 2, ease: "easeOut" }}
               />
-              <path 
-                d="M0,40 Q25,38 50,30 T100,5 L100,40 Z" 
-                fill="url(#orange-grad)" 
-                opacity="0.1" 
+              <path
+                d="M0,40 Q25,38 50,30 T100,5 L100,40 Z"
+                fill="url(#orange-grad)"
+                opacity="0.1"
               />
               <defs>
                 <linearGradient id="orange-grad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -365,7 +364,7 @@ const CompoundMockup = () => {
             </svg>
             <div className="absolute top-2 right-2 text-[10px] font-bold text-white">1.42x</div>
           </div>
-          
+
           <div className="flex justify-between text-[8px] text-slate-500 mt-1">
             <span>START</span>
             <span>YEAR 3</span>
@@ -417,7 +416,7 @@ const DashboardSimulator = ({ activeStep }: SimulatorProps) => {
           <span className="text-[8px] font-mono font-bold tracking-widest text-teal-400/90 uppercase">SYS_LIVE</span>
         </div>
       </div>
-      
+
       {/* Simulator Content Area */}
       <div className="flex-1 relative overflow-hidden">
         <AnimatePresence mode="wait">
@@ -488,9 +487,9 @@ export const PlatformStack = () => {
       {/* ── Sticky Scroll-linked Dashboard Simulator ── */}
       <div className="bg-[#f4f1ea] pb-24 relative z-15">
         <div className="max-w-[1440px] mx-auto px-6 md:px-16">
-          
+
           <div ref={containerRef} className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative">
-            
+
             {/* Left Column: Vertical Timeline Steps */}
             <div className="col-span-1 lg:col-span-5 flex flex-col gap-12">
               {steps.map((step, idx) => {
@@ -508,10 +507,9 @@ export const PlatformStack = () => {
                       <span className="text-[10px] font-mono font-bold tracking-[0.35em] text-slate-900/40 uppercase">
                         {step.num}
                       </span>
-                      <div 
-                        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                          isActive ? 'bg-slate-900 scale-125 shadow-md' : 'bg-slate-900/10'
-                        }`}
+                      <div
+                        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${isActive ? 'bg-slate-900 scale-125 shadow-md' : 'bg-slate-900/10'
+                          }`}
                       />
                     </div>
 
@@ -523,7 +521,7 @@ export const PlatformStack = () => {
                       <p className="text-sm md:text-base text-slate-800/80 leading-relaxed font-medium">
                         {step.desc}
                       </p>
-                      
+
                       {/* Grid lists */}
                       <div className="grid grid-cols-2 gap-x-6 gap-y-2.5 border-t border-slate-900/10 pt-5 mt-2">
                         {step.bullets.map((bullet, bIdx) => (
