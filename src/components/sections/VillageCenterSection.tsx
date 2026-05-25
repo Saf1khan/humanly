@@ -52,7 +52,7 @@ export const VillageCenterSection = () => {
   const visibleItems = carouselItems.slice(windowStart, windowStart + VISIBLE_SWATCHES);
 
   return (
-    <section className="relative w-full bg-transparent py-14 lg:py-24 overflow-hidden">
+    <section className="relative w-full bg-transparent py-14 lg:py-24 overflow-visible">
       {/* Background Gradients — exact match to DataRoom */}
       <div
         className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
@@ -73,12 +73,12 @@ export const VillageCenterSection = () => {
           {/* Heading */}
           <div className="flex flex-col gap-2 md:gap-3">
             <RevealOnScroll>
-              <h2 className="text-[2rem] tracking-tight md:text-[2.5rem] lg:text-[3.5rem] text-left leading-tight text-sandstone-500 font-bold">
+              <h2 className="text-4xl tracking-normal md:text-5xl text-left font-bodoni font-bold leading-tight text-sandstone-500">
                 Village Center
               </h2>
             </RevealOnScroll>
             <RevealOnScroll delay="delay-100">
-              <p className="text-sandstone-500/80 text-base md:text-lg tracking-wide font-normal">
+              <p className="text-sandstone-500/80 text-base md:text-lg tracking-wide font-albert font-normal">
                 15 Integrated facilities · 90,000+ SF of community space
               </p>
             </RevealOnScroll>
@@ -111,14 +111,14 @@ export const VillageCenterSection = () => {
 
               {/* Active facility label - Title (Left Top) */}
               <div className="absolute top-6 left-6 md:top-10 md:left-10 z-10">
-                <p className="text-white text-2xl md:text-3xl font-medium drop-shadow-lg">
+                <p className="text-white text-3xl md:text-4xl font-cormorant font-semibold drop-shadow-lg">
                   {carouselItems[activeIndex].name}
                 </p>
               </div>
 
               {/* Active facility label - Size (Right Top) */}
               <div className="absolute top-6 right-6 md:top-10 md:right-10 z-10">
-                <span className="text-white text-xl md:text-2xl font-medium drop-shadow-lg">
+                <span className="text-white text-xl md:text-2xl font-albert font-medium drop-shadow-lg">
                   {carouselItems[activeIndex].size}
                 </span>
               </div>
@@ -164,7 +164,7 @@ export const VillageCenterSection = () => {
                             {/* Expanding name label for the active item only */}
                             <span className={`flex items-center h-8 overflow-hidden transition-all duration-500 ease-in-out ${isActive ? "max-w-[130px] opacity-100 pr-2" : "max-w-0 opacity-0 pr-0"
                               }`}>
-                              <span className="text-[11px] whitespace-nowrap text-slate-800 font-medium">
+                              <span className="text-xs font-albert whitespace-nowrap text-slate-800 font-medium">
                                 {item.name}
                               </span>
                             </span>
@@ -187,7 +187,7 @@ export const VillageCenterSection = () => {
 
                 </div>
 
-                <p className="text-white/80 text-xs tracking-widest uppercase mb-1 drop-shadow- font-medium">
+                <p className="text-white text-xs font-albert tracking-widest mb-1 drop-shadow- font-bold">
                   {activeIndex + 1} / {carouselItems.length}
                 </p>
               </div>

@@ -66,7 +66,7 @@ export const ProblemSection = () => {
   }, []);
 
   return (
-    <section className="gridContainerV3 relative w-full overflow-hidden pt-14 lg:py-20  ">
+    <section className="gridContainerV3 relative w-full overflow-visible pt-14 lg:py-20  ">
       <style>{`
         .carousel-container {
           position: relative;
@@ -144,9 +144,9 @@ export const ProblemSection = () => {
         }
 
         .content .name {
-          font-size: 3rem;
+          font-size: 36px;
           text-transform: uppercase;
-          font-weight: 800;
+          font-weight: 700;
           opacity: 0;
           animation: animate 1s ease-in-out 1 forwards;
           line-height: 1;
@@ -158,7 +158,7 @@ export const ProblemSection = () => {
           margin-bottom: 30px;
           opacity: 0;
           animation: animate 1s ease-in-out 0.3s 1 forwards;
-          font-size: 1.05rem;
+          font-size: 1rem;
           line-height: 1.5;
         }
 
@@ -216,19 +216,19 @@ export const ProblemSection = () => {
       `}</style>
 
       {/* Section Header */}
-      <div className="col-start-main col-end-main relative z-10 pl-6 md:pl-16 lg:pl-24 xl:pl-32 ">
+      <div className="col-start-main col-end-main relative z-10 pl-6 md:pl-16 ">
         <RevealOnScroll>
           <div className="mb-10 lg:mb-14">
-            <p className="mb-3 text-xs font-normal uppercase tracking-widest text-sandstone-500">
+            <p className="mb-3 text-sm font-albert font-medium uppercase tracking-[0.2em] text-sandstone-500">
               The Problem
             </p>
 
             <div className="mb-3 h-[1px] w-[96px] rounded-full bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)]" />
 
-            <h2 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight text-sandstone-500 md:text-5xl lg:text-[3.5rem]">
-              Housing is broken.
+            <h2 className="max-w-5xl text-4xl font-bodoni font-bold leading-normal tracking-normal text-sandstone-500 md:text-5xl">
+              Housing is Broken.
               <br />
-              Communities are fragmented.
+              <span className="block mt-2">Communities are Fragmented.</span>
             </h2>
           </div>
         </RevealOnScroll>
@@ -248,8 +248,8 @@ export const ProblemSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/30 rounded-[inherit]" />
 
                   <div className="content">
-                    <div className="name">{card.title}</div>
-                    <div className="des">{card.description}</div>
+                    <div className="name font-cormorant">{card.title}</div>
+                    <div className="des font-albert font-normal">{card.description}</div>
                   </div>
                 </div>
               ))}

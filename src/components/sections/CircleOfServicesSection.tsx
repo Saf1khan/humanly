@@ -72,10 +72,10 @@ export const CircleOfServicesSection = ({ isDark = false }: CircleOfServicesSect
       {/* Title & Description - Top Left */}
       <div className="w-full z-20 mb-16 md:mb-24">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 w-full flex flex-col items-start">
-          <h2 className={`text-left ${isDark ? 'text-white' : 'text-sandstone-500'} font-sans leading-tight font-bold text-[2.5rem] md:text-[3rem] lg:text-[4rem] tracking-tight uppercase`}>
-            Circle of Services<span className="text-[0.4em] align-super">®</span>
+          <h2 className={`text-left ${isDark ? 'text-white' : 'text-sandstone-500'} font-bodoni leading-tight font-bold text-4xl md:text-5xl tracking-normal`}>
+            Circle of Services
           </h2>
-          <p className={`mt-4 md:mt-6 text-left ${isDark ? 'text-[#8a8880]' : 'text-[#1C1B1A]/70'} max-w-[22rem] md:max-w-lg lg:max-w-xl text-[1.1rem] md:text-[1.25rem] leading-relaxed font-sans font-light`}>
+          <p className={`mt-4 md:mt-6 text-left ${isDark ? 'text-[#8a8880]' : 'text-[#1C1B1A]/70'} max-w-[22rem] md:max-w-lg lg:max-w-xl text-sm md:text-lg leading-relaxed font-albert font-normal`}>
             Humanly’s Circle of Services is a fully integrated ecosystem designed to support the whole person by bringing everyday essentials together in one seamless experience.
           </p>
         </div>
@@ -108,7 +108,7 @@ export const CircleOfServicesSection = ({ isDark = false }: CircleOfServicesSect
             return (
               <div 
                 key={index}
-                className={`absolute w-28 h-28 md:w-36 md:h-36 -translate-x-1/2 -translate-y-1/2 rounded-[2rem] overflow-hidden pointer-events-auto group cursor-pointer transition-all duration-[1000ms] ease-in-out ${activeIndex === index ? `opacity-100 scale-125 ${isDark ? 'bg-white/10 backdrop-blur-md' : 'bg-white'} shadow-[0_0_60px_rgba(245,93,51,0.3)] z-20` : `opacity-80 scale-95 ${isDark ? 'bg-white/5 backdrop-blur-sm' : 'bg-white'} shadow-[0_8px_24px_rgba(0,0,0,0.08)] z-10`}`}
+                className={`absolute w-28 h-28 md:w-36 md:h-36 -translate-x-1/2 -translate-y-1/2 rounded-[2rem] overflow-visible pointer-events-auto group cursor-pointer transition-all duration-[1000ms] ease-in-out ${activeIndex === index ? `opacity-100 scale-125 ${isDark ? 'bg-white/10 backdrop-blur-md' : 'bg-white'} shadow-[0_0_60px_rgba(245,93,51,0.3)] z-20` : `opacity-80 scale-95 ${isDark ? 'bg-white/5 backdrop-blur-sm' : 'bg-white'} shadow-[0_8px_24px_rgba(0,0,0,0.08)] z-10`}`}
                 style={{ left: `${x}%`, top: `${y}%` }}
               >
                 <div 
@@ -125,7 +125,7 @@ export const CircleOfServicesSection = ({ isDark = false }: CircleOfServicesSect
                   {/* Full Image Overlay & Text - Shown on Hover */}
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/60">
                     <p 
-                      className="text-white text-[11px] md:text-[13px] font-bold text-center leading-tight tracking-wider uppercase whitespace-pre-line"
+                      className="text-white text-[11px] md:text-[13px] font-bold font-cormorant text-center leading-tight tracking-wider uppercase whitespace-pre-line"
                       style={{ WebkitFontSmoothing: 'antialiased', transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
                     >
                       {item.label}
@@ -167,12 +167,12 @@ export const CircleOfServicesSection = ({ isDark = false }: CircleOfServicesSect
               className={`absolute inset-0 z-10 transition-opacity duration-500 ease-in-out flex flex-col justify-center items-start ${activeIndex === index ? 'opacity-100' : 'opacity-0'}`}
             >
 
-              <h3 className={`${isDark ? 'text-white' : 'text-sandstone-500'} text-[1.5rem] font-bold tracking-tight mb-6 uppercase`}>
+              <h3 className={`${isDark ? 'text-white' : 'text-sandstone-500'} text-2xl font-bold font-cormorant tracking-normal mb-6`}>
                 {item.label}
               </h3>
               <ul className="flex flex-col gap-4">
                 {item.details.map((detail, idx) => (
-                  <li key={idx} className={`flex items-start ${isDark ? 'text-[#8a8880]' : 'text-[#1C1B1A]/80'} text-[1.05rem] leading-snug`}>
+                  <li key={idx} className={`flex items-start ${isDark ? 'text-[#8a8880]' : 'text-[#1C1B1A]/80'} text-base leading-snug font-albert`}>
                     <span className={`mr-3 ${isDark ? 'text-white/20' : 'text-sandstone-500/50'} font-bold mt-1`}>•</span>
                     <span>{detail}</span>
                   </li>

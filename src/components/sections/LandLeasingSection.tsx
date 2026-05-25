@@ -5,7 +5,7 @@ import { RevealOnScroll } from "../ui/RevealOnScroll";
 export const LandLeasingSection = () => {
   return (
     <section
-      className="relative w-full py-14 lg:py-24 overflow-hidden"
+      className="relative w-full py-14 lg:py-24 overflow-visible"
     >
       {/* Background Gradients — exact match to DataRoom */}
       <div
@@ -20,18 +20,18 @@ export const LandLeasingSection = () => {
           <div className="w-full lg:w-1/2 lg:pr-8 flex flex-col justify-center order-2 lg:order-1">
             <RevealOnScroll>
               <div className="flex flex-col items-start gap-4 mb-6">
-                <span className="text-[#A8A5A0] text-xs font-normal tracking-widest uppercase">
+                <span className="text-[#A8A5A0] text-sm font-medium font-albert tracking-[0.2em] uppercase">
                   LAND LEASING MODEL
                 </span>
                 <div className="h-[1px] w-[156px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
-                <h2 className="text-sandstone-500 text-[5rem] md:text-[7rem] lg:text-[9rem] font-medium leading-none tracking-tight">
+                <h2 className="text-sandstone-500 text-[72px] md:text-[96px] font-bold font-albert leading-none tracking-tight">
                   ~70%
                 </h2>
               </div>
             </RevealOnScroll>
 
             <RevealOnScroll delay="delay-100">
-              <p className="text-left text-sandstone-500 font-normal text-xl leading-relaxed lg:text-2xl">
+              <p className="text-left text-sandstone-500 font-albert font-normal text-xl leading-relaxed md:text-xl">
                 of land retained through ground leases — creating long-term appreciation and community stability while reducing upfront capital requirements.
               </p>
             </RevealOnScroll>

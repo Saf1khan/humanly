@@ -59,51 +59,51 @@ export const HeroSection = () => {
         {/* --- The 3 White Rectangles forming the perfect Polygon --- */}
 
         {/* 1. Top Left Rectangle */}
-        <div className="absolute top-0 left-0 w-[45%] lg:w-[35%] h-[15%] lg:h-[20%] bg-[#f4f3ef] rounded-br-[100px] lg:rounded-br-[160px] pointer-events-none z-10"></div>
+        <div className="absolute top-0 left-0 w-[45%] lg:w-[35%] h-[15%] lg:h-[20%] bg-white rounded-br-[100px] lg:rounded-br-[160px] pointer-events-none z-10"></div>
 
         {/* 2. Bottom Left Rectangle (smaller height, wider) */}
-        <div className="absolute bottom-0 left-0 w-[75%] lg:w-[65%] h-[20%] lg:h-[20%] bg-[#f4f3ef] rounded-tr-[100px] lg:rounded-tr-[160px] pointer-events-none z-10"></div>
+        <div className="absolute bottom-0 left-0 w-[75%] lg:w-[65%] h-[20%] lg:h-[20%] bg-white rounded-tr-[100px] lg:rounded-tr-[160px] pointer-events-none z-10"></div>
 
         {/* 3. Vertical Left Rectangle */}
-        <div className="absolute top-0 bottom-0 left-0 w-[40px] bg-[#f4f3ef] pointer-events-none z-10"></div>
+        <div className="absolute top-0 bottom-0 left-0 w-[40px] bg-white pointer-events-none z-10"></div>
 
         {/* --- Inner Corner Rounded Fillets (Smooth Concave Curves) --- */}
 
         {/* Top Inner Fillet: Connects Top Rect to Vertical Rect */}
         <div
           className="absolute left-[40px] top-[15%] lg:top-[20%] w-[140px] h-[140px] pointer-events-none z-10"
-          style={{ background: 'radial-gradient(circle at 100% 100%, transparent 139px, #f4f3ef 140px)' }}
+          style={{ background: 'radial-gradient(circle at 100% 100%, transparent 139px, white 140px)' }}
         ></div>
 
         {/* Bottom Inner Fillet: Connects Bottom Rect to Vertical Rect */}
         <div
           className="absolute left-[40px] bottom-[20%] lg:bottom-[20%] w-[140px] h-[140px] pointer-events-none z-10"
-          style={{ background: 'radial-gradient(circle at 100% 0%, transparent 139px, #f4f3ef 140px)' }}
+          style={{ background: 'radial-gradient(circle at 100% 0%, transparent 139px, white 140px)' }}
         ></div>
 
       </div>
 
       <div className="absolute inset-0 flex flex-col justify-start pl-16 md:pl-24 lg:pl-32 pr-6 pt-[320px] z-20 pointer-events-none">
         <div className="pointer-events-auto">
-          <h1 ref={titleRef} className="hero-title text-left text-[36px] md:text-[48px] lg:text-[72px] leading-[1.1] text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] m-0 max-w-[85%] lg:max-w-[45%]">
+          <h1 ref={titleRef} className="hero-title text-left text-[36px] md:text-[48px] lg:text-[72px] leading-[1.1] trtacking-normal text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] m-0 max-w-[85%] lg:max-w-[45%]">
             <HeroReveal delay="delay-100">
-              <span className="block font-bodoni drop-shadow-none font-medium">
-                The neighborhood,
+              <span className="block font-bodoni drop-shadow-none">
+                The Neighborhood,
               </span>
             </HeroReveal>
             <HeroReveal delay="delay-200">
-              <span className="pl-[308px] font-cormorant block drop-shadow-none opacity-90 italic font-light tracking-tighter">
-                reimagined.
+              <span className="pl-[308px] font-cormorant block drop-shadow-none opacity-90 italic font-light tracking-normal">
+                Reimagined.
               </span>
             </HeroReveal>
           </h1>
 
           <HeroReveal delay="delay-500">
             <div className="flex flex-col xl:flex-row gap-4 mt-8">
-              <a href="#" className="px-6 py-3 bg-white font-albert text-[#1a1818] rounded-full font-normal text-xs text-center transition-opacity hover:opacity-80 shadow-2xl drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)] whitespace-nowrap">
+              <a href="#" className="px-6 py-3 bg-white font-albert text-[#1a1818] rounded-full font-semibold tracking-wide text-xs text-center transition-opacity hover:opacity-80 shadow-2xl drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)] whitespace-nowrap">
                 FOR INVESTORS
               </a>
-              <a href="#" className="px-6 py-3 bg-black/20 font-albert text-white rounded-full font-normal text-xs text-center border border-white/40 transition-colors hover:bg-white hover:text-[#1a1818] shadow-2xl drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)] whitespace-nowrap backdrop-blur-md">
+              <a href="#" className="px-6 py-3 bg-black/20 font-albert text-white rounded-full font-semibold tracking-wide text-xs text-center border border-white/40 transition-colors hover:bg-white hover:text-[#1a1818] shadow-2xl drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)] whitespace-nowrap backdrop-blur-md">
                 FOR STRATEGIC PARTNERS
               </a>
             </div>
