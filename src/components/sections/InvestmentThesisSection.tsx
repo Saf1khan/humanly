@@ -49,10 +49,10 @@ export const InvestmentThesisSection = () => {
   };
 
   return (
-    <section className="w-full min-h-[1024px] flex items-stretch justify-center p-4 md:p-10 bg-transparent">
+    <section className="w-full min-h-[1024px] flex items-stretch justify-center pt-4 md:pt-10 bg-transparent">
 
       {/* The SINGLE container div */}
-      <div className="relative w-full rounded-[2rem] overflow-hidden shadow-2xl flex flex-col items-start justify-between min-h-[1024px]">
+      <div className="relative w-full overflow-hidden flex flex-col items-start justify-between min-h-[1024px]">
 
         {/* Background Image (Absolute inside the single div) */}
         <div className="absolute inset-0 z-0">
@@ -65,19 +65,21 @@ export const InvestmentThesisSection = () => {
         </div>
 
         {/* Top Content Row: Header and Cards */}
-        <div className="relative z-10 w-full flex flex-col lg:flex-row items-start justify-between pl-6 md:pl-12 pt-6 md:pt-12 lg:pl-20 lg:pt-20">
+        <div className="relative z-10 w-full flex flex-col lg:flex-row items-start justify-between pl-6 md:pl-12 pt-6 md:pt-12 lg:pl-20 lg:pt-18">
 
           {/* Left Side: Header */}
           <div className="flex flex-col items-start lg:w-1/2">
             <div className="bg-white/40 backdrop-blur-md rounded-full px-5 py-2 mb-6 shadow-sm border border-white/40 overflow-hidden">
-              <span className="text-[10px] md:text-xs font-normal tracking-[0.2em] uppercase font-albert text-slate-950 block">
+              <span className="text-[10px] md:text-sm font-medium tracking-[0.2em] uppercase font-albert text-slate-950 block">
                 INVESTMENT THESIS
               </span>
             </div>
             <RevealOnScroll delay="delay-300">
               <h2 className="text-4xl md:text-5xl lg:text-[60px] leading-[1.1] tracking-tight font-bodoni text-white lg:whitespace-nowrap font-medium">
-                Five revenue layers.<br />
-                One integrated platform.
+                Five Revenue Layers.
+                </h2>
+                <h2 className='mt-2 text-4xl md:text-5xl lg:text-[60px] leading-[1.1] tracking-tight font-bodoni text-white lg:whitespace-nowrap font-medium'>
+                One Integrated Platform.
               </h2>
             </RevealOnScroll>
             <div className="h-[2px] w-[80%] md:w-[600px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full mt-3"></div>
@@ -105,7 +107,7 @@ export const InvestmentThesisSection = () => {
                     )}
                   >
                     <h3 className="text-3xl font-semibold font-cormorant text-slate-800 mb-3 leading-tight pr-4">{slide.title}</h3>
-                    <p className="text-sm font-normal font-albert text-slate-600 mb-6">{slide.eyebrow}</p>
+                    <p className="text-base font-normal font-albert text-slate-600 mb-6">{slide.eyebrow}</p>
                     <p className="text-base font-normal font-albert text-slate-800/90 leading-relaxed">
                       {slide.content}
                     </p>
@@ -133,10 +135,10 @@ export const InvestmentThesisSection = () => {
         </div>
 
         {/* Bottom Left White Overlay */}
-        <div className="absolute bottom-0 left-0 w-full md:w-[700px] z-20 mt-auto">
-          <div className="bg-white rounded-tr-[80px] p-10 md:p-16 lg:p-20 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] border-t border-r border-white/50">
+        <div className="absolute bottom-10 left-20 w-full md:w-[680px] z-20 mt-auto">
+          <div className="bg-white/20 backdrop-blur-xl rounded-[80px] p-10 md:px-12 md:py-16 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
             <RevealOnScroll delay="delay-300">
-              <p className="text-base md:text-xl font-cormorant font-normal italic text-slate-800 leading-relaxed pr-8">
+              <p className="text-base md:text-xl font-cormorant font-normal italic text-black leading-relaxed pr-8">
                 Traditional real estate captures one revenue stream. Humanly captures five — compounding returns through vertical integration from land to living to lifelong services.
               </p>
             </RevealOnScroll>

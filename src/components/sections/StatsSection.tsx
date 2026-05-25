@@ -89,10 +89,10 @@ const StatCard = ({
     >
       <div className="relative z-10 flex flex-col items-center justify-center w-full h-full gap-4">
         <div className="flex flex-col items-center">
-          <p className="text-4xl md:text-5xl lg:text-6xl text-[#0c007a]/70  mb-3 tracking-tight font-medium">
+          <p className="text-3xl md:text-4xl lg:text-5xl text-[#000000]/70 font-alberta mb-3 tracking-normal font-medium">
             <CountUpNumber prefix={prefix} end={value} suffix={suffix} />
           </p>
-          <h3 className="text-[1.25rem] font-bold text-[#0c007a]/80 mb-2">
+          <h3 className="pl-4 text-xl font-albert font-bold text-[#000000]/80 mb-2 tracking-widest w-full max-w-[720px]">
             {label}
           </h3>
           {description && (
@@ -130,7 +130,7 @@ export const StatsSection = () => {
         />
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 font-alberta mt-4 -mb-1 md:grid-cols-3 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 mt-4 -mb-1 md:grid-cols-3 gap-8 lg:gap-12">
             <StatCard
               value={5}
               prefix="$"
