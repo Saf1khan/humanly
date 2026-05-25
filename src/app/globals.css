@@ -1,8 +1,11 @@
 @tailwind base;
 
 @theme inline {
+  /*content*/
   --font-albert: var(--font-albert-sans);
+  /* small title within card */
   --font-cormorant: var(--font-cormorant-garamond);
+  /* title */
   --font-bodoni: var(--font-bodoni-moda);
 }
 
