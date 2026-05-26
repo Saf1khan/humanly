@@ -4,7 +4,7 @@ import { WStatsSection } from "@/components/sections/why-humanly/WStatsSection";
 import { WProblemSection } from "@/components/sections/why-humanly/WProblemSection";
 import { WShiftSection } from "@/components/sections/why-humanly/WShiftSection";
 import { WRevenueSection } from "@/components/sections/why-humanly/WRevenueSection";
-import { WCompetitiveSection } from "@/components/sections/why-humanly/WCompetitiveSection";
+// { WCompetitiveSection } from "@/components/sections/why-humanly/WCompetitiveSection";
 import { Nav } from "@/components/layout/Nav";
 
 export const metadata = {
@@ -31,10 +31,18 @@ export default function WhyHumanlyPage() {
           --wh-bg:        #E7E3DC;   /* Primary Background */
           --wh-surface:   rgba(255,255,255,0.32); /* Glass Surface */
           --wh-text:      #111111;   /* Primary Text */
-          --wh-muted:     #5F646B;   /* Secondary Text */
+          --wh-muted:     rgb(74, 71, 65);   /* Secondary Text */
           --wh-border:    rgba(17,17,17,0.08); /* Soft Border */
 
           --wh-ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .wh-page .text-\[\#5F646B\] {
+          color: rgb(74, 71, 65) !important;
+        }
+
+        .wh-page .text-\[\#5F646B\]\/60 {
+          color: rgba(74, 71, 65, 0.6) !important;
         }
 
         .wh-page,
@@ -159,7 +167,7 @@ export default function WhyHumanlyPage() {
 
         <WRevenueSection />
 
-        <WCompetitiveSection />
+        {/* <WCompetitiveSection /> */}
 
         <WStatsSection />
 

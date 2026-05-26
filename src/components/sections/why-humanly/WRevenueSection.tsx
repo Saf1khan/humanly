@@ -97,22 +97,19 @@ export const WRevenueSection = () => {
 
   return (
     <section className="w-full text-[#111111] font-['Albert_Sans',-apple-system,BlinkMacSystemFont,sans-serif]">
-      <div className="w-full px-[32px]">
+      <div className="w-full px-8 md:px-16">
         {/* Desktop View: Exact replica of reference layout */}
         <div className="desktop hidden lg:flex flex-row items-start gap-[105px] pt-[100px]">
           {/* LEFT: Sticky Column */}
           <div className="left sticky top-[100px] basis-[55%] self-start pb-[100px]">
-            <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#6E7C8D] mb-4">
-              Designed Revenue Model
-            </p>
             <h2
-              className={`text-[56px] leading-[52px] tracking-[-0.8px] font-serif font-light not-italic mb-14 transition-opacity duration-700 ease-out ${
+              className={`text-[56px] leading-[52px] tracking-[-0.8px] font-serif font-medium not-italic mb-14 transition-opacity duration-700 ease-out ${
                 mounted ? "opacity-100" : "opacity-0"
               }`}
             >
               Five revenue layers.
               <br />
-              <span className="text-[#5F646B]/60 not-italic">
+              <span className="not-italic">
                 One integrated platform.
               </span>
             </h2>
@@ -183,13 +180,13 @@ export const WRevenueSection = () => {
               Designed Revenue Model
             </p>
             <h2
-              className={`font-serif font-normal text-[clamp(28px,5vw,44px)] leading-[1.1] tracking-[-0.8px] text-[#111111] mb-4 transition-opacity duration-700 ease-out ${
+              className={`font-serif font-medium text-[clamp(28px,5vw,44px)] leading-[1.1] tracking-[-0.8px] text-[#111111] mb-4 transition-opacity duration-700 ease-out ${
                 mounted ? "opacity-100" : "opacity-0"
               }`}
             >
               Five revenue layers.
               <br />
-              <span className="text-[#5F646B]/60">
+              <span>
                 One integrated platform.
               </span>
             </h2>

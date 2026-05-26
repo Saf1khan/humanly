@@ -29,6 +29,7 @@ const axes = [
   },
 ];
 
+/*
 export const WCompetitiveSection = () => {
   const headRefs = useRef<(HTMLElement | null)[]>([]);
   const axisRef = useRef<HTMLDivElement>(null);
@@ -186,7 +187,7 @@ export const WCompetitiveSection = () => {
         </h2>
 
         <div className="wh-matrix-wrap grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mt-10">
-          {/* Left — axis list */}
+          // Left — axis list
           <div>
             <div className="wh-axis-list wh-rvl grid gap-[9px]" ref={axisRef}>
               {axes.map((a, i) => (
@@ -211,7 +212,7 @@ export const WCompetitiveSection = () => {
             </p>
           </div>
 
-          {/* Right — radar chart */}
+          // Right — radar chart
           <div className="wh-chart-shell wh-rvs p-6 rounded-[20px] bg-[rgba(255,255,255,0.32)] backdrop-blur-md border border-[rgba(17,17,17,0.08)] shadow-[0_4px_20px_rgba(17,17,17,0.03)]" ref={chartRef}>
             <canvas
               ref={canvasRef}
@@ -254,3 +255,4 @@ export const WCompetitiveSection = () => {
     </section>
   );
 };
+*/

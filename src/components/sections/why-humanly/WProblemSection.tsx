@@ -272,7 +272,7 @@ export const WProblemSection = () => {
             color: #111111;
             font-family: "Cormorant Garamond", Georgia, serif;
             font-size: clamp(30px, 4.5vw, 54px);
-            font-weight: 300;
+            font-weight: 500;
             line-height: 0.9;
             letter-spacing: -0.8px;
             font-variant-ligatures: no-common-ligatures;
@@ -338,12 +338,12 @@ export const WProblemSection = () => {
       <div className="content-container md:mx-auto">
         <div className="acf-innerblocks-container">
           <div key={currentIndex} className="gl-b-alternating-column relative">
-            <div className="ac-animated-heading lg:flex lg:flex-row lg:justify-between px-4 pt-[50px] md:px-8 md:pt-[100px] lg:pt-[120px] 2xl:grid 2xl:grid-cols-2 2xl:gap-x-[126px] !overflow-visible">
+            <div className="ac-animated-heading lg:flex lg:flex-row lg:justify-between px-8 pt-[50px] md:px-16 md:pt-[100px] lg:pt-[120px] 2xl:grid 2xl:grid-cols-2 2xl:gap-x-[126px] !overflow-visible">
               {/* Left Content: Text */}
               <div className="information-container order-1 flex flex-col w-full lg:max-w-[550px] 2xl:max-w-full lg:justify-start justify-center">
                 <h1
                   ref={titleRef}
-                  className="wp-problem-title font-serif font-normal text-[#111111]"
+                  className="wp-problem-title font-serif font-medium text-[#111111]"
                 >
                   {firstPart} <span>{secondPart}</span>
                 </h1>
