@@ -103,7 +103,7 @@ export const PlatformSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full bg-[#fefaef] overflow-x-clip text-sandstone-500">
+    <section className="relative w-full bg-white overflow-x-clip text-sandstone-500">
       <style>{`
         .gridContainerV3 {
           --smallGutter: 24px;
@@ -154,7 +154,7 @@ export const PlatformSection = () => {
       `}</style>
 
       {/* Top Intro Section */}
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 pt-8 pb-0 lg:pt-12 relative flex flex-col items-center text-center gap-6 z-10 bg-[#fefaef]">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 pt-8 pb-0 lg:pt-12 relative flex flex-col items-center text-center gap-6 z-10 bg-white">
         <div className="flex flex-col items-center gap-2">
           <span className="text-[#A8A5A0] text-sm font-albert font-medium tracking-[0.2em] uppercase">
             THE PLATFORM
@@ -174,7 +174,7 @@ export const PlatformSection = () => {
 
       {/* Sticky Scroll Section */}
       <div ref={containerRef} className="relative w-full" style={{ height: `${layerRows.length * 100}vh` }}>
-        <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center bg-[#fefaef]">
+        <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center bg-white">
           <div
             className="w-full gap-y-14 gridContainerV3 h-full items-center"
             data-cy="layout-grid"

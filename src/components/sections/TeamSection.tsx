@@ -125,7 +125,7 @@ const TeamCarousel = ({ members, title }: { members: any[], title: string }) => 
     <div className="col-start-main col-end-main flex flex-col 2xl:justify-self-center 2xl:w-fit max-w-full">
       {/* Sub-label */}
       <div className="relative mb-4">
-        <h3 className="text-xl font-medium text-sandstone-500 tracking-tight">{title}</h3>
+        <h3 className="text-lg md:text-2xl font-cormorant font-semibold text-sandstone-500 tracking-normal">{title}</h3>
       </div>
 
       {/* CARDS */}
@@ -187,12 +187,12 @@ const TeamCarousel = ({ members, title }: { members: any[], title: string }) => 
                     {/* Desktop Expansion Panel */}
                     <div className={`h-full overflow-hidden transition-all duration-300 sm:hidden lg:block ${isExpanded ? "w-72" : "w-0"}`}>
                       <div
-                        className="flex h-full w-72 flex-col justify-end gap-4 overflow-hidden p-6 text-[#1c1b1a]"
+                        className="flex h-full w-72 flex-col justify-end gap-2 overflow-hidden p-6 text-[#1c1b1a]"
                       >
-                        <p className="tracking-normal text-left text-inherit leading-normal text-2xl font-bold">{member.name}</p>
-                        <p className="text-base tracking-normal text-left text-blue-600 leading-normal font-normal">{member.title}</p>
+                        <p className="tracking-normal font-albert text-left text-inherit leading-normal text-2xl font-bold">{member.name}</p>
+                        <p className="text-xl tracking-normal font-cormorant text-left text-inherit leading-normal font-semibold">{member.title}</p>
                         <button className="rounded-full inline-block transition text-stroke-color-transparent text-stroke-width-0.5 hover:text-stroke-color-current p-0 text-left text-[#1c1b1a] hover:opacity-70" data-cy="landing-page-profile-card-desktop-button" type="button" aria-label="View Full Bio" tabIndex={isExpanded ? 0 : -1}>
-                          <span className="items-center inline-flex gap-2 content-center justify-center underline" data-cy="button-compartment">
+                          <span className="items-center font-albert text-blue-600 inline-flex gap-2 content-center justify-center underline" data-cy="button-compartment">
                             <span><span className="underline">View Full Bio</span></span>
                             <svg aria-hidden="true" fill="none" height="6" viewBox="0 0 20 6" width="20" xmlns="http://www.w3.org/2000/svg" data-cy="link_button_arrow_icon">
                               <path d="M20 3L15 0.11325L15 5.88675L20 3ZM-4.37114e-08 3.5L15.5 3.5L15.5 2.5L4.37114e-08 2.5L-4.37114e-08 3.5Z" fill="currentColor"></path>
@@ -284,12 +284,12 @@ export const TeamSection = () => {
         {/* Title Section */}
         <div className="col-start-main col-end-main relative flex flex-col items-center mb-16 pt-8">
           <div className="flex flex-col items-center gap-2 mb-6">
-            <p className="text-[11px] font-normal tracking-[0.2em] uppercase text-[#A8A5A0]">
+            <p className="text-xs md:text-sm font-albert font-normal tracking-[0.2em] uppercase text-[#A8A5A0]">
               THE TEAM
             </p>
-            <div className="h-[1px] w-[72px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
+            <div className="h-[1px] w-[92px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-sandstone-500 text-center tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-bold font-bodoni text-sandstone-500 text-center tracking-normal">
             Builders, operators, innovators.
           </h2>
         </div>
