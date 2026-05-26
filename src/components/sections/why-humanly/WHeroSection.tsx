@@ -125,7 +125,7 @@ export const WHeroSection = () => {
       </div>
 
       {/* Content anchored bottom-left */}
-      <div className="relative z-10 px-4 md:px-8 pb-[50px] md:pb-[90px] w-full">
+      <div className="relative z-10 px-8 md:px-16 pb-[50px] md:pb-[90px] w-full">
         {/* Title — SplitType will split this into .line and .char elements */}
         <h1 ref={titleRef} className="wh-hero-title font-serif font-normal">
           Every Neighborhood a Launchpad,

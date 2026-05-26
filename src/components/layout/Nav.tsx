@@ -1,12 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
 export const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isBgLight, setIsBgLight] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const lastScrollY = useRef(0);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -165,11 +167,21 @@ export const Nav = () => {
     let ticking = false;
 
     const handleScroll = () => {
-      if (window.scrollY > 20) {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > 20) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
+
+      // Hide on scroll down, show on scroll up
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        setIsHidden(true);
+      } else {
+        setIsHidden(false);
+      }
+      lastScrollY.current = currentScrollY;
 
       if (!ticking) {
         window.requestAnimationFrame(() => {
@@ -199,21 +211,27 @@ export const Nav = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const useDarkText = isMenuOpen || isBgLight;
+  const isWhyHumanly = pathname === "/why-humanly";
+  const useDarkText = isMenuOpen || (isBgLight && !isWhyHumanly);
 
   return (
     <>
       {/* THE HEADER: Sticky container */}
       <header
-        className="fixed z-50 w-full transition-all duration-500 font-sans top-0"
+        className="fixed z-50 w-full font-sans top-0"
+        style={{
+          transform: isHidden && !isMenuOpen ? "translateY(-100%)" : "translateY(0)",
+          transition: "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+        }}
         onMouseLeave={() => setIsMenuOpen(false)}
       >
         {/* THE DRAWER: The Full-Width Menu */}
         <div
-          className={`absolute top-0 left-0 z-0 w-full overflow-y-auto lg:overflow-hidden bg-[#F0EDEB] shadow-2xl transition-all duration-500 ease-in-out lg:rounded-b-[3rem] ${isMenuOpen
-            ? "max-h-[85vh] lg:max-h-[600px] opacity-100 pointer-events-auto"
-            : "max-h-0 opacity-0 pointer-events-none"
-            }`}
+          className={`absolute top-0 left-0 z-0 w-full overflow-y-auto lg:overflow-hidden bg-[#F0EDEB] shadow-2xl transition-all duration-500 ease-in-out lg:rounded-b-[3rem] ${
+            isMenuOpen
+              ? "max-h-[85vh] lg:max-h-[600px] opacity-100 pointer-events-auto"
+              : "max-h-0 opacity-0 pointer-events-none"
+          }`}
           onMouseEnter={() => setIsMenuOpen(true)}
         >
           <div
@@ -221,7 +239,10 @@ export const Nav = () => {
           >
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-center gap-8 lg:gap-16">
               {/* Dropdown Card 1 */}
-              <a href="/humanly-os" className="w-full max-w-[300px] group cursor-pointer">
+              <a
+                href="/humanly-os"
+                className="w-full max-w-[300px] group cursor-pointer"
+              >
                 <div className="aspect-[320/136] bg-[#4A4741] rounded-[2rem] overflow-hidden mb-4 relative">
                   <img
                     src="/images/pexels-ianr-21853691.jpg"
@@ -234,7 +255,10 @@ export const Nav = () => {
                 </div>
               </a>
 
-              <a href="/platform" className="w-full max-w-[300px] group cursor-pointer">
+              <a
+                href="/platform"
+                className="w-full max-w-[300px] group cursor-pointer"
+              >
                 <div className="aspect-[320/136] bg-[#4A4741] rounded-[2rem] overflow-hidden mb-4 relative">
                   <img
                     src="/images/AdobeStock_446591769.jpeg"
@@ -321,11 +345,12 @@ export const Nav = () => {
         <nav className="relative z-10 w-full mt-2  py-2 ">
           {/* Glass Background Layer */}
           <div
-            className={`absolute inset-0 mx-4 md:mx-8 rounded-2xl bg-[#4A4741]/5 backdrop-blur-[32px] border border-[#4A4741]/10 transition-opacity duration-400 ${scrolled && !isMenuOpen ? "opacity-100" : "opacity-0"
-              }`}
+            className={`absolute inset-0 mx-4 md:mx-8 rounded-2xl bg-[#4A4741]/5 backdrop-blur-[32px] border border-[#4A4741]/10 transition-opacity duration-400 ${
+              scrolled && !isMenuOpen ? "opacity-100" : "opacity-0"
+            }`}
           ></div>
 
-          <div className="relative z-20 max-w-[1466px] mx-auto px-6 md:px-12 lg:px-16 flex items-center min-h-[60px]">
+          <div className="relative z-20 mx-auto w-full flex items-center min-h-[60px] px-8 md:px-16">
             {/* Logo - Restored to larger size */}
             <a
               href="/"
@@ -338,11 +363,10 @@ export const Nav = () => {
               />
             </a>
 
-            {/* Spacer pushes links to the right */}
-            <div className="flex-1" />
+            {/* Spacer hidden — links are centered absolutely */}
 
-            {/* Desktop Links — right-aligned */}
-            <ul className="hidden lg:flex items-center gap-2">
+            {/* Desktop Links — centered */}
+            <ul className="hidden lg:flex items-center gap-2 mx-auto lg:absolute lg:left-1/2 lg:-translate-x-1/2">
               <li>
                 <a
                   href="/home"
@@ -423,7 +447,6 @@ export const Nav = () => {
               </li> */}
               <li>
                 <a
-
                   onMouseEnter={() => setIsMenuOpen(true)}
                   className={`group relative px-6 py-3 transition-all duration-300 flex items-center gap-1.5 ${useDarkText ? "text-black hover:text-black/70 font-semibold" : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80"}`}
                 >
@@ -471,10 +494,11 @@ export const Nav = () => {
 
       {/* Background Overlay */}
       <div
-        className={`fixed inset-0 bg-black/20 backdrop-blur-sm transition-opacity duration-500 z-40 ${isMenuOpen
-          ? "opacity-100 pointer-events-auto"
-          : "opacity-0 pointer-events-none"
-          }`}
+        className={`fixed inset-0 bg-black/20 backdrop-blur-sm transition-opacity duration-500 z-40 ${
+          isMenuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
         onClick={toggleDrawer}
       ></div>
     </>
