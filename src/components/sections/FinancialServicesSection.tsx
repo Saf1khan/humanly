@@ -73,15 +73,16 @@ export const FinancialServicesSection = () => {
         {/* Section Header */}
         <RevealOnScroll>
           <header className="flex flex-col items-start gap-4 mb-10 lg:mb-14">
-            <h2 className="text-[2rem] md:text-5xl font-bold text-sandstone-500 tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-bold font-bodoni text-sandstone-500 tracking-normal">
               Financial Services
             </h2>
-            <div className="text-[#a8a5a0] text-lg lg:text-[1.25rem] relative font-normal">
+            <div className="text-[#a8a5a0] text-base md:text-2xl font-cormorant relative">
               <span className="text-blue-600 relative inline-block mr-1 font-light">
                 HumanlyPay™
                 <div className="absolute -bottom-1.5 left-0 h-[1px] w-[108px] font-normal bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
               </span>
-              — embedded finance for residents
+              <span className="text-base md:text-2xl font-albert font-light">— embedded finance for residents</span>
+              
             </div>
           </header>
         </RevealOnScroll>
@@ -113,10 +114,10 @@ export const FinancialServicesSection = () => {
             {/* Text Content */}
             <div className="flex flex-col justify-end p-2 lg:pb-10 lg:pr-10 h-full">
               <RevealOnScroll delay="delay-100">
-                <h3 className="text-3xl md:text-4xl lg:text-5xl font-medium text-sandstone-500 leading-[1.1] transition-all duration-500 lg:mb-4">
+                <h3 className="text-2xl md:text-4xl font-semibold font-cormorant tracking-normal text-sandstone-500 leading-[1.1] transition-all duration-500 lg:mb-4">
                   {activeCard.title}
                 </h3>
-                <p className="text-lg md:text-xl text-[#1C1B1A]/70 leading-relaxed max-w-md font-normal">
+                <p className="text-lg md:text-xl text-[#1C1B1A]/70 font-albert leading-relaxed max-w-md font-normal">
                   {activeCard.description}
                 </p>
               </RevealOnScroll>

@@ -35,33 +35,33 @@ export const DataRoomForm = () => {
         <div className="flex flex-col gap-8 relative z-10 bg-neutral-900/40 backdrop-blur-md border border-white/5 p-6 md:p-8 lg:p-12 rounded-2xl shadow-2xl h-full">
           
           <div className="flex flex-col gap-2">
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Request Data Room Access</h2>
-            <p className="text-neutral-400 text-lg">Please fill out the form below to receive exclusive access to the Humanly Data Room.</p>
+            <h2 className="text-3xl md:text-4xl font-bodoni font-bold text-white tracking-normal mb-2">Request Data Room Access</h2>
+            <p className="text-neutral-400 font-albert font-light text-base md:text-lg">Please fill out the form below to receive exclusive access to the Humanly Data Room.</p>
           </div>
           
-          <form className="flex flex-col gap-6 mt-2" onSubmit={(e) => e.preventDefault()}>
+          <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
             
             {/* Row 1 */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-semibold text-sandstone-200">Full Name <span className="text-[#A8A5A0]">*</span></label>
-                <input type="text" placeholder="Your name" required className="w-full bg-[#1d1e20] border border-neutral-700/50 rounded-lg p-3.5 text-white placeholder-neutral-500 focus:border-[#A8A5A0] focus:ring-1 focus:ring-[#A8A5A0] transition-all outline-none" />
+                <label className="text-sm md:text-base font-semibold font-albert text-sandstone-200">Full Name <span className="text-[#A8A5A0]">*</span></label>
+                <input type="text" placeholder="Your name" required className="text-sm md:text-base w-full bg-[#1d1e20] border font-cormorant border-neutral-700/50 rounded-lg p-3.5 text-white placeholder-neutral-500 focus:border-[#A8A5A0] focus:ring-1 focus:ring-[#A8A5A0] transition-all outline-none" />
               </div>
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-semibold text-sandstone-200">Email <span className="text-[#A8A5A0]">*</span></label>
-                <input type="email" placeholder="you@example.com" required className="w-full bg-[#1d1e20] border border-neutral-700/50 rounded-lg p-3.5 text-white placeholder-neutral-500 focus:border-[#A8A5A0] focus:ring-1 focus:ring-[#A8A5A0] transition-all outline-none" />
+                <label className="text-sm md:text-base font-semibold font-albert text-sandstone-200">Email <span className="text-[#A8A5A0]">*</span></label>
+                <input type="email" placeholder="you@example.com" required className="text-sm md:text-base w-full bg-[#1d1e20] border font-cormorant border-neutral-700/50 rounded-lg p-3.5 text-white placeholder-neutral-500 focus:border-[#A8A5A0] focus:ring-1 focus:ring-[#A8A5A0] transition-all outline-none" />
               </div>
             </div>
 
             {/* Row 2 */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-semibold text-sandstone-200">Firm / Organization <span className="text-[#A8A5A0]">*</span></label>
-                <input type="text" placeholder="Company name" required className="w-full bg-[#1d1e20] border border-neutral-700/50 rounded-lg p-3.5 text-white placeholder-neutral-500 focus:border-[#A8A5A0] focus:ring-1 focus:ring-[#A8A5A0] transition-all outline-none" />
+                <label className="text-sm md:text-base font-semibold font-albert text-sandstone-200">Firm / Organization <span className="text-[#A8A5A0]">*</span></label>
+                <input type="text" placeholder="Company name" required className="text-sm md:text-base w-full bg-[#1d1e20] border font-cormorant border-neutral-700/50 rounded-lg p-3.5 text-white placeholder-neutral-500 focus:border-[#A8A5A0] focus:ring-1 focus:ring-[#A8A5A0] transition-all outline-none" />
               </div>
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-semibold text-sandstone-200">Investor Type <span className="text-[#A8A5A0]">*</span></label>
-                <select defaultValue="" required className="w-full bg-[#1d1e20] border border-neutral-700/50 rounded-lg p-3.5 text-white focus:border-[#A8A5A0] focus:ring-1 focus:ring-[#A8A5A0] transition-all outline-none appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%207l5%205%205-5%22%20fill%3D%22none%22%20stroke%3D%22%238f96a3%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E')] bg-[length:20px_20px] bg-[position:right_1rem_center] bg-no-repeat">
+                <label className="text-sm md:text-base font-semibold font-albert text-sandstone-200">Investor Type <span className="text-[#A8A5A0]">*</span></label>
+                <select defaultValue="" required className="text-sm md:text-base w-full bg-[#1d1e20] font-cormorant border border-neutral-700/50 rounded-lg p-3.5 text-white focus:border-[#A8A5A0] focus:ring-1 focus:ring-[#A8A5A0] transition-all outline-none appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%207l5%205%205-5%22%20fill%3D%22none%22%20stroke%3D%22%238f96a3%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E')] bg-[length:20px_20px] bg-[position:right_1rem_center] bg-no-repeat">
                   <option value="" disabled>Select...</option>
                   <option value="Venture Capital">Venture Capital</option>
                   <option value="Private Equity">Private Equity</option>
@@ -75,19 +75,19 @@ export const DataRoomForm = () => {
 
             {/* Row 3 */}
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-semibold text-sandstone-200">Message (optional)</label>
-              <textarea rows={4} placeholder="Tell us about your interest..." className="w-full bg-[#1d1e20] border border-neutral-700/50 rounded-lg p-3.5 text-white placeholder-neutral-500 focus:border-[#A8A5A0] focus:ring-1 focus:ring-[#A8A5A0] transition-all outline-none resize-none"></textarea>
+              <label className="text-sm md:text-base font-semibold font-albert text-sandstone-200">Message (optional)</label>
+              <textarea rows={4} placeholder="Tell us about your interest..." className="text-sm md:text-base w-full bg-[#1d1e20] font-cormorant border border-neutral-700/50 rounded-lg p-3.5 text-white placeholder-neutral-500 focus:border-[#A8A5A0] focus:ring-1 focus:ring-[#A8A5A0] transition-all outline-none resize-none"></textarea>
             </div>
 
             {/* Submit Button */}
             <div className="pt-6">
-              <button type="submit" className="w-full md:w-auto px-10 py-3.5 bg-white text-[#111213] font-bold rounded-full hover:bg-neutral-200 transition-colors shadow-lg shadow-white/10">
+              <button type="submit" className="text-sm md:text-base font-semibold w-full md:w-auto px-10 py-3.5 bg-white font-albert text-[#111213] rounded-full hover:bg-neutral-200 transition-colors shadow-lg shadow-white/10">
                 Request Data Room Access
               </button>
             </div>
             
             {/* Legal Consent */}
-            <p className="text-sm text-[#8f96a3] mt-2 leading-relaxed">
+            <p className="text-sm md:text-base text-[#8f96a3] mt-2 font-albert leading-relaxed">
               Humanly needs the contact information you provide to us to contact you regarding your inquiry about our products and services. You may unsubscribe from these communications at any time. By clicking submit below, you consent to allow Humanly to store and process the personal information submitted above.
             </p>
 
