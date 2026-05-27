@@ -14,8 +14,8 @@ const outcomes = [
 
 export const COutcomes = () => {
   return (
-    <section className="bg-[#f2f0eb] py-20 lg:py-32">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
+    <section className="bg-[#faf8f1] py-20 lg:py-32">
+      <div className="max-w-[1280px] mx-auto">
         <div className="mb-10">
           <div className="h-[3px] rounded-[2px] bg-gradient-to-r from-[#1a4f82] via-[#2d7dd2] to-[#d96a2b] w-[72px]" />
           <h2 className="text-[clamp(1.75rem,3vw,2.5rem)] font-normal text-[#1a1a1a] mt-4">

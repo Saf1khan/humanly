@@ -75,10 +75,10 @@ export const InvestmentThesisSection = () => {
               </span>
             </div>
             <RevealOnScroll delay="delay-300">
-              <h2 className="text-4xl md:text-5xl lg:text-[60px] leading-[1.1] tracking-tight font-bodoni text-white lg:whitespace-nowrap font-medium">
+              <h2 className="text-4xl md:text-5xl leading-[1.1] tracking-normal font-bodoni text-white lg:whitespace-nowrap font-medium">
                 Five Revenue Layers.
                 </h2>
-                <h2 className='mt-2 text-4xl md:text-5xl lg:text-[60px] leading-[1.1] tracking-tight font-bodoni text-white lg:whitespace-nowrap font-medium'>
+                <h2 className='mt-2 text-4xl md:text-5xl leading-[1.1] tracking-normal font-bodoni text-white lg:whitespace-nowrap font-medium'>
                 One Integrated Platform.
               </h2>
             </RevealOnScroll>

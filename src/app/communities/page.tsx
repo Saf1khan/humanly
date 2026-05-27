@@ -15,7 +15,7 @@ import { SmoothScroll } from "@/components/ui/SmoothScroll";
 export default function CommunitiesPage() {
   return (
     <SmoothScroll>
-      <main className="font-sans selection:bg-[#1a4f82] selection:text-white bg-[#f7f6f2]">
+      <main className="font-sans selection:bg-[#1a4f82] selection:text-white bg-[#faf8f1]">
         <CHero />
         <COutcomes />
         <CSteward />

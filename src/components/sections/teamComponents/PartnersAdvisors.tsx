@@ -35,11 +35,15 @@ const partnerCategories = [
 
 export const PartnersAdvisors = () => {
   return (
-    <section className="relative w-full bg-[#faf9f6] py-24 lg:py-32 overflow-hidden">
+    <section className="relative w-full bg-[#faf9f6] py-24 lg:py-32 overflow-visible">
       {/* Background */}
       <div
-        className="absolute pointer-events-none left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(194,160,119,0.04), rgba(194,160,119,0.07) 50%, rgba(194,160,119,0))" }}
+        className="absolute z-10 pointer-events-none top-1/3 translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(182, 207, 221, 0.3), rgba(182, 207, 221, 0.08) 50%, rgba(182, 207, 221, 0))" }}
+      />
+      <div
+        className="absolute z-10 pointer-events-none left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/4 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.04) 50%, rgba(255, 182, 55, 0))" }}
       />
 
       <div className="container relative z-10 mx-auto px-6 max-w-[1200px]">

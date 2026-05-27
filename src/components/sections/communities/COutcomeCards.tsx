@@ -44,7 +44,7 @@ const outcomes = [
 
 export const COutcomeCards = () => {
   return (
-    <section className="bg-[#f2f0eb] py-20 lg:py-32">
+    <section className="bg-[#faf8f1] py-20 lg:py-32">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
         <div className="text-center mb-12">
           <div className="h-[3px] rounded-[2px] bg-gradient-to-r from-[#1a4f82] via-[#2d7dd2] to-[#d96a2b] w-[72px] mx-auto mb-4" />
