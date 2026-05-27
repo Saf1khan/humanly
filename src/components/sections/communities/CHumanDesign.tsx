@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export const CHumanDesign = () => {
   return (
-    <section className="bg-[#f2f0eb] overflow-hidden">
+    <section className="bg-[#faf8f1] overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
         {/* Left: Text */}
         <div className="flex flex-col justify-center px-6 lg:px-24 py-16 lg:py-20">

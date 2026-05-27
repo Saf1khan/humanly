@@ -121,7 +121,7 @@ export const CVillageCenter = () => {
   }, []);
 
   return (
-    <section className="relative w-full bg-transparent overflow-x-clip">
+    <section className="relative w-full bg-[#faf8f1] overflow-x-clip">
       {/* ── Background gradients ────────────────────────────────────────── */}
       <div
         className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"

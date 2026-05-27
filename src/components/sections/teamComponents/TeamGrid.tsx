@@ -88,7 +88,7 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
       const scrollMax = Math.max(0, el.scrollWidth - el.clientWidth);
       const progress = scrollMax > 0 ? el.scrollLeft / scrollMax : 0;
       setScrollProgress(progress);
-      
+
       const ratio = el.clientWidth / el.scrollWidth;
       setIndicatorWidth(Math.max(10, ratio * 100));
     };
@@ -119,13 +119,13 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
 
   const toggleCard = (idx: number) => {
     const isExpanding = activeIdx !== idx;
-    
+
     if (isExpanding && scrollRef.current) {
       lastScrollRef.current = scrollRef.current.scrollLeft;
     }
 
     setActiveIdx((prev) => (prev === idx ? -1 : idx));
-    
+
     setTimeout(() => {
       if (scrollRef.current) {
         const el = scrollRef.current;
@@ -176,7 +176,7 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
           {members.map((member, idx) => {
             const isExpanded = activeIdx === idx;
             const isFirst = idx === 0;
-            
+
             let shiftClass = "";
             if (isFirst && activeIdx !== -1) {
               if (activeIdx === 1) shiftClass = "lg:-ml-[96px]";
@@ -187,9 +187,8 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
             return (
               <div
                 key={member.id}
-                className={`relative shrink-0 overflow-hidden rounded-2xl transition-all duration-500 ${
-                  isExpanded ? "w-[277px] lg:w-[565px]" : "w-[277px]"
-                } ${shiftClass} h-[370px] shadow-[0_8px_32px_rgba(17,22,26,0.04)] hover:shadow-[0_8px_32px_rgba(17,22,26,0.1)] ${isExpanded ? "z-20" : "z-10"}`}
+                className={`relative shrink-0 overflow-hidden rounded-2xl transition-all duration-500 ${isExpanded ? "w-[277px] lg:w-[565px]" : "w-[277px]"
+                  } ${shiftClass} h-[370px] shadow-[0_8px_32px_rgba(17,22,26,0.04)] hover:shadow-[0_8px_32px_rgba(17,22,26,0.1)] ${isExpanded ? "z-20" : "z-10"}`}
                 onMouseEnter={() => { if (activeIdx !== idx) toggleCard(idx); }}
                 onMouseLeave={() => { if (activeIdx === idx) toggleCard(idx); }}
               >
@@ -202,7 +201,7 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
                     transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
                     className="relative w-[277px] shrink-0 overflow-hidden lg:h-full"
                   >
-                    <motion.div 
+                    <motion.div
                       initial={{ scale: 1.1, filter: "grayscale(40%)" }}
                       whileInView={{ scale: 1, filter: "grayscale(0%)" }}
                       viewport={{ once: true, margin: "-60px" }}
@@ -276,12 +275,23 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
 
 export const TeamGrid = () => {
   return (
-    <section className="relative w-full bg-[#faf9f6] py-24 overflow-hidden border-t border-[#11161a]/5">
+    <section className="z-10 relative w-full bg-[#faf9f6] py-24 overflow-visible border-t border-[#11161a]/5">
+      <div
+        className="absolute pointer-events-none left-0 top-1/6 -translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.1), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
+      />
       <div
         className="absolute pointer-events-none left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(194,160,119,0.04), rgba(194,160,119,0.06) 50%, rgba(194,160,119,0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.1), rgba(255, 182, 55, 0.06) 50%, rgba(255, 182, 55, 0))" }}
       />
-      
+      <div
+        className="absolute pointer-events-none top-1/4 translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(182, 207, 221, 0.3), rgba(182, 207, 221, 0.08) 50%, rgba(182, 207, 221, 0))" }}
+      />
+      <div
+        className="absolute pointer-events-none left-0 bottom-0 -translate-x-1/2 translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(182, 207, 221, 0.3), rgba(182, 207, 221, 0.08) 50%, rgba(182, 207, 221, 0))" }}
+      />
       <div className="container mx-auto px-6 relative z-10 max-w-[1200px]">
         <TeamCarousel title="Leadership Team" members={innovationTeam} />
         <TeamCarousel title="Development Team" members={developmentTeam} />

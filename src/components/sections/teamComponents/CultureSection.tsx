@@ -5,11 +5,19 @@ import { motion } from 'framer-motion';
 
 export const CultureSection = () => {
   return (
-    <section className="relative w-full bg-[#faf9f6] py-24 lg:py-32 overflow-hidden">
+    <section className="relative w-full bg-[#faf9f6] py-24 lg:py-32 overflow-visible">
       {/* Subtle Background Decoration */}
       <div
-        className="absolute pointer-events-none left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(194,160,119,0.03), rgba(194,160,119,0.05) 50%, rgba(194,160,119,0))" }}
+        className="absolute z-10 pointer-events-none left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.06) 50%, rgba(255, 182, 55, 0))" }}
+      />
+      <div
+        className="absolute z-10 pointer-events-none left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.04) 50%, rgba(255, 182, 55, 0))" }}
+      />
+      <div
+        className="absolute z-10 pointer-events-none bottom-0 translate-x-1/2 translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.06) 50%, rgba(255, 182, 55, 0))" }}
       />
 
       <div className="container relative z-10 mx-auto px-6 max-w-[1200px]">
@@ -24,7 +32,7 @@ export const CultureSection = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1]}}
+              transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
             >
               We're not just building communities.
             </motion.h2>
@@ -34,7 +42,7 @@ export const CultureSection = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1]}}
+              transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
             >
               We're living the mission.
             </motion.h2>
@@ -45,7 +53,7 @@ export const CultureSection = () => {
               whileInView={{ opacity: 1, scaleX: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               style={{ originX: 0 }}
-              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1]}}
+              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
             />
 
             <motion.div
@@ -53,7 +61,7 @@ export const CultureSection = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1]}}
+              transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
             >
               <p>
                 Every member of the Humanly® team came to this work through a personal
@@ -67,7 +75,7 @@ export const CultureSection = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1]}}
+              transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
             >
               <p>
                 We started Humanly® because we know the workforce family who needs a

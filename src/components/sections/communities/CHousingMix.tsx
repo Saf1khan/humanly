@@ -12,7 +12,7 @@ const housingTypes = [
 
 export const CHousingMix = () => {
   return (
-    <section className="bg-white py-20 lg:py-32">
+    <section className="bg-[#faf8f1] py-20 lg:py-32">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
