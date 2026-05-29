@@ -26,7 +26,7 @@ export const LeaseUpPhase = () => {
     <section ref={containerRef} className="pt-[60px] pb-[120px] relative overflow-hidden bg-[#F2F0EE]">
       {/* ── High-Fidelity Textures (Shared) ── */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03]" 
-        style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }} 
+        
       />
       <div className="absolute inset-0 pointer-events-none opacity-[0.02] mix-blend-overlay" 
         style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }} 

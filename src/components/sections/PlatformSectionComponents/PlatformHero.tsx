@@ -22,6 +22,11 @@ export const PlatformHero = () => {
           alt="Aerial neighborhood"
           className="w-full h-full object-cover scale-105"
         />
+        {/* <div className="absolute bottom-0 left-0 w-full h-64 
+              bg-gradient-to-t from-black to-transparent"/> */}
+
+
+
         {/* Intelligence Grid Overlay */}
         <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
         <svg className="absolute inset-0 w-full h-full opacity-30 pointer-events-none">
@@ -63,6 +68,9 @@ export const PlatformHero = () => {
         </div>
 
         <div className="absolute inset-0 bg-gradient-to-b from-[#02040A]/20 via-transparent to-[#0A0F1C]/30" />
+
+        {/* Seamless transition to PlatformThesis bg */}
+        <div className="absolute bottom-0 left-0 w-full h-[50vh] bg-gradient-to-b from-transparent to-[#ebedf0] z-10" />
       </div>
 
       {/* Animated Orbs */}
@@ -101,12 +109,12 @@ export const PlatformHero = () => {
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#4179F2] mb-4">
+            <p className="text-[11px] font-bold font-bodoni uppercase tracking-[0.15em] text-white mb-4">
               The Platform
             </p>
             <div className="h-[2px] w-[74px] bg-gradient-to-r from-[#4179F2] via-[#0C007A] to-[#FF6136] rounded-[1px] mb-8" />
 
-            <h1 className="text-[clamp(40px,7vw,88px)] font-extrabold leading-[1.02] tracking-[-3px] text-white">
+            <h1 className="text-[clamp(40px,7vw,88px)] font-albert leading-[1.02] tracking-normal text-white font-semibold">
               Disrupting residential real estate development and management.
             </h1>
           </motion.div>
@@ -118,7 +126,7 @@ export const PlatformHero = () => {
             transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="lg:pt-[120px]"
           >
-            <p className="text-[clamp(16px,1.2vw,20px)] font-normal leading-[1.7] text-white/80 max-w-[580px]">
+            <p className="text-[clamp(16px,1.2vw,20px)] font-normal font-bodoni  tracking-wide  leading-[1.7] text-white/80 max-w-[580px]">
               Traditional development is a series of handoffs.
               <span className="text-white block mt-2 font-semibold">Humanly is a recursive loop.</span>
               <br />
@@ -135,11 +143,11 @@ export const PlatformHero = () => {
         transition={{ delay: 2, duration: 1 }}
         className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20 pointer-events-none"
       >
-        <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/30">Explore the Intelligence</span>
+        <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white">Explore the Intelligence</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-px h-12 bg-gradient-to-b from-[#4179F2] to-transparent"
+          className="w-px h-12 bg-gradient-to-b from-[#ffffff] to-transparent"
         />
       </motion.div>
     </section>

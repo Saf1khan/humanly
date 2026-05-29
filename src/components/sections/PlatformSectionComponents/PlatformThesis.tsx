@@ -5,21 +5,21 @@ import { motion } from "framer-motion";
 
 export const PlatformThesis = () => {
   return (
-    <section className="py-[160px] relative overflow-hidden bg-[#F0EDEB]">
+    <section className="py-[160px] relative overflow-visible bg-[#ebedf0] ">
       {/* Subtle Luminous Glows */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(214,195,165,0.4),transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0  pointer-events-none" />
       {/* Logo-inspired Background Shapes */}
       <div
         className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.03]"
         style={{ mixBlendMode: 'soft-light' }}
       >
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
           className="absolute -left-[10%] top-[20%] w-[25%] h-[70%] bg-gradient-to-b from-[#4179F2]/20 to-transparent rounded-[120px] blur-[100px] rotate-[-12deg]"
-        />
+        /> */}
         <motion.div
           initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -45,7 +45,7 @@ export const PlatformThesis = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.1 }}
-          className="text-[clamp(36px,5vw,64px)] font-extrabold leading-[1.08] tracking-[-2px] text-slate-900 max-w-[920px] mx-auto"
+          className="text-[clamp(36px,5vw,64px)] font-bold font-cormorant  leading-[1.08] tracking-wide text-slate-900 max-w-[920px] mx-auto"
         >
           One company. One system. Full vertical. From land to living.
         </motion.h2>
@@ -55,7 +55,7 @@ export const PlatformThesis = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-[17px] leading-[1.75] text-slate-600 max-w-[820px] mx-auto mt-6"
+          className="text-[17px] leading-[1.75] text-slate-600 max-w-[820px] font-albert font-semibold mx-auto mt-6"
         >
           Our vertically integrated neighborhood platform enables us to own every layer of how a community is imagined, designed, built, and optimized. Every layer creates value. That value compounds, fueling long-term growth and measurable human outcomes.
         </motion.p>
