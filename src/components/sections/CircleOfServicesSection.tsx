@@ -111,25 +111,27 @@ export const CircleOfServicesSection = ({ isDark = false }: CircleOfServicesSect
                 className={`absolute w-28 h-28 md:w-36 md:h-36 -translate-x-1/2 -translate-y-1/2 rounded-[2rem] overflow-visible pointer-events-auto group cursor-pointer transition-all duration-[1000ms] ease-in-out ${activeIndex === index ? `opacity-100 scale-125 ${isDark ? 'bg-white/10 backdrop-blur-md' : 'bg-white'} shadow-[0_0_60px_rgba(245,93,51,0.3)] z-20` : `opacity-80 scale-95 ${isDark ? 'bg-white/5 backdrop-blur-sm' : 'bg-white'} shadow-[0_8px_24px_rgba(0,0,0,0.08)] z-10`}`}
                 style={{ left: `${x}%`, top: `${y}%` }}
               >
-                <div 
-                  className="absolute w-[150%] h-[150%] -top-[25%] -left-[25%] origin-center transition-transform duration-[2500ms] ease-in-out"
-                  style={{ transform: `rotate(${-rotation}deg)` }}
-                >
-                  <Image 
-                    src={item.src} 
-                    alt={item.alt} 
-                    width={100}
-                    height={100}
-                    className={`absolute w-[60%] h-[60%] top-[20%] left-[20%] object-contain ${isDark ? 'brightness-0 invert' : ''}`}
-                  />
-                  {/* Full Image Overlay & Text - Shown on Hover */}
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/60">
-                    <p 
-                      className="text-white text-[11px] md:text-[13px] font-bold font-cormorant text-center leading-tight tracking-wider uppercase whitespace-pre-line"
-                      style={{ WebkitFontSmoothing: 'antialiased', transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
-                    >
-                      {item.label}
-                    </p>
+                <div className="absolute inset-0 rounded-[2rem] overflow-hidden">
+                  <div 
+                    className="absolute w-[150%] h-[150%] -top-[25%] -left-[25%] origin-center transition-transform duration-[2500ms] ease-in-out"
+                    style={{ transform: `rotate(${-rotation}deg)` }}
+                  >
+                    <Image 
+                      src={item.src} 
+                      alt={item.alt} 
+                      width={100}
+                      height={100}
+                      className={`absolute w-[60%] h-[60%] top-[20%] left-[20%] object-contain ${isDark ? 'brightness-0 invert' : ''}`}
+                    />
+                    {/* Full Image Overlay & Text - Shown on Hover */}
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/60">
+                      <p 
+                        className="text-white text-[11px] md:text-[13px] font-bold font-cormorant text-center leading-tight tracking-wider uppercase whitespace-pre-line"
+                        style={{ WebkitFontSmoothing: 'antialiased', transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
+                      >
+                        {item.label}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

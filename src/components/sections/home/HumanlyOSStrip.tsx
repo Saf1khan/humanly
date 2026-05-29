@@ -30,11 +30,10 @@ export const HumanlyOSSection = () => {
 
       {/* ── Full-section background image ── */}
       <img
-        src="/images/pexels-tara-winstead-8386434.jpg"
+        src="/images/pexels-cottonbro-6153354.jpg"
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 w-full object-cover -z-20"
-        style={{ zIndex: 0, height: "100%" }}
+        className="absolute inset-0 w-full h-full object-cover object-[50%_50%] md:object-[center_50%] -z-20"
       />
 
       {/* ── Ambient colour gradients ── */}

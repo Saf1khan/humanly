@@ -3,71 +3,104 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export const WhyNow = () => {
-  const points = [
-    { badge: 'Legislative', title: 'Legislative Tailwinds', desc: 'Zoning reform, YIMBY legislation, and federal workforce housing incentives are opening land markets at unprecedented scale.', color: 'text-h-blue bg-h-blue/10' },
-    { badge: 'Technology', title: 'AI-Native Moment', desc: 'For the first time, AI can manage community operations, predict maintenance, and personalize resident services at scale.', color: 'text-h-primary bg-h-primary/10' },
-    { badge: 'Capital', title: 'ESG Capital Demand', desc: 'Institutional investors are allocating billions to workforce housing and impact real estate. Humanly is purpose-built to capture this capital.', color: 'text-h-orange bg-h-orange/10' }
+  const cards = [
+    {
+      badge: 'Legislative',
+      title: 'Legislative Tailwinds',
+      desc: 'Zoning reform, YIMBY legislation, and federal workforce housing incentives are opening land markets at unprecedented scale.',
+    },
+    {
+      badge: 'Technology',
+      title: 'AI-Native Moment',
+      desc: 'For the first time, AI can manage community operations, predict maintenance, and personalize resident services at scale.',
+    },
+    {
+      badge: 'Capital',
+      title: 'ESG Capital Demand',
+      desc: 'Institutional investors are allocating billions to workforce housing and impact real estate. Humanly is purpose-built to capture this capital.',
+    }
   ];
 
   return (
-    <section className="py-32 bg-h-surface relative overflow-hidden">
-      {/* Background Accent */}
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-h-primary/5 rounded-full blur-[120px] pointer-events-none" />
-      
-      <div className="wrap relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
-          className="text-center mb-20"
-        >
-          <div className="flex flex-col items-center gap-2 mb-6">
-            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-h-primary">
-              THE OPPORTUNITY
-            </p>
-            <div className="h-[2px] w-12 bg-h-primary rounded-full"></div>
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-h-dark leading-[1.1] tracking-tight">
-            Why Humanly.<br />Why Now.
-          </h2>
-        </motion.div>
-        
-        <div className="relative max-w-6xl mx-auto px-4">
-          {/* Railway Track Line */}
-          <motion.div 
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="hidden md:block absolute top-1/2 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-h-primary/30 to-transparent -translate-y-1/2 origin-left z-0"
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-            {points.map((point, idx) => (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0, x: 100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false, margin: "-50px" }}
-                transition={{ 
-                  delay: idx * 0.2, 
-                  duration: 0.8,
-                  type: "spring",
-                  stiffness: 50,
-                  damping: 15
-                }}
-                className="oura-exact-glass rounded-[2rem] p-10 text-left border border-white/40 shadow-xl group hover:scale-[1.02] transition-all duration-500 flex flex-col h-full bg-white/80 backdrop-blur-md"
+    <div className="bg-black">
+      <section className="bg-[#1c1b1a] py-16 text-[#f7f1e8] font-sans box-border rounded-b-[40px] md:rounded-b-[64px] relative z-20 overflow-hidden">
+      <div className="grid max-w-[1360px] mx-auto gap-6 grid-cols-[repeat(24,1fr)] px-6 lg:px-16 box-border">
+        {/* Section Title */}
+        <div className="col-span-full mb-8">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-sm font-bold tracking-wider uppercase text-stone-400 m-0">THE OPPORTUNITY</h2>
+          </motion.div>
+        </div>
+
+        {/* Featured Article (Left) */}
+        <div className="col-span-full lg:col-[1/span_14]">
+          <article className="relative h-[480px] lg:h-[771px] rounded-lg overflow-hidden flex flex-col">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-[1]">
+               <img src="/images/pexels-pixabay-265755.jpg" alt="Why Humanly Why Now" className="w-full h-[115%] object-cover -translate-y-[8.7%] block" />
+               <div className="absolute inset-0 bg-gradient-to-b from-transparent from-40% to-black/80"></div>
+            </div>
+            
+            <div className="relative z-[2] h-full p-8 flex flex-col justify-between">
+              <div className="bg-[#f7f1e8] text-[#1c1b1a] py-2 px-3 text-xs font-bold w-fit rounded-md tracking-wider uppercase">FEATURED</div>
+              <div className="bottom-content">
+                <motion.h2
+                  className="text-[#f7f1e8] text-[40px] leading-tight tracking-tight m-0 mb-8 font-normal max-w-[80%]"
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.15, duration: 0.7 }}
+                  viewport={{ once: true }}
+                >
+                  Why Humanly.<br />Why Now.
+                </motion.h2>
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.25, duration: 0.6 }}
+                  viewport={{ once: true }}
+                >
+                  <a href="#" className="bg-[#f7f1e8] text-stone-700 py-3 px-6 rounded-full no-underline inline-flex items-center gap-2 font-bold text-sm transition-colors duration-200 w-fit hover:bg-[#dcd7d0]">
+                    Explore the Platform 
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M12.5303 6.53033C12.8232 5.76256 12.5303 5.46967L7.75736 0.696699C7.46447 0.403806 6.98959 0.403806 6.6967 0.696699C6.40381 0.989593 6.40381 1.46447 6.6967 1.75736L10.9393 6L6.6967 10.2426C6.40381 10.5355 6.40381 11.0104 6.6967 11.3033C6.98959 11.5962 7.46447 11.5962 7.75736 11.3033L12.5303 6.53033ZM0 6.75L12 6.75V5.25L0 5.25L0 6.75Z" fill="currentColor"/></svg>
+                  </a>
+                </motion.div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        {/* Sidebar Articles (Right) */}
+        <div className="col-span-full lg:col-[16/-1]">
+          <div className="flex flex-col gap-4 lg:gap-6 h-full">
+            {cards.map((card, index) => (
+              <motion.article
+                key={index}
+                className="bg-[#f7f1e8] text-[#1c1b1a] p-6 rounded-lg flex flex-col justify-between flex-1 min-h-0 transition-colors duration-200 hover:bg-white"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * index, duration: 0.55 }}
+                viewport={{ once: true }}
               >
-                <div className={`inline-flex px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest ${point.color} mb-6 w-fit relative`}>
-                  {point.badge}
+                <div>
+                  <div className="text-[11px] font-bold tracking-[0.12em] uppercase text-[#1c1b1a]/55 mb-2 block">{card.badge}</div>
+                  <h2 className="text-[24px] leading-tight font-normal m-0">{card.title}</h2>
+                  <p className="text-[13px] leading-relaxed text-[#1c1b1a]/75 mt-2.5">{card.desc}</p>
                 </div>
-                <h3 className="text-2xl font-bold font-display text-h-dark mb-4 tracking-tight leading-tight">{point.title}</h3>
-                <p className="text-[0.95rem] text-h-muted leading-relaxed font-medium mt-auto">{point.desc}</p>
-              </motion.div>
+                <div className="flex justify-end">
+                  <a href="#" className="bg-stone-700 text-[#f7f1e8] w-11 h-11 rounded-full flex items-center justify-center -rotate-45 transition-colors duration-200 hover:bg-[#1c1b1a]" aria-label={`Learn more about ${card.title}`}>
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M12.5303 6.53033C12.8232 5.76256 12.5303 5.46967L7.75736 0.696699C7.46447 0.403806 6.98959 0.403806 6.6967 0.696699C6.40381 0.989593 6.40381 1.46447 6.6967 1.75736L10.9393 6L6.6967 10.2426C6.40381 10.5355 6.40381 11.0104 6.6967 11.3033C6.98959 11.5962 7.46447 11.5962 7.75736 11.3033L12.5303 6.53033ZM0 6.75L12 6.75V5.25L0 5.25L0 6.75Z" fill="currentColor"/></svg>
+                  </a>
+                </div>
+              </motion.article>
             ))}
           </div>
         </div>
       </div>
     </section>
+    </div>
   );
 };

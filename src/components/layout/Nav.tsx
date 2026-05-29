@@ -212,7 +212,8 @@ export const Nav = () => {
   };
 
   const isWhyHumanly = pathname === "/why-humanly";
-  const useDarkText = isMenuOpen || (isBgLight && !isWhyHumanly);
+  const isHome = pathname === "/" || pathname === "/home";
+  const useDarkText = isMenuOpen || (isBgLight && !isWhyHumanly && !isHome);
 
   return (
     <>
