@@ -39,7 +39,7 @@ export const MissionQuote = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="text-[1.75rem] md:text-[2.5rem] lg:text-[3.25rem] font-display font-medium leading-[1.25] text-white tracking-tight"
+          className="text-[1.75rem] md:text-[2.5rem] lg:text-[3.25rem] font-serif font-normal leading-[1.1] text-white tracking-tight"
         >
           "Humanly doesn't patch the <span className="italic font-light opacity-80 text-h-primary">housing problem.</span><br />
           It <span className="italic text-h-primary">rebuilds the system</span> — from land to living to lifelong services."

@@ -78,11 +78,17 @@ export const CVillageCenter = () => {
         });
       }
 
-      const setCardScale = gsap.quickSetter(card, "scale");
+      const _setCardScaleX = gsap.quickSetter(card, "scaleX");
+      const _setCardScaleY = gsap.quickSetter(card, "scaleY");
+      const setCardScale = (v: number) => { _setCardScaleX(v); _setCardScaleY(v); };
       const setCardY = gsap.quickSetter(card, "yPercent");
       const setCardRotateX = gsap.quickSetter(card, "rotationX");
 
-      const setImageScale = image ? gsap.quickSetter(image, "scale") : null;
+      const _setImageScaleX = image ? gsap.quickSetter(image, "scaleX") : null;
+      const _setImageScaleY = image ? gsap.quickSetter(image, "scaleY") : null;
+      const setImageScale = (image && _setImageScaleX && _setImageScaleY)
+        ? (v: number) => { _setImageScaleX(v); _setImageScaleY(v); }
+        : null;
       const setImageY = image ? gsap.quickSetter(image, "y") : null;
       const setTitleY = title ? gsap.quickSetter(title, "y") : null;
 
