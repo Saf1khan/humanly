@@ -15,7 +15,7 @@ export const InvestHero = () => {
   const borderRadius = useTransform(scrollYProgress, [0, 0.45], ["0px", "40px"]);
   const borderAlpha = useTransform(scrollYProgress, [0, 0.45], ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.08)"]);
   const shadowAlpha = useTransform(scrollYProgress, [0, 0.45], ["0px 0px 0px rgba(0,0,0,0)", "0px 25px 80px rgba(0, 0, 0, 0.55)"]);
-  
+
   // Parallax translation for the video inside the container
   const videoY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
 
@@ -37,7 +37,7 @@ export const InvestHero = () => {
     >
       {/* Sticky viewport for hero animation */}
       <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
-        
+
         {/* Background Card that shrinks and rounds on scroll */}
         <motion.div
           style={{
@@ -76,7 +76,7 @@ export const InvestHero = () => {
 
         {/* Dynamic content overlays */}
         <div className="container relative z-10 mx-auto px-6 max-w-[1200px] h-full flex flex-col justify-center items-center text-center">
-          
+
           {/* Screen 1: Hero Intro */}
           <motion.div
             style={{
@@ -127,7 +127,7 @@ export const InvestHero = () => {
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white mb-6 leading-tight">
               A Vertically Integrated AI-Native Housing Platform
             </h2>
-            
+
             <p className="text-[clamp(1.15rem,2.2vw,1.35rem)] text-white/90 leading-relaxed mb-10 font-light max-w-2xl mx-auto">
               Humanly® is right now raising capital to build the first vertically integrated AI-native workforce housing platform in America.
             </p>

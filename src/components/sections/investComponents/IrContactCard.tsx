@@ -6,7 +6,24 @@ import { Mail, Globe, MapPin, Calendar } from 'lucide-react';
 
 export const IrContactCard = () => {
   return (
-    <section id="ir-contact" className="relative bg-[#0a0f14] py-20 lg:py-32 overflow-hidden">
+    <section id="ir-contact" className="relative bg-[#0f0f0f] py-20 lg:py-32 overflow-hidden">
+      {/* Film Grain Noise Overlay — matveyan.com */}
+      <div
+        className="absolute inset-0 pointer-events-none z-[1] opacity-[0.04] mix-blend-overlay"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+          backgroundRepeat: 'repeat',
+          backgroundSize: '128px',
+        }}
+      />
+      {/* Edge Blur — matveyan.com */}
+      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#0f0f0f] to-transparent pointer-events-none z-[2]" />
+      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0f0f0f] to-transparent pointer-events-none z-[2]" />
+      {/* Corner crosshair marks — matveyan.com */}
+      <svg width="5" height="5" viewBox="0 0 5 5" fill="none" className="absolute top-3 left-3 z-20 pointer-events-none"><path d="M3 2H5V3H3V5H2V3H0V2H2V0H3V2Z" fill="rgba(217,217,217,0.2)" /></svg>
+      <svg width="5" height="5" viewBox="0 0 5 5" fill="none" className="absolute top-3 right-3 z-20 pointer-events-none"><path d="M3 2H5V3H3V5H2V3H0V2H2V0H3V2Z" fill="rgba(217,217,217,0.2)" /></svg>
+      <svg width="5" height="5" viewBox="0 0 5 5" fill="none" className="absolute bottom-3 left-3 z-20 pointer-events-none"><path d="M3 2H5V3H3V5H2V3H0V2H2V0H3V2Z" fill="rgba(217,217,217,0.2)" /></svg>
+      <svg width="5" height="5" viewBox="0 0 5 5" fill="none" className="absolute bottom-3 right-3 z-20 pointer-events-none"><path d="M3 2H5V3H3V5H2V3H0V2H2V0H3V2Z" fill="rgba(217,217,217,0.2)" /></svg>
       {/* Background Image & Overlays */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <motion.div

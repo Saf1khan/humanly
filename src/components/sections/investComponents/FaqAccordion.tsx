@@ -69,11 +69,10 @@ const FaqItem = ({ faq, idx, isOpen, onToggle }: FaqItemProps) => {
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`group relative overflow-hidden transition-all duration-500 ease-out select-none ${
-        isOpen 
-          ? "bg-gradient-to-br from-white/[0.04] to-white/[0.01] border border-white/10 border-t-white/[0.18] rounded-2xl shadow-[0_12px_28px_-4px_rgba(0,0,0,0.5)] -translate-y-1 p-6 md:p-8 mb-6 mt-2 z-10" 
-          : "bg-transparent hover:bg-white/[0.015] border border-transparent border-b-white/[0.08] hover:border-b-white/20 px-6 py-6 md:px-8 md:py-8"
-      }`}
+      className={`group relative overflow-hidden transition-all duration-500 ease-out select-none ${isOpen
+          ? "bg-[#111316] border border-[#d96a2b]/30 border-t-[#d96a2b]/60 shadow-[0_0_20px_rgba(217,106,43,0.1)] -translate-y-1 p-6 md:p-8 mb-6 mt-2 z-10"
+          : "bg-transparent hover:bg-white/[0.015] border border-transparent border-b-white/[0.08] hover:border-b-[#d96a2b]/30 px-6 py-6 md:px-8 md:py-8"
+        }`}
     >
       {/* Premium Warm Sandstone Moving Spotlight */}
       <motion.div
@@ -106,43 +105,31 @@ const FaqItem = ({ faq, idx, isOpen, onToggle }: FaqItemProps) => {
           className="w-full text-left flex items-start justify-between gap-6 bg-transparent cursor-pointer focus:outline-none"
         >
           <div className="flex gap-4 md:gap-6 items-start">
-            {/* Zero-padded index number */}
-            <span className={`font-sans text-xs md:text-sm font-semibold tracking-wider transition-colors duration-300 mt-1.5 ${
-              isOpen 
-                ? "text-[#d96a2b]" 
+            {/* Zero-padded index in mono */}
+            <span className={`font-mono text-xs font-bold tracking-widest uppercase transition-colors duration-300 mt-1.5 ${isOpen
+                ? "text-[#d96a2b]"
                 : "text-white/30 group-hover:text-[#d96a2b]/70"
-            }`}>
-              {indexStr}
+              }`}>
+              .{indexStr}
             </span>
-            
+
             {/* Question Text */}
-            <span className={`font-serif text-lg md:text-xl leading-snug transition-colors duration-300 ${
-              isOpen 
-                ? "text-white font-bold" 
-                : "text-white/80 group-hover:text-white"
-            }`}>
+            <span className={`font-mono text-[0.9rem] md:text-[1rem] leading-snug transition-colors duration-300 uppercase tracking-wide ${isOpen
+                ? "text-white font-bold"
+                : "text-white/70 group-hover:text-white"
+              }`}>
               {faq.q}
             </span>
           </div>
 
-          {/* Custom morphing plus/minus icon */}
-          <span className={`relative flex items-center justify-center w-8 h-8 rounded-full border transition-all duration-300 flex-shrink-0 mt-0.5 ${
-            isOpen 
-              ? "border-[#d96a2b]/30 bg-gradient-to-br from-[#d96a2b]/10 to-transparent text-[#d96a2b]" 
-              : "border-white/15 bg-transparent text-white/40 group-hover:text-white group-hover:border-white/30"
-          }`}>
-            <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
-              <rect x="2" y="5.25" width="8" height="1.5" rx="0.75" fill="currentColor" />
-              <rect 
-                x="5.25" 
-                y="2" 
-                width="1.5" 
-                height="8" 
-                rx="0.75" 
-                fill="currentColor"
-                className={`origin-center transition-transform duration-300 ${isOpen ? "scale-y-0 rotate-90" : ""}`}
-              />
-            </svg>
+          {/* Tech bracket toggle */}
+          <span className={`relative flex items-center justify-center w-8 h-8 border transition-all duration-300 flex-shrink-0 mt-0.5 font-mono text-[0.7rem] tracking-tighter ${isOpen
+              ? "border-[#d96a2b]/60 bg-[#d96a2b]/10 text-[#d96a2b]"
+              : "border-white/15 bg-transparent text-white/40 group-hover:text-[#d96a2b] group-hover:border-[#d96a2b]/40"
+            }`}>
+            <span className={`transition-all duration-300 ${isOpen ? "rotate-45 scale-125" : ""}`}>
+              {isOpen ? "×" : "+"}
+            </span>
           </span>
         </button>
 
@@ -155,8 +142,8 @@ const FaqItem = ({ faq, idx, isOpen, onToggle }: FaqItemProps) => {
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               className="overflow-hidden"
             >
-              <div className="pl-8 md:pl-11 pr-2 pt-5 pb-2 text-white/60 text-base leading-relaxed font-light select-text">
-                {faq.a}
+              <div className="pl-8 md:pl-11 pr-2 pt-5 pb-2 text-white/50 text-[0.82rem] font-mono leading-relaxed select-text lowercase">
+                <span className="text-[#3daf98] mr-2 opacity-70">//</span>{faq.a}
               </div>
             </motion.div>
           )}
@@ -170,51 +157,164 @@ export const FaqAccordion = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="bg-[#0e1b26] py-24 lg:py-36 border-t border-white/[0.08] overflow-hidden relative">
-      
-      {/* Subtle Background Gradient Spotlights (No digital glow, just ambient warm & cool clay tones) */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div 
-          className="absolute inset-0 opacity-[0.8]"
-          style={{
-            background: `
-              radial-gradient(circle at 10% 20%, rgba(217, 106, 43, 0.04) 0%, transparent 60%),
-              radial-gradient(circle at 90% 80%, rgba(61, 175, 152, 0.03) 0%, transparent 60%)
-            `
-          }}
-        />
+    <section className="bg-[#0f0f0f] py-24 lg:py-36 overflow-hidden relative">
+      {/* Film Grain Noise Overlay — matveyan.com */}
+      <div
+        className="absolute inset-0 pointer-events-none z-[1] opacity-[0.04] mix-blend-overlay"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+          backgroundRepeat: 'repeat',
+          backgroundSize: '128px',
+        }}
+      />
+      {/* Edge Blur — matveyan.com */}
+      <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#0f0f0f] to-transparent pointer-events-none z-[2]" />
+      <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#0f0f0f] to-transparent pointer-events-none z-[2]" />
+      {/* Corner crosshair marks */}
+      <svg width="5" height="5" viewBox="0 0 5 5" fill="none" className="absolute top-3 left-3 z-20 pointer-events-none text-white/30"><path d="M3 2H5V3H3V5H2V3H0V2H2V0H3V2Z" fill="currentColor" /></svg>
+      <svg width="5" height="5" viewBox="0 0 5 5" fill="none" className="absolute top-3 right-3 z-20 pointer-events-none text-white/30"><path d="M3 2H5V3H3V5H2V3H0V2H2V0H3V2Z" fill="currentColor" /></svg>
+      <svg width="5" height="5" viewBox="0 0 5 5" fill="none" className="absolute bottom-3 left-3 z-20 pointer-events-none text-white/30"><path d="M3 2H5V3H3V5H2V3H0V2H2V0H3V2Z" fill="currentColor" /></svg>
+      <svg width="5" height="5" viewBox="0 0 5 5" fill="none" className="absolute bottom-3 right-3 z-20 pointer-events-none text-white/30"><path d="M3 2H5V3H3V5H2V3H0V2H2V0H3V2Z" fill="currentColor" /></svg>
+
+      {/* ── Continuation Left – teal+blue pipes from DataRoomGate ── */}
+      <div className="absolute top-0 left-[2%] lg:left-[8%] w-[280px] h-full pointer-events-none opacity-[0.30] z-[1]">
+        <svg viewBox="0 0 280 900" preserveAspectRatio="xMidYMid slice" className="w-full h-full">
+          {/* Teal main pipe */}
+          <motion.path
+            initial={{ pathLength: 0, opacity: 0 }}
+            whileInView={{ pathLength: 1, opacity: 1 }}
+            transition={{ duration: 2, ease: "easeOut" }}
+            d="M 200 0 L 200 250 L 80 370 L 80 650 L 180 750 L 180 900"
+            fill="none" stroke="#3daf98" strokeWidth="2" strokeDasharray="8 8"
+          />
+          {/* Blue parallel trace */}
+          <motion.path
+            initial={{ pathLength: 0, opacity: 0 }}
+            whileInView={{ pathLength: 1, opacity: 0.45 }}
+            transition={{ duration: 2.5, ease: "easeOut", delay: 0.3 }}
+            d="M 140 0 L 140 220 L 40 330 L 40 600 L 140 700 L 140 900"
+            fill="none" stroke="#2d7dd2" strokeWidth="1"
+          />
+          {/* Junction nodes */}
+          <motion.rect initial={{ opacity: 0, rotate: 45 }} whileInView={{ opacity: 1, rotate: 45 }} transition={{ delay: 1.0 }}
+            x="76" y="366" width="8" height="8" fill="none" stroke="#3daf98" strokeWidth="2"
+            style={{ transformOrigin: "80px 370px" }}
+          />
+          <motion.circle initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 1.3 }}
+            cx="80" cy="480" r="4" fill="#3daf98" className="animate-pulse"
+          />
+          <motion.polygon initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 1.6 }}
+            points="180,736 189,741 189,751 180,756 171,751 171,741"
+            fill="none" stroke="#3daf98" strokeWidth="1.5"
+          />
+          {/* Horizontal data ticks */}
+          <motion.line initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 1.2 }}
+            x1="80" y1="520" x2="50" y2="520" stroke="#3daf98" strokeWidth="1" strokeDasharray="3 3"
+          />
+          <motion.line initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 1.2 }}
+            x1="80" y1="570" x2="40" y2="570" stroke="#2d7dd2" strokeWidth="1" strokeDasharray="3 3"
+          />
+          <circle cx="140" cy="450" r="120" fill="url(#glowLeftFaq)" />
+          <defs>
+            <radialGradient id="glowLeftFaq" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#3daf98" stopOpacity="0.12" />
+              <stop offset="100%" stopColor="transparent" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
+
+      {/* ── Continuation Right – orange pipes from DataRoomGate ── */}
+      <div className="absolute top-0 right-0 w-[380px] h-full pointer-events-none opacity-[0.30] z-[1]">
+        <svg viewBox="0 0 380 900" preserveAspectRatio="xMidYMid slice" className="w-full h-full">
+          {/* Primary orange pipe */}
+          <motion.path
+            initial={{ pathLength: 0, opacity: 0 }}
+            whileInView={{ pathLength: 1, opacity: 1 }}
+            transition={{ duration: 2, ease: "easeOut", delay: 0.2 }}
+            d="M 280 0 L 280 300 L 120 450 L 120 700 L 220 800 L 220 900"
+            fill="none" stroke="#f09050" strokeWidth="1.5" strokeDasharray="12 6"
+          />
+          {/* Softer trace */}
+          <motion.path
+            initial={{ pathLength: 0, opacity: 0 }}
+            whileInView={{ pathLength: 1, opacity: 0.4 }}
+            transition={{ duration: 2.5, ease: "easeOut", delay: 0.4 }}
+            d="M 340 0 L 340 260 L 180 420 L 180 680 L 270 780 L 270 900"
+            fill="none" stroke="#f09050" strokeWidth="1"
+          />
+          {/* Hexagon at first elbow */}
+          <motion.polygon initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 1.2 }}
+            points="280,285 291,292 291,306 280,313 269,306 269,292"
+            fill="none" stroke="#f09050" strokeWidth="1.5"
+          />
+          {/* Pulsing dot mid-run */}
+          <motion.circle initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 1.5 }}
+            cx="120" cy="560" r="5" fill="#f09050" className="animate-pulse"
+          />
+          {/* Diamond at second elbow */}
+          <motion.rect initial={{ opacity: 0, rotate: 45 }} whileInView={{ opacity: 1, rotate: 45 }} transition={{ delay: 1.8 }}
+            x="216" y="796" width="8" height="8" fill="#f09050"
+            style={{ transformOrigin: "220px 800px" }}
+          />
+          {/* Branching data ticks */}
+          <motion.line initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 1.4 }}
+            x1="280" y1="180" x2="310" y2="180" stroke="#f09050" strokeWidth="1" strokeDasharray="4 4"
+          />
+          <motion.line initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 1.4 }}
+            x1="280" y1="230" x2="320" y2="230" stroke="#f09050" strokeWidth="1" strokeDasharray="4 4"
+          />
+          <ellipse cx="200" cy="500" rx="160" ry="250" fill="url(#glowRightFaq)" />
+          <defs>
+            <radialGradient id="glowRightFaq" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#f09050" stopOpacity="0.10" />
+              <stop offset="100%" stopColor="transparent" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+        </svg>
       </div>
 
       <div className="container relative z-10 mx-auto px-6 max-w-[1200px]">
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1.9fr] gap-16 lg:gap-24 items-start">
-          
-          {/* Asymmetric Header Column */}
-          <div className="lg:sticky lg:top-32 h-fit">
-            <span className="text-[#d96a2b] text-[0.72rem] font-bold tracking-[0.22em] uppercase mb-4 block">
-              Investment FAQ
+
+          {/* Asymmetric Header Column — Tech styled */}
+          <motion.div
+            className="lg:sticky lg:top-32 h-fit"
+            initial={{ opacity: 0, scaleX: 0, filter: "blur(4px)" }}
+            whileInView={{ opacity: 1, scaleX: 1, filter: "blur(0px)" }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <span className="text-[#d96a2b] text-[0.7rem] font-mono tracking-[0.25em] uppercase mb-4 flex items-center gap-2 origin-left">
+              <span className="w-1.5 h-1.5 bg-[#d96a2b] animate-pulse" />
+              [ SYSTEM.FAQ :: INVESTMENT ]
             </span>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-[3.25rem] tracking-tight leading-[1.1] mb-6">
-              <span className="bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent">
-                Frequently Asked
-              </span> <br />
-              <em className="not-italic bg-gradient-to-r from-[#d96a2b] via-[#e27d3b] to-[#f09050] bg-clip-text text-transparent">
-                Questions.
-              </em>
-            </h2>
-            <p className="text-white/60 text-lg font-light leading-relaxed max-w-[28ch] mb-8">
-              Everything you need to know about the investment structure, timeline, and platform operations.
+            <motion.h2
+              initial={{ opacity: 0, scaleY: 0.01, filter: "brightness(2) hue-rotate(-90deg)" }}
+              whileInView={{ opacity: [0, 1, 0, 1], scaleY: [0.01, 1, 1], filter: ["brightness(2)", "brightness(1)"] }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, times: [0, 0.2, 0.4, 1], delay: 0.1 }}
+              className="font-mono font-bold text-4xl md:text-5xl lg:text-[3.25rem] tracking-tighter leading-[1.1] mb-6 uppercase"
+            >
+              <span className="text-[#d96a2b] opacity-50 mr-2">&gt;</span>
+              <span className="text-white">Frequently<br />Asked</span><br />
+              <span className="text-[#d96a2b]">Questions<span className="animate-pulse">_</span></span>
+            </motion.h2>
+            <p className="text-white/50 text-[0.8rem] font-mono leading-relaxed max-w-[28ch] mb-8 lowercase">
+              // everything you need to know about the investment structure, timeline, and platform operations.
             </p>
             <div className="pt-8 border-t border-white/[0.08] hidden lg:block">
-              <p className="text-[0.72rem] text-white/40 uppercase tracking-widest font-bold mb-3">Still have questions?</p>
-              <a 
-                href="#ir-contact" 
-                className="inline-flex items-center gap-2 text-[0.88rem] font-bold text-[#d96a2b] hover:text-[#f09050] transition-colors group"
+              <p className="text-[0.65rem] font-mono text-[#3daf98]/60 uppercase tracking-widest mb-3">[ STILL_HAVE_QUESTIONS? ]</p>
+              <a
+                href="#ir-contact"
+                className="inline-flex items-center gap-3 text-[0.75rem] font-mono uppercase tracking-widest text-[#d96a2b] hover:text-[#f09050] transition-colors group"
               >
-                Contact Investor Relations 
-                <span className="group-hover:translate-x-1 transition-transform inline-block">→</span>
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity">_</span>
+                CONTACT_INVESTOR_RELATIONS
+                <span className="group-hover:translate-x-1 transition-transform inline-block font-mono">[→]</span>
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Accordion Column */}
           <div className="flex flex-col">
