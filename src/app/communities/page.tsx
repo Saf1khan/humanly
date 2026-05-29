@@ -21,10 +21,10 @@ export default function CommunitiesPage() {
         <CSteward />
         <CLease />
         <CHumanDesign />
+        <CHousingMix />
         <CProofOfConcept />
         <CVillageCenter />
         <COutcomeCards />
-        <CHousingMix />
         <CPipeline />
         <Footer />
       </main>
