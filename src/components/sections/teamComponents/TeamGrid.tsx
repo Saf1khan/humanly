@@ -275,7 +275,7 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
 
 export const TeamGrid = () => {
   return (
-    <section className="z-10 relative w-full bg-[#faf9f6] py-24 overflow-visible border-t border-[#11161a]/5">
+    <section className="z-10 relative w-full bg-[#faf9f6] py-24 overflow-x-clip border-t border-[#11161a]/5">
       <div
         className="absolute pointer-events-none left-0 top-1/6 -translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
         style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.1), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
