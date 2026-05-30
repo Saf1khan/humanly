@@ -228,11 +228,10 @@ export const Nav = () => {
       >
         {/* THE DRAWER: The Full-Width Menu */}
         <div
-          className={`absolute top-0 left-0 z-0 w-full overflow-y-auto lg:overflow-hidden bg-[#F0EDEB] shadow-2xl transition-all duration-500 ease-in-out lg:rounded-b-[3rem] ${
-            isMenuOpen
+          className={`absolute top-0 left-0 z-0 w-full overflow-y-auto lg:overflow-hidden bg-[#F0EDEB] shadow-2xl transition-all duration-500 ease-in-out lg:rounded-b-[3rem] ${isMenuOpen
               ? "max-h-[85vh] lg:max-h-[600px] opacity-100 pointer-events-auto"
               : "max-h-0 opacity-0 pointer-events-none"
-          }`}
+            }`}
           onMouseEnter={() => setIsMenuOpen(true)}
         >
           <div
@@ -275,7 +274,7 @@ export const Nav = () => {
               </a>
 
               {/* Dropdown List Items and Action */}
-              <div className="flex flex-col gap-6 justify-center">
+              <div className="flex flex-col gap-6 justify-center ">
                 <ul className="flex flex-col gap-4">
                   <li>
                     <a href="/team" className="group flex items-center gap-4">
@@ -346,28 +345,27 @@ export const Nav = () => {
         <nav className="relative z-10 w-full mt-2  py-2 ">
           {/* Glass Background Layer */}
           <div
-            className={`absolute inset-0 mx-4 md:mx-8 rounded-2xl bg-[#4A4741]/5 backdrop-blur-[32px] border border-[#4A4741]/10 transition-opacity duration-400 ${
-              scrolled && !isMenuOpen ? "opacity-100" : "opacity-0"
-            }`}
+            className={`absolute inset-0 mx-4 md:mx-8 rounded-2xl bg-[#4A4741]/5 backdrop-blur-[32px] border border-[#4A4741]/10 transition-opacity duration-400 ${scrolled && !isMenuOpen ? "opacity-100" : "opacity-0"
+              }`}
           ></div>
 
-          <div className="relative z-20 mx-auto w-full flex items-center min-h-[60px] px-8 md:px-16">
+          <div className="relative z-10 mx-auto w-full grid grid-cols-2 lg:grid-cols-[1fr_auto_1fr] items-center min-h-[60px] px-8 md:px-16">
             {/* Logo - Restored to larger size */}
-            <a
-              href="/"
-              className="relative flex items-center h-12 md:h-14 cursor-pointer"
-            >
-              <img
-                src="/images/asset 0.png"
-                alt="Humanly"
-                className="object-contain h-full w-auto transition-all duration-300"
-              />
-            </a>
-
-            {/* Spacer hidden — links are centered absolutely */}
+            <div className="flex justify-start">
+              <a
+                href="/"
+                className="relative flex items-center h-12 md:h-14 cursor-pointer"
+              >
+                <img
+                  src="/images/asset 0.png"
+                  alt="Humanly"
+                  className="object-contain h-full w-auto px-1 transition-all duration-300"
+                />
+              </a>
+            </div>
 
             {/* Desktop Links — centered */}
-            <ul className="hidden lg:flex items-center gap-2 mx-auto lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+            <ul className="hidden lg:flex items-center justify-center gap-2">
               <li>
                 <a
                   href="/home"
@@ -475,7 +473,7 @@ export const Nav = () => {
             </ul>
 
             {/* Action Buttons */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center justify-end gap-4">
               <button
                 className={`lg:hidden w-10 h-10 md:w-12 md:h-12 flex flex-col items-center justify-center gap-1.5 rounded-full border transition-colors z-50 relative ${useDarkText ? "border-black/25 text-black hover:bg-black/10" : "border-white/40 text-white hover:bg-white/10 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] bg-black/10 backdrop-blur-sm"}`}
                 onClick={toggleDrawer}
@@ -495,11 +493,10 @@ export const Nav = () => {
 
       {/* Background Overlay */}
       <div
-        className={`fixed inset-0 bg-black/20 backdrop-blur-sm transition-opacity duration-500 z-40 ${
-          isMenuOpen
+        className={`fixed inset-0 bg-black/20 backdrop-blur-sm transition-opacity duration-500 z-40 ${isMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
-        }`}
+          }`}
         onClick={toggleDrawer}
       ></div>
     </>
