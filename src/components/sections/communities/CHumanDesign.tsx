@@ -6,72 +6,74 @@ import Image from "next/image";
 
 export const CHumanDesign = () => {
   return (
-    <section className="bg-[#faf8f1] overflow-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
-        {/* Left: Text */}
-        <div className="flex flex-col justify-center px-6 lg:px-24 py-16 lg:py-20">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-[0.72rem] font-semibold tracking-[0.14em] uppercase text-[#d96a2b] mb-4"
-          >
-            Design Philosophy
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-[clamp(1.8rem,3vw,2.6rem)] font-normal text-[#1a1a1a] mb-6 leading-[1.2]"
-          >
-            Human-centered neighborhoods that foster{" "}
-            <em className="italic text-[#1a4f82] not-italic">connection and belonging.</em>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-[1.0625rem] text-[#5a5a5a] leading-[1.72] mb-8"
-          >
-            Guided by principles that promote walkability, age-in-place, and financial mobility. The
-            places we create inspire residents to connect, excel, and thrive. Anchored by a village
-            center where life's essential services are seamlessly embedded and integrated, both in
-            person and online to simplify and personalize daily living.
-          </motion.p>
-
-          <div className="flex flex-wrap gap-4">
-            {[
-              { label: "Walkability", color: "#1a4f82", bg: "rgba(26,79,130,0.06)" },
-              { label: "Age-in-Place", color: "#0d7d6a", bg: "rgba(13,125,106,0.06)" },
-              { label: "Financial Mobility", color: "#d96a2b", bg: "rgba(217,106,43,0.06)" },
-            ].map((tag, idx) => (
-              <motion.span
-                key={tag.label}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 + idx * 0.1 }}
-                className="text-[0.82rem] font-semibold px-[18px] py-[6px] rounded-[6px] border-[1.5px] tracking-wider"
-                style={{ color: tag.color, borderColor: tag.color, backgroundColor: tag.bg }}
-              >
-                {tag.label}
-              </motion.span>
-            ))}
+    <section className="bg-[#faf8f1] py-4 lg:py-8 overflow-hidden">
+      <div className="max-w-[1300px] mx-auto">
+        <div className="grid h-full w-full rounded-[40px] py-10 md:bg-transparent md:py-20 relative" data-cy="natural-cycles-section">
+          {/* Background image container */}
+          <div className="col-start-1 row-start-1 md:row-start-1 md:row-end-2 relative h-[280px] overflow-hidden md:h-[540px] w-full rounded-[40px]" data-cy="gridItem_div">
+            <Image
+              alt="Protected bicycle lane with cyclists in a human-centered street — walkable community design"
+              loading="lazy"
+              src="/images/AdobeStock_192330637.jpeg"
+              fill
+              className="rounded-t-[40px] object-cover object-[center_35%] md:rounded-[40px] transition-transform duration-1000 hover:scale-105"
+              sizes="100vw"
+            />
+            {/* Gradient Overlay for high premium contrast */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent hidden md:block pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent md:hidden pointer-events-none" />
           </div>
-        </div>
 
-        {/* Right: Cycling neighborhood photo */}
-        <div className="relative overflow-hidden min-h-[480px]">
-          <Image
-            src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/17c9635d94c55d0aec8eb00b682ba9882c9a9eb6.jpg"
-            alt="Protected bicycle lane with cyclists in a human-centered street — walkable community design"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-l from-[#f2f0eb1f] to-transparent pointer-events-none" />
+          {/* Text/Content Container overlay */}
+          <div className="col-start-1 row-start-2 md:row-start-1 row-end-3 md:row-end-2 relative z-10 flex items-center h-full">
+            <div className="flex flex-col gap-8 rounded-b-[40px] bg-sandstone-500 px-6 py-10 text-sandstone-100 md:bg-transparent md:px-15 md:py-15 lg:px-24 lg:py-15 max-w-2xl md:max-w-4xl">
+              
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="text-[0.72rem] font-semibold tracking-[0.14em] uppercase text-[#d96a2b] mb-1"
+              >
+                Design Philosophy
+              </motion.p>
+
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                className="tracking-normal text-left font-bodoni leading-tight font-normal text-heading-base text-sandstone-100 text-3xl md:text-5xl md:max-w-4/5"
+                data-cy="nc-title"
+              >
+                Neighborhoods that foster{" "}
+                <em className="italic text-[#6BCEFF] not-italic font-serif">connection and belonging.</em>
+              </motion.h2>
+
+              <div className="gap-5 md:grid md:grid-cols-1" data-cy="nc-subcopy">
+                  <div className="flex flex-col gap-5 text-base text-gray-300 font-albert font-normal" data-cy="nc-subcopy-content">
+                    <motion.p
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.3 }}
+                      data-cy="nc-subcopy-1"
+                    >
+                      Guided by principles that promote walkability, age-in-place, and financial mobility. The places we create inspire residents to connect, excel, and thrive.Anchored by a village center where life's essential services are seamlessly embedded and integrated, both in person and online to simplify and personalize daily living.
+                    </motion.p>
+                </div>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="flex"
+              >
+              </motion.div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
