@@ -89,10 +89,10 @@ const StatCard = ({
     >
       <div className="relative z-10 flex flex-col items-center justify-center w-full h-full gap-4">
         <div className="flex flex-col items-center">
-          <p className="text-3xl md:text-4xl lg:text-5xl text-[#000000]/70 font-alberta mb-3 tracking-normal font-medium">
+          <p className="text-3xl md:text-4xl lg:text-5xl text-[#ffff] font-alberta mb-3 tracking-normal font-medium">
             <CountUpNumber prefix={prefix} end={value} suffix={suffix} />
           </p>
-          <h3 className="pl-4 text-xl font-albert font-bold text-[#000000]/80 mb-2 tracking-widest w-full max-w-[720px]">
+          <h3 className="pl-4 text-xl font-albert font-bold text-[#ffff] mb-2 tracking-widest w-full max-w-[720px]">
             {label}
           </h3>
           {description && (
@@ -121,13 +121,15 @@ export const StatsSection = () => {
       ref={containerRef}
       className="relative w-full flex flex-col justify-center p-4 md:p-10 pb-0 md:pb-0"
     >
-      <div className="relative w-full rounded-[2rem] overflow-hidden pt-16 lg:pt-0 pb-0 z-10 border border-white/20 flex flex-col justify-center items-center">
+      <div className="relative w-full rounded-[2rem] overflow-hidden pt-16 lg:pt-0 pb-0 z-10 border border-white/20 flex flex-col justify-center items-center ">
         {/* Background Image replaced the CSS gradient */}
         <img
           src="/images/HeroGradient.jpg"
           alt="Background Gradient"
-          className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none opacity-75"
+          className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none opacity-85 "
         />
+        {/* Glassmorphism Overlay */}
+        <div className="absolute inset-0 backdrop-blur-3xl bg-black/20 z-0 pointer-events-none rounded-[2rem]"></div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 mt-4 -mb-1 md:grid-cols-3 gap-8 lg:gap-12">
