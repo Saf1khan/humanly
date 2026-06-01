@@ -82,311 +82,59 @@ const steps = [
 /* ── Phase 1: Land Mockup ── */
 const LandMockup = () => {
   return (
-    <div className="w-full h-full bg-[#111317] text-slate-200 font-sans flex flex-col p-5 overflow-hidden relative select-none">
-      {/* Map area */}
-      <div className="flex-1 rounded-2xl border border-slate-800 bg-[#0c0e11] overflow-hidden relative flex items-center justify-center">
-        {/* Grid pattern background */}
-        <div className="absolute inset-0 opacity-15 bg-[linear-gradient(to_right,#334155_1px,transparent_1px),linear-gradient(to_bottom,#334155_1px,transparent_1px)] bg-[size:20px_20px]" />
-
-        {/* Pulsing selection ring */}
-        <div className="absolute w-24 h-24 rounded-full border border-teal-500/30 flex items-center justify-center animate-ping duration-[3s]" />
-        <div className="absolute w-12 h-12 rounded-full bg-teal-500/10 border border-teal-400/50 flex items-center justify-center">
-          <div className="w-3 h-3 rounded-full bg-teal-400" />
-        </div>
-
-        {/* Scatter points representing site options */}
-        <div className="absolute top-1/4 left-1/3 flex flex-col items-center">
-          <div className="w-2 h-2 rounded-full bg-slate-500/40" />
-          <span className="text-[7px] text-slate-500/60 font-mono mt-1">#401</span>
-        </div>
-        <div className="absolute bottom-1/3 right-1/4 flex flex-col items-center">
-          <div className="w-2 h-2 rounded-full bg-slate-500/40" />
-          <span className="text-[7px] text-slate-500/60 font-mono mt-1">#402</span>
-        </div>
-
-        {/* Active site tag popup */}
-        <div className="absolute top-12 right-12 bg-slate-900/90 backdrop-blur border border-teal-500/30 rounded-lg p-2.5 flex flex-col gap-1 shadow-lg text-left">
-          <div className="flex items-center gap-1.5">
-            <MapPin className="w-3 h-3 text-teal-400" />
-            <span className="text-[9px] font-bold text-white tracking-wide uppercase">SITE 084 SECURED</span>
-          </div>
-          <span className="text-[8px] text-teal-400 font-mono">94.6% VALUE MATCH</span>
-        </div>
-
-        {/* Floating coordinates */}
-        <div className="absolute bottom-3 left-3 bg-slate-900/80 backdrop-blur border border-slate-800 rounded-lg p-2 text-left font-mono">
-          <div className="text-[7.5px] text-slate-400 uppercase tracking-widest">COORDINATES</div>
-          <div className="text-[9px] font-bold text-white">34.0522° N, 118.2437° W</div>
-        </div>
-      </div>
-
-      {/* Audit metrics footer */}
-      <div className="mt-3.5 flex justify-between gap-3 text-left">
-        <div className="flex-1 bg-[#171a20] border border-slate-800/85 rounded-xl p-3">
-          <div className="text-[8.5px] font-mono text-slate-400 uppercase tracking-wider mb-1">Entitlement</div>
-          <div className="text-xs font-bold text-teal-400 flex items-center gap-1">
-            <CheckCircle className="w-3.5 h-3.5" />
-            ZONING COMPLETED
-          </div>
-        </div>
-        <div className="flex-1 bg-[#171a20] border border-slate-800/85 rounded-xl p-3">
-          <div className="text-[8.5px] font-mono text-slate-400 uppercase tracking-wider mb-1">Audit Score</div>
-          <div className="text-xs font-bold text-white flex items-center gap-1">
-            <TrendingUp className="w-3.5 h-3.5 text-teal-400" />
-            98.2 / 100 <span className="text-[8.5px] text-slate-500 font-normal">A+</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div 
+      className="w-full h-full bg-[#111317] overflow-hidden"
+      style={{
+        backgroundImage: `url('/images/pexels-tomfisk-34115060.jpg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
+    />
   );
 };
 
 /* ── Phase 2: Build Mockup ── */
 const BuildMockup = () => {
   return (
-    <div className="w-full h-full bg-[#0a0c0f] text-slate-200 font-sans flex flex-col p-5 overflow-hidden relative select-none">
-      {/* 3D Wireframe viewport */}
-      <div className="flex-1 rounded-2xl border border-slate-800 bg-[#05070a] overflow-hidden relative flex items-center justify-center">
-        {/* Isometric grid */}
-        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(45deg,#38bdf8_1px,transparent_1px),linear-gradient(-45deg,#38bdf8_1px,transparent_1px)] bg-[size:24px_24px]" />
-
-        {/* 3D simulated wireframe cube/house drawing */}
-        <svg className="w-44 h-44 text-sky-400/40" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="0.85">
-          {/* Base */}
-          <polygon points="50,20 85,38 50,56 15,38" stroke="currentColor" />
-          <line x1="32.5" y1="29" x2="67.5" y2="47" />
-          <line x1="67.5" y1="29" x2="32.5" y2="47" />
-          {/* Pillars */}
-          <line x1="15" y1="38" x2="15" y2="70" />
-          <line x1="50" y1="56" x2="50" y2="88" />
-          <line x1="85" y1="38" x2="85" y2="70" />
-          {/* Top roof structure */}
-          <polygon points="50,48 85,30 50,12 15,30" stroke="currentColor" strokeWidth="1" className="text-sky-400" />
-          <line x1="15" y1="30" x2="15" y2="38" strokeWidth="1" className="text-sky-400" />
-          <line x1="50" y1="48" x2="50" y2="56" strokeWidth="1" className="text-sky-400" />
-          <line x1="85" y1="30" x2="85" y2="38" strokeWidth="1" className="text-sky-400" />
-          <line x1="15" y1="30" x2="50" y2="48" strokeWidth="1" className="text-sky-400" />
-          <line x1="50" y1="48" x2="85" y2="30" strokeWidth="1" className="text-sky-400" />
-          <line x1="85" y1="30" x2="50" y2="12" strokeWidth="1" className="text-sky-400" />
-          <line x1="50" y1="12" x2="15" y2="30" strokeWidth="1" className="text-sky-400" />
-        </svg>
-
-        {/* Floating parameters overlay */}
-        <div className="absolute top-4 left-4 bg-sky-950/60 backdrop-blur border border-sky-500/30 rounded-lg px-2.5 py-1 text-left font-mono">
-          <div className="text-[7.5px] text-sky-400 uppercase tracking-widest">KIT MODULE</div>
-          <div className="text-[10px] font-bold text-white uppercase">A2 Studio - Modular</div>
-        </div>
-
-        <div className="absolute bottom-4 right-4 bg-sky-950/60 backdrop-blur border border-sky-500/30 rounded-lg px-2.5 py-1 text-left font-mono">
-          <div className="text-[7.5px] text-sky-400 uppercase tracking-widest">3D SIMULATION</div>
-          <div className="text-[10px] font-bold text-green-400 animate-pulse uppercase">OPTIMIZED (0.04s)</div>
-        </div>
-
-        {/* Live Generation Loader */}
-        <div className="absolute bottom-4 left-4 flex flex-col gap-1 items-start text-left font-mono">
-          <div className="text-[9px] text-sky-400 flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-ping" />
-            ASSEMBLY OPTIMIZATION...
-          </div>
-          <div className="w-32 bg-slate-800 h-1.5 rounded-full overflow-hidden relative">
-            <motion.div
-              className="h-full bg-sky-400 rounded-full"
-              initial={{ width: "0%" }}
-              animate={{ width: "100%" }}
-              transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Assembly indicators */}
-      <div className="mt-3.5 flex justify-between gap-3 text-left">
-        <div className="flex-1 bg-[#12151a] border border-slate-800/85 rounded-xl p-3">
-          <div className="text-[8.5px] font-mono text-slate-400 uppercase tracking-wider mb-1">Time to Assemble</div>
-          <div className="text-[11px] font-bold text-white font-mono uppercase">24 DAYS <span className="text-[9px] text-green-400 font-normal">(-15%)</span></div>
-        </div>
-        <div className="flex-1 bg-[#12151a] border border-slate-800/85 rounded-xl p-3">
-          <div className="text-[8.5px] font-mono text-slate-400 uppercase tracking-wider mb-1">Carbon Reduction</div>
-          <div className="text-[11px] font-bold text-sky-400 font-mono uppercase">-38% SUSTAINED</div>
-        </div>
-      </div>
-    </div>
+    <div 
+      className="w-full h-full bg-[#0a0c0f] overflow-hidden"
+      style={{
+        backgroundImage: `url('/images/pexels-mahmoudramadan-36444550.jpg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
+    />
   );
 };
 
 /* ── Phase 3: Operate Mockup ── */
 const OperateMockup = () => {
-  const [logs, setLogs] = useState<string[]>([
-    "HumanlyOS® Core initialized...",
-    "Payment portal: connection normal.",
-    "Ops dispatch: smart maintenance active."
-  ]);
-
-  const logOptions = [
-    "Rent payment processed via HumanlyPay™ (+$2,450)",
-    "Resident ticket #102: Smart HVAC filter replaced",
-    "EV charging station: Session started in lot A",
-    "Security node check: All locks secured",
-    "Circle of Services: Community cleaner dispatched",
-    "Resident booking: Sky Lounge reserved"
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const randomLog = logOptions[Math.floor(Math.random() * logOptions.length)];
-      const now = new Date();
-      const timeStr = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
-      const logMsg = `[${timeStr}] ${randomLog}`;
-
-      setLogs((prev) => {
-        const next = [...prev, logMsg];
-        if (next.length > 5) {
-          return next.slice(1);
-        }
-        return next;
-      });
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div className="w-full h-full bg-[#0a0e12] text-slate-200 font-sans flex flex-col p-5 overflow-hidden relative select-none">
-      {/* Title / Status */}
-      <div className="flex justify-between items-center mb-3">
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-[11px] font-mono font-bold text-emerald-400 uppercase tracking-wider">HumanlyOS® ACTIVE</span>
-        </div>
-        <span className="text-[9px] font-mono text-slate-500">RESIDENTS: 1,420</span>
-      </div>
-
-      {/* Log Feed Console */}
-      <div className="flex-1 rounded-2xl border border-slate-800 bg-[#06080b] p-4 flex flex-col font-mono text-[9.5px] text-left overflow-hidden">
-        <div className="text-[8.5px] text-slate-500 border-b border-slate-800/80 pb-2 mb-2 uppercase tracking-widest flex items-center gap-1.5">
-          <Activity className="w-3.5 h-3.5 text-emerald-400" />
-          Real-time Event Stream
-        </div>
-        <div className="flex-1 flex flex-col gap-2 overflow-y-auto [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: "none" }}>
-          {logs.map((log, idx) => (
-            <div
-              key={idx}
-              className={`leading-relaxed ${log.includes("HumanlyPay")
-                  ? "text-emerald-400 font-semibold"
-                  : log.includes("dispatched")
-                    ? "text-amber-400"
-                    : "text-slate-300"
-                }`}
-            >
-              {log}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Metrics */}
-      <div className="mt-3.5 flex justify-between gap-3 text-left">
-        <div className="flex-1 bg-[#10171e] border border-slate-800/85 rounded-xl p-3">
-          <div className="text-[8.5px] font-mono text-slate-400 uppercase tracking-wider mb-1 flex items-center gap-1">
-            <DollarSign className="w-3 h-3 text-emerald-400" />
-            Embedded Finance
-          </div>
-          <div className="text-[11px] font-bold text-white font-mono uppercase">$184.2K <span className="text-[9px] text-emerald-400 font-normal">ARR</span></div>
-        </div>
-        <div className="flex-1 bg-[#10171e] border border-slate-800/85 rounded-xl p-3">
-          <div className="text-[8.5px] font-mono text-slate-400 uppercase tracking-wider mb-1 flex items-center gap-1">
-            <Clock className="w-3 h-3 text-amber-400" />
-            Dispatch Time
-          </div>
-          <div className="text-[11px] font-bold text-white font-mono uppercase">12.4 MINS <span className="text-[9px] text-emerald-400 font-normal">(-40%)</span></div>
-        </div>
-      </div>
-    </div>
+    <div 
+      className="w-full h-full bg-[#0a0e12] overflow-hidden"
+      style={{
+        backgroundImage: `url('/images/pexels-karola-g-6627903.jpg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
+    />
   );
 };
 
 /* ── Phase 4: Compound Mockup ── */
 const CompoundMockup = () => {
   return (
-    <div className="w-full h-full bg-[#110c09] text-slate-200 font-sans flex flex-col p-5 overflow-hidden relative select-none">
-      {/* Vector visual */}
-      <div className="flex-1 rounded-2xl border border-slate-800 bg-[#090605] overflow-hidden relative flex flex-col lg:flex-row items-center justify-around p-4 gap-4">
-
-        {/* Flywheel animation */}
-        <div className="relative w-36 h-36 flex items-center justify-center flex-shrink-0">
-          {/* Pulsing circular rings */}
-          <div className="absolute inset-0 rounded-full border border-orange-500/10 animate-pulse" />
-          <div className="absolute inset-4 rounded-full border border-dashed border-orange-500/20 animate-[spin_40s_linear_infinite]" />
-          <div className="absolute inset-8 rounded-full border border-orange-500/30 animate-[spin_20s_linear_infinite_reverse]" />
-
-          {/* Core logo */}
-          <div className="relative z-10 flex flex-col items-center">
-            <Database className="w-5 h-5 text-orange-400" />
-            <span className="text-[7.5px] font-mono font-bold tracking-widest text-orange-300 mt-1 uppercase">Flywheel</span>
-          </div>
-
-          {/* Node text tags */}
-          <div className="absolute top-1 text-[7px] font-mono uppercase bg-slate-900/90 border border-orange-500/20 px-1 rounded">Ops Feed</div>
-          <div className="absolute bottom-1 text-[7px] font-mono uppercase bg-slate-900/90 border border-orange-500/20 px-1 rounded">Asset Yield</div>
-          <div className="absolute left-1 text-[7px] font-mono uppercase bg-slate-900/90 border border-orange-500/20 px-1 rounded">Optimize</div>
-        </div>
-
-        {/* Rising chart */}
-        <div className="flex-1 w-full h-full flex flex-col justify-end text-left pt-2 font-mono">
-          <div className="text-[8.5px] text-slate-400 mb-1.5 flex items-center gap-1 uppercase tracking-wider">
-            <TrendingUp className="w-3.5 h-3.5 text-orange-400" />
-            Cumulative Yield Curve
-          </div>
-
-          <div className="flex-1 relative flex items-end border-b border-l border-slate-800/80 p-1 min-h-[75px]">
-            {/* SVG line chart */}
-            <svg className="w-full h-full absolute inset-0 text-orange-500" viewBox="0 0 100 40" preserveAspectRatio="none">
-              <motion.path
-                d="M0,40 Q25,38 50,30 T100,5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 2, ease: "easeOut" }}
-              />
-              <path
-                d="M0,40 Q25,38 50,30 T100,5 L100,40 Z"
-                fill="url(#orange-grad)"
-                opacity="0.1"
-              />
-              <defs>
-                <linearGradient id="orange-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#f97316" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#f97316" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-            </svg>
-            <div className="absolute top-2 right-2 text-[10px] font-bold text-white">1.42x</div>
-          </div>
-
-          <div className="flex justify-between text-[8px] text-slate-500 mt-1">
-            <span>START</span>
-            <span>YEAR 3</span>
-            <span>YEAR 5</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Flywheel indicators */}
-      <div className="mt-3.5 flex justify-between gap-3 text-left">
-        <div className="flex-1 bg-[#1a1411] border border-slate-800/85 rounded-xl p-3">
-          <div className="text-[8.5px] font-mono text-slate-400 uppercase tracking-wider mb-1">Compound IRR</div>
-          <div className="text-[11px] font-bold text-orange-400 font-mono uppercase">12.8% PROJ.</div>
-        </div>
-        <div className="flex-1 bg-[#1a1411] border border-slate-800/85 rounded-xl p-3">
-          <div className="text-[8.5px] font-mono text-slate-400 uppercase tracking-wider mb-1">Tenant Longevity</div>
-          <div className="text-[11px] font-bold text-white font-mono uppercase">+42% VALUE</div>
-        </div>
-      </div>
-    </div>
+    <div 
+      className="w-full h-full bg-[#110c09] overflow-hidden"
+      style={{
+        backgroundImage: `url('/images/pexels-markus-winkler-1430818-4604639.jpg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
+    />
   );
 };
+
 
 /* ─────────────────────────────────────────────
    macOS Style Simulator Mockup Window
@@ -397,26 +145,7 @@ interface SimulatorProps {
 
 const DashboardSimulator = ({ activeStep }: SimulatorProps) => {
   return (
-    <div className="w-full h-full rounded-2xl bg-[#090b0e] border border-slate-800 shadow-[0_30px_60px_rgba(0,0,0,0.4)] flex flex-col overflow-hidden">
-      {/* macOS Style Window controls */}
-      <div className="bg-[#12161b] border-b border-slate-800/80 px-4 py-3 flex items-center gap-2 flex-shrink-0 select-none">
-        {/* Circle buttons */}
-        <div className="flex gap-1.5 mr-2">
-          <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
-          <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
-          <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-        </div>
-        {/* Simulated browser address */}
-        <div className="flex-1 max-w-sm mx-auto bg-[#07090c] border border-slate-800/80 rounded-md py-1 px-3 text-[9px] font-mono text-slate-400 text-center select-all tracking-wide">
-          humanly.app / platform / {steps[activeStep].title.toLowerCase()}
-        </div>
-        {/* Status */}
-        <div className="flex items-center gap-1.5">
-          <div className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
-          <span className="text-[8px] font-mono font-bold tracking-widest text-teal-400/90 uppercase">SYS_LIVE</span>
-        </div>
-      </div>
-
+    <div className="w-full h-full rounded-2xl shadow-[0_30px_60px_rgba(0,0,0,0.4)] flex flex-col overflow-hidden">
       {/* Simulator Content Area */}
       <div className="flex-1 relative overflow-hidden">
         <AnimatePresence mode="wait">
@@ -663,7 +392,7 @@ export const PlatformStack = () => {
 
                         {/* Desktop Middle: Two stacked feature cards — absolute on mobile, flex column on desktop */}
                         <div
-                          className="absolute bottom-16 left-1/2 w-[80vw] max-w-[300px] -translate-x-1/2 flex-col gap-y-6 lg:relative lg:bottom-auto lg:left-0 lg:flex lg:w-[300px] lg:flex-shrink-0 lg:translate-x-0 lg:self-center"
+                          className="absolute bottom-16 left-1/2 w-[80vw] max-w-[300px] -translate-x-1/2 flex-col gap-y-6 lg:relative lg:bottom-auto lg:left-0 lg:flex lg:w-auto lg:max-w-none lg:translate-x-0 lg:self-center"
                         >
                           {/* Card 1: Stage info */}
                           <div
@@ -671,7 +400,7 @@ export const PlatformStack = () => {
                               backgroundImage: `linear-gradient(135deg, ${step.bgColor}cc, ${step.bgColor}88)`,
                               backdropFilter: 'blur(8px)',
                             }}
-                            className="overflow-hidden rounded-lg px-5 py-5"
+                            className="overflow-hidden rounded-lg px-5 py-5 w-[300px] h-[228px] flex flex-col justify-between"
                           >
                             <div className="flex items-center justify-between mb-3">
                               <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-white/70">Stage {step.num}</span>
@@ -687,7 +416,7 @@ export const PlatformStack = () => {
                               backgroundColor: '#fff',
                               border: '1px solid var(--color-gray-300)',
                             }}
-                            className="overflow-hidden rounded-lg px-5 pt-4 pb-5"
+                            className="overflow-hidden rounded-lg px-5 pt-4 pb-5 w-[300px] h-[270px] flex flex-col"
                           >
                             <p className="text-[10px] font-mono font-bold tracking-widest uppercase text-olive-700 mb-3">Key Capabilities</p>
                             <div className="flex flex-col gap-1.5">
