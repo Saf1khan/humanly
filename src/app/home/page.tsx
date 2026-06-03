@@ -7,9 +7,9 @@ import { HumanlyOSSection } from '@/components/sections/home/HumanlyOSStrip';
 import { CircleOfServicesSection } from '@/components/sections/home/CircleOfServices';
 import { CommunityPreview } from '@/components/sections/home/CommunityPreview';
 import { WhyNow } from '@/components/sections/home/WhyNow';
-import { TeamSection } from '@/components/sections/home/TeamTeaser';
+import { TeamGrid } from '@/components/sections/home/TeamTeaser';
 import { Footer } from '@/components/layout/Footer';
-import { InvestmentThesisSection } from '@/components/sections/InvestmentThesisSection';
+import { RevenueLayers } from '@/components/sections/home/RevenueLayers';
 
 export default function HomeV2() {
   return (
@@ -42,12 +42,12 @@ export default function HomeV2() {
         <Hero />
         <ProblemStats />
         <MissionQuote />
-        <InvestmentThesisSection />
+        <RevenueLayers />
         <PlatformStack />
         <HumanlyOSSection />
         <CircleOfServicesSection />
         <CommunityPreview />
-        <TeamSection />
+        <TeamGrid />
         <WhyNow />
       </main>
       <Footer />

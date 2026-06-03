@@ -65,7 +65,7 @@ export const InvestmentThesisSection = () => {
         </div>
 
         {/* Top Content Row: Header and Cards */}
-        <div className="relative z-10 w-full flex flex-col lg:flex-row items-start justify-between pl-6 md:pl-12 pt-6 md:pt-12 lg:pl-20 lg:pt-18">
+        <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row items-start justify-between pt-6 md:pt-12 lg:pt-18">
 
           {/* Left Side: Header */}
           <div className="flex flex-col items-start lg:w-1/2">

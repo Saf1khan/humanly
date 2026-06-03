@@ -287,7 +287,7 @@ export const PlatformStack = () => {
         }
       `}</style>
 
-      <section className="oura-scope bg-[#f4f1ea] py-12 lg:py-24 relative z-10 w-full overflow-hidden">
+      <section className="oura-scope bg-transparent py-12 lg:py-24 relative z-10 w-full overflow-hidden">
         <div className="gap-y-2 gridContainerV3" data-cy="layout-grid">
           
           {/* Top Left: Title */}

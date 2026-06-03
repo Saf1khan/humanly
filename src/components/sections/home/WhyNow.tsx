@@ -22,9 +22,9 @@ export const WhyNow = () => {
   ];
 
   return (
-    <div className="bg-black">
-      <section className="bg-[#1c1b1a] py-16 text-[#f7f1e8] font-sans box-border rounded-b-[40px] md:rounded-b-[64px] relative z-20 overflow-hidden">
-      <div className="grid max-w-[1360px] mx-auto gap-6 grid-cols-[repeat(24,1fr)] px-6 lg:px-16 box-border">
+    <div className="bg-transparent">
+      <section className="bg-transparent py-16 text-[#1c1b1a] font-sans box-border relative z-20 overflow-hidden">
+      <div className="grid max-w-[1440px] mx-auto gap-6 grid-cols-[repeat(24,1fr)] px-6 md:px-12 lg:px-16 box-border w-full">
         {/* Section Title */}
         <div className="col-span-full mb-8">
           <motion.div
@@ -32,13 +32,13 @@ export const WhyNow = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-sm font-bold tracking-wider uppercase text-stone-400 m-0">THE OPPORTUNITY</h2>
+            <h2 className="text-sm font-bold tracking-wider uppercase text-stone-600 m-0">THE OPPORTUNITY</h2>
           </motion.div>
         </div>
 
         {/* Featured Article (Left) */}
         <div className="col-span-full lg:col-[1/span_14]">
-          <article className="relative h-[480px] lg:h-[771px] rounded-lg overflow-hidden flex flex-col">
+          <article className="relative h-[480px] lg:h-[771px] rounded-3xl overflow-hidden flex flex-col">
             {/* Background Image */}
             <div className="absolute inset-0 z-[1]">
                <img src="/images/pexels-pixabay-265755.jpg" alt="Why Humanly Why Now" className="w-full h-[115%] object-cover -translate-y-[8.7%] block" />
@@ -46,7 +46,7 @@ export const WhyNow = () => {
             </div>
             
             <div className="relative z-[2] h-full p-8 flex flex-col justify-between">
-              <div className="bg-[#f7f1e8] text-[#1c1b1a] py-2 px-3 text-xs font-bold w-fit rounded-md tracking-wider uppercase">FEATURED</div>
+              <div className="bg-[#f7f1e8] text-[#1c1b1a] py-2 px-3 text-xs font-bold w-fit rounded-lg tracking-wider uppercase">FEATURED</div>
               <div className="bottom-content">
                 <motion.h2
                   className="text-[#f7f1e8] text-[40px] leading-tight tracking-tight m-0 mb-8 font-normal max-w-[80%]"
@@ -79,7 +79,7 @@ export const WhyNow = () => {
             {cards.map((card, index) => (
               <motion.article
                 key={index}
-                className="bg-[#f7f1e8] text-[#1c1b1a] p-6 rounded-lg flex flex-col justify-between flex-1 min-h-0 transition-colors duration-200 hover:bg-white"
+                className="bg-white border border-[#1c1b1a]/10 text-[#1c1b1a] p-6 rounded-3xl flex flex-col justify-between flex-1 min-h-0 transition-colors duration-200 hover:bg-white/80 shadow-sm"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index, duration: 0.55 }}
