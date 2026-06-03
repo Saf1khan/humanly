@@ -24,7 +24,14 @@ export const CProofOfConcept = () => {
           className="object-cover"
         />
 
-     
+      {/* Top / bottom blending */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-gradient-to-b from-[#faf8f1] to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-80 bg-gradient-to-t from-[#faf8f1] to-transparent" />
+
+      {/* Soft wash behind content for readability */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-full bg-[linear-gradient(90deg,rgba(250,248,241,0.99)_0%,rgba(250,248,241,0.34)_10%,rgba(250,248,241,0.08)_20%,rgba(250,248,241,0.0)_100%)]" />
+      {/* Soft wash behind content for readability */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-full bg-[linear-gradient(to_left,rgba(250,248,241,0.99)_0%,rgba(250,248,241,0.34)_10%,rgba(250,248,241,0.08)_20%,rgba(250,248,241,0)_100%)]" />
 
         
      
