@@ -50,7 +50,7 @@ export const CircleOfServicesSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full flex flex-col items-center overflow-hidden pt-24 pb-32">
+    <section className="relative w-full flex flex-col items-center overflow-x-clip pt-24 pb-32">
 
       {/* Background Gradients */}
       <div

@@ -10,11 +10,11 @@ export const ProblemStats = () => {
   ];
 
   return (
-    <section className="py-32 bg-h-surface relative overflow-hidden">
+    <section className="py-32 bg-transparent relative overflow-hidden">
       {/* Background Accent */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-h-primary/5 rounded-full blur-[120px] pointer-events-none" />
       
-      <div className="wrap relative z-10">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative z-10 w-full">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

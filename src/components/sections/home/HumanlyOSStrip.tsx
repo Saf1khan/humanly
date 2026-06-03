@@ -35,6 +35,8 @@ export const HumanlyOSSection = () => {
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover object-[50%_50%] md:object-[center_50%] -z-20"
       />
+      <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-sandstone-200 to-transparent -z-10"></div>
+      <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-sandstone-200 to-transparent -z-10"></div>
 
       {/* ── Ambient colour gradients ── */}
       <div
@@ -47,7 +49,7 @@ export const HumanlyOSSection = () => {
       />
 
       {/* ── Content ── */}
-      <div className="max-w-[1440px] mx-auto px-6 md:px-[64px] h-full flex flex-col justify-between">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 h-full flex flex-col justify-between">
 
         <div className="flex flex-col lg:flex-row justify-between gap-6 lg:gap-[4%]">
 

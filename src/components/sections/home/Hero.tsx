@@ -12,7 +12,7 @@ export const Hero = () => {
           alt="Modern Community"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/10" />
       </div>
 
       {/* Decorative Glows */}
@@ -56,7 +56,7 @@ export const Hero = () => {
       </div>
 
       {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#f7f6f2] to-transparent z-10"></div>
+      <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-sandstone-200 to-transparent z-10"></div>
     </section>
   );
 };
