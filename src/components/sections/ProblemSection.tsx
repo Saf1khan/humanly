@@ -216,7 +216,7 @@ export const ProblemSection = () => {
       `}</style>
 
       {/* Section Header */}
-      <div className="col-start-main col-end-main relative z-10 pl-6 md:pl-16 ">
+      <div className="col-start-main col-end-main relative z-10 pl-6 md:pl-56 ">
         <RevealOnScroll>
           <div className="mb-10 lg:mb-14">
             <p className="mb-3 text-sm font-albert font-medium uppercase tracking-[0.2em] text-sandstone-500">

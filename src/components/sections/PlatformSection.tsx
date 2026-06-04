@@ -1,15 +1,16 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState, useCallback, useRef } from "react";
+import { motion, LayoutGroup } from "framer-motion";
 
 const layerRows = [
   {
     id: "intelligence",
-    eyebrow: "CAPTURE",
+    eyebrow: "layer 0",
     title: "Intelligence",
     content:
       "AI-driven site selection, market analysis, and community design. Machine learning models evaluate 200+ data points per site.",
-    media: { type: "image", src: "/images/AdobeStock_117288790.jpeg" }
+    media: { type: "image", src: "/images/AdobeStock_117288790.jpeg" },
   },
   {
     id: "layer1",
@@ -17,7 +18,7 @@ const layerRows = [
     title: "Land & Entitlement",
     content:
       "Strategic acquisition paired with municipal partnerships to secure entitlements, tax incentives, and below-market financing.",
-    media: { type: "image", src: "/images/pexels-khwanchai-4175028.jpg" }
+    media: { type: "image", src: "/images/pexels-khwanchai-4175028.jpg" },
   },
   {
     id: "layer2",
@@ -25,7 +26,7 @@ const layerRows = [
     title: "Development",
     content:
       "A hybrid construction approach combining modular efficiency with traditional quality — reducing build timelines by 30% and costs by 20%.",
-    media: { type: "image", src: "/images/AdobeStock_446591769.jpeg" }
+    media: { type: "image", src: "/images/AdobeStock_446591769.jpeg" },
   },
   {
     id: "layer3",
@@ -33,7 +34,7 @@ const layerRows = [
     title: "Operations",
     content:
       "HumanlyOS® manages leasing, maintenance, resident communications, and compliance — reducing cost per unit while improving resident satisfaction.",
-    media: { type: "image", src: "/images/AdobeStock_481834806.jpeg" }
+    media: { type: "image", src: "/images/AdobeStock_481834806.jpeg" },
   },
   {
     id: "layer4",
@@ -41,7 +42,7 @@ const layerRows = [
     title: "Services",
     content:
       "Eight integrated service categories transacted through the Humanly platform — healthcare, childcare, education, food, legal, mobility, financial wellness, and workforce.",
-    media: { type: "image", src: "/images/AdobeStock_316858529.jpeg" }
+    media: { type: "image", src: "/images/AdobeStock_316858529.jpeg" },
   },
   {
     id: "layer5",
@@ -49,7 +50,7 @@ const layerRows = [
     title: "Financial",
     content:
       "HumanlyPay™ delivers embedded credit building, savings, micro-lending, and insurance products directly to residents.",
-    media: { type: "image", src: "/images/AdobeStock_456566813.jpeg" }
+    media: { type: "image", src: "/images/AdobeStock_456566813.jpeg" },
   },
   {
     id: "layer6",
@@ -57,7 +58,7 @@ const layerRows = [
     title: "Compounding",
     content:
       "Every resident interaction generates anonymized data that improves service delivery and creates compounding network effects across the ecosystem.",
-    media: { type: "image", src: "/images/AdobeStock_815248903.jpeg" }
+    media: { type: "image", src: "/images/AdobeStock_815248903.jpeg" },
   },
   {
     id: "capture-rev",
@@ -65,7 +66,7 @@ const layerRows = [
     title: "Revenue Aggregation",
     content:
       "Five discrete revenue streams — NOI, service fees, financial product margins, data licensing, and platform fees — compound into a diversified return profile.",
-    media: { type: "image", src: "/images/AdobeStock_331233554.jpeg" }
+    media: { type: "image", src: "/images/AdobeStock_331233554.jpeg" },
   },
   {
     id: "moat",
@@ -73,247 +74,158 @@ const layerRows = [
     title: "Vertical Integration",
     content:
       "By owning the land, building, operating system, services, and financial layer, Humanly creates a defensible moat no horizontal competitor can replicate.",
-    media: { type: "image", src: "/images/Aerial_image_of_Schwerin_Castle_(view_from_the_east).jpg" }
+    media: {
+      type: "image",
+      src: "/images/Aerial_image_of_Schwerin_Castle_(view_from_the_east).jpg",
+    },
   },
 ];
 
 export const PlatformSection = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeLayer, setActiveLayer] = useState(layerRows[0].id);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!containerRef.current) return;
-
-      const { top } = containerRef.current.getBoundingClientRect();
-      const scrollY = -top;
-      const sectionHeight = window.innerHeight;
-
-      if (scrollY < 0) {
-        setActiveIndex(0);
-      } else {
-        const index = Math.round(scrollY / sectionHeight);
-        setActiveIndex(Math.max(0, Math.min(index, layerRows.length - 1)));
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Initial check
-    return () => window.removeEventListener("scroll", handleScroll);
+  // ✅ Debounce mouse enter to avoid 9 rapid re-renders on fast sweeps
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const handleMouseEnter = useCallback((id: string) => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => setActiveLayer(id), 60);
   }, []);
 
   return (
-    <section className="relative w-full bg-white overflow-x-clip text-sandstone-500">
-      <style>{`
-        .gridContainerV3 {
-          --smallGutter: 24px;
-          --largeGutter: 64px;
-          --maxContent: 1440px;
-          display: grid;
-          grid-template-columns: [full-start] minmax(var(--smallGutter), 1fr) [main-start] repeat(22, minmax(0, calc(var(--maxContent) / 22))) [main-end] minmax(var(--smallGutter), 1fr) [full-end];
-          align-items: center;
-        }
-        @media (min-width: 1024px) {
-          .gridContainerV3 {
-            grid-template-columns: [full-start] minmax(var(--largeGutter), 1fr) [main-start] repeat(22, minmax(0, calc(var(--maxContent) / 22))) [main-end] minmax(var(--largeGutter), 1fr) [full-end];
-          }
-        }
-        .col-start-main { grid-column-start: main-start; }
-        .col-start-full { grid-column-start: full-start; }
-        .col-end-main { grid-column-end: main-end; }
-        
-        @media (min-width: 1024px) {
-          .lg\\:col-start-12 { grid-column-start: 13; }
-          .lg\\:col-end-11 { grid-column-end: 12; }
-          .lg\\:order-1 { order: 1; }
-          .lg\\:order-2 { order: 2; }
-          .lg\\:aspect-4\\/3 { aspect-ratio: 4/3; }
-          .lg\\:ml-auto { margin-left: auto; }
-        }
-        @media (min-width: 1280px) {
-          .xl\\:col-start-9 { grid-column-start: 10; }
-          .xl\\:col-end-8 { grid-column-end: 9; }
-        }
-        
-        .text-sandstone-500 { color: #4a4741; }
-        .text-heading-lg { font-size: 2rem; }
-        .text-heading-xl { font-size: 2.5rem; }
-        .text-heading-3xl { font-size: 3.5rem; }
-        .leading-snug { line-height: 1.375; }
-        .leading-tighter { line-height: 1.1; }
-        .tracking-tighter { letter-spacing: -0.05em; }
-        @keyframes mouse-scroll {
-          0% { transform: translateY(0); opacity: 0; }
-          20% { opacity: 1; }
-          80% { opacity: 1; }
-          100% { transform: translateY(12px); opacity: 0; }
-        }
-        .animate-mouse-scroll {
-          animation: mouse-scroll 2s ease-in-out infinite;
-        }
-      `}</style>
-
+    <section className="relative w-full overflow-clip text-sandstone-500 py-16 md:py-24">
       {/* Top Intro Section */}
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 pt-8 pb-0 lg:pt-12 relative flex flex-col items-center text-center gap-6 z-10 bg-white">
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-[#A8A5A0] text-sm font-albert font-medium tracking-[0.2em] uppercase">
-            THE PLATFORM
-          </span>
-          <div className="h-[1px] w-[104px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full" />
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative z-10 w-full mb-16 md:mb-24">
+        <div className="flex flex-col items-center text-center">
+          <div className="flex flex-col items-center gap-2 mb-6">
+            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#A8A5A0]">
+              THE PLATFORM
+            </p>
+            <div className="h-[1px] w-[72px] bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full"></div>
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-cormorant text-sandstone-500 leading-[1.1] tracking-tight max-w-4xl">
+            Seven Layers.
+            <br />
+            One Vertical Stack.
+          </h2>
+          <p className="mt-6 text-lg text-sandstone-500/70 max-w-3xl mx-auto leading-relaxed font-albert">
+            From intelligence-driven site selection through compounding network
+            effects — every layer feeds the next, creating a moat no horizontal
+            competitor can replicate.
+          </p>
         </div>
-        <h2 className="text-4xl md:text-5xl leading-tight font-bodoni font-bold tracking-normal text-sandstone-500">
-          Seven Layers.<br />
-          <span className="block mt-3">One Vertical Stack.</span>
-        </h2>
-        <p className="text-base md:text-xl text-[#4a4741] max-w-3xl mx-auto leading-relaxed font-albert font-normal">
-          From intelligence-driven site selection through compounding
-          network effects — every layer feeds the next, creating a moat
-          no horizontal competitor can replicate.
-        </p>
       </div>
 
-      {/* Sticky Scroll Section */}
-      <div ref={containerRef} className="relative w-full" style={{ height: `${layerRows.length * 100}vh` }}>
-        <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center bg-white">
-          <div
-            className="w-full gap-y-14 gridContainerV3 h-full items-center"
-            data-cy="layout-grid"
-            style={{
-              "--col-start-main": "main-start",
-              "--col-end-main": "main-end",
-              "--col-end-8": "9",
-              "--radius-2xl": "1rem",
-            } as React.CSSProperties}
-          >
-            {/* Full-Width Background Media Container */}
-            <div
-              className="px-4 md:px-6 lg:px-8 h-[70vh] md:h-[80vh] w-full"
-              data-cy="gridItem_div"
-              style={{ gridColumn: "full-start / full-end", gridRow: "1 / -1" }}
-            >
-              <div
-                className="relative h-full w-full overflow-hidden rounded-lg md:rounded-3xl"
-                data-cy="pop-highlighted-features-media"
-                style={{
-                  position: "relative",
-                  overflow: "hidden",
-                  backgroundColor: "#f5f5f5", // The base frame placeholder color
-                }}
-              >
-                {layerRows.map((layer, index) => {
-                  // Any layer that is the current or a past layer remains opaque
-                  const isVisible = activeIndex >= index;
+      {/* Accordion Container */}
+      <div className="max-w-[1380px] mx-auto px-2 md:px-6 lg:px-8 pb-12">
+        {/*
+         * ✅ LayoutGroup ensures sibling panels coordinate their FLIP
+         *    animations together as a single layout group
+         */}
+        <LayoutGroup>
+          <div className="w-full flex flex-col md:flex-row h-[90vh] md:h-[75vh] gap-2 md:gap-3 lg:gap-4">
+            {layerRows.map((layer, index) => {
+              const isActive = activeLayer === layer.id;
 
-                  return (
+              return (
+                <motion.div
+                  key={layer.id}
+                  layout // ✅ FLIP animation — GPU transform only, zero reflow
+                  onMouseEnter={() => handleMouseEnter(layer.id)}
+                  onClick={() => setActiveLayer(layer.id)}
+                  className={`relative rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer ${
+                    isActive ? "shadow-2xl" : "hover:opacity-80"
+                  }`}
+                  style={{
+                    // ✅ CSS controls the target flex state;
+                    //    Framer Motion's FLIP animates the transition
+                    flexGrow: isActive ? 10 : 1,
+                    flexShrink: 1,
+                    flexBasis: 0,
+                    minHeight: "50px",
+                    minWidth: "40px",
+                    willChange: "transform", // ✅ GPU layer hint
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 30,
+                  }}
+                >
+                  {/* Background Media */}
+                  <div className="absolute inset-0 w-full h-full bg-black">
+                    {layer.media.type === "video" ? (
+                      <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        src={layer.media.src}
+                        className="size-full object-cover object-center w-full h-full opacity-70"
+                      />
+                    ) : (
+                      <img
+                        alt={layer.title}
+                        src={layer.media.src}
+                        // ✅ Only load the first image eagerly; lazy-load the rest
+                        loading={index === 0 ? "eager" : "lazy"}
+                        decoding="async"
+                        className="size-full object-cover object-center w-full h-full opacity-70"
+                      />
+                    )}
+                    {/* Overlay */}
                     <div
-                      key={`media-${layer.id}`}
-                      className="absolute inset-0"
-                      style={{
-                        zIndex: index, // Sequential stacking so higher indexes always fade in OVER lower indexes
-                        clipPath: isVisible ? "inset(0% 0 0 0)" : "inset(100% 0 0 0)",
-                        WebkitClipPath: isVisible ? "inset(0% 0 0 0)" : "inset(100% 0 0 0)",
-                        transition: "clip-path 1.2s cubic-bezier(0.19, 1, 0.22, 1), -webkit-clip-path 1.2s cubic-bezier(0.19, 1, 0.22, 1)",
-                        pointerEvents: isVisible ? "auto" : "none",
-                      }}
-                    >
-                      <div className="size-full overflow-hidden bg-black" style={{ height: "130%" }}>
-                        <div
-                          className="relative size-full bg-black"
-                          style={{
-                            height: "100%",
-                            transform: isVisible ? "scale(1)" : "scale(1.2)",
-                            transition: "transform 1.2s cubic-bezier(0.19, 1, 0.22, 1)",
-                          }}
-                        >
-                          {layer.media.type === "video" ? (
-                            <video
-                              autoPlay
-                              loop
-                              muted
-                              playsInline
-                              src={layer.media.src}
-                              className="size-full object-cover object-center w-full h-full"
-                              style={{ maskImage: "none", backfaceVisibility: "hidden" }}
-                            />
-                          ) : (
-                            <img
-                              alt={layer.title}
-                              src={layer.media.src}
-                              className="size-full object-cover object-center w-full h-full"
-                              style={{ maskImage: "none", backfaceVisibility: "hidden" }}
-                            />
-                          )}
-                          <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-transparent to-transparent"></div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-
-                {/* Scroll Indicator */}
-                <div className={`absolute bottom-12 left-1/2 -translate-x-1/2 z-[100] flex flex-col items-center pointer-events-none transition-opacity duration-500 ${activeIndex === layerRows.length - 1 ? 'opacity-0' : 'opacity-100'}`}>
-                  <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center p-1.5 shadow-[0_0_15px_rgba(0,0,0,0.5)] backdrop-blur-[2px]">
-                    <div className="text-white animate-mouse-scroll">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M12 5v14M19 12l-7 7-7-7" />
-                      </svg>
-                    </div>
+                      className={`absolute inset-0 bg-gradient-to-t transition-opacity duration-500 ${
+                        isActive
+                          ? "from-black/90 via-black/40 to-black/10"
+                          : "from-black/70 to-black/30"
+                      }`}
+                    ></div>
                   </div>
-                </div>
-              </div>
-            </div>
 
-            {/* Left Side Text Content Overlaid */}
-            <div
-              className="col-start-full col-end-main lg:col-end-11 xl:col-end-8 relative h-full flex items-center z-10"
-              data-cy="gridItem_div"
-              style={{ gridRow: "1 / -1", paddingLeft: "48px", paddingRight: "24px" }}
-            >
-              {layerRows.map((layer, index) => {
-                const isActive = activeIndex === index;
-                const isPast = activeIndex > index;
-                const isFuture = activeIndex < index;
-
-                return (
+                  {/* Inactive State: Vertical Text on Desktop, Horizontal on Mobile */}
                   <div
-                    key={`text-${layer.id}`}
-                    className="absolute inset-0 flex flex-col justify-center transition-all duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"
-                    style={{
-                      opacity: isActive ? 1 : 0,
-                      filter: isActive ? "blur(0px)" : "blur(5px)",
-                      transform: isActive ? "translateY(0px)" : isFuture ? "translateY(32px)" : "translateY(-32px)",
-                      pointerEvents: isActive ? "auto" : "none",
-                      zIndex: isActive ? 10 : 0,
-                      paddingLeft: "72px",
-                      paddingRight: "120px",
-                    }}
-                    data-cy="pop-highlighted-features-content"
+                    className={`absolute inset-0 flex flex-col items-center justify-center md:justify-end pb-0 md:pb-8 transition-opacity duration-300 ${
+                      isActive ? "opacity-0 pointer-events-none" : "opacity-100 delay-100"
+                    }`}
                   >
-                    <div className="mb-4 md:mb-6">
-                      <div className="inline-flex px-4 py-1.5 bg-black/15 backdrop-blur-2xl saturate-[180%] border border-white/20 rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.2)]">
-                        <span className="text-white text-[10px] md:text-xs font-albert font-medium tracking-[0.2em] uppercase">
+                    <span
+                      className="text-white/80 font-bold tracking-widest uppercase text-[10px] md:text-xs transform md:-rotate-180 whitespace-nowrap hidden md:block"
+                      style={{ writingMode: "vertical-rl" }}
+                    >
+                      {layer.eyebrow}
+                    </span>
+                    <span className="text-white/80 font-bold tracking-widest uppercase text-[10px] whitespace-nowrap block md:hidden">
+                      {layer.eyebrow}
+                    </span>
+                  </div>
+
+                  {/* Active Content */}
+                  <div
+                    className={`absolute inset-0 p-6 md:p-8 lg:p-12 flex flex-col justify-end text-white transition-opacity duration-500 ${
+                      isActive
+                        ? "opacity-100 delay-150"
+                        : "opacity-0 pointer-events-none"
+                    }`}
+                  >
+                    <div className="max-w-2xl">
+                      <div className="flex items-center gap-3 mb-3">
+                        <span className="px-4 py-1.5 bg-white/20 backdrop-blur-md rounded-full text-[10px] md:text-xs font-bold tracking-[0.15em] uppercase text-white border border-white/20 shadow-sm">
                           {layer.eyebrow}
                         </span>
                       </div>
+                      <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold font-cormorant mb-3 md:mb-4 leading-tight drop-shadow-md">
+                        {layer.title}
+                      </h3>
+                      <p className="text-sm md:text-base lg:text-lg text-white/90 font-albert leading-relaxed drop-shadow-md hidden md:block">
+                        {layer.content}
+                      </p>
                     </div>
-                    <h2
-                      className="text-lg md:text-4xl font-cormorant text-left text-white mb-4 md:mb-6 leading-relaxed tracking-wide font-semibold"
-                      style={{ textShadow: "0 2px 16px rgba(0,0,0,0.8)" }}
-                    >
-                      {layer.title}
-                    </h2>
-                    <p
-                      className="text-left text-[#fefaef] font-albert font-normal text-base md:text-lg leading-snug tracking-tight"
-                      style={{ textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}
-                    >
-                      {layer.content}
-                    </p>
                   </div>
-                );
-              })}
-            </div>
+                </motion.div>
+              );
+            })}
           </div>
-        </div>
+        </LayoutGroup>
       </div>
     </section>
   );

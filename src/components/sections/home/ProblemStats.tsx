@@ -10,7 +10,7 @@ export const ProblemStats = () => {
   ];
 
   return (
-    <section className="py-32 bg-transparent relative overflow-hidden">
+    <section className="pt-36 pb-52 bg-transparent relative overflow-hidden">
       {/* Background Accent */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-h-primary/5 rounded-full blur-[120px] pointer-events-none" />
       
@@ -22,13 +22,13 @@ export const ProblemStats = () => {
           className="text-center mb-20"
         >
           <div className="flex flex-col items-center gap-2 mb-6">
-            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-h-primary">
+            <p className="text-[14px] font-bold tracking-[0.2em] uppercase text-h-primary">
               THE CRISIS
             </p>
             <div className="h-[2px] w-12 bg-h-primary rounded-full"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-h-dark leading-[1.1] tracking-tight">
-            America's housing system<br />is broken.
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-h-dark leading-[1.1] tracking-tight">
+            America's housing system is broken.
           </h2>
         </motion.div>
         

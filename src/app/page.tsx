@@ -1,6 +1,5 @@
 import { HeroSection } from "@/components/sections/HeroSection";
-import { StatsSection } from "@/components/sections/StatsSection";
-import { InvestmentThesisSection } from "@/components/sections/InvestmentThesisSection";
+import { RevenueLayers } from "@/components/sections/InvestmentThesisSection";
 import { ProblemSection } from "@/components/sections/ProblemSection";
 import { CommunitiesSection } from "@/components/sections/CommunitiesSection";
 import { LandLeasingSection } from "@/components/sections/LandLeasingSection";
@@ -18,9 +17,9 @@ import { PlatformSection } from "@/components/sections/PlatformSection";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen">
       {/* Seamless Light Background Container */}
-      <div className="relative bg-white overflow-x-clip">
+      <div className="relative bg-transparent overflow-x-clip">
 
         {/* Continuous Background Gradients */}
         <div
@@ -41,10 +40,7 @@ export default function Home() {
         />
 
         <HeroSection />
-        <StatsSection />
-        <InvestmentThesisSection />
-
-
+        <RevenueLayers />
         <ProblemSection />
         <PlatformSection />
         <CommunitiesSection />

@@ -32,7 +32,7 @@ export const HeroSection = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-[100svh] min-h-[800px] overflow-hidden bg-[#f4f3ef]"
+      className="relative w-full h-[100svh] min-h-[800px] overflow-hidden"
     >
 
       {/* LAYER 1: Full Screen Background Image with Masking Rectangles */}
@@ -59,26 +59,26 @@ export const HeroSection = () => {
         {/* --- The 3 White Rectangles forming the perfect Polygon --- */}
 
         {/* 1. Top Left Rectangle */}
-        <div className="absolute top-0 left-0 w-[45%] lg:w-[35%] h-[15%] lg:h-[20%] bg-white rounded-br-[100px] lg:rounded-br-[160px] pointer-events-none z-10"></div>
+        <div className="absolute top-0 left-0 w-[45%] lg:w-[35%] h-[15%] lg:h-[20%] bg-sandstone-200 rounded-br-[100px] lg:rounded-br-[160px] pointer-events-none z-10"></div>
 
         {/* 2. Bottom Left Rectangle (smaller height, wider) */}
-        <div className="absolute bottom-0 left-0 w-[75%] lg:w-[65%] h-[20%] lg:h-[20%] bg-white rounded-tr-[100px] lg:rounded-tr-[160px] pointer-events-none z-10"></div>
+        <div className="absolute bottom-0 left-0 w-[75%] lg:w-[65%] h-[20%] lg:h-[20%] bg-sandstone-200 rounded-tr-[100px] lg:rounded-tr-[160px] pointer-events-none z-10"></div>
 
         {/* 3. Vertical Left Rectangle */}
-        <div className="absolute top-0 bottom-0 left-0 w-[40px] bg-white pointer-events-none z-10"></div>
+        <div className="absolute top-0 bottom-0 left-0 w-[40px] bg-sandstone-200 pointer-events-none z-10"></div>
 
         {/* --- Inner Corner Rounded Fillets (Smooth Concave Curves) --- */}
 
         {/* Top Inner Fillet: Connects Top Rect to Vertical Rect */}
         <div
           className="absolute left-[40px] top-[15%] lg:top-[20%] w-[140px] h-[140px] pointer-events-none z-10"
-          style={{ background: 'radial-gradient(circle at 100% 100%, transparent 139px, white 140px)' }}
+          style={{ background: 'radial-gradient(circle at 100% 100%, transparent 139px, #f7f1e8 140px)' }}
         ></div>
 
         {/* Bottom Inner Fillet: Connects Bottom Rect to Vertical Rect */}
         <div
           className="absolute left-[40px] bottom-[20%] lg:bottom-[20%] w-[140px] h-[140px] pointer-events-none z-10"
-          style={{ background: 'radial-gradient(circle at 100% 0%, transparent 139px, white 140px)' }}
+          style={{ background: 'radial-gradient(circle at 100% 0%, transparent 139px, #f7f1e8 140px)' }}
         ></div>
 
       </div>
