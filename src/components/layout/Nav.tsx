@@ -357,18 +357,13 @@ export const Nav = () => {
                 className="relative flex items-center h-12 md:h-14 cursor-pointer"
               >
                 <img
-                  src="/images/asset 0.png"
+                  src={
+                    useDarkText
+                      ? "/images/asset 0.png"
+                      : "/images/Humanly_Logo_Lockup_Horizontal_White+Gradient on Dark (2).svg"
+                  }
                   alt="Humanly"
                   className="object-contain h-full w-auto px-1 transition-all duration-300"
-                  style={
-                    isWhyHumanly && !isMenuOpen
-                      ? {
-                          /* CSS Filter to convert black to #F7F1E8 */
-                          filter:
-                            "brightness(0) saturate(100%) invert(96%) sepia(4%) saturate(884%) hue-rotate(334deg) brightness(106%) contrast(96%)",
-                        }
-                      : {}
-                  }
                 />
               </a>
             </div>
