@@ -119,12 +119,12 @@ export const StatsSection = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full flex flex-col justify-center p-4 md:p-10 pb-0 md:pb-0"
+      className="relative w-full flex flex-col justify-center p-4 md:pt-10 md:px-72 pb-0 md:pb-0"
     >
       <div className="relative w-full rounded-[2rem] overflow-hidden pt-16 lg:pt-0 pb-0 z-10 border border-white/20 flex flex-col justify-center items-center ">
         {/* Background Image replaced the CSS gradient */}
         <img
-          src="/images/HeroGradient.jpg"
+          src="/images/pexels-gustavo-fring-4871790.jpg"
           alt="Background Gradient"
           className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none opacity-85 "
         />

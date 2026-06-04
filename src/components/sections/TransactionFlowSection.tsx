@@ -1,207 +1,397 @@
 "use client";
 
-import React, { Fragment, useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { RevealOnScroll } from "../ui/RevealOnScroll";
 
-const flowSteps = [
+/* ─────────────────── data ─────────────────── */
+const steps = [
   {
     id: "flow-1",
-    step: "Step 01",
+    num: "01",
     title: "Resident Need",
-    dotColor: "#67e8f9",
-    description: "Resident identifies a need — housing, finance, or services.",
+    subtitle: "Intent captured",
+    description:
+      "A resident identifies a need — whether it's housing, a financial product, healthcare, or a community service. The Humanly OS detects the intent through the resident portal and routes it intelligently.",
+    color: "#6BCEFF",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <circle cx="12" cy="8" r="4" />
+        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+      </svg>
+    ),
+    metric: "100%",
+    metricLabel: "of needs logged & tracked",
   },
   {
     id: "flow-2",
-    step: "Step 02",
+    num: "02",
     title: "Circle of Services",
-    dotColor: "#3b82f6",
-    description: "Request routed through the integrated services marketplace.",
+    subtitle: "Smart routing",
+    description:
+      "The request enters the integrated services marketplace. AI-driven matching connects the resident with the right vendor, partner, or community resource — instantly and without friction.",
+    color: "#818CF8",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <circle cx="12" cy="12" r="3" />
+        <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" />
+      </svg>
+    ),
+    metric: "<2s",
+    metricLabel: "average match time",
   },
   {
     id: "flow-3",
-    step: "Step 03",
+    num: "03",
     title: "HumanlyPay™",
-    dotColor: "#d946ef",
-    description: "Payment processed via embedded finance infrastructure.",
+    subtitle: "Embedded payment",
+    description:
+      "Payment is processed through HumanlyPay™ — our embedded finance rail. No third-party redirects, no friction. Residents pay once within the portal; funds are split and settled in real time.",
+    color: "#C084FC",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <rect x="2" y="5" width="20" height="14" rx="3" />
+        <path d="M2 10h20M6 15h4" />
+      </svg>
+    ),
+    metric: "0%",
+    metricLabel: "payment friction for residents",
   },
   {
     id: "flow-4",
-    step: "Step 04",
+    num: "04",
     title: "Revenue Capture",
-    dotColor: "#f97316",
-    description: "Operator captures revenue from every fulfilled transaction.",
+    subtitle: "Operator yield",
+    description:
+      "Every fulfilled transaction generates a revenue event for the operator. Platform fees, service margins, and partner commissions are automatically calculated and credited — no manual reconciliation.",
+    color: "#FB923C",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+      </svg>
+    ),
+    metric: "∞",
+    metricLabel: "revenue streams, one platform",
   },
   {
     id: "flow-5",
-    step: "Step 05",
+    num: "05",
     title: "Community Reinvestment",
-    dotColor: "#facc15",
-    description: "Surplus reinvested into community programs and amenities.",
+    subtitle: "Value loop closes",
+    description:
+      "A portion of every transaction flows back into community programs, amenities, and shared savings — creating a self-reinforcing loop where resident activity directly improves resident life.",
+    color: "#34D399",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+      </svg>
+    ),
+    metric: "100%",
+    metricLabel: "value returned to community",
   },
 ];
 
+/* ─────────────────── animated rail dot ─────────────────── */
+const CYCLE_MS = 6000;
+
+/* ─────────────────── main section ─────────────────── */
 export const TransactionFlowSection = () => {
-  const [activeIndex, setActiveIndex] = useState(-1);
+  const [active, setActive] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const startRef = useRef(Date.now());
+  const rafRef = useRef<number>();
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
 
   useEffect(() => {
-    const duration = 8000;
-    const start = Date.now();
-
-    const animate = () => {
-      const elapsed = (Date.now() - start) % duration;
-      // Calculate which segment (0-4) the dot is currently in
-      const currentIdx = Math.floor(elapsed / (duration / flowSteps.length));
-      setActiveIndex(currentIdx);
-      requestAnimationFrame(animate);
+    const tick = () => {
+      const elapsed = (Date.now() - startRef.current) % (CYCLE_MS * steps.length);
+      const stepIndex = Math.floor(elapsed / CYCLE_MS);
+      const stepProgress = (elapsed % CYCLE_MS) / CYCLE_MS;
+      setActive(stepIndex);
+      setProgress(stepProgress);
+      rafRef.current = requestAnimationFrame(tick);
     };
-
-    const frameId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(frameId);
+    rafRef.current = requestAnimationFrame(tick);
+    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
   }, []);
 
-  return (
-    <section className="relative w-full bg-transparent py-20 lg:py-32 overflow-visible">
-      {/* Background Gradients — exact match to adjacent sections */}
-      <div
-        className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.04) 50%, rgba(255, 182, 55, 0))" }}
-      />
-      <div
-        className="absolute pointer-events-none left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.06), rgba(105, 165, 255, 0.02) 50%, rgba(105, 165, 255, 0))" }}
-      />
+  const handleManualSelect = (i: number) => {
+    startRef.current = Date.now() - i * CYCLE_MS;
+    setActive(i);
+    setProgress(0);
+  };
 
-      <style>
-        {`
-          @keyframes slideRight {
-            0% { left: 0%; opacity: 0; }
-            5% { opacity: 1; }
-            95% { opacity: 1; }
-            100% { left: 100%; opacity: 0; }
-          }
-          @keyframes slideDown {
-            0% { top: 0%; opacity: 0; }
-            5% { opacity: 1; }
-            95% { opacity: 1; }
-            100% { top: 100%; opacity: 0; }
-          }
-        `}
-      </style>
+  const svc = steps[active];
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative w-full py-20 lg:py-32 overflow-hidden"
+    >
+      {/* Ambient colour blooms — light, warm */}
+      <div
+        className="absolute pointer-events-none top-[-10%] left-[-5%] w-[60vw] h-[60vw] rounded-full"
+        style={{
+          background: `radial-gradient(circle, ${svc.color}0F 0%, transparent 65%)`,
+          transition: "background 1.2s ease",
+        }}
+      />
+      <div
+        className="absolute pointer-events-none bottom-[-10%] right-[-5%] w-[50vw] h-[50vw] rounded-full"
+        style={{ background: "radial-gradient(circle, rgba(255,182,55,0.07) 0%, transparent 65%)" }}
+      />
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
 
-        {/* Section Header */}
+        {/* ── Header ── */}
         <RevealOnScroll>
-          <header className="flex flex-col items-center text-center mb-20 lg:mb-32">
-            <h2 className="text-3xl md:text-5xl font-bodoni font-bold text-sandstone-500 tracking-normal leading-tight">
+          <header className="flex flex-col gap-3 mb-16 lg:mb-20">
+            <div className="flex items-center gap-3">
+              <div className="h-[1px] w-8" style={{ background: `linear-gradient(to right, ${svc.color}, transparent)`, transition: "background 0.8s ease" }} />
+              <span className="text-[0.65rem] font-albert font-semibold tracking-[0.22em] uppercase text-[#a8a5a0]">
+                Platform Intelligence
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-bodoni text-sandstone-500 leading-[1.05]">
               Transaction Flow
             </h2>
+            <p className="text-sm md:text-base font-albert font-light text-[#1C1B1A]/45 max-w-md leading-relaxed mt-1">
+              Every resident interaction generates value — automatically captured, distributed, and reinvested.
+            </p>
           </header>
         </RevealOnScroll>
 
-        {/* Desktop Timeline */}
-        <div className="hidden lg:block relative w-full h-[600px]">
-          {/* Full-width Background Line */}
-          <div className="absolute top-1/2 left-1/2 w-[150vw] h-[1px] bg-gradient-to-r from-transparent via-[#1c1b1a]/15 to-transparent -translate-x-1/2 -translate-y-1/2" />
+        {/* ── Main Layout ── */}
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
 
-          {/* Moving Flowline Light */}
-          <div className="absolute top-1/2 left-0 h-[2px] w-[200px] bg-gradient-to-r from-transparent via-white to-transparent -translate-y-1/2 blur-[1px] animate-[slideRight_8s_linear_infinite]" />
+          {/* ── LEFT: Pipeline rail ── */}
+          <div className="w-full lg:w-auto flex lg:flex-col items-center lg:items-stretch gap-0 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0">
 
-          {/* Moving Glowing Dot */}
-          <div className="absolute top-1/2 left-0 w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_15px_4px_rgba(255,255,255,0.9)] -translate-y-1/2 animate-[slideRight_8s_linear_infinite] z-20" />
+            {steps.map((s, i) => {
+              const isActive = i === active;
+              const isPast = i < active;
 
-          <div className="grid grid-cols-5 gap-8 h-full relative z-10">
-            {flowSteps.map((step, idx) => {
-              const isTop = idx % 2 === 0;
               return (
-                <div key={step.id} className="relative flex flex-col justify-center h-full group" data-active={activeIndex === idx}>
+                <div key={s.id} className="flex lg:flex-col items-center lg:items-start flex-shrink-0">
 
-                  {/* Node on Line */}
-                  <div
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-[3px] border-white bg-[#f4f2ea] shadow-[0_0_10px_rgba(0,0,0,0.1)] z-10 transition-all duration-500 group-hover:scale-150 group-data-[active=true]:scale-150 group-hover:bg-white group-data-[active=true]:bg-white"
-                    style={{ borderColor: step.dotColor }}
+                  {/* Node row */}
+                  <button
+                    onClick={() => handleManualSelect(i)}
+                    className="flex items-center gap-4 group relative"
+                    aria-label={`Go to step ${s.num}`}
                   >
-                    <div className="absolute inset-0 rounded-full animate-ping opacity-20" style={{ backgroundColor: step.dotColor }} />
-                  </div>
-
-                  {/* Vertical Connector Line (creates the gap visually) */}
-                  <div
-                    className={`absolute left-1/2 -translate-x-1/2 w-[1px] bg-gradient-to-b transition-all duration-500 opacity-40 group-hover:opacity-100 group-data-[active=true]:opacity-100 ${isTop
-                        ? 'bottom-1/2 h-[70px] group-hover:h-[82px] group-data-[active=true]:h-[82px] from-transparent to-[#1c1b1a]/40 group-hover:to-[#1c1b1a]/70 group-data-[active=true]:to-[#1c1b1a]/70'
-                        : 'top-1/2 h-[70px] group-hover:h-[82px] group-data-[active=true]:h-[82px] from-[#1c1b1a]/40 group-hover:from-[#1c1b1a]/70 group-data-[active=true]:from-[#1c1b1a]/70 to-transparent'
-                      }`}
-                  />
-
-                  {/* Card Container - Positional precisely to create the gap */}
-                  <div className={`absolute w-full ${isTop ? 'bottom-[calc(50%+70px)]' : 'top-[calc(50%+70px)]'}`}>
-                    <RevealOnScroll delay={`delay-${(idx + 1) * 100}` as any} className="w-full">
-                      <article
-                        className="relative w-full flex flex-col h-full min-h-[260px] bg-[#4A4741]/10 backdrop-blur-[32px] border border-[#4A4741]/10 p-2 rounded-2xl transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-[#4A4741]/10 group-hover:-translate-y-3 group-data-[active=true]:-translate-y-3 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] group-data-[active=true]:shadow-[0_20px_40px_rgba(0,0,0,0.08)] group-hover:bg-white/60 group-data-[active=true]:bg-white/60 group-hover:border-white/80 group-data-[active=true]:border-white/80"
+                    {/* Node circle */}
+                    <div className="relative flex-shrink-0">
+                      <motion.div
+                        className="w-12 h-12 rounded-full flex items-center justify-center relative z-10 transition-all duration-500"
+                        animate={{
+                          background: isActive
+                            ? `${s.color}18`
+                            : isPast ? `${s.color}08` : "rgba(74,71,65,0.04)",
+                          borderColor: isActive ? s.color : isPast ? `${s.color}40` : "rgba(74,71,65,0.12)",
+                          scale: isActive ? 1.1 : 1,
+                        }}
+                        style={{ border: "1px solid" }}
+                        transition={{ duration: 0.5 }}
                       >
-                        {/* Glow effect on hover */}
-                        <div
-                          className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 group-data-[active=true]:opacity-100 transition-opacity duration-500 pointer-events-none"
+                        <span
+                          className="transition-colors duration-500"
+                          style={{ color: isActive ? s.color : isPast ? `${s.color}90` : "rgba(28,27,26,0.25)" }}
+                        >
+                          {s.icon}
+                        </span>
+                      </motion.div>
+
+                      {/* Pulse ring on active */}
+                      {isActive && (
+                        <motion.div
+                          className="absolute inset-0 rounded-full pointer-events-none"
+                          style={{ border: `1px solid ${s.color}` }}
+                          animate={{ scale: [1, 1.6], opacity: [0.6, 0] }}
+                          transition={{ duration: 1.4, repeat: Infinity, ease: "easeOut" }}
                         />
+                      )}
+                    </div>
 
-                        <header className="flex flex-col gap-3 relative z-10">
-                          <div className="flex items-center gap-3">
-                            <span
-                              className="text-xs tracking-wider font-albert font-medium uppercase px-2 py-1 rounded-md bg-white/50 border border-white/40"
-                              style={{ color: step.dotColor }}
-                            >
-                              {step.step}
-                            </span>
-                          </div>
-                          <h3 className="md:text-xl font-cormorant font-blod leading-snug tracking-wide text-sandstone-500">
-                            {step.title}
-                          </h3>
-                          <p className="md:text-sm font-albert text-[#1c1b1a]/70 leading-relaxed mt-1 font-normal tracking-wide">
-                            {step.description}
-                          </p>
-                        </header>
-                      </article>
-                    </RevealOnScroll>
-                  </div>
+                    {/* Label — visible on desktop */}
+                    <div className="hidden lg:flex flex-col gap-0.5 text-left">
+                      <span
+                        className="text-[0.6rem] font-albert font-semibold tracking-[0.18em] uppercase transition-colors duration-400"
+                        style={{ color: isActive ? s.color : "rgba(168,165,160,0.7)" }}
+                      >
+                        {s.num}
+                      </span>
+                      <span
+                        className="text-sm font-albert font-semibold transition-colors duration-400"
+                        style={{ color: isActive ? "#1C1B1A" : isPast ? "rgba(28,27,26,0.55)" : "rgba(28,27,26,0.28)" }}
+                      >
+                        {s.title}
+                      </span>
+                    </div>
+                  </button>
 
+                  {/* Connector */}
+                  {i < steps.length - 1 && (
+                    <>
+                      {/* Mobile: horizontal */}
+                      <div className="flex lg:hidden w-10 h-[1px] flex-shrink-0 mx-1 relative overflow-hidden"
+                        style={{ background: "rgba(74,71,65,0.1)" }}>
+                        {isPast && (
+                          <div className="absolute inset-0" style={{ background: `linear-gradient(to right, ${s.color}70, ${steps[i + 1].color}50)` }} />
+                        )}
+                      </div>
+
+                      {/* Desktop: vertical */}
+                      <div className="hidden lg:flex flex-col items-center ml-6 my-1 relative overflow-hidden" style={{ height: "40px", width: "1px" }}>
+                        <div className="w-full h-full" style={{ background: "rgba(74,71,65,0.1)" }} />
+                        {isPast && (
+                          <motion.div
+                            className="absolute top-0 left-0 w-full"
+                            style={{ background: `linear-gradient(to bottom, ${s.color}80, ${steps[i + 1].color}50)` }}
+                            initial={{ height: 0 }}
+                            animate={{ height: "100%" }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                          />
+                        )}
+                        {isActive && (
+                          <motion.div
+                            className="absolute top-0 left-0 w-full"
+                            style={{ background: `${s.color}`, height: `${progress * 100}%` }}
+                          />
+                        )}
+                      </div>
+                    </>
+                  )}
                 </div>
               );
             })}
           </div>
-        </div>
 
-        {/* Mobile: Vertical stack */}
-        <div className="flex lg:hidden flex-col gap-4" role="list">
-          {flowSteps.map((step, idx) => (
-            <div key={step.id} className="flex flex-col items-center">
-              <RevealOnScroll delay={`delay-${(idx + 1) * 100}` as any} className="w-full">
-                <article
-                  role="listitem"
-                  className="flex flex-col bg-[#f7f1e8] text-[#1c1b1a] rounded-xl p-6 w-full"
-                >
-                  <header className="flex flex-col gap-2 mb-4">
-                    <p className="font-bold text-[#1c1b1a]/50 tracking-wider uppercase text-[0.7rem]">
-                      {step.step}
-                    </p>
-                    <p className="text-base font-cormorant font-bold leading-snug tracking-wide text-sandstone-500">
-                      {step.title}
-                    </p>
-                    <p className="text-xs font-albert font-normal text-[#1c1b1a]/60 leading-relaxed tracking-wide">
-                      {step.description}
-                    </p>
-                  </header>
-                </article>
-              </RevealOnScroll>
+          {/* ── RIGHT: Active step detail panel ── */}
+          <div className="flex-1 w-full">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={svc.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                className="relative rounded-[2rem] overflow-hidden p-8 lg:p-12"
+                style={{
+                  background: "rgba(255,255,255,0.55)",
+                  border: `1px solid ${svc.color}30`,
+                  backdropFilter: "blur(24px)",
+                  WebkitBackdropFilter: "blur(24px)",
+                  boxShadow: `0 0 60px ${svc.color}10, 0 16px 48px rgba(74,71,65,0.08)`,
+                }}
+              >
+                {/* Corner glow */}
+                <div
+                  className="absolute top-0 right-0 w-64 h-64 rounded-bl-[8rem] pointer-events-none"
+                  style={{ background: `radial-gradient(circle at 100% 0%, ${svc.color}14, transparent 60%)` }}
+                />
+                {/* Bottom-left accent */}
+                <div
+                  className="absolute bottom-0 left-0 w-48 h-48 pointer-events-none"
+                  style={{ background: `radial-gradient(circle at 0% 100%, ${svc.color}0C, transparent 70%)` }}
+                />
 
-              {idx < flowSteps.length - 1 && (
-                <div className="py-2 text-[#1c1b1a]/25">
-                  <svg width="12" height="20" viewBox="0 0 12 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5.46967 20.5303C5.76256 20.8232 6.23744 20.8232 6.53033 20.5303L11.3033 15.7574C11.5962 15.4645 11.5962 14.9896 11.3033 14.6967C11.0104 14.4038 10.5355 14.4038 10.2426 14.6967L6 18.9393L1.75736 14.6967C1.46447 14.4038 0.989592 14.4038 0.696699 14.6967C0.403806 14.9896 0.403806 15.4645 0.696699 15.7574L5.46967 20.5303ZM5.25 0L5.25 20H6.75L6.75 0L5.25 0Z" fill="currentColor" />
-                  </svg>
+                {/* Top shimmer */}
+                <div
+                  className="absolute top-0 left-8 right-8 h-[1px] pointer-events-none"
+                  style={{ background: `linear-gradient(to right, transparent, ${svc.color}50, transparent)` }}
+                />
+
+                <div className="relative z-10 flex flex-col gap-8">
+
+                  {/* Step badge + number */}
+                  <div className="flex items-center justify-between">
+                    <div
+                      className="flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-albert font-semibold tracking-[0.16em] uppercase"
+                      style={{
+                        color: svc.color,
+                        background: `${svc.color}15`,
+                        border: `1px solid ${svc.color}30`,
+                      }}
+                    >
+                      <span
+                        className="w-1.5 h-1.5 rounded-full inline-block"
+                        style={{ background: svc.color, boxShadow: `0 0 6px ${svc.color}` }}
+                      />
+                      Step {svc.num}
+                    </div>
+                    <span className="text-[0.6rem] font-albert font-medium tracking-widest uppercase text-[#1C1B1A]/25">
+                      {active + 1} of {steps.length}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <div className="flex flex-col gap-2">
+                    <p className="text-xs font-albert font-medium tracking-widest uppercase" style={{ color: `${svc.color}90` }}>
+                      {svc.subtitle}
+                    </p>
+                    <h3 className="text-4xl md:text-5xl font-bold font-bodoni text-sandstone-500 leading-tight">
+                      {svc.title}
+                    </h3>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-base md:text-lg font-albert font-light text-[#1C1B1A]/55 leading-relaxed max-w-xl">
+                    {svc.description}
+                  </p>
+
+                  {/* Metric + progress row */}
+                  <div
+                    className="flex flex-col sm:flex-row items-start sm:items-end gap-6 pt-6"
+                    style={{ borderTop: "1px solid rgba(74,71,65,0.1)" }}
+                  >
+                    {/* Big metric */}
+                    <div>
+                      <p
+                        className="text-5xl md:text-6xl font-bold font-bodoni leading-none"
+                        style={{ color: svc.color }}
+                      >
+                        {svc.metric}
+                      </p>
+                      <p className="text-xs font-albert font-medium tracking-widest uppercase text-[#1C1B1A]/35 mt-2">
+                        {svc.metricLabel}
+                      </p>
+                    </div>
+
+                    {/* Dot progress nav */}
+                    <div className="flex items-center gap-3 sm:ml-auto sm:pb-1">
+                      {steps.map((_, i) => (
+                        <button
+                          key={i}
+                          onClick={() => handleManualSelect(i)}
+                          className="rounded-full transition-all duration-400"
+                          style={{
+                            width: i === active ? "28px" : "7px",
+                            height: "7px",
+                            background: i === active ? svc.color : i < active ? `${svc.color}45` : "rgba(74,71,65,0.15)",
+                          }}
+                          aria-label={`Go to step ${steps[i].num}`}
+                        />
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Auto-progress bar */}
+                  <div className="h-[2px] rounded-full overflow-hidden" style={{ background: "rgba(74,71,65,0.1)" }}>
+                    <motion.div
+                      className="h-full rounded-full"
+                      style={{ background: `linear-gradient(to right, ${svc.color}, ${svc.color}80)` }}
+                      animate={{ width: `${progress * 100}%` }}
+                      transition={{ duration: 0.1, ease: "linear" }}
+                    />
+                  </div>
                 </div>
-              )}
-            </div>
-          ))}
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
 
       </div>
