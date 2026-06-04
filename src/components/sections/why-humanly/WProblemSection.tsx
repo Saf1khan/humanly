@@ -383,7 +383,7 @@ export const WProblemSection = () => {
                 ref={imageContainerRef}
                 className="order-2 flex flex-col w-full lg:max-w-[750px] 2xl:max-w-full"
               >
-                <div className="image-container relative overflow-hidden aspect-square md:aspect-[332/400] lg:aspect-[750/450] w-full">
+                <div className="image-container rounded-[12px] lg:rounded-xl relative overflow-hidden aspect-square md:aspect-[332/400] lg:aspect-[750/450] w-full">
                   {/* THE COVER: Only slides once to reveal */}
                   <div
                     ref={coverRef}
