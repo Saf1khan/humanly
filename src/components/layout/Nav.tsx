@@ -360,6 +360,15 @@ export const Nav = () => {
                   src="/images/asset 0.png"
                   alt="Humanly"
                   className="object-contain h-full w-auto px-1 transition-all duration-300"
+                  style={
+                    isWhyHumanly && !isMenuOpen
+                      ? {
+                          /* CSS Filter to convert black to #F7F1E8 */
+                          filter:
+                            "brightness(0) saturate(100%) invert(96%) sepia(4%) saturate(884%) hue-rotate(334deg) brightness(106%) contrast(96%)",
+                        }
+                      : {}
+                  }
                 />
               </a>
             </div>

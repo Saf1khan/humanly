@@ -165,7 +165,7 @@ export const WRevenueSection = () => {
                     key={i}
                     src={img}
                     alt=""
-                    className="w-full aspect-[4/5] object-cover"
+                    className="w-full aspect-[4/5] object-cover rounded-[12px] lg:rounded-xl"
                   />
                 ))}
               </div>
@@ -217,7 +217,7 @@ export const WRevenueSection = () => {
                       key={imgIdx}
                       loading="lazy"
                       src={img}
-                      className="w-full aspect-[4/5] object-cover"
+                      className="w-full aspect-[4/5] object-cover rounded-[12px] lg:rounded-xl"
                       alt={layer.title}
                     />
                   ))}
