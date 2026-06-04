@@ -142,7 +142,7 @@ export const Nav = () => {
 
     const updateNavbarTheme = () => {
       if (typeof window === "undefined") return;
-      const x = window.innerWidth / 2;
+      const x = 80; // Sample near the logo (left side), not center
       const y = 40; // Midpoint height of the navbar
 
       const elements = document.elementsFromPoint(x, y);
@@ -360,7 +360,7 @@ export const Nav = () => {
                   src={
                     useDarkText
                       ? "/images/asset 0.png"
-                      : "/images/Humanly_Logo_Lockup_Horizontal_White+Gradient on Dark (2).svg"
+                      : "/images/humanly-logo-white.svg"
                   }
                   alt="Humanly"
                   className="object-contain h-full w-auto px-1 transition-all duration-300"
