@@ -35,17 +35,7 @@ const partnerCategories = [
 
 export const PartnersAdvisors = () => {
   return (
-    <section className="relative w-full bg-[#faf9f6] py-24 lg:py-32 overflow-x-clip">
-      {/* Background */}
-      <div
-        className="absolute z-10 pointer-events-none top-1/3 translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(182, 207, 221, 0.3), rgba(182, 207, 221, 0.08) 50%, rgba(182, 207, 221, 0))" }}
-      />
-      <div
-        className="absolute z-10 pointer-events-none left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/4 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.04) 50%, rgba(255, 182, 55, 0))" }}
-      />
-
+    <section className="relative w-full bg-transparent py-24 lg:py-32 overflow-x-clip">
       <div className="container relative z-10 mx-auto px-6 max-w-[1200px]">
 
         {/* Header */}
@@ -56,8 +46,8 @@ export const PartnersAdvisors = () => {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="mb-10"
         >
-          <h2 className="font-serif text-3xl md:text-5xl text-[#11161a] mb-4 tracking-tight">Partners & Advisors</h2>
-          <p className="text-[#11161a]/50 font-light text-[1.2rem] leading-relaxed mb-8">
+          <h2 className="font-serif text-3xl md:text-5xl text-[rgb(34,66,40)] mb-4 tracking-tight">Partners & Advisors</h2>
+          <p className="text-[rgba(34,66,40,0.5)] font-light text-[1.2rem] leading-relaxed mb-8">
             The organizations and individuals who amplify Humanly®'s reach, credibility, and capabilities.
           </p>
           <div className="h-[1px] w-120 bg-[#c2a077]" />
@@ -75,10 +65,10 @@ export const PartnersAdvisors = () => {
             >
               {/* Category Label */}
               <div className="flex items-center gap-4 mb-10">
-                <span className="text-[0.7rem] font-semibold tracking-[0.2em] uppercase text-[#c2a077]">
+                <span className="text-[0.7rem] font-semibold tracking-[0.2em] uppercase text-[rgba(34,66,40,0.8)]">
                   {category.label}
                 </span>
-                <div className="flex-1 h-[1px] bg-[#11161a]/8" />
+                <div className="flex-1 h-[1px] bg-[rgba(34,66,40,0.08)]" />
               </div>
 
               {/* Logo Grid */}
@@ -90,7 +80,7 @@ export const PartnersAdvisors = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-40px" }}
                     transition={{ duration: 2, delay: itemIndex * 0.08, ease: "easeOut" }}
-                    className="group relative bg-white border border-[#11161a]/[0.06] rounded-2xl p-3 md:p-6 flex items-center justify-center overflow-hidden cursor-pointer hover:-translate-y-1 transition-all duration-500 hover:shadow-lg hover:shadow-[#c2a077]/[0.07] hover:border-[#c2a077]/20"
+                    className="group relative bg-white border border-[rgba(34,66,40,0.06)] rounded-2xl p-3 md:p-6 flex items-center justify-center overflow-hidden cursor-pointer hover:-translate-y-1 transition-all duration-500 hover:shadow-lg hover:shadow-[#c2a077]/[0.07] hover:border-[#c2a077]/20"
                   >
                     {/* Hover gold shimmer */}
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_70%,rgba(194,160,119,0.25),transparent_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
