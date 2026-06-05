@@ -163,8 +163,8 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
   return (
     <div className="mb-24 last:mb-0">
       <div className="relative mb-8">
-        <h3 className="text-4xl font-serif text-[#11161a] tracking-tight">{title}</h3>
-        <div className="h-[1px] w-full bg-[#c2a077] mt-3" />
+        <h3 className="text-4xl font-serif text-[rgb(34,66,40)] tracking-tight">{title}</h3>
+        <div className="h-[1px] w-full bg-[rgba(34,66,40,0.12)] mt-3" />
       </div>
 
       <div className="relative w-full">
@@ -219,12 +219,12 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
                       />
                     </motion.div>
                   </motion.div>
-                  <div className={`h-full overflow-hidden transition-all duration-300 sm:hidden lg:block ${isExpanded ? "w-72" : "w-0"}`}>
-                    <div className="flex h-full w-72 flex-col justify-end gap-4 overflow-hidden p-6 text-[#11161a]">
-                      <div className="h-[1px] w-8 bg-[#c2a077] mb-1" />
+                  <div className={`h-full overflow-hidden transition-all duration-300 sm:hidden lg:block ${isExpanded ? "w-72" : "w-0"} bg-[#5C6F5D]/10 backdrop-blur-[32px] border-l border-[#5C6F5D]/25`}>
+                    <div className="flex h-full w-72 flex-col justify-end gap-4 overflow-hidden p-6 text-[rgb(34,66,40)]">
+                      <div className="h-[1px] w-8 bg-[rgba(34,66,40,0.2)] mb-1" />
                       <p className="text-2xl font-serif tracking-tight">{member.name}</p>
-                      <p className="text-base text-[#c2a077] font-light">{member.title}</p>
-                      <button className="rounded-full inline-block transition text-left text-[#11161a] underline" type="button">
+                      <p className="text-base text-[rgba(34,66,40,0.8)] font-light">{member.title}</p>
+                      <button className="rounded-full inline-block transition text-left text-[rgb(34,66,40)] underline" type="button">
                         <span className="items-center inline-flex gap-2">
                           <span>View Full Bio</span>
                           <svg aria-hidden="true" fill="none" height="6" viewBox="0 0 20 6" width="20" xmlns="http://www.w3.org/2000/svg">
@@ -235,11 +235,11 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
                     </div>
                   </div>
                   <div className="flex h-full w-[277px] grow flex-col justify-between p-6 lg:hidden bg-transparent">
-                    <div className="flex flex-col gap-2 text-[#11161a]">
+                    <div className="flex flex-col gap-2 text-[rgb(34,66,40)]">
                       <p className="text-lg font-serif tracking-tight">{member.name}</p>
-                      <p className="text-[0.875rem] text-[#c2a077] font-light">{member.title}</p>
+                      <p className="text-[0.875rem] text-[rgba(34,66,40,0.8)] font-light">{member.title}</p>
                     </div>
-                    <button className="rounded-full inline-block transition text-left text-[#11161a] underline mt-4" type="button">
+                    <button className="rounded-full inline-block transition text-left text-[rgb(34,66,40)] underline mt-4" type="button">
                       <span>View Full Bio</span>
                     </button>
                   </div>
@@ -250,20 +250,20 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
         </div>
       </div>
 
-      <div className="relative mt-4 h-[4px] bg-[#11161a]/8 rounded-full overflow-hidden">
+      <div className="relative mt-4 h-[2px] bg-[rgba(34,66,40,0.05)] rounded-full overflow-hidden">
         <div
-          className="absolute inset-y-0 h-full bg-[#c2a077] rounded-full transition-all duration-300"
+          className="absolute inset-y-0 h-full bg-[rgba(34,66,40,0.35)] rounded-full transition-all duration-300"
           style={{ left: `${indicatorLeft}%`, width: `${indicatorWidth}%` }}
         />
       </div>
 
       <div className="flex flex-row justify-end gap-4 pt-6">
-        <button className="rounded-full p-5 rotate-180 bg-white border border-[#11161a]/[0.08] text-[#11161a] hover:border-[#c2a077]/40 hover:shadow-md transition-all duration-300" onClick={handlePrev}>
+        <button className="rounded-full p-5 rotate-180 bg-white border border-[rgba(34,66,40,0.08)] text-[rgb(34,66,40)] hover:border-[rgba(34,66,40,0.2)] hover:shadow-md transition-all duration-300" onClick={handlePrev}>
           <svg aria-hidden="true" fill="none" height="13" viewBox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg">
             <path d="M12.5303 6.53033C12.8232 6.23744 12.8232 5.76256 12.5303 5.46967L7.75736 0.696699C7.46447 0.403806 6.98959 0.403806 6.6967 0.696699C6.40381 0.989593 6.40381 1.46447 6.6967 1.75736L10.9393 6L6.6967 10.2426C6.40381 10.5355 6.40381 11.0104 6.6967 11.3033C6.98959 11.5962 7.46447 11.5962 7.75736 11.3033L12.5303 6.53033ZM0 6.75L12 6.75V5.25L0 5.25L0 6.75Z" fill="currentColor"></path>
           </svg>
         </button>
-        <button className="rounded-full p-5 bg-[#11161a] text-[#faf9f6] hover:bg-[#c2a077] transition-all duration-300" onClick={handleNext}>
+        <button className="rounded-full p-5 bg-[rgb(34,66,40)] text-[#faf9f6] hover:bg-[rgba(34,66,40,0.8)] transition-all duration-300" onClick={handleNext}>
           <svg aria-hidden="true" fill="none" height="13" viewBox="0 0 13 13" width="13" xmlns="http://www.w3.org/2000/svg">
             <path d="M12.5303 6.53033C12.8232 6.23744 12.8232 5.76256 12.5303 5.46967L7.75736 0.696699C7.46447 0.403806 6.98959 0.403806 6.6967 0.696699C6.40381 0.989593 6.40381 1.46447 6.6967 1.75736L10.9393 6L6.6967 10.2426C6.40381 10.5355 6.40381 11.0104 6.6967 11.3033C6.98959 11.5962 7.46447 11.5962 7.75736 11.3033L12.5303 6.53033ZM0 6.75L12 6.75V5.25L0 5.25L0 6.75Z" fill="currentColor"></path>
           </svg>
@@ -275,23 +275,7 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
 
 export const TeamGrid = () => {
   return (
-    <section className="z-10 relative w-full bg-[#faf9f6] py-24 overflow-x-clip border-t border-[#11161a]/5">
-      <div
-        className="absolute pointer-events-none left-0 top-1/6 -translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.1), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
-      />
-      <div
-        className="absolute pointer-events-none left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.1), rgba(255, 182, 55, 0.06) 50%, rgba(255, 182, 55, 0))" }}
-      />
-      <div
-        className="absolute pointer-events-none top-1/4 translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(182, 207, 221, 0.3), rgba(182, 207, 221, 0.08) 50%, rgba(182, 207, 221, 0))" }}
-      />
-      <div
-        className="absolute pointer-events-none left-0 bottom-0 -translate-x-1/2 translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(182, 207, 221, 0.3), rgba(182, 207, 221, 0.08) 50%, rgba(182, 207, 221, 0))" }}
-      />
+    <section className="z-10 relative w-full bg-transparent py-24 overflow-x-clip">
       <div className="container mx-auto px-6 relative z-10 max-w-[1200px]">
         <TeamCarousel title="Leadership Team" members={innovationTeam} />
         <TeamCarousel title="Development Team" members={developmentTeam} />

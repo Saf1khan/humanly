@@ -5,7 +5,8 @@ import { motion } from 'framer-motion';
 
 export const CultureSection = () => {
   return (
-    <section className="relative w-full bg-[#faf9f6] py-24 lg:py-32 overflow-x-clip">
+    <div className="bg-black">
+    <section className="relative w-full bg-[#5C6F5D] py-24 lg:py-32 overflow-x-clip rounded-b-[40px] md:rounded-b-[64px]">
       {/* Subtle Background Decoration */}
       <div
         className="absolute z-10 pointer-events-none left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
@@ -28,7 +29,7 @@ export const CultureSection = () => {
           <div className="flex flex-col justify-center">
 
             <motion.h2
-              className="text-3xl md:text-4xl lg:text-5xl text-[#11161a] mb-2 leading-tight tracking-tight"
+              className="text-3xl md:text-4xl lg:text-5xl text-white mb-2 leading-tight tracking-tight"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -38,7 +39,7 @@ export const CultureSection = () => {
             </motion.h2>
 
             <motion.h2
-              className="font-serif text-3xl md:text-4xl lg:text-5xl italic text-[#c2a077] font-light"
+              className="font-serif text-3xl md:text-4xl lg:text-5xl italic text-white/80 font-light"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -48,7 +49,7 @@ export const CultureSection = () => {
             </motion.h2>
 
             <motion.div
-              className="h-[1px] w-[508px] bg-gradient-to-r from-[#c2a077] to-transparent mb-8 mt-8"
+              className="h-[1px] w-[508px] bg-gradient-to-r from-white/50 to-transparent mb-8 mt-8"
               initial={{ opacity: 0, scaleX: 0 }}
               whileInView={{ opacity: 1, scaleX: 1 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -57,7 +58,7 @@ export const CultureSection = () => {
             />
 
             <motion.div
-              className="space-y-6 text-[#11161a]/60 text-[1.0625rem] leading-relaxed max-w-[52ch] font-light mb-8"
+              className="space-y-6 text-white/70 text-[1.0625rem] leading-relaxed max-w-[52ch] font-light mb-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -71,7 +72,7 @@ export const CultureSection = () => {
               </p>
             </motion.div>
             <motion.div
-              className="space-y-6 text-[#11161a]/60 text-[1.0625rem] leading-relaxed max-w-[52ch] font-light"
+              className="space-y-6 text-white/70 text-[1.0625rem] leading-relaxed max-w-[52ch] font-light"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -109,5 +110,6 @@ export const CultureSection = () => {
         </div>
       </div>
     </section>
+    </div>
   );
 };
