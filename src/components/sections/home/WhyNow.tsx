@@ -23,7 +23,7 @@ export const WhyNow = () => {
 
   return (
     <div className="bg-black">
-      <section className="bg-sandstone-200 py-16 text-[#1c1b1a] font-sans box-border relative z-20 overflow-hidden rounded-b-[40px] md:rounded-b-[64px]">
+      <section className="bg-sandstone-200 py-16 text-[#1c1b1a] font-sans box-border relative z-10 overflow-visible">
       <div className="grid max-w-[1440px] mx-auto gap-6 grid-cols-[repeat(24,1fr)] px-6 md:px-12 lg:px-16 box-border w-full">
         {/* Section Title */}
         <div className="col-span-full mb-8">

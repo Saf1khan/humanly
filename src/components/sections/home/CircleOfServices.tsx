@@ -55,11 +55,11 @@ export const CircleOfServicesSection = () => {
       {/* Background Gradients */}
       <div
         className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 227, 102, 0.08), rgba(255, 227, 102, 0.02) 50%, rgba(255, 227, 102, 0))" }}
       />
       <div
         className="absolute pointer-events-none left-0 -translate-x-1/2 top-1/2 -translate-y-1/4 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(255, 227, 102, 0.08), rgba(255, 227, 102, 0.02) 50%, rgba(255, 227, 102, 0))" }}
       />
       
       {/* Title & Description - Top Left */}

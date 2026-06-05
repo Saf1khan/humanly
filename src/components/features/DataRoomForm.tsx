@@ -5,8 +5,8 @@ import Image from 'next/image';
 
 export const DataRoomForm = () => {
   return (
-    <section className="relative w-full bg-[#111213] py-24 overflow-hidden text-sandstone-200 font-sans rounded-b-[40px] md:rounded-b-[64px] z-20">
-      
+    <section className="relative bg-[#241F21] overflow-x-clip">
+      <div className='w-full bg-[#111213] py-24 overflow-hidden text-sandstone-200 font-sans rounded-b-[40px] md:rounded-b-[64px] z-20'>
       {/* Background Gradients (matching the Oura blue glow) */}
       <div 
         className="absolute pointer-events-none right-0 translate-x-1/2 top-0 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]" 
@@ -93,6 +93,7 @@ export const DataRoomForm = () => {
 
           </form>
         </div>
+      </div>
       </div>
     </section>
   );
