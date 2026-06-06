@@ -5,8 +5,8 @@ import { motion } from 'framer-motion';
 
 export const CultureSection = () => {
   return (
-    <div className="bg-black">
-    <section className="relative w-full bg-[#5C6F5D] py-24 lg:py-32 overflow-x-clip rounded-b-[40px] md:rounded-b-[64px]">
+    <div style={{ backgroundColor: 'black' }} className="relative z-10 w-full overflow-hidden">
+    <section className="relative w-full bg-[#5C6F5D] py-24 lg:py-32 overflow-hidden rounded-b-[40px] md:rounded-b-[64px]">
       {/* Subtle Background Decoration */}
       <div
         className="absolute z-10 pointer-events-none left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
@@ -29,23 +29,13 @@ export const CultureSection = () => {
           <div className="flex flex-col justify-center">
 
             <motion.h2
-              className="text-3xl md:text-4xl lg:text-5xl text-white mb-2 leading-tight tracking-tight"
+              className="font-cormorant font-normal text-3xl md:text-4xl lg:text-5xl text-white leading-tight tracking-tight mb-2"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
             >
-              We're not just building communities.
-            </motion.h2>
-
-            <motion.h2
-              className="font-serif text-3xl md:text-4xl lg:text-5xl italic text-white/80 font-light"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
-            >
-              We're living the mission.
+              We&apos;re not just building communities. We&apos;re living the mission.
             </motion.h2>
 
             <motion.div

@@ -213,7 +213,8 @@ export const Nav = () => {
 
   const isWhyHumanly = pathname === "/why-humanly";
   const isHome = pathname === "/" || pathname === "/home";
-  const useDarkText = isMenuOpen || (isBgLight && !isWhyHumanly && !isHome);
+  const isTeam = pathname === "/team";
+  const useDarkText = isMenuOpen || isTeam || (isBgLight && !isWhyHumanly && !isHome);
 
   return (
     <>
@@ -373,12 +374,18 @@ export const Nav = () => {
               <li>
                 <a
                   href="/home"
-                  className={`group relative px-6 py-3 transition-all duration-300 ${useDarkText ? "text-[#4A4741] hover:text-black" : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80"}`}
+                  className={`group relative px-6 py-3 transition-all duration-300 ${
+                    useDarkText 
+                      ? (isTeam ? "text-[rgb(34,66,40)] hover:text-[rgb(34,66,40)]/80" : "text-[#4A4741] hover:text-black") 
+                      : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80"
+                  }`}
                 >
                   <span className="relative font-albert font-medium tracking-wide">
                     Home
                     <span
-                      className={`absolute -left-1 -bottom-1 h-[2px] w-[calc(100%+8px)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-60 ${useDarkText ? "bg-black" : "bg-white"}`}
+                      className={`absolute -left-1 -bottom-1 h-[2px] w-[calc(100%+8px)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-60 ${
+                        useDarkText ? (isTeam ? "bg-[rgb(34,66,40)]" : "bg-black") : "bg-white"
+                      }`}
                     ></span>
                   </span>
                 </a>
@@ -386,12 +393,18 @@ export const Nav = () => {
               <li>
                 <a
                   href="/why-humanly"
-                  className={`group relative px-6 py-3 transition-all duration-300 ${useDarkText ? "text-[#4A4741] hover:text-black" : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80"}`}
+                  className={`group relative px-6 py-3 transition-all duration-300 ${
+                    useDarkText 
+                      ? (isTeam ? "text-[rgb(34,66,40)] hover:text-[rgb(34,66,40)]/80" : "text-[#4A4741] hover:text-black") 
+                      : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80"
+                  }`}
                 >
                   <span className="relative font-albert font-medium tracking-wide">
                     Why Humanly
                     <span
-                      className={`absolute -left-1 -bottom-1 h-[2px] w-[calc(100%+8px)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-60 ${useDarkText ? "bg-black" : "bg-white"}`}
+                      className={`absolute -left-1 -bottom-1 h-[2px] w-[calc(100%+8px)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-60 ${
+                        useDarkText ? (isTeam ? "bg-[rgb(34,66,40)]" : "bg-black") : "bg-white"
+                      }`}
                     ></span>
                   </span>
                 </a>
@@ -399,12 +412,18 @@ export const Nav = () => {
               <li>
                 <a
                   href="/communities"
-                  className={`group relative px-6 py-3 transition-all duration-300 ${useDarkText ? "text-[#4A4741] hover:text-black" : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80"}`}
+                  className={`group relative px-6 py-3 transition-all duration-300 ${
+                    useDarkText 
+                      ? (isTeam ? "text-[rgb(34,66,40)] hover:text-[rgb(34,66,40)]/80" : "text-[#4A4741] hover:text-black") 
+                      : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80"
+                  }`}
                 >
                   <span className="relative font-albert font-medium tracking-wide">
                     Communities
                     <span
-                      className={`absolute -left-1 -bottom-1 h-[2px] w-[calc(100%+8px)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-60 ${useDarkText ? "bg-black" : "bg-white"}`}
+                      className={`absolute -left-1 -bottom-1 h-[2px] w-[calc(100%+8px)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-60 ${
+                        useDarkText ? (isTeam ? "bg-[rgb(34,66,40)]" : "bg-black") : "bg-white"
+                      }`}
                     ></span>
                   </span>
                 </a>
@@ -451,12 +470,18 @@ export const Nav = () => {
               <li>
                 <a
                   onMouseEnter={() => setIsMenuOpen(true)}
-                  className={`group relative px-6 py-3 transition-all duration-300 flex items-center gap-1.5 ${useDarkText ? "text-black hover:text-black/70 font-semibold" : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80"}`}
+                  className={`group relative px-6 py-3 transition-all duration-300 flex items-center gap-1.5 ${
+                    useDarkText 
+                      ? (isTeam ? "text-[rgb(34,66,40)] hover:text-[rgb(34,66,40)]/80 font-semibold" : "text-black hover:text-black/70 font-semibold") 
+                      : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80"
+                  }`}
                 >
                   <span className="relative font-albert font-medium tracking-wide">
                     Organisation
                     <span
-                      className={`absolute -left-1 -bottom-1 h-[2px] w-[calc(100%+8px)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-60 ${useDarkText ? "bg-black" : "bg-white"}`}
+                      className={`absolute -left-1 -bottom-1 h-[2px] w-[calc(100%+8px)] origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-60 ${
+                        useDarkText ? (isTeam ? "bg-[rgb(34,66,40)]" : "bg-black") : "bg-white"
+                      }`}
                     ></span>
                   </span>
                   <svg

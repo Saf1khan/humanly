@@ -163,7 +163,7 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
   return (
     <div className="mb-24 last:mb-0">
       <div className="relative mb-8">
-        <h3 className="text-4xl font-serif text-[rgb(34,66,40)] tracking-tight">{title}</h3>
+        <h3 className="text-4xl font-cormorant font-normal text-[rgb(34,66,40)] tracking-tight">{title}</h3>
         <div className="h-[1px] w-full bg-[rgba(34,66,40,0.12)] mt-3" />
       </div>
 
