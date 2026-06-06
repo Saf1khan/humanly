@@ -10,11 +10,7 @@ const stats = [
 
 export const CredentialsStrip = () => {
   return (
-    <section className="relative w-full py-24 overflow-x-clip">
-      {/* Green glow blobs at z-0 — siblings of the container so backdrop-filter picks them up */}
-      <div className="absolute inset-0 z-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 15% 60%, rgba(101, 115, 108, 0.14) 0px, transparent 40%)" }} />
-      <div className="absolute inset-0 z-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 50% 60%, rgba(118, 118, 100, 0.12) 0px, transparent 40%)" }} />
-      <div className="absolute inset-0 z-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 85% 60%, rgba(115, 120, 107, 0.14) 0px, transparent 40%)" }} />
+    <section className="relative w-full py-24 overflow-x-clip bg-transparent">
 
       {/* Container at z-10 — cards' backdrop-filter blurs the z-0 blobs behind */}
       <div className="container relative z-10 mx-auto px-6 max-w-[1200px]">
@@ -24,8 +20,8 @@ export const CredentialsStrip = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1.5, ease: "easeOut" }}
         >
-          <p className="text-[rgba(34,66,40,0.8)] text-[1.2rem] font-medium tracking-[0.25em] uppercase mb-4">The Experience Behind the Vision</p>
-          <h2 className="font-serif text-3xl md:text-5xl text-[rgb(34,66,40)] mb-20 tracking-tight">Numbers that prove execution capability.</h2>
+          <p className="text-[0.75rem] font-semibold tracking-[0.2em] uppercase text-[rgba(34,66,40,0.6)] mb-4">The Experience Behind the Vision</p>
+          <h2 className="font-cormorant font-normal text-3xl md:text-5xl text-[rgb(34,66,40)] mb-20 tracking-tight">Numbers that prove execution capability.</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -45,15 +41,15 @@ export const CredentialsStrip = () => {
                 boxShadow: "0 4px 30px rgba(0, 0, 0, 0.04)"
               }}
             >
-              {/* Gold top border on hover */}
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#c2a077] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* Green top border on hover */}
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[rgb(34,66,40)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div className="relative z-10">
-                <div className="font-serif text-5xl md:text-6xl lg:text-7xl text-[rgb(34,66,40)] mb-4 leading-none tracking-tight">
-                  {stat.prefix}<span className="text-[rgba(34,66,40,0.8)]">{stat.num}</span>{stat.suffix}
+                <div className="font-cormorant text-5xl md:text-6xl lg:text-7xl text-[rgb(34,66,40)] mb-4 leading-none tracking-tight">
+                  {stat.prefix}{stat.num}{stat.suffix}
                 </div>
                 <div className="text-[1.05rem] text-[rgba(34,66,40,0.6)] leading-relaxed mb-3 font-light">{stat.label}</div>
-                <div className="text-[0.85rem] text-[rgba(34,66,40,0.55)] italic font-normal">{stat.sub}</div>
+                <div className="text-[0.85rem] text-[rgba(34,66,40,0.55)] font-light">{stat.sub}</div>
               </div>
             </motion.div>
           ))}

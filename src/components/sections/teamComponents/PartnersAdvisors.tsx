@@ -46,11 +46,11 @@ export const PartnersAdvisors = () => {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="mb-10"
         >
-          <h2 className="font-serif text-3xl md:text-5xl text-[rgb(34,66,40)] mb-4 tracking-tight">Partners & Advisors</h2>
-          <p className="text-[rgba(34,66,40,0.5)] font-light text-[1.2rem] leading-relaxed mb-8">
-            The organizations and individuals who amplify Humanly®'s reach, credibility, and capabilities.
+          <h2 className="font-cormorant font-normal text-3xl md:text-5xl text-[rgb(34,66,40)] mb-4 tracking-tight">Partners & Advisors</h2>
+          <p className="text-[1.05rem] font-light text-[rgba(34,66,40,0.55)] leading-relaxed mb-8">
+            The organizations and individuals who amplify Humanly®’s reach, credibility, and capabilities.
           </p>
-          <div className="h-[1px] w-120 bg-[#c2a077]" />
+
         </motion.div>
 
         {/* Category Sections */}
@@ -65,7 +65,7 @@ export const PartnersAdvisors = () => {
             >
               {/* Category Label */}
               <div className="flex items-center gap-4 mb-10">
-                <span className="text-[0.7rem] font-semibold tracking-[0.2em] uppercase text-[rgba(34,66,40,0.8)]">
+                <span className="text-[0.75rem] font-semibold tracking-[0.2em] uppercase text-[rgba(34,66,40,0.6)]">
                   {category.label}
                 </span>
                 <div className="flex-1 h-[1px] bg-[rgba(34,66,40,0.08)]" />
