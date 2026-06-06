@@ -271,10 +271,10 @@ export const WProblemSection = () => {
         .wp-problem-title {
             color: #111111;
             font-family: "Cormorant Garamond", Georgia, serif;
-            font-size: clamp(30px, 4.5vw, 54px);
-            font-weight: 500;
-            line-height: 0.9;
-            letter-spacing: -0.8px;
+            font-size: clamp(26px, 3vw, 46px);
+            font-weight: 400;
+            line-height: 1.08;
+            letter-spacing: -0.03em;
             font-variant-ligatures: no-common-ligatures;
             transform-origin: bottom left;
             white-space: nowrap;
@@ -335,44 +335,46 @@ export const WProblemSection = () => {
         }
       `}</style>
 
-      <div className="content-container md:mx-auto">
+      <div className="content-container max-w-[1440px] mx-auto px-8 md:px-16">
         <div className="acf-innerblocks-container">
           <div key={currentIndex} className="gl-b-alternating-column relative">
-            <div className="ac-animated-heading lg:flex lg:flex-row lg:justify-between px-8 pt-[50px] md:px-16 md:pt-[100px] lg:pt-[120px] 2xl:grid 2xl:grid-cols-2 2xl:gap-x-[126px] !overflow-visible">
+            <div className="ac-animated-heading lg:flex lg:flex-row lg:justify-between pt-[50px] md:pt-[100px] lg:pt-[120px] gap-16 lg:gap-[40px] !overflow-visible">
               {/* Left Content: Text */}
-              <div className="information-container order-1 flex flex-col w-full lg:max-w-[550px] 2xl:max-w-full lg:justify-start justify-center">
-                <h1
-                  ref={titleRef}
-                  className="wp-problem-title font-serif font-medium text-[#111111]"
-                >
-                  {firstPart} <span>{secondPart}</span>
-                </h1>
+              <div className="information-container order-1 flex flex-col w-full lg:w-[45%] justify-center lg:justify-center">
+                <div className="w-full lg:max-w-[500px]">
+                  <h1
+                    ref={titleRef}
+                    className="wp-problem-title font-serif font-normal text-[#111111]"
+                  >
+                    {firstPart} <span>{secondPart}</span>
+                  </h1>
 
-                <div
-                  ref={bodyRef}
-                  className="body-text mt-6 lg:mt-[30px] text-[#111111] text-[14px] leading-[20px] md:text-[15px] md:leading-[22px] lg:text-[16px] lg:leading-[24px] font-light"
-                >
-                  <p className="font-bold mb-4 text-[#111111]">{p.tagline}</p>
-                  <p className="text-[#5F646B]">{p.description}</p>
+                  <div
+                    ref={bodyRef}
+                    className="body-text mt-6 lg:mt-[30px] text-[#111111] text-[15px] leading-relaxed md:text-[16px] lg:text-[17px] font-light"
+                  >
+                    <p className="font-bold mb-4 text-[#111111]">{p.tagline}</p>
+                    <p className="text-[#5F646B]">{p.description}</p>
 
-                  <div className="mt-8 flex flex-col gap-3 border-t border-[rgba(17,17,17,0.08)] pt-6">
-                    <div className="flex justify-between">
-                      <span className="text-[#5F646B]">{p.stat1.label}</span>
-                      <span className="font-bold text-[#111111]">
-                        {p.stat1.value}
-                      </span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-[#5F646B]">{p.stat2.label}</span>
-                      <span className="font-bold text-[#111111]">
-                        {p.stat2.value}
-                      </span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-[#5F646B]">{p.stat3.label}</span>
-                      <span className="font-bold text-[#111111]">
-                        {p.stat3.value}
-                      </span>
+                    <div className="mt-8 flex flex-col gap-3 border-t border-[rgba(17,17,17,0.08)] pt-6">
+                      <div className="flex justify-between">
+                        <span className="text-[#5F646B]">{p.stat1.label}</span>
+                        <span className="font-bold text-[#111111]">
+                          {p.stat1.value}
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-[#5F646B]">{p.stat2.label}</span>
+                        <span className="font-bold text-[#111111]">
+                          {p.stat2.value}
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-[#5F646B]">{p.stat3.label}</span>
+                        <span className="font-bold text-[#111111]">
+                          {p.stat3.value}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -381,7 +383,7 @@ export const WProblemSection = () => {
               {/* Right Content: Image & Navigation */}
               <div
                 ref={imageContainerRef}
-                className="order-2 flex flex-col w-full lg:max-w-[750px] 2xl:max-w-full"
+                className="order-2 flex flex-col w-full lg:w-[50%] lg:max-w-[750px]"
               >
                 <div className="image-container rounded-[12px] lg:rounded-xl relative overflow-hidden aspect-square md:aspect-[332/400] lg:aspect-[750/450] w-full">
                   {/* THE COVER: Only slides once to reveal */}

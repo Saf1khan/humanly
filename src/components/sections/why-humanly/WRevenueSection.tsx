@@ -97,59 +97,61 @@ export const WRevenueSection = () => {
 
   return (
     <section className="w-full text-[#111111] font-['Albert_Sans',-apple-system,BlinkMacSystemFont,sans-serif]">
-      <div className="w-full px-8 md:px-16">
+      <div className="w-full max-w-[1440px] mx-auto px-8 md:px-16">
         {/* Desktop View: Exact replica of reference layout */}
-        <div className="desktop hidden lg:flex flex-row items-start gap-[105px] pt-[100px]">
+        <div className="desktop hidden lg:flex flex-row items-start gap-16 lg:gap-[80px] pt-[100px]">
           {/* LEFT: Sticky Column */}
-          <div className="left sticky top-[100px] basis-[55%] self-start pb-[100px]">
-            <h2
-              className={`text-[56px] leading-[52px] tracking-[-0.8px] font-serif font-medium not-italic mb-14 transition-opacity duration-700 ease-out ${
-                mounted ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              Five revenue layers.
-              <br />
-              <span className="not-italic">
-                One integrated platform.
-              </span>
-            </h2>
+          <div className="left sticky top-[100px] lg:w-[45%] self-start pb-[100px]">
+            <div className="w-full lg:max-w-[500px]">
+              <h2
+                className={`text-3xl md:text-4xl lg:text-5xl leading-[1.6] tracking-tight font-serif font-normal not-italic mb-14 transition-opacity duration-700 ease-out ${
+                  mounted ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                Five revenue layers.
+                <br />
+                <span className="not-italic">
+                  One integrated platform.
+                </span>
+              </h2>
 
-            <div className="accordions flex flex-col gap-[30px]">
-              {layers.map((layer, idx) => {
-                const isActive = activeIndex === idx;
-                return (
-                  <div
-                    key={layer.id}
-                    onClick={() => handleAccordionClick(idx)}
-                    className={`group cursor-pointer border-b border-[rgba(17,17,17,0.08)] pb-4 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-                      isActive ? "opacity-100" : "opacity-40"
-                    }`}
-                  >
-                    <h4
-                      className={`text-[14px] uppercase font-semibold tracking-[0.1em] transition-all duration-300 ease-linear text-[#111111] ${
-                        isActive ? "pl-[48px]" : "pl-0"
-                      }`}
-                    >
-                      <span style={{ color: layer.color }}>{layer.num}</span> —{" "}
-                      {layer.title}
-                    </h4>
+              <div className="accordions flex flex-col gap-[30px]">
+                {layers.map((layer, idx) => {
+                  const isActive = activeIndex === idx;
+                  return (
                     <div
-                      className={`overflow-hidden transition-all duration-300 ease-linear ${
-                        isActive ? "max-h-40 pt-4 pl-[48px]" : "max-h-0"
+                      key={layer.id}
+                      onClick={() => handleAccordionClick(idx)}
+                      className={`group cursor-pointer border-b border-[rgba(17,17,17,0.08)] pb-4 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                        isActive ? "opacity-100" : "opacity-40"
                       }`}
                     >
-                      <p className="text-[16px] leading-[22px] text-[#5F646B] max-w-[500px]">
-                        {layer.desc}
-                      </p>
+                      <h4
+                        className={`text-[14px] uppercase font-semibold tracking-[0.1em] transition-all duration-300 ease-linear text-[#111111] ${
+                          isActive ? "pl-[48px]" : "pl-0"
+                        }`}
+                      >
+                        <span style={{ color: layer.color }}>{layer.num}</span> —{" "}
+                        {layer.title}
+                      </h4>
+                      <div
+                        className={`overflow-hidden transition-all duration-300 ease-linear ${
+                          isActive ? "max-h-40 pt-4 pl-[48px]" : "max-h-0"
+                        }`}
+                      >
+                        <p className="text-[17px] leading-relaxed font-light text-[#5F646B] max-w-[500px]">
+                          {layer.desc}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
 
           {/* RIGHT: Scroll Column */}
-          <div className="right flex-1 flex flex-col">
+          <div className="right lg:w-[50%] flex flex-col">
             {layers.map((layer, idx) => (
               <div
                 key={layer.id}
@@ -180,7 +182,7 @@ export const WRevenueSection = () => {
               Designed Revenue Model
             </p>
             <h2
-              className={`font-serif font-medium text-[clamp(28px,5vw,44px)] leading-[1.1] tracking-[-0.8px] text-[#111111] mb-4 transition-opacity duration-700 ease-out ${
+              className={`font-serif font-normal text-3xl md:text-4xl leading-tight tracking-tight text-[#111111] mb-4 transition-opacity duration-700 ease-out ${
                 mounted ? "opacity-100" : "opacity-0"
               }`}
             >
@@ -190,7 +192,7 @@ export const WRevenueSection = () => {
                 One integrated platform.
               </span>
             </h2>
-            <p className="font-normal text-[16px] leading-[24px] text-[#5F646B]">
+            <p className="font-light text-[17px] leading-relaxed text-[#5F646B]">
               Unlike a traditional developer that captures only one value
               stream, Humanly is designed to compound value across the built
               environment, daily service flows, and platform intelligence.
@@ -208,7 +210,7 @@ export const WRevenueSection = () => {
                     {layer.title}
                   </h4>
                 </div>
-                <p className="font-normal text-[15px] leading-[22px] text-[#5F646B]">
+                <p className="font-light text-[17px] leading-relaxed text-[#5F646B]">
                   {layer.desc}
                 </p>
                 <div className="flex flex-col gap-4 mt-2">

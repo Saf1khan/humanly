@@ -8,7 +8,7 @@ const slides = [
     sub: "+ units",
     description:
       "Unit housing shortage nationwide — workforce families earning 80–120% AMI are systematically excluded from quality options.",
-    image: "/images/AdobeStock_279224695.jpeg",
+    image: "/images/pexels-ninobur-19443316.jpg",
     color: "#6E7C8D",
   },
   {
@@ -17,7 +17,7 @@ const slides = [
     sub: "+ gap",
     description:
       "Market opportunity gap left untapped by fragmented, siloed development that fails to serve the workforce segment.",
-    image: "/images/AdobeStock_1011273017.jpeg",
+    image: "/images/pexels-brettjordan-35011601.jpg",
     color: "#A3B2C3",
   },
   {
@@ -26,7 +26,7 @@ const slides = [
     sub: "% burdened",
     description:
       "Workforce families cost-burdened — spending more than 30% of income on housing, leaving little for savings or stability.",
-    image: "/images/AdobeStock_300644895.jpeg",
+    image: "/images/pexels-khwanchai-4174740.jpg",
     color: "#6E7C8D",
   },
 ];
@@ -55,8 +55,7 @@ export const WStatsSection = () => {
                   {s.title}
                 </p>
                 <p
-                  className="text-[clamp(64px,6vw,99px)] font-semibold m-0 leading-none"
-                  style={{ color: s.color }}
+                  className="text-[clamp(64px,6vw,99px)] font-serif font-normal m-0 leading-none text-[#111111]"
                 >
                   {s.count}
                   <sub className="text-base font-normal align-baseline ml-1 text-[#5F646B]">
