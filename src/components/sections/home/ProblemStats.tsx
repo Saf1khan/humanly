@@ -83,13 +83,13 @@ export const ProblemMissionSection = () => {
   return (
     <section className="relative overflow-x-clip bg-transparent py-20">
       <div className="pointer-events-none absolute inset-0">
-        <div
+        {/* <div
           className="absolute -left-[10%] top-[10%] w-[clamp(20rem,50vw,50rem)] h-[clamp(20rem,50vw,50rem)]"
           style={{
             background:
               "radial-gradient(50% 50%, rgba(107,206,255, 0.25), rgba(107,206,255, 0.1) 50%, rgba(107,206,255, 0))",
           }}
-        />
+        /> */}
         
       </div>
 
@@ -105,7 +105,7 @@ export const ProblemMissionSection = () => {
             <div className="h-[2px] w-12 rounded-full bg-h-primary" />
           </div>
 
-          <h2 className="text-4xl font-display font-cormorant font-light leading-[1.08] tracking-tight text-h-dark md:text-5xl lg:hidden text-sandstone-500">
+          <h2 className="text-4xl font-display font-cormorant font-light leading-[1.08] tracking-tight text-h-dark md:text-5xl text-sandstone-500 lg:hidden ">
             America’s Housing is Broken
           </h2>
         </motion.div>

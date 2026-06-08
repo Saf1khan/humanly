@@ -5,14 +5,19 @@ import { motion } from "framer-motion";
 
 export const CLease = () => {
   return (
-    <section className="bg-[#faf8f1] py-28 lg:py-40">
+    <section className="relative bg-transparent py-28 lg:py-40">
+      {/* Violet radial gradient overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse at 80% 20%, rgba(170, 61, 173, 0.07) 0%, transparent 50%), radial-gradient(ellipse at 10% 80%, rgba(170, 61, 173, 0.06) 0%, transparent 45%)" }}
+      />
       <div className="max-w-[1280px] mx-auto px-6 lg:px-0">
         {/* Section Header */}
         <div className="mb-16 lg:mb-24 max-w-4xl">
-          <h2 className="font-normal font-bodoni text-4xl md:text-6xl text-[#1a1a1a] mb-5 tracking-tight">
+          <h2 className="font-normal font-cormorant text-3xl md:text-5xl leading-[40px] md:leading-[60px] text-[#1a1a1a] mb-3 tracking-tight">
             The Ground Lease Advantage
           </h2>
-          <p className="text-base md:text-lg font-normal font-albert text-[#5a5a5a] leading-relaxed">
+          <p className="text-base md:text-lg font-light font-albert text-[#5a5a5a] leading-[28px] md:leading-[30px]">
             A structural model built for long-term value — for operators, investors, and residents.
           </p>
         </div>
@@ -23,7 +28,7 @@ export const CLease = () => {
           <div className="lg:col-span-5 space-y-10">
             <div>
               {/* Huge Serif Stat */}
-              <div className="text-[clamp(5rem,10vw,8.5rem)] font-light font-bodoni text-[#1a1a1a] tracking-tight leading-none mb-4">
+              <div className="text-[108px] font-light font-bodoni text-[#1a1a1a]/80 tracking-tight leading-none mb-4">
                 ~70%
               </div>
               <p className="text-base md:text-lg font-albert font-medium text-[#4a4a4a] leading-relaxed">

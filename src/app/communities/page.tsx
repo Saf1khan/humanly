@@ -5,7 +5,7 @@ import { CSteward } from "@/components/sections/communities/CSteward";
 import { CLease } from "@/components/sections/communities/CLease";
 import { CHumanDesign } from "@/components/sections/communities/CHumanDesign";
 import { CProofOfConcept } from "@/components/sections/communities/CProofOfConcept";
-import { CVillageCenter } from "@/components/sections/communities/CVillageCenter";
+import { VillageCenterSection } from "@/components/sections/communities/CVillageCenter";
 import { COutcomeCards } from "@/components/sections/communities/COutcomeCards";
 import { CHousingMix } from "@/components/sections/communities/CHousingMix";
 import { CPipeline } from "@/components/sections/communities/CPipeline";
@@ -15,7 +15,7 @@ import { SmoothScroll } from "@/components/ui/SmoothScroll";
 export default function CommunitiesPage() {
   return (
     <SmoothScroll>
-      <main className="font-sans selection:bg-[#1a4f82] selection:text-white bg-[#faf8f1]">
+      <main className="font-sans selection:bg-[#1a4f82] selection:text-white bg-sandstone-200">
         <CHero />
         <COutcomes />
         <CSteward />
@@ -23,7 +23,7 @@ export default function CommunitiesPage() {
         <CHumanDesign />
         <CHousingMix />
         <CProofOfConcept />
-        <CVillageCenter />
+        <VillageCenterSection />
         <COutcomeCards />
         <CPipeline />
         <Footer />

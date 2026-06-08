@@ -1,245 +1,200 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import { RevealOnScroll } from "../../ui/RevealOnScroll";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-/* ─── Data ─────────────────────────────────────────────────────────────── */
+import { useState, useEffect } from "react";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 
 const carouselItems = [
-  { name: "Primary Care Clinic", size: "8,000 SF", image: "/images/pexels-shkrabaanthony-5214992.jpg" },
-  { name: "Behavioral Health", size: "4,000 SF", image: "/images/pexels-silverkblack-23496452.jpg" },
-  { name: "Dental Care", size: "3,000 SF", image: "/images/pexels-cedric-fauntleroy-4269934.jpg" },
-  { name: "Pharmacy", size: "3,500 SF", image: "/images/pexels-yuugen-rai-924575946-25242198.jpg" },
-  { name: "Fitness Center", size: "6,000 SF", image: "/images/pexels-hiroom-17227606.jpg" },
-  { name: "Childcare Center", size: "8,000 SF", image: "/images/pexels-kseniachernaya-8535629.jpg" },
-  { name: "After-School Programs", size: "4,000 SF", image: "/images/pexels-anastasia-shuraeva-8466021.jpg" },
-  { name: "Co-Working Space", size: "5,000 SF", image: "/images/pexels-enginakyurt-19996231.jpg" },
-  { name: "Community Kitchen", size: "3,500 SF", image: "/images/pexels-rdne-6647050.jpg" },
-  { name: "Fresh Market / Grocery", size: "12,000 SF", image: "/images/pexels-matthew-baxter-1366354232-33975355.jpg" },
-  { name: "Restaurant / Café", size: "4,000 SF", image: "/images/pexels-tkirkgoz-19535595.jpg" },
-  { name: "Event Space", size: "6,000 SF", image: "/images/pexels-cflaten-5767823.jpg" },
-  { name: "Maker Space", size: "4,000 SF", image: "/images/pexels-cottonbro-7484164.jpg" },
-  { name: "Business Incubator", size: "5,000 SF", image: "/images/pexels-tima-miroshnichenko-6914062.jpg" },
-  { name: "Outdoor Amphitheater", size: "10,000 SF", image: "/images/pexels-maxchen2k-18090276.jpg" },
+  { name: "Primary Care Clinic", size: "8,000 SF", image: "/images/pexels-shkrabaanthony-5214992.jpg", swatch: "/images/pexels-shkrabaanthony-5214992.jpg" },
+  { name: "Behavioral Health", size: "4,000 SF", image: "/images/pexels-silverkblack-23496452.jpg", swatch: "/images/pexels-silverkblack-23496452.jpg" },
+  { name: "Dental Care", size: "3,000 SF", image: "/images/pexels-cedric-fauntleroy-4269934.jpg", swatch: "/images/pexels-cedric-fauntleroy-4269934.jpg" },
+  { name: "Pharmacy", size: "3,500 SF", image: "/images/pexels-yuugen-rai-924575946-25242198.jpg", swatch: "/images/pexels-yuugen-rai-924575946-25242198.jpg" },
+  { name: "Fitness Center", size: "6,000 SF", image: "/images/pexels-hiroom-17227606.jpg", swatch: "/images/pexels-hiroom-17227606.jpg" },
+  { name: "Childcare Center", size: "8,000 SF", image: "/images/pexels-kseniachernaya-8535629.jpg", swatch: "/images/pexels-kseniachernaya-8535629.jpg" },
+  { name: "After-School Programs", size: "4,000 SF", image: "/images/pexels-anastasia-shuraeva-8466021.jpg", swatch: "/images/pexels-anastasia-shuraeva-8466021.jpg" },
+  { name: "Co-Working Space", size: "5,000 SF", image: "/images/pexels-enginakyurt-19996231.jpg", swatch: "/images/pexels-enginakyurt-19996231.jpg" },
+  { name: "Community Kitchen", size: "3,500 SF", image: "/images/pexels-rdne-6647050.jpg", swatch: "/images/pexels-rdne-6647050.jpg" },
+  { name: "Fresh Market / Grocery", size: "12,000 SF", image: "/images/pexels-matthew-baxter-1366354232-33975355.jpg", swatch: "/images/pexels-matthew-baxter-1366354232-33975355.jpg" },
+  { name: "Restaurant / Café", size: "4,000 SF", image: "/images/pexels-tkirkgoz-19535595.jpg", swatch: "/images/pexels-tkirkgoz-19535595.jpg" },
+  { name: "Event Space", size: "6,000 SF", image: "/images/pexels-cflaten-5767823.jpg", swatch: "/images/pexels-cflaten-5767823.jpg" },
+  { name: "Maker Space", size: "4,000 SF", image: "/images/pexels-cottonbro-7484164.jpg", swatch: "/images/pexels-cottonbro-7484164.jpg" },
+  { name: "Business Incubator", size: "5,000 SF", image: "/images/pexels-tima-miroshnichenko-6914062.jpg", swatch: "/images/pexels-tima-miroshnichenko-6914062.jpg" },
+  { name: "Outdoor Amphitheater", size: "10,000 SF", image: "/images/pexels-maxchen2k-18090276.jpg", swatch: "/images/pexels-maxchen2k-18090276.jpg" }
 ];
 
-const STACK_CARDS = carouselItems.slice(0, 15);
+const VISIBLE_SWATCHES = 5;
 
-/* ─── Component ─────────────────────────────────────────────────────────── */
+export const VillageCenterSection = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [windowStart, setWindowStart] = useState(0);
 
-export const CVillageCenter = () => {
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
-  const titleRefs = useRef<(HTMLHeadingElement | null)[]>([]);
+  const goTo = (index: number) => {
+    setActiveIndex(index);
+    const ideal = index - Math.floor(VISIBLE_SWATCHES / 2);
+    const maxStart = carouselItems.length - VISIBLE_SWATCHES;
+    setWindowStart(Math.max(0, Math.min(ideal, maxStart)));
+  };
+
+  const handlePrev = () => {
+    goTo((activeIndex - 1 + carouselItems.length) % carouselItems.length);
+  };
+
+  const handleNext = () => {
+    goTo((activeIndex + 1) % carouselItems.length);
+  };
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    const timer = setInterval(() => {
+      handleNext();
+    }, 4500); // Perfectly balanced 6.5s interval
+    return () => clearInterval(timer);
+  }, [activeIndex]);
 
-    gsap.registerPlugin(ScrollTrigger);
-
-    const wrapper = wrapperRef.current;
-    const rows = rowRefs.current.filter(Boolean) as HTMLDivElement[];
-    const cards = cardRefs.current.filter(Boolean) as HTMLDivElement[];
-    const images = imageRefs.current.filter(Boolean) as HTMLImageElement[];
-    const titles = titleRefs.current.filter(Boolean) as HTMLHeadingElement[];
-
-    if (!wrapper || rows.length < 2 || cards.length < 2) return;
-
-    const triggers: ScrollTrigger[] = [];
-
-    rows.forEach((row, i) => {
-      const card = cards[i];
-      const image = images[i];
-      const title = titles[i];
-
-      if (!card) return;
-
-      gsap.set(card, {
-        transformOrigin: "top center",
-        force3D: true,
-        willChange: "transform",
-      });
-
-      if (image) {
-        gsap.set(image, {
-          force3D: true,
-          willChange: "transform",
-        });
-      }
-
-      if (title) {
-        gsap.set(title, {
-          force3D: true,
-          willChange: "transform",
-        });
-      }
-
-      const _setCardScaleX = gsap.quickSetter(card, "scaleX");
-      const _setCardScaleY = gsap.quickSetter(card, "scaleY");
-      const setCardScale = (v: number) => { _setCardScaleX(v); _setCardScaleY(v); };
-      const setCardY = gsap.quickSetter(card, "yPercent");
-      const setCardRotateX = gsap.quickSetter(card, "rotationX");
-
-      const _setImageScaleX = image ? gsap.quickSetter(image, "scaleX") : null;
-      const _setImageScaleY = image ? gsap.quickSetter(image, "scaleY") : null;
-      const setImageScale = (image && _setImageScaleX && _setImageScaleY)
-        ? (v: number) => { _setImageScaleX(v); _setImageScaleY(v); }
-        : null;
-      const setImageY = image ? gsap.quickSetter(image, "y") : null;
-      const setTitleY = title ? gsap.quickSetter(title, "y") : null;
-
-      const st = ScrollTrigger.create({
-        trigger: row,
-        start: `top ${120 + 8 * i}px`,
-        endTrigger: wrapper,
-        end: "bottom bottom",
-        pin: row,
-        pinSpacing: false,
-        scrub: 0.5,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-        fastScrollEnd: true,
-        onUpdate: (self) => {
-          const p = self.progress;
-
-          setCardScale(1 - p * 0.011);
-          setCardY(p * 0.55);
-          setCardRotateX(p * -2.2);
-
-          if (setImageScale) setImageScale(1 + p * 0.055);
-          if (setImageY) setImageY(p * -5.2);
-          if (setTitleY) setTitleY(p * -2.8);
-        },
-      });
-
-      triggers.push(st);
-    });
-
-    ScrollTrigger.refresh();
-
-    return () => {
-      triggers.forEach((st) => st.kill());
-    };
-  }, []);
+  const visibleItems = carouselItems.slice(windowStart, windowStart + VISIBLE_SWATCHES);
 
   return (
-    <section className="relative w-full bg-[#faf8f1] overflow-x-clip">
-      {/* ── Background gradients ────────────────────────────────────────── */}
+    <section className="relative w-full bg-transparent py-14 lg:py-24 overflow-visible">
+      {/* Background Gradients — violet to match CHero */}
       <div
         className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255,182,55,0.08), rgba(255,182,55,0.04) 50%, rgba(255,182,55,0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(170, 61, 173, 0.08), rgba(170, 61, 173, 0.04) 50%, rgba(170, 61, 173, 0))" }}
       />
       <div
         className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-[-35%] w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255,182,55,0.08), rgba(255,182,55,0.04) 50%, rgba(255,182,55,0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(170, 61, 173, 0.08), rgba(170, 61, 173, 0.04) 50%, rgba(170, 61, 173, 0))" }}
       />
       <div
         className="absolute pointer-events-none left-0 -translate-x-1/2 top-1/2 -translate-y-1/4 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255,182,55,0.08), rgba(255,182,55,0.04) 50%, rgba(255,182,55,0))" }}
+        style={{ background: "radial-gradient(50% 50%, rgba(170, 61, 173, 0.08), rgba(170, 61, 173, 0.04) 50%, rgba(170, 61, 173, 0))" }}
       />
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
 
-      {/* ── Heading block ───────────────────────────────────────────────── */}
-      <div className="pt-14 lg:pt-24 pb-10 relative z-10">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
-          <div className="flex flex-col gap-y-8">
-            <div className="flex flex-col gap-2 md:gap-3">
-              <RevealOnScroll>
-                <h2 className="text-[2rem] tracking-tight md:text-[2.5rem] lg:text-[3.5rem] text-left leading-tight text-sandstone-500 font-bold">
-                  Village Center
-                </h2>
-              </RevealOnScroll>
-              <RevealOnScroll delay="delay-100">
-                <p className="text-sandstone-500/80 text-base md:text-lg tracking-wide font-normal">
-                  15 Integrated facilities · 90,000+ SF of community space
-                </p>
-              </RevealOnScroll>
-            </div>
+        <div className="grid grid-cols-1 gap-y-12">
 
+          {/* Heading */}
+          <div className="flex flex-col gap-2 md:gap-3">
+            <RevealOnScroll>
+              <h2 className="text-4xl tracking-normal md:text-5xl text-left font-bodoni font-bold leading-tight text-sandstone-500">
+                Village Center
+              </h2>
+            </RevealOnScroll>
             <RevealOnScroll delay="delay-100">
-              <div className="h-[1px] w-full bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full" />
+              <p className="text-sandstone-500/80 text-base md:text-lg tracking-wide font-albert font-normal">
+                15 Integrated facilities · 90,000+ SF of community space
+              </p>
             </RevealOnScroll>
           </div>
-        </div>
-      </div>
 
-      {/* ── Stacking cards sequential containers ────────────────────────── */}
-      <div ref={wrapperRef} className="relative w-full flex flex-col bg-transparent pb-[60vh]">
-        {/* Card counter */}
+          {/* Gradient Line */}
+          <RevealOnScroll delay="delay-100">
+            <div className="h-[1px] w-full bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full mb-2"></div>
+          </RevealOnScroll>
 
-        {STACK_CARDS.map((item, i) => (
-          <div
-            key={item.name}
-            ref={(el) => {
-              rowRefs.current[i] = el;
-            }}
-            className="relative w-full h-[520px] flex items-center justify-center"
-          >
-            {i === 0 && (
-              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 pointer-events-none select-none opacity-80">
-                <span className="text-sandstone-500/60 text-[10px] uppercase tracking-[0.25em] font-medium">
-                  Scroll to explore
-                </span>
-                <span className="block w-px h-8 bg-gradient-to-b from-sandstone-500/40 to-transparent animate-pulse" />
-              </div>
-            )}
+          {/* Carousel */}
+          <RevealOnScroll delay="delay-200">
+            <div className="relative h-[540px] w-full overflow-hidden rounded-2xl md:aspect-[3/2] md:h-auto lg:aspect-[2/1]">
 
-            <div className="w-full max-w-5xl mx-auto px-6 md:px-12 lg:px-16 h-[520px]">
-              <div
-                ref={(el) => {
-                  cardRefs.current[i] = el;
-                }}
-                className="w-full h-full overflow-hidden relative"
-                style={{
-                  zIndex: i + 1,
-                  transformOrigin: "top center",
-                  transformStyle: "preserve-3d",
-                }}
-              >
-                <img
-                  ref={(el) => {
-                    imageRefs.current[i] = el;
-                  }}
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-full object-cover object-center"
-                  draggable={false}
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/80" />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent" />
-
-                <div className="absolute inset-x-8 bottom-8 flex items-end justify-between gap-4">
-                  <div>
-                    <p className="text-white/50 text-[10px] uppercase tracking-[0.25em] mb-2 font-semibold">
-                      {String(i + 1).padStart(2, "0")}&nbsp;/&nbsp;{String(STACK_CARDS.length).padStart(2, "0")}
-                    </p>
-                    <h3
-                      ref={(el) => {
-                        titleRefs.current[i] = el;
-                      }}
-                      className="text-white text-2xl md:text-3xl font-bold leading-snug drop-shadow-lg"
-                    >
-                      {item.name}
-                    </h3>
-                  </div>
-                  <div className="shrink-0 text-right">
-                    <span className="inline-block bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-2 text-white/90 text-sm font-semibold tracking-wide">
-                      {item.size}
-                    </span>
-                  </div>
+              {/* Crossfade layers — each image sits stacked, only the active one is visible */}
+              {carouselItems.map((item, index) => (
+                <div
+                  key={item.name}
+                  className={`absolute inset-0 transition-all duration-[2000ms] ease-in-out ${activeIndex === index ? "opacity-100 scale-105 z-10" : "opacity-0 scale-100 z-0"
+                    }`}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="h-full w-full object-cover object-center"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/15" />
                 </div>
+              ))}
+
+              {/* Active facility label - Title (Left Top) */}
+              <div className="absolute top-6 left-6 md:top-10 md:left-10 z-10">
+                <p className="text-white text-3xl md:text-4xl font-cormorant font-semibold drop-shadow-lg">
+                  {carouselItems[activeIndex].name}
+                </p>
+              </div>
+
+              {/* Active facility label - Size (Right Top) */}
+              <div className="absolute top-6 right-6 md:top-10 md:right-10 z-10">
+                <span className="text-white text-xl md:text-2xl font-albert font-medium drop-shadow-lg">
+                  {carouselItems[activeIndex].size}
+                </span>
+              </div>
+
+              {/* Compact navigation bar & Counter */}
+              <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2">
+                {/* Compact navigation bar — 5 swatches + arrows */}
+                <div className="flex items-center gap-1.5 bg-white/90 backdrop-blur-md rounded-full px-2.5 py-1.5 shadow-xl">
+
+                  {/* Prev arrow */}
+                  <button
+                    onClick={handlePrev}
+                    aria-label="Previous"
+                    className="flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200 text-slate-700 hover:bg-slate-100"
+                  >
+                    <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+
+                  {/* Visible swatch window */}
+                  <ul className="flex items-center gap-0.5">
+                    {visibleItems.map((item) => {
+                      const globalIndex = carouselItems.indexOf(item);
+                      const isActive = activeIndex === globalIndex;
+                      return (
+                        <li key={item.name}>
+                          <button
+                            onClick={() => goTo(globalIndex)}
+                            aria-label={`View ${item.name}`}
+                            className="flex items-center"
+                          >
+                            <span className="flex size-10 items-center justify-center">
+                              <span className={`box-border flex size-8 items-center justify-center rounded-full border-2 border-solid transition-all duration-300 ${isActive ? "border-slate-800 scale-110 shadow-md" : "border-transparent opacity-70 hover:opacity-100"
+                                }`}>
+                                <img
+                                  src={item.swatch}
+                                  alt={item.name}
+                                  className="block size-6 rounded-full object-cover"
+                                />
+                              </span>
+                            </span>
+                            {/* Expanding name label for the active item only */}
+                            <span className={`flex items-center h-8 overflow-hidden transition-all duration-500 ease-in-out ${isActive ? "max-w-[130px] opacity-100 pr-2" : "max-w-0 opacity-0 pr-0"
+                              }`}>
+                              <span className="text-xs font-albert whitespace-nowrap text-slate-800 font-medium">
+                                {item.name}
+                              </span>
+                            </span>
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+
+                  {/* Next arrow */}
+                  <button
+                    onClick={handleNext}
+                    aria-label="Next"
+                    className="flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200 text-slate-700 hover:bg-slate-100"
+                  >
+                    <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+
+                </div>
+
+                <p className="text-white text-xs font-albert tracking-widest mb-1 drop-shadow- font-bold">
+                  {activeIndex + 1} / {carouselItems.length}
+                </p>
               </div>
             </div>
-          </div>
-        ))}
+          </RevealOnScroll>
+        </div>
       </div>
-
-      {/* Bottom breathing room */}
-      <div className="pb-14 lg:pb-24" />
     </section>
   );
 };

@@ -6,7 +6,12 @@ import Image from "next/image";
 
 export const CHumanDesign = () => {
   return (
-    <section className="bg-[#faf8f1] py-4 lg:py-8 overflow-hidden">
+    <section className="relative bg-transparent py-4 lg:py-8 overflow-hidden">
+      {/* Violet radial gradient overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse at 85% 15%, rgba(170, 61, 173, 0.08) 0%, transparent 45%), radial-gradient(ellipse at 5% 85%, rgba(170, 61, 173, 0.06) 0%, transparent 40%)" }}
+      />
       <div className="max-w-[1300px] mx-auto">
         <div className="grid h-full w-full rounded-[40px] py-10 md:bg-transparent md:py-20 relative" data-cy="natural-cycles-section">
           {/* Background image container */}

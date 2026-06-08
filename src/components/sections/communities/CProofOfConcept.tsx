@@ -13,7 +13,7 @@ export const CProofOfConcept = () => {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[#faf8f1]">
+    <section className="relative overflow-hidden bg-transparent">
       <div className="relative min-h-[720px] lg:min-h-[920px]">
         {/* Background Image */}
         <Image
@@ -25,13 +25,19 @@ export const CProofOfConcept = () => {
         />
 
       {/* Top / bottom blending */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-gradient-to-b from-[#faf8f1] to-transparent" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-80 bg-gradient-to-t from-[#faf8f1] to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-gradient-to-b from-[#f7f1e8] to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-80 bg-gradient-to-t from-[#f7f1e8] to-transparent" />
+
+      {/* Violet radial gradient overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none z-[1]"
+        style={{ background: "radial-gradient(ellipse at 80% 50%, rgba(170, 61, 173, 0.10) 0%, transparent 45%)" }}
+      />
 
       {/* Soft wash behind content for readability */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-full bg-[linear-gradient(90deg,rgba(250,248,241,0.99)_0%,rgba(250,248,241,0.34)_10%,rgba(250,248,241,0.08)_20%,rgba(250,248,241,0.0)_100%)]" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-full bg-[linear-gradient(90deg,rgba(247,241,232,0.99)_0%,rgba(247,241,232,0.34)_10%,rgba(247,241,232,0.08)_20%,rgba(247,241,232,0.0)_100%)]" />
       {/* Soft wash behind content for readability */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-full bg-[linear-gradient(to_left,rgba(250,248,241,0.99)_0%,rgba(250,248,241,0.34)_10%,rgba(250,248,241,0.08)_20%,rgba(250,248,241,0)_100%)]" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-full bg-[linear-gradient(to_left,rgba(247,241,232,0.99)_0%,rgba(247,241,232,0.34)_10%,rgba(247,241,232,0.08)_20%,rgba(247,241,232,0)_100%)]" />
 
         
      

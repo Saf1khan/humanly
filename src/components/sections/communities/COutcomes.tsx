@@ -19,8 +19,15 @@ export const COutcomes = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#faf8f1] py-20 lg:py-28 overflow-hidden"
+      className="relative z-10 bg-transparent py-20 lg:py-28 overflow-visible"
     >
+      <div
+        className="absolute pointer-events-none left-0 top-1/2 translate-x-1/4 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{
+          background:
+            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.25), rgba(170, 61, 173, 0.09) 50%, rgba(170, 61, 173, 0))",
+        }}
+      />
       <div className="max-w-[1380px] mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-8 items-stretch">
 
@@ -40,7 +47,7 @@ export const COutcomes = () => {
                 initial={{ opacity: 0, y: 14 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.55, delay: 0.08 }}
-                className="text-[32px] font-normal leading-[1.2] tracking-[-0.02em] text-[#1a1a1a] mb-8 text-left"
+                className="text-3xl md:text-5xl font-normal leading-[40px] md:leading-[60px] tracking-tight text-[#AA3DAD] font-cormorant mb-8 text-left"
               >
                 Humanly<span className="text-[0.7em] align-super">®</span> Communities Outcomes
               </motion.h2>
@@ -55,13 +62,8 @@ export const COutcomes = () => {
                     transition={{ duration: 0.42, delay: 0.12 + index * 0.07 }}
                     className="group flex items-center gap-4 py-[16px] border-b border-[#866d4b]/10 first:border-t first:border-[#4A4741]/10 cursor-default transition-all duration-300 hover:pl-2"
                   >
-                    {/* Dot */}
-                    <span
-                      className="w-[4px] h-[4px] rounded-full flex-shrink-0 transition-transform duration-300 group-hover:scale-125"
-                      style={{ backgroundColor: outcome.dotColor }}
-                    />
                     {/* Text */}
-                    <span className="text-[0.9375rem] font-normal text-[#1a1a1a] leading-[1.5] transition-colors duration-200 group-hover:text-[#1a4f82]">
+                    <span className="text-sm md:text-base font-albert font-light text-[#AA3DAD]/60 leading-[20px] md:leading-[24px] transition-colors duration-200 group-hover:text-[#AA3DAD]">
                       {outcome.text}
                     </span>
                   </motion.li>
@@ -73,7 +75,7 @@ export const COutcomes = () => {
                 initial={{ opacity: 0, y: 8 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.45, delay: 0.68 }}
-                className="text-[0.8125rem] text-[#4A4741]/60 leading-[1.6]"
+                className="text-sm md:text-base font-albert font-normal text-[#AA3DAD]/80 leading-[20px] md:leading-[24px]"
               >
                 Plus additional benefits for residents of ground-lease homeowners &amp; Humanly® Residences.
               </motion.p>
@@ -87,7 +89,7 @@ export const COutcomes = () => {
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="relative w-full h-full min-h-[340px] lg:min-h-[520px] overflow-hidden bg-[#d4cfc9]">
+            <div className="relative w-full h-full min-h-[340px] lg:min-h-[520px] overflow-hidden rounded-3xl">
               <video
                 autoPlay
                 loop
@@ -95,15 +97,15 @@ export const COutcomes = () => {
                 muted
                 className="absolute inset-0 w-full h-full object-cover"
               >
-                <source src="/images/7982599-hd_1920_1080_30fps.mp4" type="video/mp4" />
+                <source src="/images/AdobeStock_624561241.mov" type="video/mp4" />
               </video>
 
               {/* Subtle gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-[#AA3DAD]/5" />
 
               {/* Caption badge */}
               <div className="absolute bottom-6 left-6 right-6">
-                <span className="inline-block text-[11px] uppercase tracking-[0.24em] text-white/80 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
+                <span className="inline-block text-xs uppercase tracking-widest font-albert font-medium text-[#a56fa7] bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
                   Humanly® Community Life
                 </span>
               </div>

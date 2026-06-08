@@ -54,12 +54,12 @@ export const CircleOfServicesSection = () => {
 
       {/* Background Gradients */}
       <div
-        className="absolute pointer-events-none right-0 translate-x-1/3 bottom-1/3 translate-y-1/2 w-[clamp(25rem,50vw,60rem)] h-[clamp(25rem,50vw,60rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(107,206,255, 0.25), rgba(107,206,255, 0.1) 50%, rgba(107,206,255, 0))" }}
+        className="absolute pointer-events-none left-0 -translate-x-1/2 bottom-0 translate-y-1/3 w-[clamp(25rem,50vw,60rem)] h-[clamp(25rem,50vw,60rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(107,206,255, 0.25), rgba(107,206,255, 0.12) 50%, rgba(107,206,255, 0))" }}
       />
       <div
-        className="absolute pointer-events-none left-0 top-0 -translate-x-1/4 -translate-y-1/4 w-[clamp(25rem,50vw,60rem)] h-[clamp(25rem,50vw,60rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(107,206,255, 0.25), rgba(107,206,255, 0.1) 50%, rgba(107,206,255, 0))" }}
+        className="absolute pointer-events-none right-0 top-0 translate-x-1/2 -translate-y-1/4 w-[clamp(25rem,50vw,60rem)] h-[clamp(25rem,50vw,60rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(107,206,255, 0.25), rgba(107,206,255, 0.12) 50%, rgba(107,206,255, 0))" }}
       />
 
       {/* Title & Description - Top Left */}

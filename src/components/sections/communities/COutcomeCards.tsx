@@ -139,7 +139,12 @@ export const COutcomeCards = () => {
   const slots = isMobileView ? mobileSlots : desktopSlots;
 
   return (
-    <section className="bg-[#faf8f1] py-20 lg:py-32 overflow-hidden relative">
+    <section className="relative bg-transparent py-20 lg:py-32 overflow-hidden">
+      {/* Violet radial gradient overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse at 5% 40%, rgba(170, 61, 173, 0.08) 0%, transparent 45%), radial-gradient(ellipse at 95% 60%, rgba(170, 61, 173, 0.06) 0%, transparent 40%)" }}
+      />
       {/* Font imports & custom declarations only */}
       <style dangerouslySetInnerHTML={{ __html: `
         @import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500&display=swap");
