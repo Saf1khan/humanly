@@ -121,43 +121,6 @@ export const HeroSection = () => {
           </HeroReveal>
         </div>
       </div>
-
-
-
-      {/* LAYER 3: Floating Shop Chiclet */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:bottom-10 md:right-10 lg:bottom-14 lg:right-14 z-30 flex items-center justify-center pointer-events-auto w-full px-4 md:w-auto md:px-0">
-        <div className="relative w-full max-w-[360px] p-1 group cursor-pointer">
-
-          {/* Glass Background Layer */}
-          <div className="absolute inset-0 bg-[#4a4741]/40 backdrop-blur-xl rounded-2xl border border-white/10 transition-opacity group-hover:bg-[#4a4741]/50"></div>
-
-          {/* Content Container */}
-          <div className="relative z-10 flex flex-row items-center p-1">
-
-            {/* Product Image */}
-            <div className="relative aspect-[3/2] w-36 md:w-44 overflow-hidden rounded-xl bg-stone-200/10 p-2">
-              <img
-                src="/images/asset%200.png"
-                alt="Humanly Logo"
-                className="object-contain w-full h-full brightness-0 invert"
-              />
-            </div>
-
-            {/* Text & CTA */}
-            <div className="flex flex-col justify-center px-4 py-3 lg:pl-6 lg:pr-7">
-              <p className="text-[0.875rem] font-albert text-[#e8e4db] mb-2 leading-snug font-normal">
-                Humanly.<br />Explore the neighborhood.
-              </p>
-              <a href="/shop" className="inline-flex items-center gap-2">
-                <span className="text-[0.875rem] font-normal font-albert text-[#e8e4db]">Explore Now</span>
-                <svg className="w-4 h-4 text-[#e8e4db] transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
   );
 };

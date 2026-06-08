@@ -33,20 +33,10 @@ export const HumanlyOSSection = () => {
         src="/images/pexels-cottonbro-6153354.jpg"
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover object-[50%_50%] md:object-[center_50%] -z-20"
+        className="absolute inset-0 w-full h-full object-cover object-[50%_50%] md:object-[center_50%] z-0"
       />
-      <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-sandstone-200 to-transparent -z-10"></div>
-      <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-sandstone-200 to-transparent -z-10"></div>
-
-      {/* ── Ambient colour gradients ── */}
-      <div
-        className="absolute pointer-events-none right-0 translate-x-1/3 top-1/3 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)] -z-10"
-        style={{ background: "radial-gradient(50% 50%, rgba(255,182,55,0.08), rgba(255,182,55,0.02) 50%, rgba(255,182,55,0))" }}
-      />
-      <div
-        className="absolute pointer-events-none left-0 -translate-x-1/2 top-1/3 -translate-y-1/4 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)] -z-10"
-        style={{ background: "radial-gradient(50% 50%, rgba(255,182,55,0.08), rgba(255,182,55,0.03) 50%, rgba(255,182,55,0))" }}
-      />
+      <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-sandstone-200 to-transparent z-0"></div>
+      <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-sandstone-200 to-transparent z-0"></div>
 
       {/* ── Content ── */}
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 h-full flex flex-col justify-between">
@@ -56,17 +46,17 @@ export const HumanlyOSSection = () => {
           {/* ── Left: hero copy ── */}
           <RevealOnScroll delay="delay-100" className="w-full lg:w-[63%] flex flex-col justify-end pt-48 lg:pt-64 pb-4">
             <div className="mb-6">
-              <div className="font-bold py-2 rounded-md uppercase inline-block bg-[#f7f1e8] text-xs px-3">
-                <p className="text-left text-[#1c1b1a] leading-normal font-medium">
+              <div className="py-2 rounded-md uppercase inline-block bg-[#f7f1e8] text-xs px-3">
+                <p className="text-left text-[#1c1b1a] leading-normal font-albert font-normal">
                   THE OPERATING SYSTEM
                 </p>
               </div>
             </div>
 
-            <h2 className="text-left text-white leading-tight font-bold mb-4 text-[2.5rem] md:text-[3rem] lg:text-[4rem] tracking-tight">
+            <h2 className="text-left text-white leading-tight font-cormorant font-light mb-4 text-3xl md:text-5xl tracking-tight">
               HumanlyOS<sup>&reg;</sup>
             </h2>
-            <p className="text-left text-white/90  leading-relaxed text-[1rem] md:text-[1.125rem] max-w-xl font-normal">
+            <p className="text-left text-white/90 font-light font-albert leading-relaxed text-base md:text-lg max-w-[640px]">
               The AI-native operating system that transforms community management from fragmented services into an integrated, revenue-generating platform.
             </p>
           </RevealOnScroll>
@@ -82,14 +72,14 @@ export const HumanlyOSSection = () => {
                   <div className="relative z-10 p-6 lg:p-8 flex flex-col h-full justify-center">
                     {/* ── Title + icon row ── */}
                     <div className="flex items-center justify-between mb-2">
-                      <h2 className="text-left leading-tight font-medium text-[1.25rem] text-[#f7f1e8]">
+                      <h2 className="text-left leading-tight font-light font-cormorant text-2xl text-[#f7f1e8]">
                         {feature.title}
                       </h2>
                       <div className="text-white/80 shrink-0 ml-3">
                         <feature.icon className="w-6 h-6" strokeWidth={1.5} />
                       </div>
                     </div>
-                    <p className="text-left text-white/70 text-[0.95rem] font-normal">
+                    <p className="text-left text-white/70 text-base font-light font-albert">
                       {feature.description}
                     </p>
                   </div>

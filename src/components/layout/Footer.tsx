@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const Footer = () => {
   return (
-    <footer className="relative z-10 bg-black text-sandstone-200 font-sans">
+    <footer className="relative z-10 bg-[#241F21] text-sandstone-200 font-sans">
       <div className="max-w-[1440px] mx-auto px-8 md:px-12 pt-16 pb-16">
         {/* Top Section: Logo & Payment Options */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between text-gray-400 gap-10 lg:gap-2 mb-10 lg:mb-16">
