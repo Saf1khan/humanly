@@ -54,21 +54,21 @@ export const CircleOfServicesSection = () => {
 
       {/* Background Gradients */}
       <div
-        className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 227, 102, 0.08), rgba(255, 227, 102, 0.02) 50%, rgba(255, 227, 102, 0))" }}
+        className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-1/2 w-[clamp(25rem,50vw,60rem)] h-[clamp(25rem,50vw,60rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(107,206,255, 0.25), rgba(107,206,255, 0.1) 50%, rgba(107,206,255, 0))" }}
       />
       <div
-        className="absolute pointer-events-none left-0 -translate-x-1/2 top-1/2 -translate-y-1/4 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(255, 227, 102, 0.08), rgba(255, 227, 102, 0.02) 50%, rgba(255, 227, 102, 0))" }}
+        className="absolute pointer-events-none left-0 -translate-x-1/2 top-1/2 -translate-y-1/4 w-[clamp(25rem,50vw,60rem)] h-[clamp(25rem,50vw,60rem)]"
+        style={{ background: "radial-gradient(50% 50%, rgba(107,206,255, 0.25), rgba(107,206,255, 0.1) 50%, rgba(107,206,255, 0))" }}
       />
-      
+
       {/* Title & Description - Top Left */}
       <div className="w-full z-20 mb-16 md:mb-24">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 w-full flex flex-col items-start">
-          <h2 className="text-left text-sandstone-500 font-bodoni leading-tight font-bold text-4xl md:text-5xl tracking-normal">
+          <h2 className="text-left text-sandstone-500 leading-tight font-light font-cormorant text-4xl md:text-5xl tracking-tight mb-4 md:mb-6">
             Circle of Services
           </h2>
-          <p className="mt-4 md:mt-6 text-left text-[#1C1B1A]/70 max-w-[22rem] md:max-w-lg lg:max-w-xl text-sm md:text-lg leading-relaxed font-albert font-normal">
+          <p className="text-left text-[#1C1B1A]/70 max-w-[22rem] md:max-w-lg lg:max-w-xl text-sm md:text-lg leading-relaxed font-albert font-light mb-8 md:mb-12 text-pretty">
             Humanly’s Circle of Services is a fully integrated ecosystem designed to support the whole person by bringing everyday essentials together in one seamless experience.
           </p>
         </div>
@@ -87,7 +87,7 @@ export const CircleOfServicesSection = () => {
           }}
         />
 
-        <div className="absolute z-[3] pointer-events-none flex flex-col justify-center items-center box-border top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="absolute z-[3] pointer-events-none flex flex-col justify-center items-center box-border top-1/2 left-1/2 -translate-x-[64%] -translate-y-1/2">
           <div
             className="relative flex justify-center items-center w-[42.5rem] h-[42.5rem] transition-transform duration-[2500ms] ease-in-out"
             style={{ transform: `rotate(${rotation}deg)` }}
@@ -119,7 +119,7 @@ export const CircleOfServicesSection = () => {
                       {/* Full Image Overlay & Text - Shown on Hover */}
                       <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/60">
                         <p
-                          className="text-white text-[11px] md:text-[13px] font-bold font-cormorant text-center leading-tight tracking-wider uppercase whitespace-pre-line"
+                          className="text-white text-xs md:text-[13px] font-medium font-albert text-center leading-tight tracking-wider uppercase whitespace-pre-line"
                           style={{ WebkitFontSmoothing: 'antialiased', transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
                         >
                           {item.label}
@@ -154,7 +154,7 @@ export const CircleOfServicesSection = () => {
         </div>
 
         {/* Right Side Details Panel */}
-        <div className="absolute left-[calc(50%+30rem)] top-1/2 -translate-y-1/2 w-72 md:w-80 lg:w-[26rem] z-20 pointer-events-none hidden lg:block">
+        <div className="absolute left-[calc(50%+25rem)] top-1/2 -translate-y-1/2 w-72 md:w-80 lg:w-[26rem] z-20 pointer-events-none hidden lg:block">
           <div className="relative flex flex-col items-start w-full h-[22rem]">
             {carouselItems.map((item, index) => (
               <div
@@ -162,12 +162,12 @@ export const CircleOfServicesSection = () => {
                 className={`absolute inset-0 z-10 transition-opacity duration-500 ease-in-out flex flex-col justify-center items-start ${activeIndex === index ? 'opacity-100' : 'opacity-0'}`}
               >
 
-                <h3 className="text-sandstone-500 text-2xl font-bold font-cormorant tracking-normal mb-6">
+                <h3 className="text-sandstone-500 text-2xl font-medium font-cormorant tracking-normal mb-6">
                   {item.label}
                 </h3>
                 <ul className="flex flex-col gap-4">
                   {item.details.map((detail, idx) => (
-                    <li key={idx} className="flex items-start text-[#1C1B1A]/80 text-base leading-snug font-albert">
+                    <li key={idx} className="flex items-start text-sandstone-500 text-base leading-normal font-light font-albert">
                       <span className="mr-3 text-sandstone-500/50 font-bold mt-1">•</span>
                       <span>{detail}</span>
                     </li>

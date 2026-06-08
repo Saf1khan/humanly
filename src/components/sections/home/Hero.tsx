@@ -98,28 +98,28 @@ export const Hero = () => {
 
         {/* Content Grid (The Wrapper) */}
         <div className="grid grid-cols-[minmax(1rem,1fr)_repeat(22,minmax(0,1fr))_minmax(1rem,1fr)] lg:grid-cols-[64px_repeat(22,minmax(0,1fr))_64px] relative w-full pt-24 pb-16 min-h-[600px] items-center z-10 lg:grow">
-          
+
           {/* Main Content Column */}
           <div className="col-start-2 col-end-[24] lg:col-end-[18] xl:col-end-[16] flex flex-col items-center lg:items-start gap-8 lg:gap-10">
-            
+
             <div className="flex flex-col items-center lg:items-start w-full">
-              <h1 ref={titleRef} className="wh-hero-title text-[#f7f1e8] text-[2.5rem] md:text-[3.75rem] lg:text-[5rem] font-light leading-[1.05] tracking-[-0.05em] text-center lg:text-left m-0 drop-shadow-2xl">
+              <h1 ref={titleRef} className="wh-hero-title text-[#f7f1e8] text-[40px] md:text-6xl lg:text-[80px] font-medium leading-[1.05] tracking-[-0.05em] text-center lg:text-left m-0 drop-shadow-2xl">
                 Every Neighborhood<br />
-                <span className="text-h-primary">a Launchpad.</span>
+                <span className="text-h-primary">a Launchpad</span>
               </h1>
             </div>
 
             <div ref={btnRevealRef} className="wh-btn-reveal w-full text-center lg:text-left">
-              <p className="text-lg md:text-xl text-white max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed drop-shadow-md">
+              <p className="text-lg md:text-xl text-white max-w-2xl mx-auto lg:mx-0 mb-10 font-albert font-light leading-relaxed drop-shadow-md">
                 Humanly is building the future of workforce housing. From land acquisition through lifelong resident services, powered by HumanlyOS®.
               </p>
 
               <div className="flex flex-wrap justify-center lg:justify-start gap-5">
-                <a href="invest.html" className="group relative px-10 py-4 bg-h-primary text-white rounded-full font-bold overflow-hidden transition-all hover:pr-14">
+                <a href="invest.html" className="group relative px-10 py-4 bg-h-primary text-white rounded-full font-semibold font-albert overflow-hidden transition-all hover:pr-14">
                   <span className="relative z-10">Request Data Room Access</span>
-                  <span className="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all">→</span>
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 ">→</span>
                 </a>
-                <a href="platform.html" className="px-10 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full font-bold hover:bg-white/20 transition-all">
+                <a href="platform.html" className="px-10 py-4 bg-white/10 backdrop-blur-md border font-albert border-white/20 text-white rounded-full font-semibold hover:bg-white/20 transition-all">
                   Explore the Platform
                 </a>
               </div>

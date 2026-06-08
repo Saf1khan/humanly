@@ -81,9 +81,22 @@ export const ProblemMissionSection = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-transparent py-20">
+    <section className="relative overflow-x-clip bg-transparent py-20">
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-[20%] h-[36rem] w-[36rem] -translate-x-1/2 rounded-full bg-h-primary/5 blur-[120px]" />
+        <div
+          className="absolute -left-[10%] top-[10%] w-[clamp(20rem,50vw,50rem)] h-[clamp(20rem,50vw,50rem)]"
+          style={{
+            background:
+              "radial-gradient(50% 50%, rgba(107,206,255, 0.25), rgba(107,206,255, 0.1) 50%, rgba(107,206,255, 0))",
+          }}
+        />
+        <div
+          className="absolute -right-[10%] bottom-[10%] w-[clamp(20rem,50vw,50rem)] h-[clamp(20rem,50vw,50rem)]"
+          style={{
+            background:
+              "radial-gradient(50% 50%, rgba(107,206,255, 0.25), rgba(107,206,255, 0.1) 50%, rgba(107,206,255, 0))",
+          }}
+        />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 md:px-12 lg:px-16">
@@ -98,19 +111,15 @@ export const ProblemMissionSection = () => {
             <div className="h-[2px] w-12 rounded-full bg-h-primary" />
           </div>
 
-          <h2 className="text-4xl font-display font-bold leading-[1.08] tracking-tight text-h-dark md:text-5xl lg:text-5xl">
-            America’s housing system is broken.
+          <h2 className="text-4xl font-display font-cormorant font-light leading-[1.08] tracking-tight text-h-dark md:text-5xl lg:hidden text-sandstone-500">
+            America’s Housing is Broken
           </h2>
-
-          <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-h-muted md:text-lg lg:text-lg">
-            {introDescription}
-          </p>
         </motion.div>
 
         {/* Mobile */}
         <div className="space-y-10 lg:hidden">
           <div>
-            <p className="mb-6 text-xs font-bold uppercase tracking-[0.28em] text-h-muted">
+            <p className="mb-6 text-xs font-semibold font-albert uppercase text-sandstone-500 tracking-[0.28em]">
               Explore Stats
             </p>
           </div>
@@ -123,25 +132,25 @@ export const ProblemMissionSection = () => {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7, delay: idx * 0.08 }}
             >
-              <h3 className="mb-4 text-3xl font-display font-normal leading-tight text-h-dark">
+              <h3 className="mb-4 text-3xl font-display font-light font-cormorant text-sandstone-500 leading-tight">
                 {item.title}
               </h3>
 
-              <p className="mb-6 text-base leading-relaxed text-h-muted">
+              <p className="mb-6 text-base font-albert font-light leading-relaxed text-sandstone-500">
                 {item.description}
               </p>
 
-              <div className="relative aspect-square w-full overflow-hidden rounded-[1.75rem] bg-[#d9cec2]">
+              <div className="relative aspect-square w-full overflow-hidden rounded-[1.75rem] bg-[rgba(107,206,255,0.25)]">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_5%,rgba(74,58,57,0.28)_0,transparent_30%),radial-gradient(circle_at_90%_40%,rgba(92,73,62,0.30)_0,transparent_30%),radial-gradient(circle_at_5%_80%,rgba(70,57,56,0.26)_0,transparent_30%),radial-gradient(circle_at_90%_70%,rgba(93,71,61,0.22)_0,transparent_20%),radial-gradient(circle_at_60%_99%,rgba(98,63,62,0.20)_0,transparent_30%)]" />
 
                 <div className="absolute inset-[13%] rounded-[1.35rem] border border-white/45 bg-white/34 shadow-[inset_0_1px_0_rgba(255,255,255,0.55),0_18px_40px_rgba(61,43,36,0.10)] backdrop-blur-2xl">
                   <div className="absolute inset-0 rounded-[inherit] bg-[linear-gradient(180deg,rgba(255,255,255,0.34),rgba(255,255,255,0.14))]" />
                   <div className="absolute inset-0 flex items-center justify-center p-8">
                     <div className="max-w-[15rem] text-center">
-                      <div className="text-6xl font-display font-bold leading-none text-h-dark">
+                      <div className="text-6xl font-display font-medium font-albert leading-none text-sandstone-500">
                         {item.value}
                       </div>
-                      <p className="mt-5 text-xs font-bold uppercase leading-relaxed tracking-[0.14em] text-h-muted">
+                      <p className="mt-5 text-xs font-normal font-albert uppercase leading-relaxed tracking-[0.14em] text-h-muted">
                         {item.label}
                       </p>
                     </div>
@@ -155,90 +164,94 @@ export const ProblemMissionSection = () => {
         {/* Desktop */}
         <div className="hidden lg:grid lg:grid-cols-12 lg:gap-8 xl:gap-12">
           <div className="lg:col-span-7 xl:col-span-7">
-            <div className="flex h-full flex-col justify-end pb-16">
+            <div className="flex h-full flex-col pb-16">
+              <h2 className="order-1 text-4xl font-display font-cormorant font-light leading-[1.08] tracking-tight text-h-dark md:text-5xl text-sandstone-500">
+                America’s Housing is Broken
+              </h2>
 
-              <p className="mb-6 text-xs font-bold uppercase tracking-[0.28em] text-h-muted">
-                Explore Stats
-              </p>
+              <div className="order-2 mt-auto">
+                <p className="mb-6 text-xs font-semibold font-albert uppercase tracking-[0.28em] text-sandstone-500">
+                  Explore Stats
+                </p>
 
-              <div
-                role="tablist"
-                aria-label="Housing crisis statistics"
-                aria-orientation="vertical"
-                onKeyDown={onKeyDown}
-                className="flex flex-col gap-y-5"
-              >
-                {items.map((item, index) => {
-                  const isActive = index === activeIndex;
+                <div
+                  role="tablist"
+                  aria-label="Housing crisis statistics"
+                  aria-orientation="vertical"
+                  onKeyDown={onKeyDown}
+                  className="flex flex-col gap-y-5"
+                >
+                  {items.map((item, index) => {
+                    const isActive = index === activeIndex;
 
-                  return (
-                    <motion.div
-                      key={item.id}
-                      layout
-                      transition={{
-                        layout: {
-                          duration: 0.45,
-                          ease: easeOutExpo,
-                        },
-                      }}
-                      className="overflow-hidden"
-                    >
-                      <button
-                        ref={(el) => {
-                          tabRefs.current[index] = el;
+                    return (
+                      <motion.div
+                        key={item.id}
+                        layout
+                        transition={{
+                          layout: {
+                            duration: 0.45,
+                            ease: easeOutExpo,
+                          },
                         }}
-                        id={`tab-${item.id}`}
-                        role="tab"
-                        type="button"
-                        aria-selected={isActive}
-                        aria-controls={`panel-${item.id}`}
-                        tabIndex={isActive ? 0 : -1}
-                        onClick={() => setActiveIndex(index)}
-                        className={`w-full text-left transition-opacity duration-300 ${
-                          isActive ? "opacity-100" : "opacity-50 hover:opacity-100"
-                        }`}
+                        className="overflow-hidden"
                       >
-                        <h3 className="text-3xl font-display font-normal leading-tight tracking-tight text-h-dark xl:text-[2.55rem]">
-                          {item.title}
-                        </h3>
-                      </button>
+                        <button
+                          ref={(el) => {
+                            tabRefs.current[index] = el;
+                          }}
+                          id={`tab-${item.id}`}
+                          role="tab"
+                          type="button"
+                          aria-selected={isActive}
+                          aria-controls={`panel-${item.id}`}
+                          tabIndex={isActive ? 0 : -1}
+                          onClick={() => setActiveIndex(index)}
+                          className={`w-full text-left transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-50 hover:opacity-100"
+                            }`}
+                        >
+                          <h3 className="text-3xl font-display font-light font-cormorant text-sandstone-500 leading-tight tracking-tight text-h-dark xl:text-[2.55rem]">
+                            {item.title}
+                          </h3>
+                        </button>
 
-                      <AnimatePresence initial={false}>
-                        {isActive && (
-                          <motion.div
-                            key={`${item.id}-description`}
-                            layout
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{
-                              height: {
-                                duration: 0.42,
-                                ease: easeOutExpo,
-                              },
-                              opacity: {
-                                duration: 0.2,
-                                ease: "easeOut",
-                              },
-                            }}
-                            className="overflow-hidden"
-                          >
-                            <motion.p
+                        <AnimatePresence initial={false}>
+                          {isActive && (
+                            <motion.div
+                              key={`${item.id}-description`}
                               layout
-                              initial={{ opacity: 0 }}
-                              animate={{ opacity: 1 }}
-                              exit={{ opacity: 0 }}
-                              transition={{ duration: 0.18 }}
-                              className="mt-4 max-w-[36rem] text-base leading-relaxed text-h-muted xl:text-lg"
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{
+                                height: {
+                                  duration: 0.42,
+                                  ease: easeOutExpo,
+                                },
+                                opacity: {
+                                  duration: 0.2,
+                                  ease: "easeOut",
+                                },
+                              }}
+                              className="overflow-hidden"
                             >
-                              {item.description}
-                            </motion.p>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </motion.div>
-                  );
-                })}
+                              <motion.p
+                                layout
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.18 }}
+                                className="mt-4 max-w-[36rem] text-base font-light font-albert text-sandstone-500 leading-relaxed text-h-muted xl:text-lg"
+                              >
+                                {item.description}
+                              </motion.p>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </motion.div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
@@ -251,10 +264,10 @@ export const ProblemMissionSection = () => {
               tabIndex={0}
               className="w-full"
             >
-              <div className="relative aspect-square w-full overflow-hidden rounded-[1.9rem] bg-[#d8ccc0]">
+              <div className="relative aspect-square w-full overflow-hidden rounded-[1.9rem] bg-[rgba(107,206,255,0.25)]">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_5%,rgba(92,74,73,0.26)_0,transparent_30%),radial-gradient(circle_at_90%_40%,rgba(109,85,74,0.28)_0,transparent_30%),radial-gradient(circle_at_5%_80%,rgba(84,69,67,0.24)_0,transparent_30%),radial-gradient(circle_at_90%_70%,rgba(111,84,72,0.18)_0,transparent_20%),radial-gradient(circle_at_60%_99%,rgba(109,71,70,0.16)_0,transparent_30%)]" />
 
-                <div className="absolute inset-[17%] rounded-[1.4rem] border border-white/45 bg-white/34">
+                <div className="absolute inset-[22%] rounded-[1.4rem] border border-white/45 bg-white/34">
                   <div className="absolute inset-0 rounded-[inherit] bg-[linear-gradient(180deg,rgba(255,255,255,0.34),rgba(255,255,255,0.14))]" />
                   <div className="absolute left-[12%] top-[10%] h-20 w-20 rounded-full bg-white/20 blur-3xl" />
                   <div className="absolute bottom-[12%] right-[10%] h-24 w-24 rounded-full bg-h-primary/10 blur-3xl" />
@@ -269,11 +282,11 @@ export const ProblemMissionSection = () => {
                       className="absolute inset-0 flex items-center justify-center p-8 xl:p-10"
                     >
                       <div className="max-w-[22rem] text-center xl:max-w-[24rem]">
-                        <div className="text-5xl font-display font-bold leading-none text-h-dark xl:text-[4.4rem]">
+                        <div className="text-5xl font-display font-medium font-albert text-sandstone-500 leading-none xl:text-[4.4rem]">
                           {activeItem.value}
                         </div>
 
-                        <p className="mx-auto mt-5 max-w-[16rem] text-[10px] font-bold uppercase leading-relaxed tracking-[0.14em] text-h-muted xl:text-xs">
+                        <p className="mx-auto mt-5 max-w-[16rem] text-[10px] font-normal font-albert text-sandstone-500 uppercase leading-relaxed tracking-[0.14em] text-h-muted xl:text-xs">
                           {activeItem.label}
                         </p>
                       </div>
@@ -324,9 +337,8 @@ export const ProblemMissionSection = () => {
                     type="button"
                     onClick={goToPrev}
                     disabled={activeIndex === 0}
-                    className={`flex size-10 items-center justify-center ${
-                      activeIndex === 0 ? "cursor-not-allowed opacity-30" : ""
-                    }`}
+                    className={`flex size-10 items-center justify-center ${activeIndex === 0 ? "cursor-not-allowed opacity-30" : ""
+                      }`}
                   >
                     <svg
                       aria-hidden="true"
@@ -348,11 +360,10 @@ export const ProblemMissionSection = () => {
                     type="button"
                     onClick={goToNext}
                     disabled={activeIndex === items.length - 1}
-                    className={`flex size-10 items-center justify-center ${
-                      activeIndex === items.length - 1
+                    className={`flex size-10 items-center justify-center ${activeIndex === items.length - 1
                         ? "cursor-not-allowed opacity-30"
                         : ""
-                    }`}
+                      }`}
                   >
                     <svg
                       aria-hidden="true"
