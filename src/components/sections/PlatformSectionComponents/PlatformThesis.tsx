@@ -5,7 +5,14 @@ import { motion } from "framer-motion";
 
 export const PlatformThesis = () => {
   return (
-    <section className="py-[160px] relative overflow-visible bg-[#ebedf0] ">
+    <section
+      className="py-[160px] overflow-visible bg-[#ebedf0]"
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 1,
+      }}
+    >
       {/* Subtle Luminous Glows */}
       <div className="absolute inset-0  pointer-events-none" />
       {/* Logo-inspired Background Shapes */}

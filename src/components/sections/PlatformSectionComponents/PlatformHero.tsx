@@ -118,11 +118,13 @@ export const PlatformHero = () => {
 
           {/* Title Column */}
           <div className="col-start-2 col-end-[24] lg:col-end-[17] xl:col-end-15 row-start-1 row-end-2 lg:mt-auto lg:self-center">
-            <div className="my-5 flex flex-col items-center lg:items-start lg:pt-[5vw] lg:pb-[8vw] text-[#3E2242]">
+            <div className="my-5 flex flex-col items-center lg:items-start lg:pt-[5vw] lg:pb-[2vw] text-[#3E2242]">
               <h1 ref={titleRef} className="wh-hero-title text-inherit text-[2.5rem] md:text-[3.75rem] lg:text-[5rem] font-light leading-tight tracking-[-0.05em] text-center lg:text-left m-0">
-                Disrupting residential real estate
+                Disrupting residential
                 <br />
-                <span>development and management.</span>
+                real estate development
+                <br />
+                <span>and management.</span>
               </h1>
             </div>
           </div>
