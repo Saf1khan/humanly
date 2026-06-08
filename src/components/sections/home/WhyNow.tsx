@@ -24,10 +24,10 @@ export const WhyNow = () => {
   return (
       <section className="py-16 text-[#1c1b1a] font-sans box-border relative z-10 overflow-x-clip">
         <div
-          className="absolute pointer-events-none right-0 top-0 translate-x-1/3 -translate-y-1/4 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)] z-0"
+          className="absolute pointer-events-none right-0 top-1/2 translate-x-1/3 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)] z-0"
           style={{
             background:
-              "radial-gradient(50% 50%, rgba(107,206,255, 0.25), rgba(107,206,255, 0.1) 50%, rgba(107,206,255, 0))",
+              "radial-gradient(50% 50%, rgba(107,206,255, 0.20), rgba(107,206,255, 0.08) 50%, rgba(107,206,255, 0))",
           }}
         />
         <div className="grid max-w-[1440px] mx-auto gap-6 grid-cols-[repeat(24,1fr)] px-6 md:px-12 lg:px-16 box-border w-full relative z-10">

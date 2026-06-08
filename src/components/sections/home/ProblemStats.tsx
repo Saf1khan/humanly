@@ -90,13 +90,7 @@ export const ProblemMissionSection = () => {
               "radial-gradient(50% 50%, rgba(107,206,255, 0.25), rgba(107,206,255, 0.1) 50%, rgba(107,206,255, 0))",
           }}
         />
-        <div
-          className="absolute -right-[10%] bottom-[10%] w-[clamp(20rem,50vw,50rem)] h-[clamp(20rem,50vw,50rem)]"
-          style={{
-            background:
-              "radial-gradient(50% 50%, rgba(107,206,255, 0.25), rgba(107,206,255, 0.1) 50%, rgba(107,206,255, 0))",
-          }}
-        />
+        
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 md:px-12 lg:px-16">
@@ -264,7 +258,7 @@ export const ProblemMissionSection = () => {
               tabIndex={0}
               className="w-full"
             >
-              <div className="relative aspect-square w-full overflow-hidden rounded-[1.9rem] bg-[rgba(107,206,255,0.25)]">
+              <div className="relative aspect-square w-full overflow-hidden rounded-[1.9rem] bg-[rgba(107,206,255,0.15)]">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_5%,rgba(92,74,73,0.26)_0,transparent_30%),radial-gradient(circle_at_90%_40%,rgba(109,85,74,0.28)_0,transparent_30%),radial-gradient(circle_at_5%_80%,rgba(84,69,67,0.24)_0,transparent_30%),radial-gradient(circle_at_90%_70%,rgba(111,84,72,0.18)_0,transparent_20%),radial-gradient(circle_at_60%_99%,rgba(109,71,70,0.16)_0,transparent_30%)]" />
 
                 <div className="absolute inset-[22%] rounded-[1.4rem] border border-white/45 bg-white/34">
