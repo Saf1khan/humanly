@@ -23,7 +23,7 @@ export const COutcomes = () => {
     >
       <div className="max-w-[1380px] mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-8 items-stretch">
-          
+
 
           {/* ── LEFT COLUMN: bordered frame + ornament ── */}
           <motion.div
@@ -33,16 +33,7 @@ export const COutcomes = () => {
             transition={{ duration: 0.6 }}
           >
             {/* Outer border frame */}
-            <div className="relative border border-[#866d4b] px-8 pt-12 pb-8 lg:px-10 lg:pt-14 lg:pb-10 flex flex-col justify-center h-full">
-
-              {/* Humanly logo mark centred on the top border */}
-              <div className="absolute -top-[18px] left-1/2 -translate-x-1/2 bg-[#faf8f1] px-0">
-                <img
-                  src="/images/Humanly_Logo_Mark_Gradient on Light.svg"
-                  alt="Humanly mark"
-                  className="w-10 h-10 object-contain"
-                />
-              </div>
+            <div className="relative pb-8 lg:pb-10 flex flex-col justify-top h-full">
 
               {/* Heading */}
               <motion.h2
