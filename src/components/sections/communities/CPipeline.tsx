@@ -98,6 +98,8 @@ export const CPipeline = () => {
           background: [
             "radial-gradient(circle at 18% 22%, rgba(61,175,152,0.14), transparent 28%)",
             "radial-gradient(circle at 78% 68%, rgba(91,63,158,0.12), transparent 34%)",
+            "radial-gradient(circle at 85% 15%, rgba(170, 61, 173, 0.10), transparent 30%)",
+            "radial-gradient(circle at 10% 80%, rgba(170, 61, 173, 0.08), transparent 28%)",
             "linear-gradient(180deg, rgba(255,255,255,0.02), transparent 30%, rgba(255,255,255,0.01) 100%)",
           ].join(","),
         }}

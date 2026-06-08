@@ -79,7 +79,12 @@ const callouts = [
 
 export const CHousingMix = () => {
   return (
-    <section className="bg-[#faf8f1] py-24 lg:py-40">
+    <section className="relative bg-transparent py-24 lg:py-40">
+      {/* Violet radial gradient overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse at 20% 20%, rgba(170, 61, 173, 0.07) 0%, transparent 45%), radial-gradient(ellipse at 80% 80%, rgba(170, 61, 173, 0.07) 0%, transparent 45%)" }}
+      />
       <div className="mx-auto max-w-[1280px] px-6 lg:px-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-10">
           {/* Title */}

@@ -165,10 +165,18 @@ export const PlatformStack = () => {
   return (
     <section className="text-sandstone-500 bg-transparent py-12 lg:pt-24 lg:pb-40 relative z-10 w-full overflow-x-clip">
       <div
-        className="absolute pointer-events-none left-1/4 top-1/4 -translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        className="absolute pointer-events-none right-0 top-1/5 translate-x-1/2 -translate-y-1/3 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
         style={{
           background:
-            "radial-gradient(50% 50%, rgba(107,206,255, 0.25), rgba(107,206,255, 0.1) 50%, rgba(107,206,255, 0))",
+            "radial-gradient(50% 50%, rgba(107,206,255, 0.25), rgba(107,206,255, 0.09) 50%, rgba(107,206,255, 0))",
+        }}
+      />
+
+      <div
+        className="absolute pointer-events-none left-0 bottom-1/5 -translate-x-1/2 translate-y-1/3 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{
+          background:
+            "radial-gradient(50% 50%, rgba(107,206,255, 0.25), rgba(107,206,255, 0.06) 50%, rgba(107,206,255, 0))",
         }}
       />
      
