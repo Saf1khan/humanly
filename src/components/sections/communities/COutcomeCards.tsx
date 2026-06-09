@@ -139,11 +139,21 @@ export const COutcomeCards = () => {
   const slots = isMobileView ? mobileSlots : desktopSlots;
 
   return (
-    <section className="relative bg-transparent py-20 lg:py-32 overflow-hidden">
+    <section className="relative bg-transparent py-20 lg:py-32 overflow-x-clip">
       {/* Violet radial gradient overlay */}
       <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse at 5% 40%, rgba(170, 61, 173, 0.08) 0%, transparent 45%), radial-gradient(ellipse at 95% 60%, rgba(170, 61, 173, 0.06) 0%, transparent 40%)" }}
+        className="absolute pointer-events-none left-0 top-1/4 -translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{
+          background:
+            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.10), rgba(170, 61, 173, 0.06) 50%, rgba(170, 61, 173, 0))",
+        }}
+      />
+      <div
+        className="absolute pointer-events-none left-3/4 top-1/3 -translate-x-1/2 -translate-y-1/3 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{
+          background:
+            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.15), rgba(170, 61, 173, 0.06) 50%, rgba(170, 61, 173, 0))",
+        }}
       />
       {/* Font imports & custom declarations only */}
       <style dangerouslySetInnerHTML={{ __html: `

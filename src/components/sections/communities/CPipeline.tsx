@@ -90,18 +90,20 @@ export const CPipeline = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#071019] py-24 lg:py-36"
+      className="relative overflow-x-clip bg-[#071019] py-24 lg:py-36"
     >
       <div
-        className="pointer-events-none absolute inset-0"
+        className="absolute pointer-events-none right-0 bottom-0 translate-x-1/2 translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
         style={{
-          background: [
-            "radial-gradient(circle at 18% 22%, rgba(61,175,152,0.14), transparent 28%)",
-            "radial-gradient(circle at 78% 68%, rgba(91,63,158,0.12), transparent 34%)",
-            "radial-gradient(circle at 85% 15%, rgba(170, 61, 173, 0.10), transparent 30%)",
-            "radial-gradient(circle at 10% 80%, rgba(170, 61, 173, 0.08), transparent 28%)",
-            "linear-gradient(180deg, rgba(255,255,255,0.02), transparent 30%, rgba(255,255,255,0.01) 100%)",
-          ].join(","),
+          background:
+            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.15), rgba(170, 61, 173, 0.08) 50%, rgba(170, 61, 173, 0))",
+        }}
+      />
+      <div
+        className="absolute pointer-events-none left-0 top-1/5 -translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{
+          background:
+            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.20), rgba(170, 61, 173, 0.06) 50%, rgba(170, 61, 173, 0))",
         }}
       />
 

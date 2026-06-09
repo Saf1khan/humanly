@@ -5,11 +5,21 @@ import { motion } from "framer-motion";
 
 export const CLease = () => {
   return (
-    <section className="relative bg-transparent py-28 lg:py-40">
+    <section className="relative bg-transparent overflow-x-clip py-28 lg:py-40">
       {/* Violet radial gradient overlay */}
       <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse at 80% 20%, rgba(170, 61, 173, 0.07) 0%, transparent 50%), radial-gradient(ellipse at 10% 80%, rgba(170, 61, 173, 0.06) 0%, transparent 45%)" }}
+        className="absolute pointer-events-none right-0 top-1/4 translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{
+          background:
+            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.10), rgba(170, 61, 173, 0.04) 50%, rgba(170, 61, 173, 0))",
+        }}
+      />
+      <div
+        className="absolute pointer-events-none left-0 bottom-0 -translate-x-1/2 translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{
+          background:
+            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.10), rgba(170, 61, 173, 0.05) 50%, rgba(170, 61, 173, 0))",
+        }}
       />
       <div className="max-w-[1280px] mx-auto px-6 lg:px-0">
         {/* Section Header */}
@@ -31,7 +41,7 @@ export const CLease = () => {
               <div className="text-[108px] font-light font-bodoni text-[#1a1a1a]/80 tracking-tight leading-none mb-4">
                 ~70%
               </div>
-              <p className="text-base md:text-lg font-albert font-medium text-[#4a4a4a] leading-relaxed">
+              <p className="text-base md:text-lg font-albert font-light text-[#4a4a4a] leading-[28px] md:leading-[30px]">
                 of lots retained on long-term ground lease instead of selling — preserving land value and alignment with residents.
               </p>
             </div>
@@ -40,11 +50,11 @@ export const CLease = () => {
             <div className="space-y-4 pt-8 border-t border-slate-200/50 max-w-sm">
               <div className="flex items-baseline justify-between">
                 <span className="font-albert text-xs font-semibold uppercase tracking-wider text-[#8a8a8a]">01 / Sell Model</span>
-                <span className="font-cormorant text-sm italic text-[#8a8a8a]">Land sold, value exits</span>
+                <span className="font-cormorant font-medium text-sm italic text-[#8a8a8a]">Land sold, value exits</span>
               </div>
               <div className="flex items-baseline justify-between border-t border-slate-200/30 pt-3.5">
                 <span className="font-albert text-xs font-semibold uppercase tracking-wider text-[#1a1a1a]">02 / Lease Model ✓</span>
-                <span className="font-cormorant text-sm italic text-[#1a4f82] font-semibold">Land retained, value compounds</span>
+                <span className="font-cormorant text-sm italic text-[#1a4f82] font-medium">Land retained, value compounds</span>
               </div>
             </div>
           </div>
@@ -74,7 +84,7 @@ export const CLease = () => {
               <div key={index} className="space-y-3">
                 <div className="flex items-center gap-4 mb-1">
                   <span 
-                    className="font-cormorant text-xl italic font-semibold"
+                    className="font-bodoni text-base italic font-medium"
                     style={{ color: benefit.color }}
                   >
                     0{index + 1}
@@ -82,15 +92,15 @@ export const CLease = () => {
                   <span className="h-px flex-1 bg-slate-200/60" />
                 </div>
                 
-                <h3 className="font-bodoni text-2xl md:text-3xl text-[#1a1a1a] font-normal tracking-tight">
+                <h3 className="font-cormorant text-2xl md:text-3xl text-[#1a1a1a] font-normal tracking-tight">
                   {benefit.num}
                 </h3>
                 
-                <p className="font-albert text-[10px] md:text-[11px] font-bold tracking-widest text-[#8a8a8a] uppercase">
+                <p className="font-albert text-[10px] md:text-xs font-semibold tracking-widest text-[#8a8a8a] uppercase">
                   {benefit.title}
                 </p>
                 
-                <p className="font-albert text-sm md:text-base text-[#5a5a5a] leading-relaxed">
+                <p className="font-albert text-sm md:text-base font-light text-[#5a5a5a] leading-relaxed">
                   {benefit.desc}
                 </p>
               </div>

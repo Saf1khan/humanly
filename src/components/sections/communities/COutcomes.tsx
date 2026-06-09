@@ -19,13 +19,13 @@ export const COutcomes = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 bg-transparent py-20 lg:py-28 overflow-visible"
+      className="relative z-10 bg-transparent py-20 lg:py-28 overflow-x-clip"
     >
       <div
-        className="absolute pointer-events-none left-0 top-1/2 translate-x-1/4 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        className="absolute pointer-events-none left-1/4 bottom-1/2 -translate-x-1/2 translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
         style={{
           background:
-            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.25), rgba(170, 61, 173, 0.09) 50%, rgba(170, 61, 173, 0))",
+            "radial-gradient(50% 50%, rgba(255, 255, 255, 0.80), rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0))",
         }}
       />
       <div className="max-w-[1380px] mx-auto px-6 lg:px-12">

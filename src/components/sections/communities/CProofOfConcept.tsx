@@ -13,7 +13,7 @@ export const CProofOfConcept = () => {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-transparent">
+    <section className="relative z-0 overflow-x-clip bg-transparent">
       <div className="relative min-h-[720px] lg:min-h-[920px]">
         {/* Background Image */}
         <Image
@@ -25,19 +25,13 @@ export const CProofOfConcept = () => {
         />
 
       {/* Top / bottom blending */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-80 bg-gradient-to-b from-[#f7f1e8] to-transparent" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-80 bg-gradient-to-t from-[#f7f1e8] to-transparent" />
-
-      {/* Violet radial gradient overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none z-[1]"
-        style={{ background: "radial-gradient(ellipse at 80% 50%, rgba(170, 61, 173, 0.10) 0%, transparent 45%)" }}
-      />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#f7f1e8] to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#f7f1e8] to-transparent" />
 
       {/* Soft wash behind content for readability */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-full bg-[linear-gradient(90deg,rgba(247,241,232,0.99)_0%,rgba(247,241,232,0.34)_10%,rgba(247,241,232,0.08)_20%,rgba(247,241,232,0.0)_100%)]" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-full bg-[linear-gradient(90deg,rgba(247,241,232,0.80)_0%,rgba(247,241,232,0.25)_10%,rgba(247,241,232,0.08)_20%,rgba(247,241,232,0.0)_100%)]" />
       {/* Soft wash behind content for readability */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-full bg-[linear-gradient(to_left,rgba(247,241,232,0.99)_0%,rgba(247,241,232,0.34)_10%,rgba(247,241,232,0.08)_20%,rgba(247,241,232,0)_100%)]" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-full bg-[linear-gradient(to_left,rgba(247,241,232,0.80)_0%,rgba(247,241,232,0.25)_10%,rgba(247,241,232,0.08)_20%,rgba(247,241,232,0)_100%)]" />
 
         
      
@@ -63,17 +57,12 @@ export const CProofOfConcept = () => {
               {/* Light Reflection */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-transparent pointer-events-none" />
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+              <div className="grid grid-cols-1 gap-8 lg:gap-16 items-start">
                 <div>
-                  <h2 className="relative text-lg font-light leading-relaxed text-white md:text-2xl">
+                  <h2 className="relative text-xl font-albert font-light leading-[30px] md:leading-[36px] text-white md:text-2xl">
                     Humanly® is breaking ground on one of the largest
                     master-planned developments in the United States focused on
-                    workforce housing.
-                  </h2>
-                </div>
-                <div>
-                  <h2 className="relative text-lg font-light leading-relaxed text-white/80 md:text-2xl">
-                    Creating attainable communities at scale through long-term land
+                    workforce housing. Creating attainable communities at scale through long-term land
                     stewardship, thoughtful planning, and sustainable growth.
                   </h2>
                 </div>

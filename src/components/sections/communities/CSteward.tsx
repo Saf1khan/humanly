@@ -18,7 +18,7 @@ export const CSteward = () => {
 
       {/* Top / bottom blending */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#f7f1e8] to-transparent" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#f7f1e8] to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#f7f1e8] to-transparent" />
 
       {/* Soft wash behind content for readability */}
       <div className="pointer-events-none absolute inset-y-0 left-0 w-full bg-[linear-gradient(90deg,rgba(247,241,232,0.99)_0%,rgba(247,241,232,0.34)_10%,rgba(247,241,232,0.08)_20%,rgba(247,241,232,0.0)_100%)]" />
