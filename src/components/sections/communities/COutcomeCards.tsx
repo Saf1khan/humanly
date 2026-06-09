@@ -151,7 +151,8 @@ export const COutcomeCards = () => {
         }}
       />
       {/* Font imports & custom declarations only */}
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500&display=swap");
 
         @font-face {
@@ -178,30 +179,30 @@ export const COutcomeCards = () => {
 
       <div className="max-w-[1360px] mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 justify-between">
-          
+
           {/* LEFT NARRATIVE COLUMN */}
           <div className="relative w-full flex flex-col justify-between items-center text-center lg:items-start lg:text-left lg:w-[420px] lg:flex-shrink-0 min-h-auto pb-10 lg:pb-0">
             <div className="relative w-full flex flex-col items-center lg:items-start text-center lg:text-left">
-              <div 
+              <div
                 className="absolute -top-28 left-1/2 -translate-x-1/2 lg:-left-2.5 lg:translate-x-0 font-ivy-ora font-light text-[80px] md:text-[130px] tracking-widest text-[#5C472B]/[0.06] select-none pointer-events-none z-0"
               >
                 {String(index + 1).padStart(2, "0")}
               </div>
 
-              <div 
+              <div
                 className="relative z-10 text-[10px] tracking-widest font-albert uppercase text-sandstone-500 font-medium"
               >
                 GLOBAL RECOGNITION &amp; STANDARDS
               </div>
 
-              <h2 
+              <h2
                 className="relative z-10 m-0 font-cormorant font-normal text-3xl md:text-5xl leading-[40px] md:leading-[60px] tracking-tight text-sandstone-500"
               >
                 Community Outcomes<br />
                 by <span className="italic">System Design</span>
               </h2>
 
-              <p 
+              <p
                 className="mt-7 max-w-[400px] text-base md:text-lg leading-[28px] md:leading-[30px] font-albert font-light text-sandstone-500"
               >
                 Every Humanly® community provides sustained structural advantages. We blend master planning, land stewardship, and digital infrastructure to redefine suburban wellness and attainable living. From land design to resident pathways, our frameworks foster an integrated ecosystem for dining, living, and thriving.
@@ -212,8 +213,8 @@ export const COutcomeCards = () => {
           {/* RIGHT INTERACTIVE COLUMN */}
           <div className="w-full lg:w-[640px] lg:flex-shrink-0">
             <div className="relative grid grid-cols-1 md:grid-cols-[1.15fr_1fr] items-center gap-0 w-full">
-              <div 
-                className="relative h-[clamp(400px,118vw,580px)] md:h-[clamp(320px,72vw,420px)] lg:h-[clamp(380px,42vw,560px)] max-h-[600px] isolate z-[3] rounded-[2000px_2000px_0_0] md:rounded-none cursor-pointer md:cursor-default" 
+              <div
+                className="relative h-[clamp(400px,118vw,580px)] md:h-[clamp(320px,72vw,420px)] lg:h-[clamp(380px,42vw,560px)] max-h-[600px] isolate z-[3] rounded-[2000px_2000px_0_0] md:rounded-none cursor-pointer md:cursor-default"
                 aria-label="Experience images"
                 onClick={() => {
                   if (isMobileView) goNext();
@@ -230,18 +231,18 @@ export const COutcomeCards = () => {
                   const imageUrl = slideImages[pinnedSlide.imageKey as keyof typeof slideImages];
 
                   return (
-                    <figure 
+                    <figure
                       key={cardIdx}
-                      className={`absolute inset-0 w-full h-full rounded-[2000px_2000px_0_0] md:rounded-none overflow-hidden bg-gray-200 shadow-[0_18px_60px_rgba(0,0,0,0.14)] backface-hidden exp-card-transition`}
+                      className={`absolute inset-0 w-full h-full rounded-[2000px_2000px_0_0] md:rounded-3xl overflow-hidden bg-gray-200 shadow-[0_18px_60px_rgba(0,0,0,0.14)] backface-hidden exp-card-transition`}
                       style={{
                         transform: `translate3d(${slot.x}, ${slot.y}, 0)`,
                         opacity: slot.a,
                         zIndex: slot.z
                       } as React.CSSProperties}
                     >
-                      <img 
-                        src={imageUrl} 
-                        alt={pinnedSlide.title} 
+                      <img
+                        src={imageUrl}
+                        alt={pinnedSlide.title}
                         className="w-full h-full object-cover block"
                         loading="lazy"
                       />
@@ -254,13 +255,13 @@ export const COutcomeCards = () => {
 
                 <div className="flex md:hidden absolute inset-0 z-10 items-end justify-center px-[22px] py-[28px] pointer-events-none" aria-hidden="true">
                   <div className="w-full max-w-[320px] text-center text-white">
-                    <h3 
+                    <h3
                       className="m-0 font-light text-xl leading-[28px] tracking-tight uppercase text-white font-cormorant"
                     >
                       {slides[index].title}
                     </h3>
                     <div className="mt-3">
-                      <p 
+                      <p
                         className="m-0 text-xs font-light leading-[1.72] text-white/88"
                         style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
                       >
@@ -271,29 +272,29 @@ export const COutcomeCards = () => {
                 </div>
               </div>
 
-              <div className="relative md:justify-self-end w-full md:max-w-[500px] bg-[#5C472B] text-white rounded-none p-[35px] shadow-none md:shadow-[0_20px_70px_rgba(0,0,0,0.10)] z-[2] min-h-[300px] md:h-[320px] flex flex-col pb-[calc(35px+44px)] before:content-[''] before:absolute before:-left-[92px] before:top-0 before:w-[92px] before:h-full before:bg-[#5C472B] before:z-[-1] before:hidden md:before:block mt-[23px] md:mt-0 bg-transparent md:bg-[#5C472B]">
-                <div 
+              <div className="relative md:justify-self-end w-full md:max-w-[500px] bg-[#5C472B] text-white rounded-r-3xl p-[35px] shadow-none md:shadow-[0_20px_70px_rgba(0,0,0,0.10)] z-[2] min-h-[300px] md:h-[320px] flex flex-col pb-[calc(35px+44px)] before:content-[''] before:absolute before:-left-[92px] before:top-0 before:w-[92px] before:h-full before:bg-[#5C472B] before:z-[-1] before:hidden md:before:block mt-[23px] md:mt-0 bg-transparent md:bg-[#5C472B]">
+                <div
                   className={`hidden md:block will-change-[opacity,filter,transform] transition-all duration-[240ms] ease-out ${isLeaving ? "opacity-0 blur-[10px] translate-y-1.5" : ""} ${isEntering ? "opacity-0 blur-[10px] -translate-y-1.5" : ""}`}
                 >
-                  <h3 
+                  <h3
                     className="m-0 mb-3 text-2xl font-light font-cormorant leading-[36px] tracking-wide uppercase text-white"
                   >
                     {slides[index].title}
                   </h3>
-                  <p 
+                  <p
                     className="m-0 text-sm font-light font-albert leading-[24px] text-white/86 max-w-50"
                   >
                     {slides[index].text}
                   </p>
                 </div>
 
-                <button 
+                <button
                   className="group absolute md:left-[35px] md:bottom-[35px] left-1/2 -translate-x-1/2 md:translate-x-0 bottom-auto p-0 border-0 bg-transparent text-white cursor-pointer inline-flex items-center justify-center gap-3 text-2xl font-normal leading-none tracking-[0.8px] uppercase select-none outline-none md:text-white"
-                  type="button" 
+                  type="button"
                   onClick={goNext}
                   aria-label={`Next outcome (${index + 1}/${slides.length})`}
                 >
-                  <span 
+                  <span
                     className="relative inline-block text-[#3F2C1F] md:text-white after:content-[''] after:absolute after:left-0 after:bottom-[-8px] after:w-full after:h-[1px] after:bg-[#3F2C1F]/34 md:after:bg-white/35 after:scale-x-0 after:origin-left after:transition-transform after:duration-220 group-hover:after:scale-x-100 group-hover:after:hidden md:group-hover:after:block"
                     style={{ fontFamily: "'IvyOraDisplay', serif" }}
                   >
@@ -305,7 +306,7 @@ export const COutcomeCards = () => {
 
               <div className="block md:hidden w-full mt-10 text-center" aria-hidden="true">
                 <div className="w-[84px] h-[1px] bg-[#3F2C1F]/14 mx-auto mb-3"></div>
-                <p 
+                <p
                   className="m-0 max-w-[320px] mx-auto text-[11px] leading-[1.7] font-light text-[#3F2C1F]/60 text-center"
                   style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
                 >
