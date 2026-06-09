@@ -346,14 +346,14 @@ export const TeamGrid = () => {
         className="absolute pointer-events-none right-0 top-1/4 -translate-x-1/2 translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
         style={{
           background:
-            "radial-gradient(50% 50%, rgba(107,206,255, 0.25), rgba(107,206,255, 0.1) 50%, rgba(107,206,255, 0))",
+            "radial-gradient(50% 50%, rgba(107,206,255, 0.15), rgba(107,206,255, 0.1) 50%, rgba(107,206,255, 0))",
         }}
       />
       <div
         className="absolute pointer-events-none left-0 bottom-1/5 translate-x-1/2 -translate-y-1/3 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
         style={{
           background:
-            "radial-gradient(50% 50%, rgba(107,206,255, 0.25), rgba(107,206,255, 0.1) 50%, rgba(107,206,255, 0))",
+            "radial-gradient(50% 50%, rgba(107,206,255, 0.15), rgba(107,206,255, 0.1) 50%, rgba(107,206,255, 0))",
         }}
       />
 

@@ -61,6 +61,7 @@ export const TeamHero = () => {
         .wh-hero-title {
           /* Using the deep earthy green text color to keep the greenish effect */
           color: rgb(34, 66, 40);
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
           font-family: "Cormorant Garamond", Georgia, serif;
           /* Hidden until SplitType finishes — prevents layout flash on reload */
           opacity: 0;

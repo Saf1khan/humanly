@@ -6,12 +6,7 @@ import Image from "next/image";
 
 export const CHumanDesign = () => {
   return (
-    <section className="relative bg-transparent py-4 lg:py-8 overflow-hidden">
-      {/* Violet radial gradient overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse at 85% 15%, rgba(170, 61, 173, 0.08) 0%, transparent 45%), radial-gradient(ellipse at 5% 85%, rgba(170, 61, 173, 0.06) 0%, transparent 40%)" }}
-      />
+    <section className="relative bg-transparent py-4 lg:py-8 overflow-x-clip">
       <div className="max-w-[1300px] mx-auto">
         <div className="grid h-full w-full rounded-[40px] py-10 md:bg-transparent md:py-20 relative" data-cy="natural-cycles-section">
           {/* Background image container */}
@@ -38,7 +33,7 @@ export const CHumanDesign = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="text-[0.72rem] font-semibold tracking-[0.14em] uppercase text-[#d96a2b] mb-1"
+                className="text-sm font-medium font-albert tracking-widest uppercase text-[#d96a2b] mb-1"
               >
                 Design Philosophy
               </motion.p>
@@ -48,15 +43,15 @@ export const CHumanDesign = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.1 }}
-                className="tracking-normal text-left font-bodoni leading-tight font-normal text-heading-base text-sandstone-100 text-3xl md:text-5xl md:max-w-4/5"
+                className="tracking-tight text-left font-cormorant leading-[40px] md:leading-[60px] font-normal text-heading-base text-sandstone-100 text-3xl md:text-5xl md:max-w-4/5"
                 data-cy="nc-title"
               >
-                Neighborhoods that foster{" "}
-                <em className="italic text-[#6BCEFF] not-italic font-serif">connection and belonging.</em>
+                Neighborhoods that foster <br/>{" "}
+                <em className="italic text-[#6BCEFF] font-cormorant font-light">connection and belonging.</em>
               </motion.h2>
 
               <div className="gap-5 md:grid md:grid-cols-1" data-cy="nc-subcopy">
-                  <div className="flex flex-col gap-5 text-base text-gray-300 font-albert font-normal" data-cy="nc-subcopy-content">
+                  <div className="flex flex-col gap-5 text-base md:text-lg leading-[28px] md:leading-[30px] text-gray-300 font-albert font-light" data-cy="nc-subcopy-content">
                     <motion.p
                       initial={{ opacity: 0, y: 15 }}
                       whileInView={{ opacity: 1, y: 0 }}

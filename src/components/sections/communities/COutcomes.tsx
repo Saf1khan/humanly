@@ -19,13 +19,13 @@ export const COutcomes = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 bg-transparent py-20 lg:py-28 overflow-visible"
+      className="relative z-10 bg-transparent py-20 lg:py-28 overflow-x-clip"
     >
       <div
-        className="absolute pointer-events-none left-0 top-1/2 translate-x-1/4 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        className="absolute pointer-events-none left-1/4 bottom-1/2 -translate-x-1/2 translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
         style={{
           background:
-            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.25), rgba(170, 61, 173, 0.09) 50%, rgba(170, 61, 173, 0))",
+            "radial-gradient(50% 50%, rgba(255, 255, 255, 0.80), rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0))",
         }}
       />
       <div className="max-w-[1380px] mx-auto px-6 lg:px-12">
@@ -47,7 +47,7 @@ export const COutcomes = () => {
                 initial={{ opacity: 0, y: 14 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.55, delay: 0.08 }}
-                className="text-3xl md:text-5xl font-normal leading-[40px] md:leading-[60px] tracking-tight text-[#AA3DAD] font-cormorant mb-8 text-left"
+                className="text-3xl md:text-5xl font-normal leading-[40px] md:leading-[60px] tracking-tight text-sandstone-500 font-cormorant mb-8 text-left"
               >
                 Humanly<span className="text-[0.7em] align-super">®</span> Communities Outcomes
               </motion.h2>
@@ -63,7 +63,7 @@ export const COutcomes = () => {
                     className="group flex items-center gap-4 py-[16px] border-b border-[#866d4b]/10 first:border-t first:border-[#4A4741]/10 cursor-default transition-all duration-300 hover:pl-2"
                   >
                     {/* Text */}
-                    <span className="text-sm md:text-base font-albert font-light text-[#AA3DAD]/60 leading-[20px] md:leading-[24px] transition-colors duration-200 group-hover:text-[#AA3DAD]">
+                    <span className="text-sm md:text-base font-albert font-light text-[#4a4741]/60 leading-[20px] md:leading-[24px] transition-colors duration-200 group-hover:text-[#4a4741]">
                       {outcome.text}
                     </span>
                   </motion.li>
@@ -75,7 +75,7 @@ export const COutcomes = () => {
                 initial={{ opacity: 0, y: 8 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.45, delay: 0.68 }}
-                className="text-sm md:text-base font-albert font-normal text-[#AA3DAD]/80 leading-[20px] md:leading-[24px]"
+                className="text-sm md:text-base font-albert font-normal text-[#4a4741]/85 leading-[20px] md:leading-[24px]"
               >
                 Plus additional benefits for residents of ground-lease homeowners &amp; Humanly® Residences.
               </motion.p>
@@ -105,7 +105,7 @@ export const COutcomes = () => {
 
               {/* Caption badge */}
               <div className="absolute bottom-6 left-6 right-6">
-                <span className="inline-block text-xs uppercase tracking-widest font-albert font-medium text-[#a56fa7] bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
+                <span className="inline-block text-xs uppercase tracking-widest font-albert font-medium text-white/80 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
                   Humanly® Community Life
                 </span>
               </div>

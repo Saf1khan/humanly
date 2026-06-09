@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export const DataRoomForm = () => {
   return (
-    <section className="relative bg-[#241F21] overflow-x-clip">
+    <section className="relative bg-black overflow-x-clip">
       <div className='w-full bg-[#111213] py-24 overflow-hidden text-sandstone-500 font-sans rounded-b-[40px] md:rounded-b-[64px] z-20'>
       {/* Background Gradients (matching the Oura blue glow) */}
       <div 

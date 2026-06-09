@@ -90,33 +90,25 @@ export const CPipeline = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#071019] py-24 lg:py-36"
+      className="bg-black"
     >
+      <div className="relative overflow-hidden bg-[#111213] py-24 lg:py-36 rounded-b-[40px] md:rounded-b-[64px]">
       <div
-        className="pointer-events-none absolute inset-0"
+        className="absolute pointer-events-none right-0 bottom-0 translate-x-1/2 translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
         style={{
-          background: [
-            "radial-gradient(circle at 18% 22%, rgba(61,175,152,0.14), transparent 28%)",
-            "radial-gradient(circle at 78% 68%, rgba(91,63,158,0.12), transparent 34%)",
-            "radial-gradient(circle at 85% 15%, rgba(170, 61, 173, 0.10), transparent 30%)",
-            "radial-gradient(circle at 10% 80%, rgba(170, 61, 173, 0.08), transparent 28%)",
-            "linear-gradient(180deg, rgba(255,255,255,0.02), transparent 30%, rgba(255,255,255,0.01) 100%)",
-          ].join(","),
+          background:
+            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.15), rgba(170, 61, 173, 0.08) 50%, rgba(170, 61, 173, 0))",
+        }}
+      />
+      <div
+        className="absolute pointer-events-none left-0 top-1/5 -translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{
+          background:
+            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.20), rgba(170, 61, 173, 0.06) 50%, rgba(170, 61, 173, 0))",
         }}
       />
 
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(247,246,242,0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(247,246,242,0.35) 1px, transparent 1px)",
-          backgroundSize: "72px 72px",
-          maskImage:
-            "radial-gradient(circle at center, black 45%, transparent 100%)",
-          WebkitMaskImage:
-            "radial-gradient(circle at center, black 45%, transparent 100%)",
-        }}
-      />
+
 
       <div className="relative max-w-[1380px] mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-16 lg:gap-10 items-start mb-16 lg:mb-20">
@@ -125,8 +117,7 @@ export const CPipeline = () => {
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
               transition={{ duration: 0.7, delay: 0, ease: [0.22, 1, 0.36, 1] }}
-              className="mb-4 inline-flex items-center gap-3 text-[11px] font-semibold tracking-[0.3em] uppercase text-[#3daf98]"
-              style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+              className="mb-4 inline-flex items-center gap-3 text-xs font-medium font-albert uppercase tracking-widest text-[#3daf98]"
             >
               <span className="block w-8 h-px bg-[#3daf98]" />
               National Expansion Pipeline
@@ -136,8 +127,7 @@ export const CPipeline = () => {
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
               transition={{ duration: 0.7, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-              className="text-[clamp(2.35rem,5.4vw,4.9rem)] leading-[0.96] tracking-[-0.04em] text-[#f7f6f2]"
-              style={{ fontFamily: "'IvyOraDisplay', serif" }}
+              className="text-3xl md:text-5xl font-cormorant font-normal leading-[40px] md:leading-[60px] tracking-tight text-white"
             >
               A national roadmap,<br />
               <span className="text-[#3daf98]">cinematic in motion.</span>
@@ -151,8 +141,7 @@ export const CPipeline = () => {
             className="lg:pt-8"
           >
             <p
-              className="max-w-[42ch] text-[0.97rem] leading-[1.9] text-[#f7f6f2]/56"
-              style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+              className="max-w-[42ch] text-base leading-[28px] md:leading-[30px] font-albert font-light text-white/70 text-pretty"
             >
               This direction turns the pipeline into a long-form expansion filmstrip — one active launch point,
               followed by future markets unfolding across a glowing national rail.
@@ -169,14 +158,12 @@ export const CPipeline = () => {
           {stats.map((stat) => (
             <div key={stat.label} className="bg-[#08121c] px-6 py-6 lg:px-7 lg:py-7">
               <div
-                className="text-[clamp(1.7rem,3vw,2.5rem)] leading-none text-[#f7f6f2] tracking-[-0.03em]"
-                style={{ fontFamily: "'IvyOraDisplay', serif" }}
+                className="text-2xl md:text-4xl font-cormorant font-normal text-white"
               >
                 {stat.value}
               </div>
               <div
-                className="mt-2 text-[10px] uppercase tracking-[0.24em] text-[#f7f6f2]/36"
-                style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                className="mt-2 text-xs font-albert uppercase tracking-widest text-white/60"
               >
                 {stat.label}
               </div>
@@ -210,12 +197,11 @@ export const CPipeline = () => {
                 <div>
                   <div className="flex items-center justify-between gap-4 mb-10">
                     <span
-                      className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em]"
+                      className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-albert font-medium uppercase tracking-widest"
                       style={{
                         color: pipeline[0].statusColor,
                         background: pipeline[0].statusBg,
                         borderColor: pipeline[0].statusBorder,
-                        fontFamily: "'Bricolage Grotesque', sans-serif",
                       }}
                     >
                       {pipeline[0].status}
@@ -228,8 +214,7 @@ export const CPipeline = () => {
                     >
                       <span className="w-2.5 h-2.5 rounded-full bg-[#3daf98] shadow-[0_0_16px_rgba(61,175,152,0.95)]" />
                       <span
-                        className="text-[10px] uppercase tracking-[0.26em] text-[#f7f6f2]"
-                        style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                        className="text-xs font-albert uppercase tracking-widest text-white"
                       >
                         Live launch
                       </span>
@@ -237,21 +222,18 @@ export const CPipeline = () => {
                   </div>
 
                   <div
-                    className="text-[5.6rem] leading-none tracking-[-0.06em] text-white/10 mb-5"
-                    style={{ fontFamily: "'IvyOraDisplay', serif" }}
+                    className="text-7xl font-cormorant font-normal text-white/20 mb-5"
                   >
                     {pipeline[0].id}
                   </div>
 
                   <div
-                    className="text-[clamp(2rem,4vw,3rem)] leading-[0.95] tracking-[-0.03em] text-[#f7f6f2]"
-                    style={{ fontFamily: "'IvyOraDisplay', serif" }}
+                    className="text-4xl md:text-5xl font-cormorant font-normal text-white"
                   >
                     {pipeline[0].location}
                   </div>
                   <div
-                    className="mt-2 text-[11px] uppercase tracking-[0.28em] text-[#f7f6f2]/38"
-                    style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                    className="mt-2 text-xs font-albert uppercase tracking-widest text-white/60"
                   >
                     Ground zero · target {pipeline[0].year}
                   </div>
@@ -259,8 +241,7 @@ export const CPipeline = () => {
 
                 <div>
                   <p
-                    className="max-w-[34ch] text-[0.94rem] leading-[1.85] text-[#f7f6f2]/64 mb-8"
-                    style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                    className="max-w-[34ch] text-base leading-[28px] font-albert font-light text-white/70 mb-8 text-pretty"
                   >
                     {pipeline[0].desc}
                   </p>
@@ -268,28 +249,24 @@ export const CPipeline = () => {
                   <div className="grid grid-cols-2 gap-4 mb-6">
                     <div className="rounded-2xl border border-white/[0.08] bg-black/15 px-5 py-4 backdrop-blur-sm">
                       <div
-                        className="text-[1.5rem] leading-none text-[#f7f6f2]"
-                        style={{ fontFamily: "'IvyOraDisplay', serif" }}
+                        className="text-2xl font-cormorant font-normal text-white"
                       >
                         {pipeline[0].units}
                       </div>
                       <div
-                        className="mt-2 text-[10px] uppercase tracking-[0.18em] text-[#f7f6f2]/34"
-                        style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                        className="mt-2 text-xs font-albert uppercase tracking-widest text-white/60"
                       >
                         Units planned
                       </div>
                     </div>
                     <div className="rounded-2xl border border-white/[0.08] bg-black/15 px-5 py-4 backdrop-blur-sm">
                       <div
-                        className="text-[1.5rem] leading-none text-[#f7f6f2]"
-                        style={{ fontFamily: "'IvyOraDisplay', serif" }}
+                        className="text-2xl font-cormorant font-normal text-white"
                       >
                         {pipeline[0].acres}
                       </div>
                       <div
-                        className="mt-2 text-[10px] uppercase tracking-[0.18em] text-[#f7f6f2]/34"
-                        style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                        className="mt-2 text-xs font-albert uppercase tracking-widest text-white/60"
                       >
                         Acres secured
                       </div>
@@ -299,14 +276,12 @@ export const CPipeline = () => {
                   <div className="flex items-center justify-between gap-4 border-t border-white/[0.08] pt-5">
                     <div>
                       <div
-                        className="text-[10px] uppercase tracking-[0.24em] text-[#f7f6f2]/30"
-                        style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                        className="text-xs font-albert uppercase tracking-widest text-white/60"
                       >
                         Expansion status
                       </div>
                       <div
-                        className="mt-2 text-[1rem] text-[#f7f6f2]/84"
-                        style={{ fontFamily: "'IvyOraDisplay', serif" }}
+                        className="mt-2 text-lg font-cormorant font-normal text-white"
                       >
                         Prototype community in motion
                       </div>
@@ -379,19 +354,17 @@ export const CPipeline = () => {
                     />
 
                     <div
-                      className="absolute top-3 right-4 text-[2.85rem] leading-none tracking-[-0.04em] text-white/[0.045]"
-                      style={{ fontFamily: "'IvyOraDisplay', serif" }}
+                      className="absolute top-3 right-4 text-5xl font-cormorant font-normal text-white/5"
                     >
                       {item.id}
                     </div>
 
                     <span
-                      className="relative z-10 inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em]"
+                      className="relative z-10 inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-albert font-medium uppercase tracking-widest"
                       style={{
                         color: item.statusColor,
                         background: item.statusBg,
                         borderColor: item.statusBorder,
-                        fontFamily: "'Bricolage Grotesque', sans-serif",
                       }}
                     >
                       <span
@@ -403,14 +376,12 @@ export const CPipeline = () => {
 
                     <div className="relative z-10 mt-6">
                       <div
-                        className="text-[1.45rem] leading-[1.05] tracking-[-0.02em] text-[#f7f6f2]"
-                        style={{ fontFamily: "'IvyOraDisplay', serif" }}
+                        className="text-2xl font-cormorant font-normal text-white"
                       >
                         {item.location}
                       </div>
                       <div
-                        className="mt-1 text-[10px] uppercase tracking-[0.22em] text-[#f7f6f2]/46"
-                        style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                        className="mt-1 text-xs font-albert uppercase tracking-widest text-white/60"
                       >
                         Target {item.year}
                       </div>
@@ -419,14 +390,12 @@ export const CPipeline = () => {
                     <div className="relative z-10 mt-8 space-y-4">
                       <div>
                         <div
-                          className="text-[1rem] text-[#f7f6f2]/90"
-                          style={{ fontFamily: "'IvyOraDisplay', serif" }}
+                          className="text-lg font-cormorant font-normal text-white/90"
                         >
                           {item.units}
                         </div>
                         <div
-                          className="mt-1 text-[10px] uppercase tracking-[0.18em] text-[#f7f6f2]/42"
-                          style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                          className="mt-1 text-xs font-albert uppercase tracking-widest text-white/60"
                         >
                           Units
                         </div>
@@ -434,14 +403,12 @@ export const CPipeline = () => {
                       <div className="w-8 h-px bg-white/10" />
                       <div>
                         <div
-                          className="text-[1rem] text-[#f7f6f2]/90"
-                          style={{ fontFamily: "'IvyOraDisplay', serif" }}
+                          className="text-lg font-cormorant font-normal text-white/90"
                         >
                           {item.acres}
                         </div>
                         <div
-                          className="mt-1 text-[10px] uppercase tracking-[0.18em] text-[#f7f6f2]/42"
-                          style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                          className="mt-1 text-xs font-albert uppercase tracking-widest text-white/60"
                         >
                           Acres
                         </div>
@@ -449,8 +416,7 @@ export const CPipeline = () => {
                     </div>
 
                     <p
-                      className="relative z-10 mt-8 text-[0.8rem] leading-[1.8] text-[#f7f6f2]/60"
-                      style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                      className="relative z-10 mt-8 text-sm leading-[26px] font-albert font-light text-white/70"
                     >
                       {item.desc}
                     </p>
@@ -471,15 +437,13 @@ export const CPipeline = () => {
           <div className="relative px-8 py-10 lg:px-12 lg:py-12 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
             <div>
               <p
-                className="text-[clamp(1.35rem,2.8vw,2.2rem)] leading-[1.24] tracking-[-0.02em] text-[#f7f6f2]"
-                style={{ fontFamily: "'IvyOraDisplay', serif" }}
+                className="text-2xl md:text-4xl font-cormorant font-normal leading-[1.24] tracking-tight text-white"
               >
                 The expansion story reads left to right —<br className="hidden lg:block" />
                 from a built reality to a coast-to-coast future.
               </p>
               <p
-                className="mt-4 max-w-[54ch] text-[0.9rem] leading-[1.8] text-[#f7f6f2]/55"
-                style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                className="mt-4 max-w-[54ch] text-base leading-[28px] font-albert font-light text-white/70"
               >
                 One active state. Four future markets. Fifty-state ambition.
               </p>
@@ -488,14 +452,12 @@ export const CPipeline = () => {
             <div className="w-full lg:w-[260px]">
               <div className="flex items-baseline gap-2 justify-start lg:justify-end">
                 <span
-                  className="text-[2.2rem] leading-none text-[#3daf98]"
-                  style={{ fontFamily: "'IvyOraDisplay', serif" }}
+                  className="text-4xl font-cormorant font-normal text-[#3daf98]"
                 >
                   1
                 </span>
                 <span
-                  className="text-[0.8rem] text-[#f7f6f2]/38"
-                  style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                  className="text-sm font-albert text-white/60"
                 >
                   of 50 states live
                 </span>
@@ -509,14 +471,14 @@ export const CPipeline = () => {
                 />
               </div>
               <div
-                className="mt-3 text-[10px] uppercase tracking-[0.26em] text-[#f7f6f2]/28 lg:text-right"
-                style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                className="mt-3 text-xs font-albert uppercase tracking-widest text-white/40 lg:text-right"
               >
                 National expansion underway
               </div>
             </div>
           </div>
         </motion.div>
+      </div>
       </div>
     </section>
   );

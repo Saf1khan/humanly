@@ -52,19 +52,14 @@ export const VillageCenterSection = () => {
   const visibleItems = carouselItems.slice(windowStart, windowStart + VISIBLE_SWATCHES);
 
   return (
-    <section className="relative w-full bg-transparent py-14 lg:py-24 overflow-visible">
+    <section className="relative w-full bg-transparent py-14 lg:py-24 overflow-x-clip">
       {/* Background Gradients — violet to match CHero */}
       <div
-        className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(170, 61, 173, 0.08), rgba(170, 61, 173, 0.04) 50%, rgba(170, 61, 173, 0))" }}
-      />
-      <div
-        className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-[-35%] w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(170, 61, 173, 0.08), rgba(170, 61, 173, 0.04) 50%, rgba(170, 61, 173, 0))" }}
-      />
-      <div
-        className="absolute pointer-events-none left-0 -translate-x-1/2 top-1/2 -translate-y-1/4 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-        style={{ background: "radial-gradient(50% 50%, rgba(170, 61, 173, 0.08), rgba(170, 61, 173, 0.04) 50%, rgba(170, 61, 173, 0))" }}
+        className="absolute pointer-events-none left-0 bottom-1/5 translate-x-1/2 -translate-y-1/3 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{
+          background:
+            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.12), rgba(170, 61, 173, 0.09) 50%, rgba(170, 61, 173, 0))",
+        }}
       />
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
 
@@ -73,21 +68,16 @@ export const VillageCenterSection = () => {
           {/* Heading */}
           <div className="flex flex-col gap-2 md:gap-3">
             <RevealOnScroll>
-              <h2 className="text-4xl tracking-normal md:text-5xl text-left font-bodoni font-bold leading-tight text-sandstone-500">
+              <h2 className="text-3xl tracking-tight md:text-5xl text-left font-cormorant font-normal leading-[40px] md:leading-[60px] text-sandstone-500">
                 Village Center
               </h2>
             </RevealOnScroll>
             <RevealOnScroll delay="delay-100">
-              <p className="text-sandstone-500/80 text-base md:text-lg tracking-wide font-albert font-normal">
+              <p className="text-sandstone-500 text-base md:text-lg font-albert font-light leading-[28px] md:leading-[30px]">
                 15 Integrated facilities · 90,000+ SF of community space
               </p>
             </RevealOnScroll>
           </div>
-
-          {/* Gradient Line */}
-          <RevealOnScroll delay="delay-100">
-            <div className="h-[1px] w-full bg-[linear-gradient(to_right,#6BCEFF,#0c007a,#AA3DAD,#FF6136,#FFE366)] rounded-full mb-2"></div>
-          </RevealOnScroll>
 
           {/* Carousel */}
           <RevealOnScroll delay="delay-200">
@@ -111,7 +101,7 @@ export const VillageCenterSection = () => {
 
               {/* Active facility label - Title (Left Top) */}
               <div className="absolute top-6 left-6 md:top-10 md:left-10 z-10">
-                <p className="text-white text-3xl md:text-4xl font-cormorant font-semibold drop-shadow-lg">
+                <p className="text-white text-3xl md:text-4xl font-cormorant font-medium drop-shadow-lg">
                   {carouselItems[activeIndex].name}
                 </p>
               </div>
@@ -132,7 +122,7 @@ export const VillageCenterSection = () => {
                   <button
                     onClick={handlePrev}
                     aria-label="Previous"
-                    className="flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200 text-slate-700 hover:bg-slate-100"
+                    className="flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200 text-sandstone-500 hover:bg-slate-100"
                   >
                     <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -164,7 +154,7 @@ export const VillageCenterSection = () => {
                             {/* Expanding name label for the active item only */}
                             <span className={`flex items-center h-8 overflow-hidden transition-all duration-500 ease-in-out ${isActive ? "max-w-[130px] opacity-100 pr-2" : "max-w-0 opacity-0 pr-0"
                               }`}>
-                              <span className="text-xs font-albert whitespace-nowrap text-slate-800 font-medium">
+                              <span className="text-xs font-albert whitespace-nowrap text-sandstone-500 font-medium">
                                 {item.name}
                               </span>
                             </span>
@@ -178,7 +168,7 @@ export const VillageCenterSection = () => {
                   <button
                     onClick={handleNext}
                     aria-label="Next"
-                    className="flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200 text-slate-700 hover:bg-slate-100"
+                    className="flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200 text-sandstone-500 hover:bg-slate-100"
                   >
                     <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

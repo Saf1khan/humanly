@@ -10,12 +10,11 @@ import { COutcomeCards } from "@/components/sections/communities/COutcomeCards";
 import { CHousingMix } from "@/components/sections/communities/CHousingMix";
 import { CPipeline } from "@/components/sections/communities/CPipeline";
 import { Footer } from "@/components/layout/Footer";
-import { SmoothScroll } from "@/components/ui/SmoothScroll";
+
 
 export default function CommunitiesPage() {
   return (
-    <SmoothScroll>
-      <main className="font-sans selection:bg-[#1a4f82] selection:text-white bg-sandstone-200">
+      <main className="bg-sandstone-200">
         <CHero />
         <COutcomes />
         <CSteward />
@@ -28,6 +27,5 @@ export default function CommunitiesPage() {
         <CPipeline />
         <Footer />
       </main>
-    </SmoothScroll>
   );
 }

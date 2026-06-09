@@ -79,22 +79,33 @@ const callouts = [
 
 export const CHousingMix = () => {
   return (
-    <section className="relative bg-transparent py-24 lg:py-40">
+    <section className="relative z-10 bg-transparent py-24 lg:py-40 overflow-x-clip">
       {/* Violet radial gradient overlay */}
+      
       <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse at 20% 20%, rgba(170, 61, 173, 0.07) 0%, transparent 45%), radial-gradient(ellipse at 80% 80%, rgba(170, 61, 173, 0.07) 0%, transparent 45%)" }}
+        className="absolute pointer-events-none right-0 top-1/4 translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{
+          background:
+            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.15), rgba(170, 61, 173, 0.05) 50%, rgba(170, 61, 173, 0))",
+        }}
+      />
+      <div
+        className="absolute pointer-events-none left-0 bottom-1/3 -translate-x-1/2 translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{
+          background:
+            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.10), rgba(170, 61, 173, 0.04) 50%, rgba(170, 61, 173, 0))",
+        }}
       />
       <div className="mx-auto max-w-[1280px] px-6 lg:px-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-10">
           {/* Title */}
-          <h2 className="lg:col-span-2 font-bodoni text-4xl font-bold tracking-normal text-[#1a1a1a] md:text-5xl leading-[1.15] max-w-4xl">
+          <h2 className="lg:col-span-2 font-cormorant text-3xl font-normal tracking-tight text-sandstone-500 md:text-5xl leading-[40px] md:leading-[60px] max-w-4xl">
             Integrating Missing Middle Housing
           </h2>
 
           {/* Description full width */}
           <div className="lg:col-span-2">
-            <p className="font-albert text-base font-normal text-[#5a5a5a] md:text-lg max-w-5xl md:leading-8">
+            <p className="font-albert text-base font-light text-sandstone-500 md:text-lg max-w-5xl leading:[28px] md:leading-[30px]">
               Every Humanly® community blends four proven housing types to
               maximize affordability, density, and resident choice — solving
               the fractured model that leaves workforce families without
@@ -167,10 +178,10 @@ export const CHousingMix = () => {
               </svg>
 
               <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
-                <div className="font-bodoni text-6xl font-light tracking-tight text-[#1a1a1a]">
+                <div className="font-bodoni text-6xl font-light tracking-tight text-sandstone-500">
                   4
                 </div>
-                <div className="font-albert mt-2 text-[10px] font-bold uppercase tracking-widest text-[#8a8a8a]">
+                <div className="font-albert mt-2 text-xs font-semibold uppercase tracking-widest text-sandstone-500">
                   Housing Types
                 </div>
               </div>
@@ -179,8 +190,8 @@ export const CHousingMix = () => {
                 <motion.div
                   key={`label-${idx}`}
                   className={`absolute flex flex-col ${call.align === "right"
-                      ? "items-end text-right"
-                      : "items-start text-left"
+                    ? "items-end text-right"
+                    : "items-start text-left"
                     }`}
                   style={{
                     ...call.labelPos,
@@ -191,10 +202,10 @@ export const CHousingMix = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 1.4 + idx * 0.2 }}
                 >
-                  <div className="font-bodoni text-4xl tracking-tight text-[#1a1a1a]">
+                  <div className="font-bodoni text-4xl tracking-tight text-sandstone-500">
                     {call.value}
                   </div>
-                  <div className="font-albert mt-1 whitespace-nowrap text-xs font-bold uppercase tracking-widest text-[#5a5a5a]">
+                  <div className="font-albert mt-1 whitespace-nowrap text-xs font-semibold uppercase tracking-widest text-sandstone-500">
                     {call.label}
                   </div>
                 </motion.div>
@@ -239,10 +250,10 @@ export const CHousingMix = () => {
                   ))}
                 </svg>
                 <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
-                  <div className="font-bodoni text-5xl font-light tracking-tight text-[#1a1a1a]">
+                  <div className="font-bodoni text-5xl font-light tracking-tight text-sandstone-500">
                     4
                   </div>
-                  <div className="font-albert mt-1 text-[9px] font-bold uppercase tracking-widest text-[#8a8a8a]">
+                  <div className="font-albert mt-1 text-[9px] font-bold uppercase tracking-widest text-sandstone-500">
                     Housing Types
                   </div>
                 </div>
@@ -260,10 +271,10 @@ export const CHousingMix = () => {
                         style={{ backgroundColor: type.color }}
                       />
                     </div>
-                    <div className="font-bodoni mb-1 text-4xl text-[#1a1a1a]">
+                    <div className="font-bodoni mb-1 text-4xl text-sandstone-500">
                       {type.value}
                     </div>
-                    <div className="font-albert text-[10px] font-bold uppercase tracking-widest text-[#5a5a5a]">
+                    <div className="font-albert text-[10px] font-bold uppercase tracking-widest text-sandstone-500">
                       {type.label}
                     </div>
                   </div>
@@ -280,7 +291,7 @@ export const CHousingMix = () => {
             transition={{ duration: 0.9, delay: 0.65 }}
             className="lg:col-start-1 lg:row-start-6 self-end lg:self-end justify-self-end"
           >
-            <div className="font-cormorant text-lg italic text-[#1a1a1a] sm:text-xl max-w-xl">
+            <div className="font-cormorant text-lg italic text-sandstone-500 md:text-xl max-w-xl">
               Designed to serve{" "}
               <span className="font-semibold text-[#1a4f82]">
                 80–120% AMI

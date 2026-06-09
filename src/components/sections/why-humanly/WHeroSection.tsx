@@ -61,6 +61,7 @@ export const WHeroSection = () => {
         .wh-hero-title {
           /* Using the requested sandstone text color for contrast against charcoal */
           color: #F7F1E8;
+          text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2);
           font-family: "Cormorant Garamond", Georgia, serif;
           /* Hidden until SplitType finishes — prevents layout flash on reload */
           opacity: 0;

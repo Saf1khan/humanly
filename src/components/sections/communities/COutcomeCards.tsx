@@ -26,7 +26,6 @@ const slides = [
     imageKey: "integratedServices",
     icon: "🏥",
     color: "#0d7d6a",
-    script: "Embedded Support"
   },
   {
     title: "FINANCIAL EMPOWERMENT",
@@ -34,7 +33,6 @@ const slides = [
     imageKey: "financialEmpowerment",
     icon: "💰",
     color: "#d96a2b",
-    script: "Equity & Value"
   },
   {
     title: "COMMUNITY CONNECTION",
@@ -42,7 +40,6 @@ const slides = [
     imageKey: "communityConnection",
     icon: "🤝",
     color: "#5b3f9e",
-    script: "Engineered Belonging"
   },
   {
     title: "ECONOMIC MOBILITY",
@@ -50,7 +47,6 @@ const slides = [
     imageKey: "economicMobility",
     icon: "📈",
     color: "#2d7dd2",
-    script: "Pathways Upward"
   },
   {
     title: "HEALTH & WELLNESS",
@@ -58,7 +54,6 @@ const slides = [
     imageKey: "healthWellness",
     icon: "🌱",
     color: "#3daf98",
-    script: "Whole-Person Health"
   }
 ];
 
@@ -139,11 +134,21 @@ export const COutcomeCards = () => {
   const slots = isMobileView ? mobileSlots : desktopSlots;
 
   return (
-    <section className="relative bg-transparent py-20 lg:py-32 overflow-hidden">
+    <section className="relative bg-transparent py-20 lg:py-32 overflow-x-clip">
       {/* Violet radial gradient overlay */}
       <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse at 5% 40%, rgba(170, 61, 173, 0.08) 0%, transparent 45%), radial-gradient(ellipse at 95% 60%, rgba(170, 61, 173, 0.06) 0%, transparent 40%)" }}
+        className="absolute pointer-events-none left-0 top-1/4 -translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{
+          background:
+            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.20), rgba(170, 61, 173, 0.08) 50%, rgba(170, 61, 173, 0))",
+        }}
+      />
+      <div
+        className="absolute pointer-events-none left-3/4 top-1/3 -translate-x-1/2 -translate-y-1/3 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        style={{
+          background:
+            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.15), rgba(170, 61, 173, 0.06) 50%, rgba(170, 61, 173, 0))",
+        }}
       />
       {/* Font imports & custom declarations only */}
       <style dangerouslySetInnerHTML={{ __html: `
@@ -178,40 +183,28 @@ export const COutcomeCards = () => {
           <div className="relative w-full flex flex-col justify-between items-center text-center lg:items-start lg:text-left lg:w-[420px] lg:flex-shrink-0 min-h-auto pb-10 lg:pb-0">
             <div className="relative w-full flex flex-col items-center lg:items-start text-center lg:text-left">
               <div 
-                className="absolute -top-12 left-1/2 -translate-x-1/2 lg:-left-2.5 lg:translate-x-0 font-light text-[clamp(58px,18vw,130px)] lg:text-[130px] leading-[0.8] tracking-[0.02em] text-[#5C472B]/[0.06] select-none pointer-events-none z-0"
-                style={{ fontFamily: "'IvyOraDisplay', serif" }}
+                className="absolute -top-28 left-1/2 -translate-x-1/2 lg:-left-2.5 lg:translate-x-0 font-ivy-ora font-light text-[80px] md:text-[130px] tracking-widest text-[#5C472B]/[0.06] select-none pointer-events-none z-0"
               >
                 {String(index + 1).padStart(2, "0")}
               </div>
 
               <div 
-                className="relative z-10 mb-3.5 text-[11px] tracking-[0.3em] uppercase text-[#8B715C] font-normal"
-                style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                className="relative z-10 text-[10px] tracking-widest font-albert uppercase text-sandstone-500 font-medium"
               >
                 GLOBAL RECOGNITION &amp; STANDARDS
               </div>
 
               <h2 
-                className="relative z-10 m-0 font-light text-[clamp(28px,4vw,36px)] leading-[0.98] tracking-normal uppercase text-[#3F2C1F]"
-                style={{ fontFamily: "'IvyOraDisplay', serif" }}
+                className="relative z-10 m-0 font-cormorant font-normal text-3xl md:text-5xl leading-[40px] md:leading-[60px] tracking-tight text-sandstone-500"
               >
-                COMMUNITY OUTCOMES<br />
-                BY SYSTEM DESIGN
-                <span 
-                  className="block mt-1 ml-0 lg:ml-[60px] text-[26px] leading-none tracking-[0.02em] capitalize text-[#7B5E4A] -rotate-[2deg]"
-                  style={{ fontFamily: "'GoldenHopes', cursive" }}
-                >
-                  {slides[index].script}
-                </span>
+                Community Outcomes<br />
+                by <span className="italic">System Design</span>
               </h2>
 
               <p 
-                className="mt-7 max-w-[380px] text-sm leading-[1.85] font-light text-[#3F2C1F]/74"
-                style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                className="mt-7 max-w-[400px] text-base md:text-lg leading-[28px] md:leading-[30px] font-albert font-light text-sandstone-500"
               >
-                Every Humanly® community is engineered to deliver sustained structural advantages. 
-                We combine thoughtful master planning, land stewardship, and digital infrastructure 
-                to redefine suburban wellness and attainable living. From structural land design to resident pathways, our frameworks foster an integrated dining, living, and thriving ecosystem.
+                Every Humanly® community provides sustained structural advantages. We blend master planning, land stewardship, and digital infrastructure to redefine suburban wellness and attainable living. From land design to resident pathways, our frameworks foster an integrated ecosystem for dining, living, and thriving.
               </p>
             </div>
           </div>
@@ -262,8 +255,7 @@ export const COutcomeCards = () => {
                 <div className="flex md:hidden absolute inset-0 z-10 items-end justify-center px-[22px] py-[28px] pointer-events-none" aria-hidden="true">
                   <div className="w-full max-w-[320px] text-center text-white">
                     <h3 
-                      className="m-0 font-normal text-2xl leading-[1.02] tracking-[0.03em] uppercase text-white"
-                      style={{ fontFamily: "'IvyOraDisplay', serif" }}
+                      className="m-0 font-light text-xl leading-[28px] tracking-tight uppercase text-white font-cormorant"
                     >
                       {slides[index].title}
                     </h3>
@@ -284,21 +276,19 @@ export const COutcomeCards = () => {
                   className={`hidden md:block will-change-[opacity,filter,transform] transition-all duration-[240ms] ease-out ${isLeaving ? "opacity-0 blur-[10px] translate-y-1.5" : ""} ${isEntering ? "opacity-0 blur-[10px] -translate-y-1.5" : ""}`}
                 >
                   <h3 
-                    className="m-0 mb-3 text-2xl font-normal leading-[1.12] tracking-[0.8px] uppercase text-white"
-                    style={{ fontFamily: "'IvyOraDisplay', serif" }}
+                    className="m-0 mb-3 text-2xl font-light font-cormorant leading-[36px] tracking-wide uppercase text-white"
                   >
                     {slides[index].title}
                   </h3>
                   <p 
-                    className="m-0 text-xs font-light leading-[1.75] tracking-[0.2px] text-white/86 max-w-[60ch]"
-                    style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                    className="m-0 text-sm font-light font-albert leading-[24px] text-white/86 max-w-50"
                   >
                     {slides[index].text}
                   </p>
                 </div>
 
                 <button 
-                  className="group absolute md:left-[35px] md:bottom-[35px] left-1/2 -translate-x-1/2 md:translate-x-0 bottom-auto p-0 border-0 bg-transparent text-white cursor-pointer inline-flex items-center justify-center gap-3 text-2xl font-normal leading-none tracking-[0.8px] uppercase select-none outline-none text-[#3F2C1F] md:text-white"
+                  className="group absolute md:left-[35px] md:bottom-[35px] left-1/2 -translate-x-1/2 md:translate-x-0 bottom-auto p-0 border-0 bg-transparent text-white cursor-pointer inline-flex items-center justify-center gap-3 text-2xl font-normal leading-none tracking-[0.8px] uppercase select-none outline-none md:text-white"
                   type="button" 
                   onClick={goNext}
                   aria-label={`Next outcome (${index + 1}/${slides.length})`}
