@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export const PlatformThesis = () => {
   return (
     <section
-      className="py-[160px] overflow-visible bg-[#ebedf0]"
+      className="py-[160px] overflow-visible bg-sandstone-200"
       style={{
         position: "sticky",
         top: 0,
@@ -37,22 +37,13 @@ export const PlatformThesis = () => {
       </div>
 
       <div className="container mx-auto px-6 md:px-12 max-w-[1200px] text-center relative z-10">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#4179F2] mb-6"
-        >
-          Platform Thesis
-        </motion.p>
-
+        
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.1 }}
-          className="text-[clamp(36px,5vw,64px)] font-bold font-cormorant  leading-[1.08] tracking-wide text-slate-900 max-w-[920px] mx-auto"
+          className="text-[clamp(36px,5vw,64px)] font-light font-cormorant  leading-[1.08] tracking-wide text-[#3E2242] max-w-[920px] mx-auto"
         >
           One company. One system. Full vertical. From land to living.
         </motion.h2>
@@ -72,7 +63,7 @@ export const PlatformThesis = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="inline-block mt-8 px-[18px] py-[12px] rounded-full bg-[#4179F2]/5 border border-[#4179F2]/20 text-[12px] font-bold tracking-[0.09em] uppercase text-[#4179F2]"
+          className="inline-block mt-8 px-[18px] py-[12px] rounded-full bg-[#4179F2]/5 border border-[#4179F2]/20 text-[12px] font-bold tracking-[0.09em] uppercase text-slate-600"
         >
           Control the full vertical. Compound the intelligence. No one else does both.
         </motion.span>
@@ -97,7 +88,7 @@ export const PlatformThesis = () => {
               transition={{ delay: 0.5 }}
               className="text-left"
             >
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#D6C3A5]">Acquisitions</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600">Acquisitions</span>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -106,7 +97,7 @@ export const PlatformThesis = () => {
               transition={{ delay: 0.7 }}
               className="text-center"
             >
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#4179F2]">Lease-up</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600">Lease-up</span>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -115,7 +106,7 @@ export const PlatformThesis = () => {
               transition={{ delay: 0.9 }}
               className="text-right"
             >
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#6BCEFF]">Management</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600">Management</span>
             </motion.div>
           </div>
         </div>
