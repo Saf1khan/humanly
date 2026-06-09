@@ -3,7 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 
 export default function PlatformPage() {
   return (
-    <main className="min-h-screen bg-[#0a0809]">
+    <main className="min-h-screen bg-sandstone-200">
       <PlatformSection />
       <Footer />
     </main>

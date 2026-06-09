@@ -60,6 +60,7 @@ export const PlatformHero = () => {
       <style>{`
         .wh-hero-title {
           color: #3E2242;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
           font-family: "Cormorant Garamond", Georgia, serif;
           /* Hidden until SplitType finishes — prevents layout flash on reload */
           opacity: 0;
@@ -165,7 +166,7 @@ export const PlatformHero = () => {
           <div className="col-start-3 lg:col-start-[16] col-end-[23] row-start-3 lg:row-start-1 row-end-4 lg:row-end-3 self-end pt-32 lg:pt-0 z-10 lg:-translate-y-12">
             <div className="motionComponent relative aspect-[3/2] w-full">
               <Image 
-                src="/images/AdobeStock_152634981.jpeg" 
+                src="/images/pexels-silverkblack-36733379.jpg" 
                 className="object-cover rounded-lg shadow-xl" 
                 alt="Main Card"
                 fill

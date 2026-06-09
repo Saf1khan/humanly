@@ -8,6 +8,7 @@ const innovationTeam = [
     id: "dale",
     name: "Dale Twardokus",
     title: "President",
+    bio: "Dale leads Humanly’s vision and overall growth strategy, guiding the company’s direction, partnerships, and long-term impact.",
     srcFallback: "/images/asset 35.png",
     objectPosition: "50% 5%",
   },
@@ -15,6 +16,7 @@ const innovationTeam = [
     id: "vincent",
     name: "Vincent Vernet",
     title: "Chief Strategy Officer",
+    bio: "Vincent focuses on strategic planning, market expansion, and cross-functional initiatives that help Humanly scale with clarity and purpose.",
     srcFallback: "/images/asset 36.jpeg",
     objectPosition: "65% 5%",
   },
@@ -22,6 +24,7 @@ const innovationTeam = [
     id: "sarah",
     name: "Dr. Sarah Taylor",
     title: "VP Health & Wellness",
+    bio: "Sarah leads health and wellness programs, shaping initiatives that support better outcomes for members and strengthen community wellbeing.",
     srcFallback: "/images/asset 37.png",
     objectPosition: "75% 5%",
   },
@@ -29,9 +32,10 @@ const innovationTeam = [
     id: "max",
     name: "Max Post",
     title: "VP Technology",
+    bio: "Max oversees Humanly’s technology roadmap, product systems, and technical innovation to ensure the platform remains scalable and reliable.",
     srcFallback: "/images/asset 38.png",
     objectPosition: "50% 5%",
-  }
+  },
 ];
 
 const developmentTeam = [
@@ -39,6 +43,7 @@ const developmentTeam = [
     id: "jeff",
     name: "Jeff Wagner",
     title: "EVP Development",
+    bio: "Jeff leads development efforts across projects, aligning execution, partnerships, and delivery to support Humanly’s broader mission.",
     srcFallback: "/images/asset 39.png",
     objectPosition: "75% 5%",
   },
@@ -46,6 +51,7 @@ const developmentTeam = [
     id: "josh",
     name: "Josh Kroll",
     title: "Director of Development",
+    bio: "Josh manages development strategy and day-to-day execution, helping move initiatives from planning through implementation.",
     srcFallback: "/images/asset 40.png",
     objectPosition: "35% 5%",
   },
@@ -53,6 +59,7 @@ const developmentTeam = [
     id: "mitch",
     name: "Mitch Gonzalez",
     title: "Director of Capital Markets",
+    bio: "Mitch leads capital markets efforts, structuring opportunities and financial strategies that support sustainable organizational growth.",
     srcFallback: "/images/asset 41.png",
     objectPosition: "35% 5%",
   },
@@ -60,12 +67,14 @@ const developmentTeam = [
     id: "janine",
     name: "Janine Meier",
     title: "Chief of Staff",
+    bio: "Janine supports executive operations, team alignment, and organizational effectiveness, helping leadership priorities turn into action.",
     srcFallback: "/images/asset 42.png",
     objectPosition: "50% 5%",
   }
 ];
 
 interface TeamMember {
+  bio: string;
   id: string;
   name: string;
   title: string;
@@ -220,18 +229,11 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
                     </motion.div>
                   </motion.div>
                   <div className={`h-full overflow-hidden transition-all duration-300 sm:hidden lg:block ${isExpanded ? "w-72" : "w-0"} bg-[#5C6F5D]/10 backdrop-blur-[32px] border-l border-[#5C6F5D]/25`}>
-                    <div className="flex h-full w-72 flex-col justify-end gap-4 overflow-hidden p-6 text-[rgb(34,66,40)]">
+                    <div className="flex h-full w-72 flex-col justify-top gap-4 overflow-hidden p-6 text-[rgb(34,66,40)]">
                       <div className="h-[1px] w-8 bg-[rgba(34,66,40,0.2)] mb-1" />
                       <p className="text-2xl font-serif tracking-tight">{member.name}</p>
                       <p className="text-base text-[rgba(34,66,40,0.8)] font-light">{member.title}</p>
-                      <button className="rounded-full inline-block transition text-left text-[rgb(34,66,40)] underline" type="button">
-                        <span className="items-center inline-flex gap-2">
-                          <span>View Full Bio</span>
-                          <svg aria-hidden="true" fill="none" height="6" viewBox="0 0 20 6" width="20" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 3L15 0.11325L15 5.88675L20 3ZM-4.37114e-08 3.5L15.5 3.5L15.5 2.5L4.37114e-08 2.5L-4.37114e-08 3.5Z" fill="currentColor"></path>
-                          </svg>
-                        </span>
-                      </button>
+                      <p className="text-base text-[rgba(34,66,40,0.8)] font-light">{member.bio}</p>
                     </div>
                   </div>
                   <div className="flex h-full w-[277px] grow flex-col justify-between p-6 lg:hidden bg-transparent">
@@ -239,9 +241,7 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
                       <p className="text-lg font-serif tracking-tight">{member.name}</p>
                       <p className="text-[0.875rem] text-[rgba(34,66,40,0.8)] font-light">{member.title}</p>
                     </div>
-                    <button className="rounded-full inline-block transition text-left text-[rgb(34,66,40)] underline mt-4" type="button">
-                      <span>View Full Bio</span>
-                    </button>
+                    <p className="text-base text-[rgba(34,66,40,0.8)] font-light">{member.bio}</p>
                   </div>
                 </div>
               </div>

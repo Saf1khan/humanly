@@ -3,26 +3,6 @@
 import React, { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// ─── Icons ───────────────────────────────────────────────────────────────────
-
-const AcqIcon = () => (
-  <svg width="22" height="22" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-    <path clipRule="evenodd" d="M9.35462 0.470653C9.50015 0.674849 9.50956 0.946258 9.37851 1.16004C8.58337 2.45718 8.12484 3.98276 8.12484 5.61735C8.12484 9.66621 10.9425 13.0585 14.7247 13.9375C15.0609 14.0156 15.2701 14.3515 15.1919 14.6877C15.1138 15.0239 14.7779 15.2332 14.4417 15.155C10.106 14.1474 6.87484 10.2605 6.87484 5.61735C6.87484 4.28976 7.13935 3.023 7.61866 1.86766C4.49425 3.1376 2.2915 6.20413 2.2915 9.78401C2.2915 14.5014 6.11574 18.3257 10.8332 18.3257C13.9163 18.3257 16.6185 16.6926 18.1212 14.2413C18.3016 13.947 18.6864 13.8547 18.9807 14.0351C19.2749 14.2155 19.3673 14.6003 19.1869 14.8946C17.4665 17.7011 14.369 19.5757 10.8332 19.5757C5.42538 19.5757 1.0415 15.1918 1.0415 9.78401C1.0415 5.10448 4.32354 1.19298 8.71075 0.223135C8.9556 0.169011 9.20908 0.266457 9.35462 0.470653Z" fillRule="evenodd"></path>
-  </svg>
-);
-
-const LeaseIcon = () => (
-  <svg width="22" height="22" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-    <path clipRule="evenodd" d="M4.45095 5.5117C4.73428 3.67008 6.05393 1.87404 8.09191 1.52088C7.87 3.93585 9.16508 6.22092 10.9827 7.70813C11.7822 8.36225 12.5567 9.12287 13.1274 9.94975C13.6986 10.7773 14.0416 11.6357 14.0416 12.5C14.0416 14.4344 13.3821 15.9313 12.3284 16.9455C11.7028 17.5476 10.9213 17.9959 10.0213 18.2617C10.3223 17.8622 10.4999 17.3306 10.4999 16.6667C10.4999 14.6204 9.66248 12.5742 8.67308 11.4419C8.43837 11.1733 8.05572 11.3873 8.03086 11.7431C7.94516 12.9702 7.30981 13.6392 6.6972 14.2842C6.08728 14.9263 5.49989 15.5448 5.49989 16.6667C5.49989 17.2843 5.72388 17.8497 6.09505 18.2859C3.77124 17.6208 2.36883 15.7411 1.94609 13.6274C1.55658 11.6799 1.95462 10.1547 2.30891 9.44618C2.46328 9.13744 2.33815 8.76202 2.02941 8.60765C1.72068 8.45328 1.34525 8.57842 1.19088 8.88715C0.711819 9.84525 0.276544 11.6535 0.720367 13.8726C1.34807 17.0111 3.85096 19.7917 7.9999 19.7917C10.0418 19.7917 11.8718 19.12 13.1952 17.8461C14.5224 16.5687 15.2916 14.7323 15.2916 12.5C15.2916 11.2998 14.8162 10.1961 14.1562 9.23973C13.4957 8.28274 12.6263 7.4378 11.7743 6.74069C10.0428 5.32399 8.99677 3.20252 9.40747 1.14904C9.50396 0.6666 9.13159 0.192803 8.61205 0.212508C5.48704 0.331034 3.58739 2.90426 3.21549 5.32163C2.98407 6.82588 3.3324 8.09555 3.73237 8.9812C3.93249 9.42431 4.14729 9.77555 4.31407 10.0185C4.39762 10.1401 4.46958 10.2353 4.52233 10.302C4.54872 10.3353 4.57035 10.3616 4.58628 10.3806L4.6058 10.4035L4.61215 10.4107L4.61443 10.4133L4.61534 10.4144C4.61534 10.4144 4.6161 10.4152 5.08323 10L4.6161 10.4152C4.84543 10.6732 5.24047 10.6965 5.49846 10.4671C5.75591 10.2383 5.77959 9.8444 5.55178 9.58638L5.55068 9.58513L5.54295 9.57601C5.53466 9.56616 5.5209 9.5495 5.50253 9.52629C5.46576 9.47983 5.41077 9.40737 5.34457 9.31096C5.21187 9.11767 5.03605 8.83089 4.87158 8.46671C4.54238 7.73778 4.26571 6.71579 4.45095 5.5117Z" fillRule="evenodd"></path>
-  </svg>
-);
-
-const MgmtIcon = () => (
-  <svg width="22" height="22" viewBox="0 0 25 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-    <path d="M13.4263 6.00781C13.4263 3.6606 15.3291 1.75781 17.6763 1.75781H22.9263V3.00781C22.9263 5.35502 21.0235 7.25781 18.6763 7.25781H16.6763C16.2621 7.25781 15.9263 7.5936 15.9263 8.00781C15.9263 8.42203 16.2621 8.75781 16.6763 8.75781H18.6763C21.8519 8.75781 24.4263 6.18345 24.4263 3.00781V1.00781C24.4263 0.593599 24.0905 0.257812 23.6763 0.257812H17.6763C14.5006 0.257812 11.9263 2.83217 11.9263 6.00781V11.1348C10.8747 9.98149 9.35999 9.25781 7.67627 9.25781H1.67627C1.26206 9.25781 0.92627 9.5936 0.92627 10.0078V12.0078C0.92627 15.1834 3.50063 17.7578 6.67627 17.7578H11.9263V23.0078C11.9263 23.422 12.2621 23.7578 12.6763 23.7578C13.0905 23.7578 13.4263 23.422 13.4263 23.0078V6.00781ZM11.9263 16.2578H6.67627C4.32906 16.2578 2.42627 14.355 2.42627 12.0078V10.7578H7.67627C10.0235 10.7578 11.9263 12.6606 11.9263 15.0078V16.2578Z"></path>
-  </svg>
-);
-
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const tabs = [
@@ -30,7 +10,6 @@ const tabs = [
     id: "acquisitions",
     label: "Acquisitions",
     phase: "Phase 01",
-    icon: AcqIcon,
     headline: ["From finding land", "to knowing exactly", "what to build."],
     headlineAccent: "what to build.",
     accentColor: "#3E2242",
@@ -68,7 +47,6 @@ const tabs = [
     id: "lease-up",
     label: "Lease-Up",
     phase: "Phase 02",
-    icon: LeaseIcon,
     headline: ["Transforming space", "into a vibrant", "community."],
     headlineAccent: "community.",
     accentColor: "#3E2242",
@@ -106,7 +84,6 @@ const tabs = [
     id: "management",
     label: "Management",
     phase: "Phase 03",
-    icon: MgmtIcon,
     headline: ["One platform.", "Permanent value.", "Compounding returns."],
     headlineAccent: "Compounding returns.",
     accentColor: "#3E2242",
@@ -186,13 +163,16 @@ const CardSlider = ({ cards, accentColor }: { cards: Card[]; accentColor: string
             <div className="phases-card">
               <div className="phases-card-img-wrap">
                 <img src={card.img} alt={card.title} className="phases-card-img" />
+                <div className="absolute inset-0 backdrop-blur-xl" />
                 <div className="phases-card-img-overlay" />
                 <span className="phases-card-num" style={{ color: accentColor }}>
                   {card.num}
                 </span>
+                <div className="phases-card-text-overlay">
+                  <h4 className="phases-card-title">{card.title}</h4>
+                  <p className="phases-card-desc">{card.desc}</p>
+                </div>
               </div>
-              <h4 className="phases-card-title">{card.title}</h4>
-              <p className="phases-card-desc">{card.desc}</p>
             </div>
           </li>
         ))}
@@ -285,7 +265,6 @@ const TabPanel = ({
     <div className="phases-tablist-wrap">
       <div className="phases-tablist" role="tablist">
         {tabs.map((t, i) => {
-          const Icon = t.icon;
           const isActive = i === activeIdx;
           return (
             <button
@@ -301,15 +280,14 @@ const TabPanel = ({
               style={
                 isActive
                   ? {
-                      borderColor: "#D6C3A5",
-                      backgroundColor: "#2e2d2c",
-                      color: "#F2F0EE",
-                      boxShadow: `0 8px 24px rgba(0,0,0,0.12)`,
-                    }
+                    borderColor: "#D6C3A5",
+                    backgroundColor: "#2e2d2c",
+                    color: "#F2F0EE",
+                    boxShadow: `0 8px 24px rgba(0,0,0,0.12)`,
+                  }
                   : {}
               }
             >
-              <Icon />
               {t.label}
             </button>
           );
@@ -365,7 +343,7 @@ export const PhasesTabSection = () => {
             "radial-gradient(circle at 10% 30%, rgba(160, 161, 208, 0.4) 0px, transparent 30%)",
             "radial-gradient(circle at 99% 60%, rgba(160, 161, 208, 0.4) 0px, transparent 35%)",
             "radial-gradient(circle at 10% 80%, rgba(160, 161, 208, 0.3) 0px, transparent 28%)",
-            "radial-gradient(circle at 90% 10%, rgba(160, 161, 208, 0.3) 0px, transparent 28%)",
+            //"radial-gradient(circle at 90% 10%, rgba(160, 161, 208, 0.3) 0px, transparent 28%)",
           ].join(", "),
         }}
       />
@@ -564,20 +542,29 @@ export const PhasesTabSection = () => {
           font-family: monospace;
           letter-spacing: 0.15em;
           opacity: 0.9;
+          z-index: 10;
+        }
+        .phases-card-text-overlay {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 10;
+          padding: 20px 16px;
         }
         .phases-card-title {
           font-size: 20px;
           font-weight: 400;
-          color: #3E2242;
-          margin-bottom: 10px;
+          color: #fff;
+          margin-bottom: 6px;
           letter-spacing: -0.02em;
           line-height: 1.2;
           font-family: Cormorant, Garamond, serif;
         }
         .phases-card-desc {
-          font-size: 14px;
-          line-height: 1.6;
-          color: rgba(15, 23, 42, 0.65);
+          font-size: 13px;
+          line-height: 1.5;
+          color: rgba(255, 255, 255, 0.8);
           font-weight: 300;
         }
 

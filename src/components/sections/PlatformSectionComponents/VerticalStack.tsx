@@ -114,7 +114,7 @@ export const VerticalStack = () => {
             desc="Proprietary AI finds off-market parcels and replaces traditional market study guesswork."
             cap="Deal flow + eliminated soft costs"
             detail="Humanly's intelligence layer identifies parcels, recommends product mix, defines village center services, and determines onsite versus online delivery requirements."
-            imgSrc="/images/AdobeStock_1011273017.jpeg"
+            imgSrc="/images/pexels-masoodaslami-32047262.jpg"
             delay={0}
           />
           <Layer
@@ -124,7 +124,7 @@ export const VerticalStack = () => {
             desc="Market intelligence feeds form-based code and rapid 3D test-fit models from day one."
             cap="Speed to design + reduced soft costs"
             detail="The kit of parts for homes, amenities, and infrastructure collapses the time between site discovery and development clarity."
-            imgSrc="/images/AdobeStock_117288790.jpeg"
+            imgSrc="/images/pexels-jakubzerdzicki-29148783.jpg"
             delay={0.1}
           />
           <Layer
@@ -134,7 +134,7 @@ export const VerticalStack = () => {
             desc="Co-create with municipalities through shared 3D simulations and early alignment."
             cap="Faster entitlement + alignment"
             detail="Planners, community members, and elected officials evaluate the smart neighborhood together, improving trust and compressing approval timelines."
-            imgSrc="/images/AdobeStock_129235823.jpeg"
+            imgSrc="/images/pexels-mahmoudramadan-36444550.jpg"
             delay={0.15}
           />
           <Layer
@@ -144,7 +144,7 @@ export const VerticalStack = () => {
             desc="Acquire at disciplined basis, entitle for density, and retain ~70% of lots on long-term lease."
             cap="Land appreciation + lease income"
             detail="This substrate layer transforms land into long-duration infrastructure, aligning value creation with long-term community stewardship."
-            imgSrc="/images/AdobeStock_152634981.jpeg"
+            imgSrc="/images/pexels-fotoaibe-1643389.jpg"
             delay={0.2}
           />
           <Layer
@@ -154,7 +154,7 @@ export const VerticalStack = () => {
             desc="Configurable home kit of parts driven by market intelligence rather than guesswork."
             cap="Soft cost savings + upgrades"
             detail="A curated design system improves permitting speed, margin reliability, and finish upsell potential while keeping the product aligned to actual demand."
-            imgSrc="/images/AdobeStock_167813129.jpeg"
+            imgSrc="/images/AdobeStock_383551453.jpeg"
             delay={0.25}
           />
           <Layer
@@ -164,7 +164,7 @@ export const VerticalStack = () => {
             desc="Walk streets, enter homes, and explore the neighborhood before ground is broken."
             cap="Emotional conviction + deposits"
             detail="Design models become a buyer-facing experience online and onsite, turning planning assets into a differentiated pre-sale and lease-up engine."
-            imgSrc="/images/AdobeStock_170131280.jpeg"
+            imgSrc="/images/AdobeStock_188223905.jpeg"
             delay={0.3}
           />
           <Layer
@@ -174,7 +174,7 @@ export const VerticalStack = () => {
             desc="Choose lot, configure home, view total cost, and transact before construction is complete."
             cap="Velocity + capital efficiency"
             detail="The same experience layer accelerates sales and leasing by reducing uncertainty and turning interest into action with clear pricing and customization."
-            imgSrc="/images/AdobeStock_170554793.jpeg"
+            imgSrc="/images/pexels-steph-320380194-13727724.jpg"
             delay={0.35}
           />
           <Layer
@@ -184,7 +184,7 @@ export const VerticalStack = () => {
             desc="Resident AI navigator, service marketplace, and Digital Twin operations in one platform."
             cap="Rev share + data ownership"
             detail="HumanlyOS® manages access to on and offline services, captures operational intelligence, and improves community performance through recursive data loops."
-            imgSrc="/images/AdobeStock_176738514.jpeg"
+            imgSrc="/images/AdobeStock_308963762.jpeg"
             delay={0.4}
           />
           <Layer
@@ -194,7 +194,7 @@ export const VerticalStack = () => {
             desc="Permanent cash flow from leases, services, and commercial rents at institutional scale."
             cap="NOI + asset value + learning"
             detail="Community data feeds learning loops that improve operations, support refinance, and compound performance over time as each neighborhood matures."
-            imgSrc="/images/AdobeStock_188223905.jpeg"
+            imgSrc="/images/pexels-jonathanborba-14820419.jpg"
             delay={0.45}
           />
         </div>

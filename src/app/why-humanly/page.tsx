@@ -15,7 +15,7 @@ export const metadata = {
 
 export default function WhyHumanlyPage() {
   return (
-    <main className="wh-page bg-[#F5F2ED] text-[#111111] min-h-screen relative">
+    <main className="wh-page bg-sandstone-200 text-[#111111] min-h-screen relative">
       <style
         dangerouslySetInnerHTML={{
           __html: `
@@ -117,7 +117,7 @@ export default function WhyHumanlyPage() {
 
       {/* 3 — Pale cream · Revenue section · lower-left
            Warms the lower-left of the Revenue section subtly. */}
-      <div
+      {/*<div
         className="absolute w-full h-full top-0 left-0 pointer-events-none"
         style={{
           backgroundImage:
@@ -153,7 +153,7 @@ export default function WhyHumanlyPage() {
         className="absolute w-full h-full top-0 left-0 pointer-events-none"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 8% 76%, rgba(255, 182, 72, 0.08) 0px, rgba(0,0,0,0) 380px)",
+            "radial-gradient(circle at 8% 76%, rgba(255, 182, 72, 0.02) 0px, rgba(0,0,0,0) 380px)",
         }}
       />
 
