@@ -60,7 +60,8 @@ export const CHero = () => {
       <style>{`
         .wh-hero-title {
           /* Premium vibrant violet text color */
-          color: rgb(130, 40, 133);
+          color: rgb(170, 61, 173);
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
           font-family: "Cormorant Garamond", Georgia, serif;
           /* Hidden until SplitType finishes — prevents layout flash on reload */
           opacity: 0;
@@ -128,7 +129,7 @@ export const CHero = () => {
           {/* Title Column */}
           <div className="col-start-2 col-end-[24] lg:col-end-[14] xl:col-end-12 row-start-1 row-end-2 lg:mt-auto lg:self-center">
             <div className="my-5 flex flex-col items-center lg:items-start lg:pt-[5vw] lg:pb-[8vw]">
-              <h1 ref={titleRef} className="wh-hero-title text-[rgb(130,40,133)] text-[2.5rem] md:text-[3.75rem] lg:text-[5rem] font-light leading-tight tracking-[-0.05em] text-center lg:text-left m-0">
+              <h1 ref={titleRef} className="wh-hero-title text-4xl md:text-6xl lg:text-[80px] font-light leading-[52px] md:leading-[72px] lg:leading-[92px] tracking-[-0.05em] text-center lg:text-left m-0">
                 Every Humanly® community shares a common foundation
               </h1>
             </div>

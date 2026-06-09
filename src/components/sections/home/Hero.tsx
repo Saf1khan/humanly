@@ -58,6 +58,7 @@ export const Hero = () => {
         .wh-hero-title {
           font-family: "Cormorant Garamond", Georgia, serif;
           opacity: 0;
+          text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2);
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           text-rendering: optimizeLegibility;
@@ -103,7 +104,7 @@ export const Hero = () => {
           <div className="col-start-2 col-end-[24] lg:col-end-[18] xl:col-end-[16] flex flex-col items-center lg:items-start gap-8 lg:gap-10">
 
             <div className="flex flex-col items-center lg:items-start w-full">
-              <h1 ref={titleRef} className="wh-hero-title text-[#f7f1e8] text-[40px] md:text-6xl lg:text-[80px] font-medium leading-[1.05] tracking-[-0.05em] text-center lg:text-left m-0 drop-shadow-2xl">
+              <h1 ref={titleRef} className="wh-hero-title text-[#f7f1e8] text-[40px] md:text-6xl lg:text-[80px] font-light leading-[52px] md:leading-[72px] lg:leading-[92px] tracking-[-0.05em] text-center lg:text-left m-0 drop-shadow-2xl">
                 Every Neighborhood<br />
                 <span className="text-h-primary">a Launchpad</span>
               </h1>

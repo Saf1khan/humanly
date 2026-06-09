@@ -11,23 +11,23 @@ export const CLease = () => {
         className="absolute pointer-events-none right-0 top-1/4 translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
         style={{
           background:
-            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.10), rgba(170, 61, 173, 0.04) 50%, rgba(170, 61, 173, 0))",
+            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.15), rgba(170, 61, 173, 0.04) 50%, rgba(170, 61, 173, 0))",
         }}
       />
       <div
         className="absolute pointer-events-none left-0 bottom-0 -translate-x-1/2 translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
         style={{
           background:
-            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.10), rgba(170, 61, 173, 0.05) 50%, rgba(170, 61, 173, 0))",
+            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.15), rgba(170, 61, 173, 0.05) 50%, rgba(170, 61, 173, 0))",
         }}
       />
       <div className="max-w-[1280px] mx-auto px-6 lg:px-0">
         {/* Section Header */}
         <div className="mb-16 lg:mb-24 max-w-4xl">
-          <h2 className="font-normal font-cormorant text-3xl md:text-5xl leading-[40px] md:leading-[60px] text-[#1a1a1a] mb-3 tracking-tight">
+          <h2 className="font-normal font-cormorant text-3xl md:text-5xl leading-[40px] md:leading-[60px] text-sandstone-500 mb-3 tracking-tight">
             The Ground Lease Advantage
           </h2>
-          <p className="text-base md:text-lg font-light font-albert text-[#5a5a5a] leading-[28px] md:leading-[30px]">
+          <p className="text-base md:text-lg font-light font-albert text-sandstone-500 leading-[28px] md:leading-[30px]">
             A structural model built for long-term value — for operators, investors, and residents.
           </p>
         </div>
@@ -38,10 +38,10 @@ export const CLease = () => {
           <div className="lg:col-span-5 space-y-10">
             <div>
               {/* Huge Serif Stat */}
-              <div className="text-[108px] font-light font-bodoni text-[#1a1a1a]/80 tracking-tight leading-none mb-4">
+              <div className="text-[108px] font-light font-bodoni text-sandstone-500/80 tracking-tight leading-none mb-4">
                 ~70%
               </div>
-              <p className="text-base md:text-lg font-albert font-light text-[#4a4a4a] leading-[28px] md:leading-[30px]">
+              <p className="text-base md:text-lg font-albert font-light text-sandstone-500 leading-[28px] md:leading-[30px]">
                 of lots retained on long-term ground lease instead of selling — preserving land value and alignment with residents.
               </p>
             </div>
@@ -49,11 +49,11 @@ export const CLease = () => {
             {/* Typographic Model Comparison */}
             <div className="space-y-4 pt-8 border-t border-slate-200/50 max-w-sm">
               <div className="flex items-baseline justify-between">
-                <span className="font-albert text-xs font-semibold uppercase tracking-wider text-[#8a8a8a]">01 / Sell Model</span>
-                <span className="font-cormorant font-medium text-sm italic text-[#8a8a8a]">Land sold, value exits</span>
+                <span className="font-albert text-xs font-semibold uppercase tracking-wider text-sandstone-500">01 / Sell Model</span>
+                <span className="font-cormorant font-medium text-sm italic text-sandstone-500">Land sold, value exits</span>
               </div>
               <div className="flex items-baseline justify-between border-t border-slate-200/30 pt-3.5">
-                <span className="font-albert text-xs font-semibold uppercase tracking-wider text-[#1a1a1a]">02 / Lease Model ✓</span>
+                <span className="font-albert text-xs font-semibold uppercase tracking-wider text-sandstone-500">02 / Lease Model ✓</span>
                 <span className="font-cormorant text-sm italic text-[#1a4f82] font-medium">Land retained, value compounds</span>
               </div>
             </div>
@@ -92,15 +92,15 @@ export const CLease = () => {
                   <span className="h-px flex-1 bg-slate-200/60" />
                 </div>
                 
-                <h3 className="font-cormorant text-2xl md:text-3xl text-[#1a1a1a] font-normal tracking-tight">
+                <h3 className="font-cormorant text-2xl md:text-3xl text-sandstone-500 font-normal tracking-tight">
                   {benefit.num}
                 </h3>
                 
-                <p className="font-albert text-[10px] md:text-xs font-semibold tracking-widest text-[#8a8a8a] uppercase">
+                <p className="font-albert text-[10px] md:text-xs font-semibold tracking-widest text-sandstone-500 uppercase">
                   {benefit.title}
                 </p>
                 
-                <p className="font-albert text-sm md:text-base font-light text-[#5a5a5a] leading-relaxed">
+                <p className="font-albert text-sm md:text-base font-light text-sandstone-500 leading-relaxed">
                   {benefit.desc}
                 </p>
               </div>
