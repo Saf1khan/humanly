@@ -80,12 +80,12 @@ export const PartnersAdvisors = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-40px" }}
                     transition={{ duration: 2, delay: itemIndex * 0.08, ease: "easeOut" }}
-                    className="group relative bg-white border border-[rgba(34,66,40,0.06)] rounded-2xl p-3 md:p-6 flex items-center justify-center overflow-hidden cursor-pointer hover:-translate-y-1 transition-all duration-500 hover:shadow-lg hover:shadow-[#c2a077]/[0.07] hover:border-[#c2a077]/20"
+                    className="group relative bg-white border border-[rgba(34,66,40,0.06)] rounded-2xl p-3 md:p-6 flex items-center justify-center overflow-hidden cursor-pointer hover:-translate-y-1 transition-all duration-500 hover:shadow-lg hover:shadow-[rgba(34,66,40,0.50)]/[0.30] hover:border-[rgba(34,66,40,0.50)]/20"
                   >
                     {/* Hover gold shimmer */}
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_70%,rgba(194,160,119,0.25),transparent_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                    {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_70%,rgba(194,160,119,0.25),transparent_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" /> */}
                     {/* Top gold line reveal */}
-                    <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#c2a077] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[rgba(34,66,40,0.9)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                     <div className="relative w-full h-36 md:h-44">
                       <Image

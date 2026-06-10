@@ -197,7 +197,7 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
               <div
                 key={member.id}
                 className={`relative shrink-0 overflow-hidden rounded-2xl transition-all duration-500 ${isExpanded ? "w-[277px] lg:w-[565px]" : "w-[277px]"
-                  } ${shiftClass} h-[370px] shadow-[0_8px_32px_rgba(17,22,26,0.04)] hover:shadow-[0_8px_32px_rgba(17,22,26,0.1)] ${isExpanded ? "z-20" : "z-10"}`}
+                  } ${shiftClass} h-[370px] ${isExpanded ? "z-20" : "z-10"}`}
                 onMouseEnter={() => { if (activeIdx !== idx) toggleCard(idx); }}
                 onMouseLeave={() => { if (activeIdx === idx) toggleCard(idx); }}
               >
@@ -228,7 +228,7 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
                       />
                     </motion.div>
                   </motion.div>
-                  <div className={`h-full overflow-hidden transition-all duration-300 sm:hidden lg:block ${isExpanded ? "w-72" : "w-0"} bg-[#5C6F5D]/10 backdrop-blur-[32px] border-l border-[#5C6F5D]/25`}>
+                  <div className={`h-full overflow-hidden transition-all duration-300 sm:hidden lg:block ${isExpanded ? "w-72" : "w-0"} bg-[#5C6F5D]/15 border-1 border-[#5C6F5D]/25`}>
                     <div className="flex h-full w-72 flex-col justify-top gap-4 overflow-hidden p-6 text-[rgb(34,66,40)]">
                       <div className="h-[1px] w-8 bg-[rgba(34,66,40,0.2)] mb-1" />
                       <p className="text-2xl font-serif tracking-tight">{member.name}</p>
