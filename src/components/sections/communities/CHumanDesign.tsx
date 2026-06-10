@@ -59,7 +59,7 @@ export const CHumanDesign = () => {
                       transition={{ duration: 0.6, delay: 0.3 }}
                       data-cy="nc-subcopy-1"
                     >
-                      Guided by principles that promote walkability, age-in-place, and financial mobility. The places we create inspire residents to connect, excel, and thrive.Anchored by a village center where life's essential services are seamlessly embedded and integrated, both in person and online to simplify and personalize daily living.
+                      Guided by principles that promote walkability, age-in-place, and financial mobility. The places we create inspire residents to connect, excel, and thrive. Anchored by a village center where life's essential services are seamlessly embedded and integrated, both in person and online to simplify and personalize daily living.
                     </motion.p>
                 </div>
               </div>

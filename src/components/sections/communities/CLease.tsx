@@ -8,10 +8,10 @@ export const CLease = () => {
     <section className="relative bg-transparent overflow-x-clip py-28 lg:py-40">
       {/* Violet radial gradient overlay */}
       <div
-        className="absolute pointer-events-none right-0 top-1/4 translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        className="absolute pointer-events-none right-0 top-1/5 translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
         style={{
           background:
-            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.15), rgba(170, 61, 173, 0.04) 50%, rgba(170, 61, 173, 0))",
+            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.10), rgba(170, 61, 173, 0.05) 50%, rgba(170, 61, 173, 0))",
         }}
       />
       <div

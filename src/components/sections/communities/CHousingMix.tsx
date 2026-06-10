@@ -90,7 +90,7 @@ export const CHousingMix = () => {
         }}
       />
       <div
-        className="absolute pointer-events-none left-0 bottom-1/3 -translate-x-1/2 translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        className="absolute pointer-events-none left-0 bottom-1/5 -translate-x-1/2 translate-y-1/3 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
         style={{
           background:
             "radial-gradient(50% 50%, rgba(170, 61, 173, 0.10), rgba(170, 61, 173, 0.04) 50%, rgba(170, 61, 173, 0))",
@@ -138,9 +138,8 @@ export const CHousingMix = () => {
                       stroke={item.color}
                       strokeWidth="12"
                       strokeDasharray={`${item.gapLength} 1005.3`}
-                      strokeDashoffset={item.offset}
-                      initial={{ strokeDasharray: `0 1005.3` }}
-                      whileInView={{ strokeDasharray: `${item.gapLength} 1005.3` }}
+                      initial={{ strokeDashoffset: item.offset + item.gapLength }}
+                      whileInView={{ strokeDashoffset: item.offset }}
                       viewport={{ once: true }}
                       transition={{
                         duration: 1.4,
@@ -150,7 +149,7 @@ export const CHousingMix = () => {
                     />
                   ))}
                 </g>
-
+ 
                 {callouts.map((call, idx) => (
                   <g key={`callout-${idx}`}>
                     <motion.polyline
@@ -176,7 +175,7 @@ export const CHousingMix = () => {
                   </g>
                 ))}
               </svg>
-
+ 
               <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
                 <div className="font-bodoni text-6xl font-light tracking-tight text-sandstone-500">
                   4
@@ -185,7 +184,7 @@ export const CHousingMix = () => {
                   Housing Types
                 </div>
               </div>
-
+ 
               {callouts.map((call, idx) => (
                 <motion.div
                   key={`label-${idx}`}
@@ -211,7 +210,7 @@ export const CHousingMix = () => {
                 </motion.div>
               ))}
             </div>
-
+ 
             {/* Mobile */}
             <div className="mx-auto mt-6 block w-full max-w-md space-y-12 lg:hidden">
               <div className="relative mx-auto flex aspect-square w-full max-w-[260px] items-center justify-center">
@@ -237,9 +236,8 @@ export const CHousingMix = () => {
                       stroke={item.color}
                       strokeWidth="12"
                       strokeDasharray={`${item.gapLength} 1005.3`}
-                      strokeDashoffset={item.offset}
-                      initial={{ strokeDasharray: `0 1005.3` }}
-                      whileInView={{ strokeDasharray: `${item.gapLength} 1005.3` }}
+                      initial={{ strokeDashoffset: item.offset + item.gapLength }}
+                      whileInView={{ strokeDashoffset: item.offset }}
                       viewport={{ once: true }}
                       transition={{
                         duration: 1.4,
