@@ -15,27 +15,6 @@ export const CProofOfConcept = () => {
   return (
     <section className="relative z-0 overflow-x-clip bg-transparent">
       <div className="relative min-h-[720px] lg:min-h-[920px]">
-        {/* Background Image */}
-        <Image
-          src="/images/pexels-hongzheng-tian-3519205-8640500.jpg"
-          alt="Master planned community"
-          fill
-          priority
-          className="object-cover"
-        />
-
-        {/* Top / bottom blending */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#f7f1e8] to-transparent" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#f7f1e8] to-transparent" />
-
-        {/* Soft wash behind content for readability */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-full bg-[linear-gradient(90deg,rgba(247,241,232,0.80)_0%,rgba(247,241,232,0.25)_10%,rgba(247,241,232,0.08)_20%,rgba(247,241,232,0.0)_100%)]" />
-        {/* Soft wash behind content for readability */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-full bg-[linear-gradient(to_left,rgba(247,241,232,0.80)_0%,rgba(247,241,232,0.25)_10%,rgba(247,241,232,0.08)_20%,rgba(247,241,232,0)_100%)]" />
-
-
-
-
         {/* Content */}
         <div className="relative z-10 mx-auto flex w-full min-h-[920px] max-w-[1380px] items-center px-6 py-20 lg:px-12">
           <motion.div
@@ -45,15 +24,8 @@ export const CProofOfConcept = () => {
             transition={{ duration: 0.8 }}
             className="w-full max-w-[1380px]"
           >
-            {/* Top row with Eyebrow and Badge */}
-            <div className="mb-6 flex w-full flex-wrap items-center justify-between gap-4">
-              {/* Eyebrow */}
-              <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-xl">
-                <span className="text-[11px] uppercase tracking-[0.25em] text-white/70">
-                  Proof of Concept
-                </span>
-              </div>
-
+            {/* Top row with Badge */}
+            <div className="mb-6 flex w-full justify-end">
               {/* Premium Floating Badge */}
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
@@ -61,8 +33,15 @@ export const CProofOfConcept = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
               >
-                <div className="rounded-full bg-white/05 px-5 py-2 backdrop-blur-xl">
-                  <span className="text-xs tracking-[0.25em] text-white/70">
+                <div className="relative overflow-hidden rounded-full border border-white/05 px-5 py-2">
+                  <Image
+                    src="/images/pexels-hongzheng-tian-3519205-8640500.jpg"
+                    alt="Badge background"
+                    fill
+                    className="object-cover -z-20"
+                  />
+                  <div className="absolute inset-0 bg-[#AA3DAD]/[5%] backdrop-blur-lg -z-10" />
+                  <span className="relative z-10 text-xs tracking-[0.25em] text-white/70">
                     Texas Flagship
                   </span>
                 </div>
@@ -70,12 +49,37 @@ export const CProofOfConcept = () => {
             </div>
 
             {/* Glass Panel */}
-            <div className="relative overflow-hidden rounded-[32px] border border-white/15 bg-white/[0.08] p-10 md:p-16 lg:p-20 backdrop-blur-2xl shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
+            <div className="relative overflow-hidden rounded-[32px] p-10 md:p-16 lg:p-20 shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
+              {/* Background Image */}
+              <Image
+                src="/images/pexels-hongzheng-tian-3519205-8640500.jpg"
+                alt="Master planned community"
+                fill
+                priority
+                className="object-cover -z-20"
+              />
+              
+              {/* Glass Effect Overlay */}
+              <div className="absolute inset-0 bg-[#AA3DAD]/[5%] backdrop-blur-lg -z-10 drop-shadow-2xl" />
+
               {/* Light Reflection */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-transparent pointer-events-none" />
 
               <div className="grid grid-cols-1 gap-8 lg:gap-16 items-start">
                 <div>
+                  {/* Eyebrow */}
+                  <div className="relative overflow-hidden inline-flex items-center gap-3 py-2 mb-4">
+                    <Image
+                      src="/images/pexels-hongzheng-tian-3519205-8640500.jpg"
+                      alt="Eyebrow background"
+                      fill
+                      className="object-cover -z-20"
+                    />
+                    <span className="relative z-10 text-xs font-albert font-medium uppercase tracking-[0.25em] text-white/70">
+                      Proof of Concept
+                    </span>
+                  </div>
+
                   <h2 className="relative text-xl font-cormorant font-light leading-[30px] md:leading-[36px] text-white md:text-2xl">
                     Humanly® is breaking ground on one of the largest
                     master-planned developments in the United States focused on
@@ -91,7 +95,7 @@ export const CProofOfConcept = () => {
               {/* Stats */}
               <div className="flex w-full flex-wrap justify-between gap-y-6">
                 {stats.map((item) => (
-                  <div key={item.label} className="w-[48%] md:w-auto p-8 rounded-3xl backdrop-blur-3xl shadow-2xl">
+                  <div key={item.label} className="w-[48%] md:w-auto p-8 rounded-3xl backdrop-blur-xl shadow-2xl border border-white/10">
                     <div className="text-2xl font-albert font-light text-white text-center">
                       {item.value}
                     </div>

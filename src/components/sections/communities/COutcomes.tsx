@@ -25,7 +25,7 @@ export const COutcomes = () => {
         className="absolute pointer-events-none left-1/4 bottom-1/2 -translate-x-1/2 translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
         style={{
           background:
-            "radial-gradient(50% 50%, rgba(255, 255, 255, 0.80), rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0))",
+            "radial-gradient(50% 50%, rgba(255, 255, 255, 0.30), rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0))",
         }}
       />
       <div className="max-w-[1380px] mx-auto px-6 lg:px-12">
@@ -63,7 +63,7 @@ export const COutcomes = () => {
                     className="group flex items-center gap-4 py-[16px] border-b border-[#866d4b]/10 first:border-t first:border-[#4A4741]/10 cursor-default transition-all duration-300 hover:pl-2"
                   >
                     {/* Text */}
-                    <span className="text-sm md:text-base font-albert font-light text-[#4a4741]/60 leading-[20px] md:leading-[24px] transition-colors duration-200 group-hover:text-[#4a4741]">
+                    <span className="text-sm md:text-base font-albert font-light text-[#30302e]/80 leading-[20px] md:leading-[24px] transition-colors duration-200 group-hover:text-[#30302e]">
                       {outcome.text}
                     </span>
                   </motion.li>
@@ -75,7 +75,7 @@ export const COutcomes = () => {
                 initial={{ opacity: 0, y: 8 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.45, delay: 0.68 }}
-                className="text-sm md:text-base font-albert font-normal text-[#4a4741]/85 leading-[20px] md:leading-[24px]"
+                className="text-sm md:text-base font-albert font-normal text-[#4a4741] leading-[20px] md:leading-[24px]"
               >
                 Plus additional benefits for residents of ground-lease homeowners &amp; Humanly® Residences.
               </motion.p>
