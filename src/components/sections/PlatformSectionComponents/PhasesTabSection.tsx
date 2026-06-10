@@ -327,6 +327,7 @@ export const PhasesTabSection = () => {
         position: "relative",
         zIndex: 3,
         marginTop: "-80px",
+        borderRadius: "0 0 64px 64px",
       }}
     >
       {/* Gradient overlay — continuing the same atmospheric feel as VerticalStack */}
