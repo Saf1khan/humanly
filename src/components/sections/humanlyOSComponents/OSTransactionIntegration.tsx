@@ -7,20 +7,20 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 
 const flowSteps = [
   { label: 'Community', color: '#2d7dd2' },
-  { label: 'Home Buying', color: '#0d9e87' },
-  { label: 'Home Financing', color: '#8b5cf6' },
+  { label: 'Home Buying', color: '#4a8fd4' },
+  { label: 'Home Financing', color: '#6aa3d8' },
   { label: 'Home Insurance', color: '#d96a2b' },
 ];
 
 const serviceCards = [
   { title: 'Healthcare', desc: 'Preventative / Proactive, On-call Consultants, Emotional Intelligence Programs', accent: '#2d7dd2' },
-  { title: 'Wellness', desc: 'AI-Enabled Fitness, Pro Sports Ambassador Events, Fitness Studios & Programs, Pool & Spa', accent: '#0d9e87' },
-  { title: 'Food', desc: 'Restaurant, Food Market, Commercial Garden', accent: '#f59e0b' },
-  { title: 'Education', desc: 'AI-Based Learning Lab, AI Tutoring, Weekly Workshops, Continuous Learning Programs', accent: '#8b5cf6' },
-  { title: 'General', desc: 'Home Maintenance, Landscaping, Housekeeping, Dog Park / Pet Services', accent: '#3a7d44' },
-  { title: 'Entertainment', desc: 'Movie Theater, Music Events, Daily Events & Activities', accent: '#c0392b' },
-  { title: 'Transportation', desc: 'Autonomous Car Service, Ride Sharing, Trail Systems', accent: '#06b6d4' },
-  { title: 'Work & Business', desc: 'Shared & Private Office Space, Conference Rooms, Daycare Services', accent: '#c9a227' },
+  { title: 'Wellness', desc: 'AI-Enabled Fitness, Pro Sports Ambassador Events, Fitness Studios & Programs, Pool & Spa', accent: '#4a8fd4' },
+  { title: 'Food', desc: 'Restaurant, Food Market, Commercial Garden', accent: '#6aa3d8' },
+  { title: 'Education', desc: 'AI-Based Learning Lab, AI Tutoring, Weekly Workshops, Continuous Learning Programs', accent: '#2d7dd2' },
+  { title: 'General', desc: 'Home Maintenance, Landscaping, Housekeeping, Dog Park / Pet Services', accent: '#4a8fd4' },
+  { title: 'Entertainment', desc: 'Movie Theater, Music Events, Daily Events & Activities', accent: '#d96a2b' },
+  { title: 'Transportation', desc: 'Autonomous Car Service, Ride Sharing, Trail Systems', accent: '#6aa3d8' },
+  { title: 'Work & Business', desc: 'Shared & Private Office Space, Conference Rooms, Daycare Services', accent: '#d96a2b' },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -41,15 +41,8 @@ const OSTransactionIntegration = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#4C5C68] pt-[clamp(5rem,10vw,8rem)] pb-[clamp(5rem,10vw,8rem)] relative overflow-hidden"
+      className="pt-[clamp(5rem,10vw,8rem)] pb-[clamp(5rem,10vw,8rem)] relative overflow-hidden"
     >
-      {/* One ambient light source, top-center */}
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[280px] pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse at top, rgba(45,125,210,0.10) 0%, transparent 72%)',
-        }}
-      />
 
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 relative z-10">
 
@@ -61,13 +54,13 @@ const OSTransactionIntegration = () => {
           transition={{ duration: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
           className="mb-16"
         >
-          <p className="text-[10px] font-medium tracking-[0.22em] uppercase text-[#aeb6be] mb-5">
+          {/* <p className="text-[10px] font-medium tracking-[0.22em] uppercase text-[#aeb6be] mb-5">
             p17 / TRANSACTION INTEGRATION
           </p>
-          <div className="h-[2px] rounded-full w-[80px] bg-gradient-to-r from-[#1a4f82] via-[#2d7dd2] to-[#d96a2b] mb-8" />
+          <div className="h-[2px] rounded-full w-[80px] bg-gradient-to-r from-[#1a4f82] via-[#2d7dd2] to-[#d96a2b] mb-8" /> */}
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end">
-            <h2 className="font-serif text-[clamp(2.5rem,4vw,3.5rem)] font-normal leading-[1.1] text-white">
+            <h2 className="font-serif text-[clamp(2.5rem,4vw,3.5rem)] font-normal leading-[1.1] text-white" style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}>
               Transaction Integration
             </h2>
             <p className="text-[#94a3b8] text-[0.95rem] leading-relaxed font-light max-w-md">
@@ -86,10 +79,10 @@ const OSTransactionIntegration = () => {
         >
           {/* Money flow direction labels */}
           <div className="flex justify-between mb-4">
-            <span className="text-[0.68rem] font-semibold tracking-[0.14em] uppercase text-emerald-400">
+            <span className="text-[0.68rem] font-semibold tracking-[0.14em] uppercase text-[#aeb6be]">
               ↑ Resident Payment
             </span>
-            <span className="text-[0.68rem] font-semibold tracking-[0.14em] uppercase text-[#d96a2b]">
+            <span className="text-[0.68rem] font-semibold tracking-[0.14em] uppercase text-[#aeb6be]">
               Revenue Flow ↓
             </span>
           </div>
@@ -122,11 +115,9 @@ const OSTransactionIntegration = () => {
                   transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                 >
                   <div
-                    className="rounded-2xl p-5 border"
+                    className="relative rounded-2xl p-5 border overflow-hidden"
                     style={{
-                      background: isActive
-                        ? 'rgba(0,0,0,0.30)'
-                        : 'rgba(0,0,0,0.15)',
+                      background: isActive ? 'rgb(24, 38, 50)' : 'rgb(29, 44, 56)',
                       borderColor: isActive
                         ? `${step.color}50`
                         : isPast
@@ -136,6 +127,11 @@ const OSTransactionIntegration = () => {
                       transition: 'background 0.35s ease, border-color 0.35s ease',
                     }}
                   >
+                    {/* Glass glow overlays */}
+                    <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 80% 40%, rgba(215, 226, 232, 0.15) 0px, transparent 50%)" }} />
+                    <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 20% 90%, rgba(215, 226, 232, 0.08) 0px, transparent 50%)" }} />
+                    <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 5% 5%, rgba(215, 226, 232, 0.08) 0px, transparent 30%)" }} />
+                    <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 65% 65%, rgba(216, 202, 155, 0.07) 0px, transparent 30%)" }} />
                     {/* Color rule — the sole decorative element */}
                     <div
                       className="h-[2px] rounded-full mb-4"
@@ -158,6 +154,7 @@ const OSTransactionIntegration = () => {
                       style={{
                         color: isActive ? '#ffffff' : 'rgba(255,255,255,0.48)',
                         transition: 'color 0.35s ease',
+                        fontFamily: '"Cormorant Garamond", Georgia, serif'
                       }}
                     >
                       {step.label}
@@ -182,11 +179,11 @@ const OSTransactionIntegration = () => {
             >
               <div
                 className="w-[5px] h-[5px] rounded-full shrink-0"
-                style={{ background: flowSteps[activeStep].color }}
+                style={{ background: '#2d7dd2' }}
               />
               <span
                 className="text-[0.62rem] font-semibold tracking-[0.16em] uppercase"
-                style={{ color: flowSteps[activeStep].color }}
+                style={{ color: '#2d7dd2' }}
               >
                 {flowSteps[activeStep].label}
               </span>
@@ -227,15 +224,21 @@ const OSTransactionIntegration = () => {
                 onMouseLeave={() => setHoveredCard(null)}
                 className="relative rounded-2xl p-5 border overflow-hidden cursor-default"
                 style={{
-                  background: hoveredCard === idx ? 'rgba(0,0,0,0.28)' : 'rgba(0,0,0,0.16)',
+                  background: hoveredCard === idx ? 'rgb(24, 38, 50)' : 'rgb(29, 44, 56)',
                   borderColor: hoveredCard === idx
-                    ? `${card.accent}38`
+                    ? 'rgba(45, 125, 210, 0.35)'
                     : 'rgba(255,255,255,0.07)',
                   backdropFilter: 'blur(14px)',
                   transition: 'background 0.28s ease, border-color 0.28s ease',
                   minHeight: '9.5rem',
                 }}
               >
+                {/* Glass glow overlays */}
+                <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 80% 40%, rgba(215, 226, 232, 0.12) 0px, transparent 50%)" }} />
+                <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 20% 90%, rgba(215, 226, 232, 0.07) 0px, transparent 50%)" }} />
+                <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 5% 5%, rgba(215, 226, 232, 0.07) 0px, transparent 30%)" }} />
+                <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 65% 65%, rgba(216, 202, 155, 0.07) 0px, transparent 30%)" }} />
+
                 {/* Left accent bar — the single design element on the card */}
                 <div
                   className="absolute top-5 bottom-5 left-0 w-[2px] rounded-r-full"
@@ -247,7 +250,7 @@ const OSTransactionIntegration = () => {
                 />
 
                 <div className="pl-4">
-                  <h5 className="font-serif text-white text-[0.95rem] font-normal mb-2 leading-snug">
+                  <h5 className="font-serif text-white text-[0.95rem] font-normal mb-2 leading-snug" style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}>
                     {card.title}
                   </h5>
                   <p className="text-[0.76rem] text-[#7a8a96] leading-relaxed font-light">

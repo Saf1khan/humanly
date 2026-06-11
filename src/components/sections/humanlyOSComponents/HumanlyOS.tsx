@@ -12,7 +12,16 @@ import OSPlatformMatrix from "./OSPlatformMatrix";
 
 export const HumanlyOSSection = () => {
   return (
-    <div id="humanlyos" className="font-sans antialiased text-[#1a1a1a] bg-[#f7f6f2]">
+    <div 
+      id="humanlyos" 
+      className="font-sans antialiased text-white"
+      style={{
+        backgroundColor: 'rgb(75, 95, 104)',
+        backgroundImage: 'url("https://d2o9p5vky89u4e.cloudfront.net/MGFjMmZkODA4MmFmLm8zbi5pbw%3D%3D/l9bkxtucizywp9dbc45e7z0gb/b3VyYXJpbmcuY29t/img.gif")',
+        backgroundRepeat: 'repeat',
+        backgroundSize: 'auto'
+      }}
+    >
       <OSHero />
       <OSFinancialFoundation />
       <OSServicesQuote />

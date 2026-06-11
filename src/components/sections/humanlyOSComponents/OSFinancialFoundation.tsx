@@ -29,7 +29,7 @@ const OSFinancialFoundation = () => {
           loading="lazy" 
         />
         {/* Gradient overlay to seamlessly blend with both the previous and next #4C5C68 sections */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#4C5C68] via-black/40 to-[#4C5C68]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[rgb(75,95,104)] via-black/40 to-[rgb(75,95,104)]"></div>
       </div>
 
       {/* Decorative blurred background element to add a magical glow */}
@@ -46,18 +46,21 @@ const OSFinancialFoundation = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="lg:col-span-7 flex flex-col justify-center"
           >
-            <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-[#aeb6be] mb-6">
+            {/* <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-[#aeb6be] mb-6">
               p15 / WEALTH CREATION
             </p>
-            <div className="h-[2px] rounded-full w-[84px] bg-gradient-to-r from-[#1a4f82] via-[#2d7dd2] to-[#d96a2b] mb-8"></div>
+            <div className="h-[2px] rounded-full w-[84px] bg-gradient-to-r from-[#1a4f82] via-[#2d7dd2] to-[#d96a2b] mb-8"></div> */}
             
-            <h2 className="font-serif text-[clamp(2.5rem,4vw,3.5rem)] font-normal leading-[1.1] mb-8 text-white text-balance drop-shadow-lg">
+            <h2 className="font-serif text-[clamp(2.5rem,4vw,3.5rem)] font-normal leading-[1.1] mb-8 text-white text-balance drop-shadow-lg" style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}>
               Your home becomes a foundation for financial literacy, wealth creation, and equity stewardship.
             </h2>
             
-            <div className="p-8 bg-black/20 backdrop-blur-xl border border-white/10 rounded-3xl shadow-[0_0_40px_rgba(0,0,0,0.3)] relative overflow-hidden group">
-              {/* Subtle glow effect on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="p-8 border border-white/10 rounded-3xl shadow-[0_0_40px_rgba(0,0,0,0.3)] relative overflow-hidden group" style={{ backgroundColor: 'rgb(29, 44, 56)' }}>
+              {/* The Gradient Layers (The "Glows") */}
+              <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle at 80% 40%, rgba(215, 226, 232, 0.2) 0px, transparent 50%)" }} />
+              <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle at 20% 90%, rgba(215, 226, 232, 0.1) 0px, transparent 50%)" }} />
+              <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle at 5% 5%, rgba(215, 226, 232, 0.1) 0px, transparent 30%)" }} />
+              <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle at 65% 65%, rgba(216, 202, 155, 0.1) 0px, transparent 30%)" }} />
               
               <p className="text-lg text-[#e2e8f0] font-light leading-relaxed relative z-10 drop-shadow-sm">
                 The resident outcome is the investor return. Every payment builds equity. Every year builds wealth. Every neighbor strengthens the community. We don't just build homes. We create the conditions for families to build wealth and change their financial trajectory.

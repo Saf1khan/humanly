@@ -54,30 +54,19 @@ const OSCircleOfServices = ({ isDark = true }: CircleOfServicesSectionProps) => 
   }, []);
 
   return (
-    <section className={`relative w-full bg-[#4C5C68] flex flex-col items-center overflow-hidden pt-24 pb-32`}>
-      {/* Background Gradients */}
-      {!isDark && (
-        <>
-          <div
-            className="absolute pointer-events-none right-0 translate-x-1/3 top-1/4 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-            style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
-          />
-          <div
-            className="absolute pointer-events-none left-0 -translate-x-1/2 top-1/2 -translate-y-1/4 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
-            style={{ background: "radial-gradient(50% 50%, rgba(255, 182, 55, 0.08), rgba(255, 182, 55, 0.02) 50%, rgba(255, 182, 55, 0))" }}
-          />
-        </>
-      )}
+    <section 
+      className="relative w-full flex flex-col items-center overflow-hidden pt-24 pb-32"
+    >
 
       {/* Title & Description - Top Left */}
       <div className="w-full z-20 mb-16 md:mb-24">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 w-full flex flex-col items-start">
-          <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-[#aeb6be] mb-6">
+          {/* <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-[#aeb6be] mb-6">
             p16 / INTEGRATED MARKETPLACE
           </p>
-          <div className="h-[2px] rounded-full w-[80px] bg-gradient-to-r from-[#1a4f82] via-[#2d7dd2] to-[#d96a2b] mb-8"></div>
+          <div className="h-[2px] rounded-full w-[80px] bg-gradient-to-r from-[#1a4f82] via-[#2d7dd2] to-[#d96a2b] mb-8"></div> */}
 
-          <h2 className={`text-left text-white font-serif leading-tight font-normal text-[2.5rem] md:text-[3rem] lg:text-[4rem] tracking-tight uppercase drop-shadow-sm`}>
+          <h2 className="text-left text-white font-serif leading-tight font-normal text-[2.5rem] md:text-[3rem] lg:text-[4rem] tracking-tight uppercase drop-shadow-sm" style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}>
             Circle of Services<span className="text-[0.4em] align-super">®</span>
           </h2>
           <p className={`mt-4 md:mt-6 text-left text-[#e2e8f0] max-w-[22rem] md:max-w-lg lg:max-w-xl text-[1.1rem] md:text-[1.25rem] leading-relaxed font-sans font-light`}>
@@ -89,13 +78,13 @@ const OSCircleOfServices = ({ isDark = true }: CircleOfServicesSectionProps) => 
       {/* Carousel Container */}
       <div className="relative w-full max-w-[1440px] mx-auto flex justify-center items-center min-h-[42.5rem]">
 
-        {/* Central Gradient Glow */}
+        {/* Central Gradient Glow — matched to page palette (steel blue + burnt orange) */}
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[14rem] h-[14rem] md:w-[20rem] md:h-[20rem] rounded-full pointer-events-none z-[1]"
           style={{
-            background: 'linear-gradient(90deg, #4179F2 0%, #F55D33 50%, #FFE366 100%)',
-            filter: 'blur(80px)',
-            opacity: isDark ? 0.15 : 0.25
+            background: 'radial-gradient(ellipse at center, rgba(45,125,210,0.35) 0%, rgba(217,106,43,0.15) 55%, transparent 75%)',
+            filter: 'blur(50px)',
+            opacity: isDark ? 0.6 : 0.8
           }}
         />
 
@@ -113,11 +102,25 @@ const OSCircleOfServices = ({ isDark = true }: CircleOfServicesSectionProps) => 
               return (
                 <div
                   key={index}
-                  className={`absolute w-28 h-28 md:w-36 md:h-36 -translate-x-1/2 -translate-y-1/2 rounded-[2rem] overflow-hidden pointer-events-auto group cursor-pointer transition-all duration-[1000ms] ease-in-out ${activeIndex === index ? `opacity-100 scale-125 ${isDark ? 'bg-white/10 backdrop-blur-md' : 'bg-white'} shadow-[0_0_60px_rgba(245,93,51,0.3)] z-20` : `opacity-80 scale-95 ${isDark ? 'bg-white/5 backdrop-blur-sm' : 'bg-white'} shadow-[0_8px_24px_rgba(0,0,0,0.08)] z-10`}`}
-                  style={{ left: `${x}%`, top: `${y}%` }}
+                  className={`absolute w-28 h-28 md:w-36 md:h-36 -translate-x-1/2 -translate-y-1/2 rounded-[2rem] overflow-hidden pointer-events-auto group cursor-pointer transition-all duration-[1000ms] ease-in-out ${activeIndex === index ? 'opacity-100 scale-125 z-20' : 'opacity-80 scale-95 z-10'}`}
+                  style={{ 
+                    left: `${x}%`, 
+                    top: `${y}%`,
+                    backgroundColor: 'rgb(29, 44, 56)',
+                    boxShadow: activeIndex === index
+                      ? '0 0 40px rgba(45, 125, 210, 0.35), 0 0 12px rgba(45, 125, 210, 0.2)'
+                      : '0 8px 24px rgba(0,0,0,0.25)',
+                    transition: 'box-shadow 0.6s ease, opacity 0.6s ease, transform 0.6s ease',
+                  }}
                 >
+                  {/* The Gradient Layers (The "Glows") */}
+                  <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle at 80% 40%, rgba(215, 226, 232, 0.2) 0px, transparent 50%)" }} />
+                  <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle at 20% 90%, rgba(215, 226, 232, 0.1) 0px, transparent 50%)" }} />
+                  <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle at 5% 5%, rgba(215, 226, 232, 0.1) 0px, transparent 30%)" }} />
+                  <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle at 65% 65%, rgba(216, 202, 155, 0.1) 0px, transparent 30%)" }} />
+
                   <div
-                    className="absolute w-[150%] h-[150%] -top-[25%] -left-[25%] origin-center transition-transform duration-[2500ms] ease-in-out"
+                    className="absolute w-[150%] h-[150%] -top-[25%] -left-[25%] origin-center transition-transform duration-[2500ms] ease-in-out z-10 flex items-center justify-center"
                     style={{ transform: `rotate(${-rotation}deg)` }}
                   >
                     <Image
@@ -125,7 +128,7 @@ const OSCircleOfServices = ({ isDark = true }: CircleOfServicesSectionProps) => 
                       alt={item.alt}
                       width={100}
                       height={100}
-                      className={`absolute w-[60%] h-[60%] top-[20%] left-[20%] object-contain ${isDark ? 'brightness-0 invert' : ''}`}
+                      className="w-[60%] h-[60%] object-contain brightness-0 invert"
                     />
                     {/* Full Image Overlay & Text - Shown on Hover */}
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/60">
@@ -147,17 +150,18 @@ const OSCircleOfServices = ({ isDark = true }: CircleOfServicesSectionProps) => 
             <div
               className={`w-32 h-32 md:w-44 md:h-44 rounded-full border ${isDark ? 'border-white/10' : 'border-white/20'} flex items-center justify-center pointer-events-auto shadow-2xl p-4 relative overflow-hidden`}
               style={{
-                backgroundImage: 'url("/images/Humanly_HeroGradient_NoGrain_CMYK.jpg")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
+                background: 'rgb(22, 35, 46)',
+                boxShadow: '0 0 0 1px rgba(45,125,210,0.2), 0 8px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06)',
               }}
             >
+              {/* Subtle inner glow */}
+              <div className="absolute inset-0 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle at 40% 30%, rgba(215,226,232,0.12) 0%, transparent 60%)' }} />
               <Image
-                src="/images/asset%200.png"
-                alt="Humanly Logo"
+                src="/images/Humanly_Logo_Mark_Gradient on Dark.svg"
+                alt="Humanly Logo Mark"
                 width={200}
                 height={200}
-                className="w-full h-full object-contain relative z-10 scale-[1.15]"
+                className="w-full h-full object-contain relative z-10 scale-[0.85]"
               />
             </div>
           </div>
@@ -172,14 +176,17 @@ const OSCircleOfServices = ({ isDark = true }: CircleOfServicesSectionProps) => 
                 className={`absolute inset-0 z-10 transition-opacity duration-500 ease-in-out flex flex-col justify-center items-start ${activeIndex === index ? 'opacity-100' : 'opacity-0'}`}
               >
 
-                <h3 className={`${isDark ? 'text-white' : 'text-sandstone-500'} text-[1.5rem] font-bold tracking-tight mb-6 uppercase`}>
+                <h3
+                  className="text-white text-[1.5rem] font-normal tracking-wide mb-6 uppercase"
+                  style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}
+                >
                   {item.label}
                 </h3>
                 <ul className="flex flex-col gap-4">
                   {item.details.map((detail, idx) => (
-                    <li key={idx} className={`flex items-start ${isDark ? 'text-white' : 'text-[#1C1B1A]/80'} text-[1.05rem] leading-snug`}>
-                      <span className={`mr-3 ${isDark ? 'text-[#d96a2b]' : 'text-sandstone-500/50'} font-bold mt-1`}>•</span>
-                      <span>{detail}</span>
+                    <li key={idx} className="flex items-start text-[#e2e8f0] text-[1rem] leading-snug font-light">
+                      <span className="mr-3 text-[#2d7dd2] font-bold mt-1">•</span>
+                      <span style={{ fontFamily: '"Cormorant Garamond", Georgia, serif', fontSize: '1.1rem' }}>{detail}</span>
                     </li>
                   ))}
                 </ul>

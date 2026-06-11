@@ -97,31 +97,45 @@ export const TeamHero = () => {
           overflow: hidden;
         }
 
-        .hero-container-sandstone::before {
-          content: "";
+        /* Base style for all gradient layers */
+        .hero-gradient-layer {
           position: absolute;
-          inset: 0;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
           pointer-events: none;
-          opacity: 0.8;
           z-index: 1;
-          background-image: 
-            /* Mobile header readability gradient */
-            linear-gradient(to bottom, rgb(247, 241, 232) 0%, transparent 100%),
-            /* Top Left - Sage Green */
-            radial-gradient(circle at 10% 0%, rgba(132, 150, 113, 0.4) 0%, transparent 20%),
-            /* Middle Right - Sage Green */
-            radial-gradient(circle at 99% 40%, rgba(132, 150, 113, 0.5) 0%, transparent 40%),
-            /* Bottom Left - Sage Green */
-            radial-gradient(circle at 10% 99%, rgba(132, 150, 113, 0.6) 0%, transparent 40%),
-            /* Center Highlight - Bright White */
-            radial-gradient(circle at 35% 30%, rgb(254, 252, 249) 0%, transparent 15%),
-            /* Bottom Right - Deep Greenish Muted Tone */
-            radial-gradient(circle at 90% 70%, rgba(104, 113, 99, 0.7) 0%, transparent 20%);
+        }
+
+        /* Layer 1: Top Left Glow */
+        #hero-layer-1 {
+          background-image: radial-gradient(circle at 10% 0%, rgba(132, 150, 113, 0.4) 0px, rgba(0, 0, 0, 0) 20%);
+        }
+
+        /* Layer 2: Right Middle Glow */
+        #hero-layer-2 {
+          background-image: radial-gradient(circle at 99% 40%, rgba(132, 150, 113, 0.5) 0px, rgba(0, 0, 0, 0) 40%);
+        }
+
+        /* Layer 3: Bottom Left Glow */
+        #hero-layer-3 {
+          background-image: radial-gradient(circle at 10% 99%, rgba(132, 150, 113, 0.4) 0px, rgba(0, 0, 0, 0) 40%);
+        }
+
+        /* Layer 4: Right Lower Glow */
+        #hero-layer-4 {
+          background-image: radial-gradient(circle at 99% 70%, rgba(132, 150, 113, 0.4) 0px, rgba(0, 0, 0, 0) 30%);
         }
       `}</style>
 
       {/* Hero Container */}
       <div className="hero-container hero-container-sandstone relative flex-grow rounded-b-[12px] lg:rounded-b-xl overflow-hidden flex flex-col">
+        {/* The 4 Gradient Layers */}
+        <div className="hero-gradient-layer" id="hero-layer-1" />
+        <div className="hero-gradient-layer" id="hero-layer-2" />
+        <div className="hero-gradient-layer" id="hero-layer-3" />
+        <div className="hero-gradient-layer" id="hero-layer-4" />
 
         {/* Content Grid (The Wrapper) */}
         <div className="grid grid-cols-[minmax(1rem,1fr)_repeat(22,minmax(0,1fr))_minmax(1rem,1fr)] lg:grid-cols-[64px_repeat(22,minmax(0,1fr))_64px] grid-rows-[auto_auto] gap-y-0 gap-x-2 relative w-full pt-24 pb-16 min-h-[600px] items-end z-10 lg:grow">
