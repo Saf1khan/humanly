@@ -94,7 +94,7 @@ export const PlatformHero = () => {
 
         .hero-container-sandstone {
           position: relative;
-          background-color: rgb(239, 234, 226);
+          background-color: rgb(247, 241, 232);
           overflow: hidden;
         }
 
@@ -103,11 +103,21 @@ export const PlatformHero = () => {
           position: absolute;
           inset: 0;
           pointer-events: none;
-          opacity: 0.9;
+          opacity: 0.8;
           z-index: 1;
           background-image: 
-            radial-gradient(circle at 10% 20%, rgba(160, 161, 208, 0.4) 0px, transparent 30%),
-            radial-gradient(circle at 99% 80%, rgba(160, 161, 208, 0.4) 0px, transparent 40%);
+            /* Mobile header readability gradient */
+            linear-gradient(to bottom, rgb(247, 241, 232) 0%, transparent 100%),
+            /* Top Left - Luminous Blue/Purple */
+            radial-gradient(circle at 10% 0%, rgba(160, 161, 208, 0.4) 0%, transparent 30%),
+            /* Middle Right - Accent */
+            radial-gradient(circle at 99% 40%, rgba(160, 161, 208, 0.5) 0%, transparent 40%),
+            /* Bottom Left */
+            radial-gradient(circle at 10% 99%, rgba(160, 161, 208, 0.6) 0%, transparent 40%),
+            /* Center Highlight - Bright White */
+            radial-gradient(circle at 35% 30%, rgb(254, 252, 249) 0%, transparent 15%),
+            /* Bottom Right - Deep Earthy Accent */
+            radial-gradient(circle at 90% 70%, rgba(62, 34, 66, 0.15) 0%, transparent 30%);
         }
       `}</style>
 

@@ -41,6 +41,12 @@ const tabs = [
         desc: "Density and product mix are defined with precision, improving long-term value and reducing avoidable soft costs.",
         img: "/images/AdobeStock_152634981.jpeg",
       },
+      {
+        num: "05",
+        title: "Feasibility Model",
+        desc: "Instant financial pro formas and zoning checks run automatically to prove project viability before submitting offers.",
+        img: "/images/AdobeStock_1909482653.jpeg",
+      },
     ],
   },
   {
@@ -77,6 +83,12 @@ const tabs = [
         title: "Brand Narrative",
         desc: "Cohesive visual storytelling establishes a premium market position and builds long-term community value.",
         img: "/images/AdobeStock_188223905.jpeg",
+      },
+      {
+        num: "05",
+        title: "Resident Onboarding",
+        desc: "Digital move-in checklists and smart lock activations integrate seamlessly to deliver an unforgettable first-day experience.",
+        img: "/images/AdobeStock_152634981.jpeg",
       },
     ],
   },
@@ -115,6 +127,12 @@ const tabs = [
         desc: "Every resident interaction generates anonymized data that improves service delivery and creates network effects across the ecosystem.",
         img: "/images/AdobeStock_129235823.jpeg",
       },
+      {
+        num: "05",
+        title: "Ecosystem Data",
+        desc: "Aggregated data streams optimize future community planning, design iterations, and utility procurement across the portfolio.",
+        img: "/images/AdobeStock_1011273017.jpeg",
+      },
     ],
   },
 ];
@@ -132,17 +150,46 @@ const CardSlider = ({ cards, accentColor }: { cards: Card[]; accentColor: string
   const [scrollIdx, setScrollIdx] = useState(0);
   const sliderRef = useRef<HTMLUListElement>(null);
 
+  const handleScroll = useCallback(() => {
+    if (!sliderRef.current) return;
+    const container = sliderRef.current;
+    const scrollLeft = container.scrollLeft;
+    const items = container.querySelectorAll("li");
+    if (items.length === 0) return;
+
+    let closestIdx = 0;
+    let minDiff = Infinity;
+    items.forEach((item, idx) => {
+      const itemLeft = (item as HTMLElement).offsetLeft;
+      const diff = Math.abs(itemLeft - scrollLeft);
+      if (diff < minDiff) {
+        minDiff = diff;
+        closestIdx = idx;
+      }
+    });
+
+    setScrollIdx(closestIdx);
+  }, []);
+
   const scrollTo = useCallback(
     (dir: "prev" | "next") => {
       if (!sliderRef.current) return;
+      const container = sliderRef.current;
+      const items = container.querySelectorAll("li");
+      if (items.length === 0) return;
+
       const newIdx =
         dir === "next"
           ? Math.min(scrollIdx + 1, cards.length - 1)
           : Math.max(scrollIdx - 1, 0);
-      setScrollIdx(newIdx);
-      const items = sliderRef.current.querySelectorAll("li");
-      if (items[newIdx]) {
-        items[newIdx].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+
+      const targetItem = items[newIdx] as HTMLElement;
+      if (targetItem) {
+        container.scrollTo({
+          left: targetItem.offsetLeft - (newIdx === 0 ? 0 : 20),
+          behavior: "smooth",
+        });
+        setScrollIdx(newIdx);
       }
     },
     [scrollIdx, cards.length]
@@ -157,13 +204,13 @@ const CardSlider = ({ cards, accentColor }: { cards: Card[]; accentColor: string
         ref={sliderRef}
         className="phases-slider-list"
         tabIndex={0}
+        onScroll={handleScroll}
       >
         {cards.map((card, i) => (
           <li key={i} className="phases-slider-item">
             <div className="phases-card">
               <div className="phases-card-img-wrap">
                 <img src={card.img} alt={card.title} className="phases-card-img" />
-                <div className="absolute inset-0 backdrop-blur-xl" />
                 <div className="phases-card-img-overlay" />
                 <span className="phases-card-num" style={{ color: accentColor }}>
                   {card.num}
@@ -215,105 +262,6 @@ const CardSlider = ({ cards, accentColor }: { cards: Card[]; accentColor: string
   );
 };
 
-// ─── Tab Panel Content ────────────────────────────────────────────────────────
-
-const TabPanel = ({
-  tab,
-  activeIdx,
-  setActiveIdx,
-}: {
-  tab: (typeof tabs)[0];
-  activeIdx: number;
-  setActiveIdx: (idx: number) => void;
-}) => (
-  <motion.div
-    key={tab.id}
-    initial={{ opacity: 0, y: 18 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -12 }}
-    transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-    className="phases-panel"
-  >
-    {/* Header Grid */}
-    <div className="custom-grid-container">
-      {/* Title / Heading Content */}
-      <div className="grid-item-title">
-        <h3 className="phases-panel-headline font-cormorant">
-          {tab.headline.map((line, i) =>
-            line === tab.headlineAccent ? (
-              <span key={i} style={{ color: "rgba(62, 34, 66, 0.6)" }}>
-                {line}
-                {i < tab.headline.length - 1 && <br />}
-              </span>
-            ) : (
-              <React.Fragment key={i}>
-                {line}
-                <br />
-              </React.Fragment>
-            )
-          )}
-        </h3>
-      </div>
-
-      {/* Description / Side Content */}
-      <div className="grid-item-description">
-        <p className="phases-panel-body">{tab.body}</p>
-      </div>
-    </div>
-
-    {/* Tab list below title & description - centered alignment */}
-    <div className="phases-tablist-wrap">
-      <div className="phases-tablist" role="tablist">
-        {tabs.map((t, i) => {
-          const isActive = i === activeIdx;
-          return (
-            <button
-              key={t.id}
-              id={`phases-tab-${i}`}
-              role="tab"
-              aria-selected={isActive}
-              aria-controls={`phases-panel-${i}`}
-              tabIndex={isActive ? 0 : -1}
-              type="button"
-              onClick={() => setActiveIdx(i)}
-              className={`phases-tab-btn${isActive ? " phases-tab-btn--active" : ""}`}
-              style={
-                isActive
-                  ? {
-                    borderColor: "#D6C3A5",
-                    backgroundColor: "#2e2d2c",
-                    color: "#F2F0EE",
-                    boxShadow: `0 8px 24px rgba(0,0,0,0.12)`,
-                  }
-                  : {}
-              }
-            >
-              {t.label}
-            </button>
-          );
-        })}
-      </div>
-    </div>
-
-    {/* Cards */}
-    <CardSlider cards={tab.cards} accentColor={tab.accentColor} />
-
-    {/* Hero image */}
-    <div className="phases-hero-wrap">
-      <div className="phases-hero-inner">
-        <img src={tab.heroImg} alt={tab.heroAlt} className="phases-hero-img" />
-        <div className="phases-hero-overlay" />
-        <div className="phases-hero-badge" style={{ borderColor: "rgba(62, 34, 66, 0.2)" }}>
-          <span className="phases-hero-badge-dot" style={{ backgroundColor: tab.accentColor }} />
-          <span className="phases-hero-badge-text" style={{ color: tab.accentColor }}>
-            {tab.phase} — {tab.label}
-          </span>
-        </div>
-      </div>
-    </div>
-  </motion.div>
-);
-
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export const PhasesTabSection = () => {
@@ -321,353 +269,436 @@ export const PhasesTabSection = () => {
   const activeTab = tabs[activeIdx];
 
   return (
-    <section
-      className="phases-section"
-      style={{
-        position: "relative",
-        zIndex: 3,
-        marginTop: "-80px",
-        borderRadius: "0 0 64px 64px",
-      }}
-    >
-      {/* Gradient overlay — continuing the same atmospheric feel as VerticalStack */}
-      <div
-        className="absolute pointer-events-none"
+    <div style={{ backgroundColor: "#000000" }}>
+      <section
+        className="phases-section"
         style={{
-          top: "-120px",
-          left: 0,
-          right: 0,
-          bottom: 0,
-          opacity: 0.9,
-          zIndex: 1,
-          backgroundImage: [
-            "radial-gradient(circle at 10% 30%, rgba(160, 161, 208, 0.4) 0px, transparent 30%)",
-            "radial-gradient(circle at 99% 60%, rgba(160, 161, 208, 0.4) 0px, transparent 35%)",
-            "radial-gradient(circle at 10% 80%, rgba(160, 161, 208, 0.3) 0px, transparent 28%)",
-            //"radial-gradient(circle at 90% 10%, rgba(160, 161, 208, 0.3) 0px, transparent 28%)",
-          ].join(", "),
+          position: "relative",
+          zIndex: 3,
+          marginTop: "-80px",
+          borderRadius: "0 0 64px 64px",
         }}
-      />
+      >
+        {/* Gradient overlay — continuing the same atmospheric feel as VerticalStack */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            top: "-120px",
+            left: 0,
+            right: 0,
+            bottom: 0,
+            opacity: 0.9,
+            zIndex: 1,
+            backgroundImage: [
+              "radial-gradient(circle at 10% 30%, rgba(160, 161, 208, 0.4) 0px, transparent 30%)",
+              "radial-gradient(circle at 99% 60%, rgba(160, 161, 208, 0.4) 0px, transparent 35%)",
+              "radial-gradient(circle at 10% 80%, rgba(160, 161, 208, 0.3) 0px, transparent 28%)",
+            ].join(", "),
+          }}
+        />
 
-      <div className="phases-container">
-        {/* Panels containing header, sub tab list and content */}
-        <div>
-          <AnimatePresence mode="wait">
-            <TabPanel
-              key={activeTab.id}
-              tab={activeTab}
-              activeIdx={activeIdx}
-              setActiveIdx={setActiveIdx}
-            />
-          </AnimatePresence>
+        <div className="phases-container">
+          {/* Main Layout containing header, sub tab list and animated content */}
+          <div className="phases-panel">
+            {/* Header Grid */}
+            <div className="custom-grid-container">
+              {/* Title / Heading Content */}
+              <div className="grid-item-title">
+                <h3 className="phases-panel-headline font-cormorant">
+                  {activeTab.headline.map((line, i) =>
+                    line === activeTab.headlineAccent ? (
+                      <span key={i} style={{ color: "rgba(62, 34, 66, 0.6)" }}>
+                        {line}
+                        {i < activeTab.headline.length - 1 && <br />}
+                      </span>
+                    ) : (
+                      <React.Fragment key={i}>
+                        {line}
+                        <br />
+                      </React.Fragment>
+                    )
+                  )}
+                </h3>
+              </div>
+
+              {/* Description / Side Content */}
+              <div className="grid-item-description">
+                <p className="phases-panel-body">{activeTab.body}</p>
+              </div>
+            </div>
+
+            {/* Tab list below title & description - centered alignment */}
+            <div className="phases-tablist-wrap">
+              <div className="phases-tablist" role="tablist">
+                {tabs.map((t, i) => {
+                  const isActive = i === activeIdx;
+                  return (
+                    <button
+                      key={t.id}
+                      id={`phases-tab-${i}`}
+                      role="tab"
+                      aria-selected={isActive}
+                      aria-controls={`phases-panel-${i}`}
+                      tabIndex={isActive ? 0 : -1}
+                      type="button"
+                      onClick={() => setActiveIdx(i)}
+                      className={`phases-tab-btn${isActive ? " phases-tab-btn--active" : ""}`}
+                      style={
+                        isActive
+                          ? {
+                              borderColor: "#D6C3A5",
+                              backgroundColor: "#2e2d2c",
+                              color: "#F2F0EE",
+                              boxShadow: `0 8px 24px rgba(0,0,0,0.12)`,
+                            }
+                          : {}
+                      }
+                    >
+                      {t.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Content that transitions when tab changes */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab.id}
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+                style={{ display: "flex", flexDirection: "column", gap: "64px" }}
+              >
+                {/* Cards */}
+                <CardSlider cards={activeTab.cards} accentColor={activeTab.accentColor} />
+
+                {/* Hero image */}
+                <div className="phases-hero-wrap">
+                  <div className="phases-hero-inner">
+                    <img src={activeTab.heroImg} alt={activeTab.heroAlt} className="phases-hero-img" />
+                    <div className="phases-hero-overlay" />
+                    <div className="phases-hero-badge" style={{ borderColor: "rgba(62, 34, 66, 0.2)" }}>
+                      <span className="phases-hero-badge-dot" style={{ backgroundColor: activeTab.accentColor }} />
+                      <span className="phases-hero-badge-text" style={{ color: activeTab.accentColor }}>
+                        {activeTab.phase} — {activeTab.label}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
-      </div>
 
-      {/* Styles */}
-      <style>{`
-        .phases-section {
-          position: relative;
-          overflow: visible;
-          background: rgb(239, 234, 226);
-          padding: 200px 0 100px;
-        }
-        .phases-bg-dots {
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          opacity: 0.03;
-          background-image: radial-gradient(#000 1px, transparent 1px);
-          background-size: 40px 40px;
-        }
-        .phases-container {
-          container: phases / inline-size;
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 24px;
-          position: relative;
-          z-index: 10;
-          font-family: inherit;
-        }
+        {/* Styles */}
+        <style>{`
+          .phases-section {
+            position: relative;
+            overflow: visible;
+            background: rgb(239, 234, 226);
+            padding: 200px 0 100px;
+          }
+          .phases-bg-dots {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: radial-gradient(#000 1px, transparent 1px);
+            background-size: 40px 40px;
+          }
+          .phases-container {
+            container: phases / inline-size;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 10;
+            font-family: inherit;
+          }
 
-                /* ── Tab list ── */
-        .phases-tablist-wrap {
-          display: flex;
-          justify-content: center;
-          margin-top: 56px;
-          margin-bottom: 24px;
-        }
-        .phases-tablist {
-          display: inline-flex;
-          gap: 12px;
-          flex-wrap: wrap;
-          justify-content: center;
-          max-width: 100%;
-        }
-        .phases-tab-btn {
-          appearance: none;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          gap: 8px;
-          padding: 16px 24px;
-          border-radius: 100px;
-          border: 2px solid #CCCAC7;
-          background: transparent;
-          color: #55534F;
-          font-size: 18px;
-          font-weight: 700;
-          line-height: 1.2;
-          white-space: nowrap;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          font-family: inherit;
-        }
-        .phases-tab-btn:hover:not(.phases-tab-btn--active) {
-          border-color: #999795;
-          color: #1a1a2e;
-          background: rgba(255,255,255,0.3);
-        }
+          /* ── Tab list ── */
+          .phases-tablist-wrap {
+            display: flex;
+            justify-content: center;
+            margin-top: 56px;
+            margin-bottom: 24px;
+          }
+          .phases-tablist {
+            display: inline-flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 100%;
+          }
+          .phases-tab-btn {
+            appearance: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 16px 24px;
+            border-radius: 100px;
+            border: 2px solid #CCCAC7;
+            background: transparent;
+            color: #55534F;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.2;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+          }
+          .phases-tab-btn:hover:not(.phases-tab-btn--active) {
+            border-color: #999795;
+            color: #1a1a2e;
+            background: rgba(255,255,255,0.3);
+          }
 
-        /* ── Grid Layout Strategy ── */
-        .custom-grid-container {
-          display: grid;
-          grid-template-columns: [full-start] 64px [main-start] repeat(22, 1fr) [main-end] 64px [full-end];
-          row-gap: 8px;
-          width: 100%;
-        }
-        .grid-item-title {
-          grid-column: main-start / 14;
-          display: block;
-        }
-        .grid-item-description {
-          grid-column: 16 / main-end;
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
-          padding: 0 0 28px 0;
-        }
-        @media (max-width: 1024px) {
+          /* ── Grid Layout Strategy ── */
           .custom-grid-container {
-            grid-template-columns: [full-start] 16px [main-start] 1fr [main-end] 16px [full-end];
-            row-gap: 16px;
+            display: grid;
+            grid-template-columns: [full-start] 64px [main-start] repeat(22, 1fr) [main-end] 64px [full-end];
+            row-gap: 8px;
+            width: 100%;
           }
-          .grid-item-title, 
+          .grid-item-title {
+            grid-column: main-start / 14;
+            display: block;
+          }
           .grid-item-description {
-            grid-column: main-start / main-end;
-            padding: 0;
+            grid-column: 16 / main-end;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0 0 28px 0;
           }
-        }
+          @media (max-width: 1024px) {
+            .custom-grid-container {
+              grid-template-columns: [full-start] 16px [main-start] 1fr [main-end] 16px [full-end];
+              row-gap: 16px;
+            }
+            .grid-item-title, 
+            .grid-item-description {
+              grid-column: main-start / main-end;
+              padding: 0;
+            }
+          }
 
-        /* ── Panel ── */
-        .phases-panel {
-          display: flex;
-          flex-direction: column;
-          gap: 64px;
-        }
-        .phases-panel-headline {
-          font-size: clamp(36px, 5.5vw, 68px);
-          font-weight: 300;
-          line-height: 1.08;
-          letter-spacing: -0.02em;
-          color: #3E2242;
-          margin: 0;
-        }
-        .phases-panel-body {
-          font-size: clamp(17px, 2vw, 22px);
-          line-height: 1.6;
-          color: rgba(15, 23, 42, 0.75);
-          font-weight: 300;
-          letter-spacing: -0.01em;
-          margin: 0;
-        }
+          /* ── Panel ── */
+          .phases-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 64px;
+          }
+          .phases-panel-headline {
+            font-size: clamp(36px, 5.5vw, 68px);
+            font-weight: 300;
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            color: #3E2242;
+            margin: 0;
+          }
+          .phases-panel-body {
+            font-size: clamp(17px, 2vw, 22px);
+            line-height: 1.6;
+            color: rgba(15, 23, 42, 0.75);
+            font-weight: 300;
+            letter-spacing: -0.01em;
+            margin: 0;
+          }
 
-        /* ── Slider ── */
-        .phases-slider-root {
-          display: flex;
-          flex-direction: column;
-          gap: 32px;
-        }
-        .phases-slider-list {
-          display: flex;
-          gap: 20px;
-          overflow-x: auto;
-          scroll-snap-type: x mandatory;
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          list-style: none;
-          padding: 4px 0 12px;
-          margin: 0;
-        }
-        .phases-slider-list::-webkit-scrollbar { display: none; }
-        .phases-slider-item {
-          scroll-snap-align: start;
-          flex-shrink: 0;
-        }
-        .phases-card {
-          width: 280px;
-          display: flex;
-          flex-direction: column;
-        }
-        @media (min-width: 640px) {
-          .phases-card { width: 300px; }
-        }
-        .phases-card-img-wrap {
-          position: relative;
-          width: 100%;
-          aspect-ratio: 1 / 1;
-          border-radius: 20px;
-          overflow: hidden;
-          margin-bottom: 20px;
-          background: #e2e0de;
-        }
-        .phases-card-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
-        }
-        .phases-card:hover .phases-card-img {
-          transform: scale(1.04);
-        }
-        .phases-card-img-overlay {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(to top, rgba(0,0,0,0.18), transparent);
-        }
-        .phases-card-num {
-          position: absolute;
-          top: 14px;
-          left: 16px;
-          font-size: 11px;
-          font-weight: 800;
-          font-family: monospace;
-          letter-spacing: 0.15em;
-          opacity: 0.9;
-          z-index: 10;
-        }
-        .phases-card-text-overlay {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          z-index: 10;
-          padding: 20px 16px;
-        }
-        .phases-card-title {
-          font-size: 20px;
-          font-weight: 400;
-          color: #fff;
-          margin-bottom: 6px;
-          letter-spacing: -0.02em;
-          line-height: 1.2;
-          font-family: Cormorant, Garamond, serif;
-        }
-        .phases-card-desc {
-          font-size: 13px;
-          line-height: 1.5;
-          color: rgba(255, 255, 255, 0.8);
-          font-weight: 300;
-        }
+          /* ── Slider ── */
+          .phases-slider-root {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+          }
+          .phases-slider-list {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            list-style: none;
+            padding: 4px 0 12px;
+            margin: 0;
+            scroll-behavior: smooth;
+          }
+          .phases-slider-list::-webkit-scrollbar { display: none; }
+          .phases-slider-item {
+            scroll-snap-align: start;
+            flex-shrink: 0;
+          }
+          .phases-card {
+            width: 280px;
+            display: flex;
+            flex-direction: column;
+          }
+          @media (min-width: 640px) {
+            .phases-card { width: 300px; }
+          }
+          .phases-card-img-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            background: #e2e0de;
+          }
+          .phases-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+          }
+          .phases-card:hover .phases-card-img {
+            transform: scale(1.04);
+          }
+          .phases-card-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 100%);
+          }
+          .phases-card-num {
+            position: absolute;
+            top: 14px;
+            left: 16px;
+            font-size: 11px;
+            font-weight: 800;
+            font-family: monospace;
+            letter-spacing: 0.15em;
+            opacity: 0.9;
+            z-index: 10;
+          }
+          .phases-card-text-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            padding: 20px 16px;
+          }
+          .phases-card-title {
+            font-size: 20px;
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            font-family: Cormorant, Garamond, serif;
+          }
+          .phases-card-desc {
+            font-size: 13px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+          }
 
-        /* ── Nav ── */
-        .phases-slider-nav {
-          margin: 40px auto 0;
-          display: flex;
-          align-items: center;
-          gap: 4px;
-          width: 240px;
-          background: rgba(217, 217, 217, 0.3);
-          border-radius: 100px;
-          padding: 8px 16px;
-        }
-        .phases-nav-btn {
-          flex-shrink: 0;
-          width: 40px;
-          height: 40px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border: none;
-          background: transparent;
-          cursor: pointer;
-          color: inherit;
-          border-radius: 50%;
-          transition: background 0.2s, opacity 0.2s;
-        }
-        .phases-nav-btn:disabled {
-          opacity: 0.3;
-          cursor: default;
-        }
-        .phases-nav-btn:not(:disabled):hover {
-          background: rgba(0,0,0,0.06);
-        }
-        .phases-progress-track {
-          flex: 1;
-          height: 1px;
-          background: #D1D5DB;
-          position: relative;
-          overflow: hidden;
-        }
-        .phases-progress-fill {
-          position: absolute;
-          inset: 0;
-          height: 1px;
-          transform-origin: left;
-          background-color: #D6C3A5;
-        }
+          /* ── Nav ── */
+          .phases-slider-nav {
+            margin: 40px auto 0;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            width: 240px;
+            background: rgba(217, 217, 217, 0.3);
+            border-radius: 100px;
+            padding: 8px 16px;
+          }
+          .phases-nav-btn {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            color: inherit;
+            border-radius: 50%;
+            transition: background 0.2s, opacity 0.2s;
+          }
+          .phases-nav-btn:disabled {
+            opacity: 0.3;
+            cursor: default;
+          }
+          .phases-nav-btn:not(:disabled):hover {
+            background: rgba(0,0,0,0.06);
+          }
+          .phases-progress-track {
+            flex: 1;
+            height: 1px;
+            background: #D1D5DB;
+            position: relative;
+            overflow: hidden;
+          }
+          .phases-progress-fill {
+            position: absolute;
+            inset: 0;
+            height: 1px;
+            transform-origin: left;
+            background-color: #D6C3A5;
+          }
 
-        /* ── Hero image ── */
-        .phases-hero-wrap {
-          margin-top: 16px;
-        }
-        .phases-hero-inner {
-          position: relative;
-          border-radius: 40px;
-          overflow: hidden;
-          border: 1px solid rgba(255,255,255,0.5);
-          box-shadow: 0 60px 100px -30px rgba(0,0,0,0.14);
-          aspect-ratio: 21 / 9;
-          background: #d0ceca;
-        }
-        @media (max-width: 640px) {
-          .phases-hero-inner { aspect-ratio: 16 / 9; border-radius: 24px; }
-        }
-        .phases-hero-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .phases-hero-overlay {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%, rgba(0,0,0,0.1) 100%);
-        }
-        .phases-hero-badge {
-          position: absolute;
-          bottom: 24px;
-          left: 24px;
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          background: rgba(255,255,255,0.12);
-          backdrop-filter: blur(16px);
-          border: 1px solid;
-          border-radius: 999px;
-          padding: 8px 16px;
-        }
-        .phases-hero-badge-dot {
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          flex-shrink: 0;
-        }
-        .phases-hero-badge-text {
-          font-size: 11px;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.18em;
-        }
-      `}</style>
-    </section>
+          /* ── Hero image ── */
+          .phases-hero-wrap {
+            margin-top: 16px;
+          }
+          .phases-hero-inner {
+            position: relative;
+            border-radius: 40px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 60px 100px -30px rgba(0,0,0,0.14);
+            aspect-ratio: 21 / 9;
+            background: #d0ceca;
+          }
+          @media (max-width: 640px) {
+            .phases-hero-inner { aspect-ratio: 16 / 9; border-radius: 24px; }
+          }
+          .phases-hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          .phases-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%, rgba(0,0,0,0.1) 100%);
+          }
+          .phases-hero-badge {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(16px);
+            border: 1px solid;
+            border-radius: 999px;
+            padding: 8px 16px;
+          }
+          .phases-hero-badge-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            flex-shrink: 0;
+          }
+          .phases-hero-badge-text {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+          }
+        `}</style>
+      </section>
+    </div>
   );
 };

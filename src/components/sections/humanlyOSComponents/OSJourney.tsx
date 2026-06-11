@@ -111,24 +111,8 @@ const OSJourney = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#4C5C68] py-[clamp(5rem,10vw,8rem)] relative overflow-hidden"
+      className="py-[clamp(5rem,10vw,8rem)] relative overflow-hidden"
     >
-
-      {/* Directional ambient glow (left for mobile, bottom-centered for desktop) */}
-      <motion.div
-        className="absolute left-0 top-1/2 -translate-y-1/2 w-[360px] h-[700px] pointer-events-none lg:hidden"
-        animate={{
-          background: `radial-gradient(ellipse at left, ${milestones[openIndex].color}12 0%, transparent 72%)`,
-        }}
-        transition={{ duration: 0.9, ease: 'easeInOut' }}
-      />
-      <motion.div
-        className="absolute left-1/2 bottom-0 -translate-x-1/2 w-[900px] h-[400px] pointer-events-none hidden lg:block"
-        animate={{
-          background: `radial-gradient(ellipse at bottom, ${milestones[openIndex].color}15 0%, transparent 75%)`,
-        }}
-        transition={{ duration: 0.9, ease: 'easeInOut' }}
-      />
 
       <div className="max-w-[1240px] mx-auto px-6 md:px-12 relative z-10">
 
@@ -141,11 +125,11 @@ const OSJourney = () => {
           className="mb-16 grid grid-cols-1 lg:grid-cols-2 gap-8 items-end"
         >
           <div>
-            <p className="text-[10px] font-medium tracking-[0.22em] uppercase text-[#aeb6be] mb-5">
+            {/* <p className="text-[10px] font-medium tracking-[0.22em] uppercase text-[#aeb6be] mb-5">
               p16 / RESIDENT JOURNEY
-            </p>
-            <div className="h-[2px] rounded-full w-[80px] bg-gradient-to-r from-[#1a4f82] via-[#2d7dd2] to-[#d96a2b] mb-6" />
-            <h2 className="font-serif text-[clamp(2.2rem,4vw,3.2rem)] font-normal leading-[1.1] text-white">
+            </p> */}
+            {/* <div className="h-[2px] rounded-full w-[80px] bg-gradient-to-r from-[#1a4f82] via-[#2d7dd2] to-[#d96a2b] mb-6" /> */}
+            <h2 className="font-serif text-[clamp(2.2rem,4vw,3.2rem)] font-normal leading-[1.1] text-white" style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}>
               Every payment builds<br />
               <span className="text-[#aeb6be]">a better future.</span>
             </h2>
@@ -176,7 +160,7 @@ const OSJourney = () => {
                     flexGrow: isOpen ? 6 : 1,
                     flexShrink: 1,
                     flexBasis: '0%',
-                    backgroundColor: isOpen ? 'rgba(0, 0, 0, 0.28)' : 'rgba(255, 255, 255, 0.02)',
+                    backgroundColor: isOpen ? 'rgb(24, 38, 50)' : 'rgb(29, 44, 56)',
                     borderColor: isOpen ? `${step.color}35` : 'rgba(255, 255, 255, 0.05)',
                   }}
                   onMouseEnter={() => handleRowHover(idx)}
@@ -219,7 +203,7 @@ const OSJourney = () => {
                                 {step.timeframe}
                               </span>
                             </div>
-                            <h3 className="font-serif text-3xl font-normal text-white">
+                            <h3 className="font-serif text-3xl font-normal text-white" style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}>
                               {step.title}
                             </h3>
                           </div>
@@ -251,13 +235,16 @@ const OSJourney = () => {
 
                           {/* Metric box */}
                           <div
-                            className="rounded-2xl p-5 border shrink-0 text-left bg-black/35 backdrop-blur-md"
-                            style={{ borderColor: `${step.color}25` }}
+                            className="rounded-2xl p-5 border shrink-0 text-left overflow-hidden relative"
+                            style={{ background: 'rgb(22, 35, 46)', borderColor: `${step.color}25` }}
                           >
+                            {/* Glass glow overlay */}
+                            <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 80% 20%, rgba(215, 226, 232, 0.12) 0px, transparent 50%)" }} />
+                            <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 20% 80%, rgba(215, 226, 232, 0.07) 0px, transparent 50%)" }} />
                             <span className="block text-[0.55rem] font-bold tracking-[0.18em] uppercase text-[#7a8a96] mb-2">
                               Impact
                             </span>
-                            <div className="font-serif leading-none mb-1 text-3xl font-light" style={{ color: step.color }}>
+                            <div className="font-serif leading-none mb-1 text-3xl font-light" style={{ color: step.color, fontFamily: '"Cormorant Garamond", Georgia, serif' }}>
                               {step.metric}
                             </div>
                             <span className="block text-[0.72rem] text-white/60 font-light leading-snug">
@@ -275,13 +262,13 @@ const OSJourney = () => {
                         transition={{ duration: 0.2 }}
                         className="absolute inset-0 w-full h-full p-6 flex flex-col justify-between items-center"
                       >
-                        <span className="font-serif text-2xl font-light text-white/20 group-hover:text-white/40 transition-colors duration-300">
+                        <span className="font-serif text-2xl font-light text-white/20 group-hover:text-white/40 transition-colors duration-300" style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}>
                           0{step.num}
                         </span>
 
                         <div
                           className="font-serif text-[1rem] tracking-wider text-white/35 group-hover:text-white/60 uppercase whitespace-nowrap transition-colors duration-300"
-                          style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+                          style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)', fontFamily: '"Cormorant Garamond", Georgia, serif' }}
                         >
                           {step.title}
                         </div>
@@ -332,6 +319,7 @@ const OSJourney = () => {
                             ? `${step.color}50`
                             : 'rgba(255,255,255,0.13)',
                         transition: 'color 0.45s ease',
+                        fontFamily: '"Cormorant Garamond", Georgia, serif'
                       }}
                     >
                       {String(step.num).padStart(2, '0')}
@@ -345,6 +333,7 @@ const OSJourney = () => {
                           style={{
                             color: isOpen ? '#ffffff' : 'rgba(255,255,255,0.5)',
                             transition: 'color 0.45s ease',
+                            fontFamily: '"Cormorant Garamond", Georgia, serif'
                           }}
                         >
                           {step.title}
@@ -429,11 +418,15 @@ const OSJourney = () => {
                               initial={{ opacity: 0, y: 10 }}
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ delay: 0.2, duration: 0.4, ease: EASE_OUT }}
-                              className="rounded-2xl p-6 min-w-[180px] border shrink-0 bg-black/20 backdrop-blur-md"
+                              className="rounded-2xl p-6 min-w-[180px] border shrink-0 overflow-hidden relative"
                               style={{
+                                background: 'rgb(29, 44, 56)',
                                 borderColor: `${step.color}22`,
                               }}
                             >
+                              {/* Glass glow overlay */}
+                              <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 80% 20%, rgba(215, 226, 232, 0.12) 0px, transparent 50%)" }} />
+                              <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 20% 80%, rgba(215, 226, 232, 0.07) 0px, transparent 50%)" }} />
                               <span className="block text-[0.58rem] font-bold tracking-[0.18em] uppercase text-[#7a8a96] mb-3">
                                 Impact
                               </span>
@@ -441,6 +434,7 @@ const OSJourney = () => {
                                 className="font-serif leading-none mb-2 text-4xl font-light"
                                 style={{
                                   color: step.color,
+                                  fontFamily: '"Cormorant Garamond", Georgia, serif'
                                 }}
                               >
                                 {step.metric}

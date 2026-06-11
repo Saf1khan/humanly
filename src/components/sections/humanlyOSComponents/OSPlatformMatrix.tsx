@@ -55,7 +55,16 @@ const OSPlatformMatrix = () => {
   const [hoveredStakeholder, setHoveredStakeholder] = useState<StakeholderKey | null>(null);
 
   return (
-    <section className="bg-[#4C5C68] py-[clamp(5rem,10vw,8rem)] relative overflow-hidden">
+    <div className="bg-black">
+      <section 
+        className="py-[clamp(5rem,10vw,8rem)] relative overflow-hidden rounded-b-[40px] md:rounded-b-[64px]"
+        style={{
+          backgroundColor: 'rgb(29, 44, 56)',
+          backgroundImage: 'url("https://d2o9p5vky89u4e.cloudfront.net/MGFjMmZkODA4MmFmLm8zbi5pbw%3D%3D/l9bkxtucizywp9dbc45e7z0gb/b3VyYXJpbmcuY29t/img.gif")',
+          backgroundRepeat: 'repeat',
+          backgroundSize: 'auto'
+        }}
+      >
 
       {/* Cinematic ambient dynamic glow — floating/pulsating */}
       <motion.div
@@ -85,11 +94,8 @@ const OSPlatformMatrix = () => {
           className="mb-14 grid grid-cols-1 lg:grid-cols-2 gap-8 items-end"
         >
           <div>
-            <p className="text-[10px] font-semibold tracking-[0.25em] uppercase text-[#aeb6be] mb-5">
-              p18 / PLATFORM MATRIX
-            </p>
-            <div className="h-[2px] rounded-full w-[80px] bg-gradient-to-r from-[#1a4f82] via-[#2d7dd2] to-[#d96a2b] mb-6" />
-            <h2 className="font-serif text-[clamp(2.2rem,4vw,3.2rem)] font-normal leading-[1.1] text-white">
+            {/* <div className="h-[2px] rounded-full w-[80px] bg-gradient-to-r from-[#1a4f82] via-[#2d7dd2] to-[#d96a2b] mb-6" /> */}
+            <h2 className="font-serif text-[clamp(2.2rem,4vw,3.2rem)] font-normal leading-[1.1] text-white" style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}>
               One platform.<br />
               <span className="text-[#aeb6be]">Three-sided impact.</span>
             </h2>
@@ -157,12 +163,16 @@ const OSPlatformMatrix = () => {
           <div
             className="relative rounded-[2rem] overflow-hidden overflow-x-auto"
             style={{
-              background: 'rgba(0,0,0,0.22)',
-              backdropFilter: 'blur(28px)',
+              background: 'rgb(29, 44, 56)',
               border: '1px solid rgba(255,255,255,0.08)',
               boxShadow: '0 24px 80px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05)',
             }}
           >
+            {/* Glass glow overlays */}
+            <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 80% 20%, rgba(215, 226, 232, 0.12) 0px, transparent 50%)" }} />
+            <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 20% 80%, rgba(215, 226, 232, 0.07) 0px, transparent 50%)" }} />
+            <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 5% 5%, rgba(215, 226, 232, 0.07) 0px, transparent 30%)" }} />
+            <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 65% 65%, rgba(216, 202, 155, 0.06) 0px, transparent 30%)" }} />
             <table className="w-full border-collapse min-w-[640px]">
               <thead>
                 <tr className="border-b border-white/[0.07]">
@@ -281,7 +291,8 @@ const OSPlatformMatrix = () => {
         </motion.div>
 
       </div>
-    </section>
+      </section>
+    </div>
   );
 };
 

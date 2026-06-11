@@ -18,20 +18,20 @@ const OSServicesQuote = () => {
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
 
   return (
-    <section className="bg-[#4C5C68] py-[clamp(4rem,8vw,7rem)] relative overflow-hidden">
-      {/* Single directional glow — top right, not a massive blob */}
-      <div
-        className="absolute top-0 right-0 w-[480px] h-[480px] pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse at top right, rgba(217,106,43,0.12) 0%, transparent 65%)',
-        }}
-      />
-      <div
-        className="absolute bottom-0 left-0 w-[360px] h-[360px] pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse at bottom left, rgba(26,79,130,0.1) 0%, transparent 65%)',
-        }}
-      />
+    <section 
+      className="py-[clamp(4rem,8vw,7rem)] relative overflow-hidden"
+      style={{
+        backgroundColor: 'rgb(75, 95, 104)',
+        backgroundImage: 'url("https://d2o9p5vky89u4e.cloudfront.net/MGFjMmZkODA4MmFmLm8zbi5pbw%3D%3D/l9bkxtucizywp9dbc45e7z0gb/b3VyYXJpbmcuY29t/img.gif")',
+        backgroundRepeat: 'repeat',
+        backgroundSize: 'auto'
+      }}
+    >
+      {/* Layered radial glow overlays — reference system */}
+      <div className="absolute inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(circle at 10% 0%, rgba(215, 226, 232, 0.3) 0%, transparent 50%)' }} />
+      <div className="absolute inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(circle at 75% 100%, rgba(143, 163, 185, 0.2) 0%, transparent 30%)' }} />
+      <div className="absolute inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(circle at 99% 0%, rgba(143, 163, 185, 0.2) 0%, transparent 30%)' }} />
+      <div className="absolute inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(at 0% 10%, rgba(56, 73, 84, 1) 0%, transparent 40%)' }} />
 
       <div className="max-w-[1240px] mx-auto px-6 md:px-12 relative z-10">
 
@@ -43,10 +43,10 @@ const OSServicesQuote = () => {
           transition={{ duration: 0.65, ease: EASE_OUT }}
           className="mb-14"
         >
-          <p className="text-[10px] font-medium tracking-[0.22em] uppercase text-[#aeb6be] mb-5">
+          {/* <p className="text-[10px] font-medium tracking-[0.22em] uppercase text-[#aeb6be] mb-5">
             p15b / FINANCIAL PILLARS
           </p>
-          <div className="h-[2px] rounded-full w-[80px] bg-gradient-to-r from-[#1a4f82] via-[#2d7dd2] to-[#d96a2b]" />
+          <div className="h-[2px] rounded-full w-[80px] bg-gradient-to-r from-[#1a4f82] via-[#2d7dd2] to-[#d96a2b]" /> */}
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-start">
@@ -69,14 +69,20 @@ const OSServicesQuote = () => {
                 onMouseEnter={() => setHoveredItem(idx)}
                 onMouseLeave={() => setHoveredItem(null)}
                 className="relative flex items-center gap-4 rounded-2xl p-5 cursor-default overflow-hidden"
+                style={{ background: 'rgb(29, 44, 56)' }}
               >
-                {/* Animated background */}
+                {/* Glass glow overlays */}
+                <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 80% 40%, rgba(215, 226, 232, 0.15) 0px, transparent 50%)" }} />
+                <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 20% 80%, rgba(215, 226, 232, 0.08) 0px, transparent 50%)" }} />
+                <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 5% 10%, rgba(215, 226, 232, 0.08) 0px, transparent 30%)" }} />
+
+                {/* Hover tint overlay */}
                 <motion.div
-                  className="absolute inset-0 rounded-2xl"
+                  className="absolute inset-0 rounded-2xl pointer-events-none"
                   animate={{
                     backgroundColor: hoveredItem === idx
-                      ? 'rgba(0,0,0,0.28)'
-                      : 'rgba(0,0,0,0.12)',
+                      ? 'rgba(45, 125, 210, 0.08)'
+                      : 'rgba(0,0,0,0)',
                   }}
                   transition={{ duration: 0.3, ease: 'easeOut' }}
                 />
@@ -141,12 +147,17 @@ const OSServicesQuote = () => {
             <div
               className="relative rounded-[2rem] p-10 lg:p-12 overflow-hidden"
               style={{
-                background: 'rgba(0,0,0,0.22)',
-                backdropFilter: 'blur(24px)',
+                background: 'rgb(29, 44, 56)',
                 border: '1px solid rgba(255,255,255,0.09)',
                 boxShadow: '0 24px 80px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06)',
               }}
             >
+              {/* Glass glow overlays */}
+              <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 80% 40%, rgba(215, 226, 232, 0.15) 0px, transparent 50%)" }} />
+              <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 20% 90%, rgba(215, 226, 232, 0.08) 0px, transparent 50%)" }} />
+              <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 5% 5%, rgba(215, 226, 232, 0.08) 0px, transparent 30%)" }} />
+              <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 65% 65%, rgba(216, 202, 155, 0.07) 0px, transparent 30%)" }} />
+
               {/* Inner ambient light */}
               <div
                 className="absolute inset-0 pointer-events-none"
@@ -166,7 +177,7 @@ const OSServicesQuote = () => {
               {/* Quote text */}
               <blockquote
                 className="relative z-10 font-serif italic text-white leading-[1.65] m-0"
-                style={{ fontSize: 'clamp(1.25rem, 2.2vw, 1.75rem)' }}
+                style={{ fontSize: 'clamp(1.25rem, 2.2vw, 1.75rem)', fontFamily: '"Cormorant Garamond", Georgia, serif' }}
               >
                 "The resident journey is not charity. It is the flywheel. The human story. The trajectory change. The before and after. The result is compounding wealth, health, education, and connection."
               </blockquote>

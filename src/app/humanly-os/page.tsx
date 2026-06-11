@@ -15,13 +15,27 @@ export const metadata = {
 
 export default function HumanlyOSPage() {
   return (
-    <main className="bg-[#0f0f0e]">
+    <main 
+      className="relative overflow-hidden"
+      style={{
+        backgroundColor: 'rgb(75, 95, 104)',
+        backgroundImage: 'url("https://d2o9p5vky89u4e.cloudfront.net/MGFjMmZkODA4MmFmLm8zbi5pbw%3D%3D/l9bkxtucizywp9dbc45e7z0gb/b3VyYXJpbmcuY29t/img.gif")',
+        backgroundRepeat: 'repeat',
+        backgroundSize: 'auto'
+      }}
+    >
+      {/* Layered radial glow overlays — spanning the whole page */}
+      <div className="absolute inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(circle at 10% 0%, rgba(215, 226, 232, 0.3) 0%, transparent 50%)' }} />
+      <div className="absolute inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(circle at 75% 100%, rgba(143, 163, 185, 0.2) 0%, transparent 30%)' }} />
+      <div className="absolute inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(circle at 99% 0%, rgba(143, 163, 185, 0.2) 0%, transparent 30%)' }} />
+      <div className="absolute inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(at 0% 10%, rgba(56, 73, 84, 1) 0%, transparent 40%)' }} />
+
       <OSHero />
-      <OSFinancialFoundation />
-      <OSServicesQuote />
+      {/* <OSFinancialFoundation />
+      <OSServicesQuote /> */}
+      <OSFinancialFoundationMerged />
       <OSCircleOfServices />
       <OSTransactionIntegration />
-      <OSFinancialFoundationMerged />
       <OSJourney />
       <OSPlatformMatrix />
       <Footer />
