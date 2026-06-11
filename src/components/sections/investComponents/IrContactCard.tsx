@@ -6,24 +6,7 @@ import { Mail, Globe, MapPin, Calendar } from 'lucide-react';
 
 export const IrContactCard = () => {
   return (
-    <section id="ir-contact" className="relative bg-[#0f0f0f] py-20 lg:py-32 overflow-hidden">
-      {/* Film Grain Noise Overlay — matveyan.com */}
-      <div
-        className="absolute inset-0 pointer-events-none z-[1] opacity-[0.04] mix-blend-overlay"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-          backgroundRepeat: 'repeat',
-          backgroundSize: '128px',
-        }}
-      />
-      {/* Edge Blur — matveyan.com */}
-      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#0f0f0f] to-transparent pointer-events-none z-[2]" />
-      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0f0f0f] to-transparent pointer-events-none z-[2]" />
-      {/* Corner crosshair marks — matveyan.com */}
-      <svg width="5" height="5" viewBox="0 0 5 5" fill="none" className="absolute top-3 left-3 z-20 pointer-events-none"><path d="M3 2H5V3H3V5H2V3H0V2H2V0H3V2Z" fill="rgba(217,217,217,0.2)" /></svg>
-      <svg width="5" height="5" viewBox="0 0 5 5" fill="none" className="absolute top-3 right-3 z-20 pointer-events-none"><path d="M3 2H5V3H3V5H2V3H0V2H2V0H3V2Z" fill="rgba(217,217,217,0.2)" /></svg>
-      <svg width="5" height="5" viewBox="0 0 5 5" fill="none" className="absolute bottom-3 left-3 z-20 pointer-events-none"><path d="M3 2H5V3H3V5H2V3H0V2H2V0H3V2Z" fill="rgba(217,217,217,0.2)" /></svg>
-      <svg width="5" height="5" viewBox="0 0 5 5" fill="none" className="absolute bottom-3 right-3 z-20 pointer-events-none"><path d="M3 2H5V3H3V5H2V3H0V2H2V0H3V2Z" fill="rgba(217,217,217,0.2)" /></svg>
+    <section id="ir-contact" className="relative py-20 lg:py-32 overflow-hidden">
       {/* Background Image & Overlays */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <motion.div
@@ -118,53 +101,52 @@ export const IrContactCard = () => {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: false, amount: 0.25 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-[720px] mr-auto ml-0 bg-[#0b121a]/55 backdrop-blur-[32px] border border-white/15 rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-16 text-left shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] relative z-10"
+          className="max-w-[720px] mr-auto ml-0 bg-sandstone-100/60 backdrop-blur-[32px] border border-sandstone-300/30 rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-16 text-left shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)] relative z-10"
         >
           {/* Subtle Background Glow inside the card for warmth and cool tones */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#f09050]/10 blur-[100px] rounded-full pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#2d7dd2]/10 blur-[100px] rounded-full pointer-events-none" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#FF6136]/10 blur-[100px] rounded-full pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#FF6136]/5 blur-[100px] rounded-full pointer-events-none" />
 
           <div className="relative z-10">
-            <p className="text-[#3daf98] text-[0.8rem] font-bold tracking-[0.18em] uppercase mb-4">Investor Relations</p>
-            <h2 className="font-serif text-4xl md:text-5xl text-white font-medium mb-6">Let's talk about your investment.</h2>
-            <p className="text-white/90 leading-relaxed mb-12 max-w-[48ch] text-lg font-normal">
+            <h2 className="font-serif text-4xl md:text-5xl text-sandstone-700 font-medium mb-6">Let's talk about your investment.</h2>
+            <p className="text-sandstone-500 leading-relaxed mb-12 max-w-[48ch] text-lg font-normal">
               Our investor relations team is available to answer questions, walk through the data room, and arrange a direct conversation with leadership.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
-              <div className="bg-white/[0.05] border border-white/10 rounded-2xl p-6 text-left hover:bg-white/[0.09] hover:border-white/20 transition-all duration-300 group shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]">
+              <div className="bg-sandstone-100/60 border border-sandstone-300/30 rounded-2xl p-6 text-left hover:bg-sandstone-100/80 hover:border-sandstone-400/40 transition-all duration-300 group shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)]">
                 <div className="mb-4 group-hover:scale-110 transition-transform duration-300 origin-left">
-                  <Mail className="w-6 h-6 text-[#3daf98]" strokeWidth={1.5} />
+                  <Mail className="w-6 h-6 text-[#FF6136]" strokeWidth={1.5} />
                 </div>
-                <div className="text-[0.75rem] font-bold tracking-[0.12em] uppercase text-white/60 mb-2">Email</div>
-                <div className="text-[0.95rem] text-white break-all font-medium">
-                  <a href="mailto:investors@humanly.com" className="text-[#58a6ff] hover:text-[#3daf98] font-semibold transition-colors duration-300">investors@humanly.com</a>
+                <div className="text-[0.75rem] font-bold tracking-[0.12em] uppercase text-sandstone-500/60 mb-2">Email</div>
+                <div className="text-[0.95rem] text-sandstone-700 break-all font-medium">
+                  <a href="mailto:investors@humanly.com" className="text-[#FF6136] hover:text-[#ff7a55] font-semibold transition-colors duration-300">investors@humanly.com</a>
                 </div>
               </div>
-              <div className="bg-white/[0.05] border border-white/10 rounded-2xl p-6 text-left hover:bg-white/[0.09] hover:border-white/20 transition-all duration-300 group shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]">
+              <div className="bg-sandstone-100/60 border border-sandstone-300/30 rounded-2xl p-6 text-left hover:bg-sandstone-100/80 hover:border-sandstone-400/40 transition-all duration-300 group shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)]">
                 <div className="mb-4 group-hover:scale-110 transition-transform duration-300 origin-left">
-                  <Globe className="w-6 h-6 text-[#3daf98]" strokeWidth={1.5} />
+                  <Globe className="w-6 h-6 text-[#FF6136]" strokeWidth={1.5} />
                 </div>
-                <div className="text-[0.75rem] font-bold tracking-[0.12em] uppercase text-white/60 mb-2">Website</div>
-                <div className="text-[0.95rem] text-white font-medium">
-                  <a href="https://humanly.us" target="_blank" className="text-[#58a6ff] hover:text-[#3daf98] font-semibold transition-colors duration-300">humanly.us</a>
+                <div className="text-[0.75rem] font-bold tracking-[0.12em] uppercase text-sandstone-500/60 mb-2">Website</div>
+                <div className="text-[0.95rem] text-sandstone-700 font-medium">
+                  <a href="https://humanly.us" target="_blank" className="text-[#FF6136] hover:text-[#ff7a55] font-semibold transition-colors duration-300">humanly.us</a>
                 </div>
               </div>
-              <div className="bg-white/[0.05] border border-white/10 rounded-2xl p-6 text-left hover:bg-white/[0.09] hover:border-white/20 transition-all duration-300 group shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]">
+              <div className="bg-sandstone-100/60 border border-sandstone-300/30 rounded-2xl p-6 text-left hover:bg-sandstone-100/80 hover:border-sandstone-400/40 transition-all duration-300 group shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)]">
                 <div className="mb-4 group-hover:scale-110 transition-transform duration-300 origin-left">
-                  <MapPin className="w-6 h-6 text-[#3daf98]" strokeWidth={1.5} />
+                  <MapPin className="w-6 h-6 text-[#FF6136]" strokeWidth={1.5} />
                 </div>
-                <div className="text-[0.75rem] font-bold tracking-[0.12em] uppercase text-white/60 mb-2">Office</div>
-                <div className="text-[0.95rem] text-white font-semibold">Dallas, Texas, US</div>
+                <div className="text-[0.75rem] font-bold tracking-[0.12em] uppercase text-sandstone-500/60 mb-2">Office</div>
+                <div className="text-[0.95rem] text-sandstone-700 font-semibold">Dallas, Texas, US</div>
               </div>
             </div>
 
             <div className="flex flex-wrap gap-5 justify-start">
-              <a href="#dataroom" className="px-10 py-4 bg-[#d96a2b] text-white font-bold rounded-xl hover:bg-[#f09050] transition-all hover:-translate-y-0.5 shadow-xl shadow-orange-950/40 duration-300">
+              <a href="#dataroom" className="px-10 py-4 bg-[#FF6136] text-white font-bold rounded-xl hover:bg-[#ff7a55] transition-all hover:-translate-y-0.5 shadow-xl shadow-orange-950/20 duration-300">
                 Request Data Room Access
               </a>
-              <a href="https://calendly.com" target="_blank" className="px-10 py-4 bg-white/10 text-white border border-white/20 font-bold rounded-xl hover:bg-white/15 transition-all duration-300 flex items-center gap-2 backdrop-blur-sm">
-                <Calendar className="w-5 h-5 text-white" strokeWidth={1.5} />
+              <a href="https://calendly.com" target="_blank" className="px-10 py-4 bg-sandstone-100/60 text-sandstone-700 border border-sandstone-300/40 font-bold rounded-xl hover:bg-sandstone-100 transition-all duration-300 flex items-center gap-2 backdrop-blur-sm">
+                <Calendar className="w-5 h-5 text-sandstone-500" strokeWidth={1.5} />
                 Schedule a Call
               </a>
             </div>
@@ -174,4 +156,3 @@ export const IrContactCard = () => {
     </section>
   );
 };
-

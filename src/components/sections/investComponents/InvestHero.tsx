@@ -1,156 +1,190 @@
 "use client";
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import Image from 'next/image';
+
+import { useRef, useLayoutEffect } from "react";
+import gsap from "gsap";
+import SplitType from "split-type";
+import Image from "next/image";
 
 export const InvestHero = () => {
-  const containerRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
+  const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const btnRevealRef = useRef<HTMLDivElement>(null);
 
-  // Background card scroll transformations (starts full bleed, shrinks to showing a clean margin)
-  const inset = useTransform(scrollYProgress, [0, 0.45], ["0px", "48px"]);
-  const borderRadius = useTransform(scrollYProgress, [0, 0.45], ["0px", "40px"]);
-  const borderAlpha = useTransform(scrollYProgress, [0, 0.45], ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.08)"]);
-  const shadowAlpha = useTransform(scrollYProgress, [0, 0.45], ["0px 0px 0px rgba(0,0,0,0)", "0px 25px 80px rgba(0, 0, 0, 0.55)"]);
+  useLayoutEffect(() => {
+    if (!titleRef.current) return;
 
-  // Parallax translation for the video inside the container
-  const videoY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
+    // 1. Split the title into lines + individual characters
+    const split = new SplitType(titleRef.current, { types: "lines,chars" });
 
-  // Screen 1: Title and Status (Fades out and slides/scales slightly on scroll)
-  const screen1Opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-  const screen1Y = useTransform(scrollYProgress, [0, 0.3], [0, -60]);
-  const screen1Scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.96]);
+    // Immediately reveal the title — chars are hidden behind .line overflow masks
+    gsap.set(titleRef.current, { opacity: 1 });
 
-  // Screen 2: Capital details and buttons (Fades in and slides up)
-  const screen2Opacity = useTransform(scrollYProgress, [0.25, 0.55], [0, 1]);
-  const screen2Y = useTransform(scrollYProgress, [0.25, 0.55], [60, 0]);
-  const screen2Scale = useTransform(scrollYProgress, [0.25, 0.55], [0.96, 1]);
-  const screen2PointerEvents = useTransform(scrollYProgress, (p) => p > 0.25 ? "auto" : "none");
+    // 2. Animate characters from translateY(115%) → 0, letter by letter
+    const tl = gsap.timeline();
+
+    tl.to(split.chars, {
+      y: "0%",
+      scale: 1,
+      rotate: 0,
+      opacity: 1,
+      duration: 1.5,
+      ease: "power4.out",
+      stagger: {
+        each: 0.02,
+        from: "center",
+        grid: "auto",
+      },
+      delay: 0.5,
+    });
+
+    // 3. Fade the description in slightly before the text finishes
+    tl.to(
+      btnRevealRef.current,
+      {
+        opacity: 1,
+        duration: 1,
+      },
+      "-=0.5",
+    );
+
+    return () => {
+      split.revert();
+    };
+  }, []);
 
   return (
     <section
       ref={containerRef}
-      className="relative h-[200vh] w-full bg-[#0d1117]"
+      className="ih-hero-section relative flex flex-col min-h-screen px-[20px] pb-[16px]"
     >
-      {/* Sticky viewport for hero animation */}
-      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
+      <style>{`
+        .ih-hero-title {
+          color: #FF6136;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+          opacity: 0;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          text-rendering: optimizeLegibility;
+        }
 
-        {/* Background Card that shrinks and rounds on scroll */}
-        <motion.div
-          style={{
-            top: inset,
-            bottom: inset,
-            left: inset,
-            right: inset,
-            borderRadius: borderRadius,
-            borderColor: borderAlpha,
-            boxShadow: shadowAlpha,
-          }}
-          className="absolute border border-transparent overflow-hidden z-0"
-        >
-          {/* Inner Parallax video wrapper */}
-          <motion.div
-            style={{ y: videoY }}
-            className="absolute inset-0 w-full h-[110%] -top-[5%]"
-          >
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              poster="/images/AdobeStock_170554793.jpeg"
-              className="w-full h-full object-cover"
-            >
-              <source
-                src="https://player.vimeo.com/progressive_redirect/playback/1191107184/rendition/2160p/file.mp4?loc=external&signature=383062d7c76f755b1af1d252dc614c97905b716368c0f5441a64984d5dbb00f7"
-                type="video/mp4"
+        .ih-hero-title .line {
+          overflow: hidden;
+          padding-bottom: 0.15em;
+        }
+
+        .ih-hero-title .char {
+          display: inline-block;
+          transform: translateY(105%) scale(1.1) rotate(2deg);
+          transform-origin: bottom left;
+          opacity: 0;
+          will-change: transform, opacity;
+        }
+
+        .ih-btn-reveal {
+          opacity: 0;
+          will-change: opacity;
+        }
+
+        .ih-hero-container {
+          position: relative;
+          background-color: rgb(247, 241, 232);
+          overflow: hidden;
+        }
+
+        .ih-hero-container::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          opacity: 0.8;
+          z-index: 1;
+          background-image:
+            radial-gradient(circle at 0% 20%, rgba(255, 97, 54, 0.30) 0%, transparent 20%),
+            linear-gradient(to bottom, rgb(247, 241, 232) 0%, transparent 100%),
+            radial-gradient(circle at 99% 40%, rgba(255, 97, 54, 0.3) 0%, transparent 40%),
+            radial-gradient(circle at 60% 50%, rgba(255, 97, 54, 0.30) 0%, transparent 30%),
+            radial-gradient(circle at 10% 90%, rgba(255, 97, 54, 0.15) 0%, transparent 70%),
+            radial-gradient(circle at 90% 70%, rgba(255, 97, 54, 0.35) 0%, transparent 10%);
+        }
+      `}</style>
+
+      {/* Hero Container */}
+      <div className="ih-hero-container hero-container relative flex-grow rounded-b-[12px] lg:rounded-b-xl overflow-hidden flex flex-col">
+
+        {/* Content Grid (The Wrapper) */}
+        <div className="grid grid-cols-[minmax(1rem,1fr)_repeat(22,minmax(0,1fr))_minmax(1rem,1fr)] lg:grid-cols-[64px_repeat(22,minmax(0,1fr))_64px] grid-rows-[auto_auto] gap-y-0 gap-x-2 relative w-full pt-24 pb-16 min-h-[600px] items-end z-10 lg:grow">
+
+          {/* Title Column */}
+          <div className="col-start-2 col-end-[24] lg:col-end-[16] xl:col-end-14 row-start-1 row-end-2 lg:mt-auto lg:self-center">
+            <div className="my-5 flex flex-col items-center lg:items-start lg:pt-[5vw] lg:pb-[8vw]">
+
+              <h1 ref={titleRef} className="ih-hero-title text-4xl md:text-6xl lg:text-[80px] font-cormorant font-light leading-[52px] md:leading-[72px] lg:leading-[92px] tracking-tight text-center lg:text-left m-0">
+                Invest in the future <br/>of housing
+              </h1>
+            </div>
+          </div>
+
+          {/* Description / CTA Column */}
+          <div className="col-start-2 md:col-start-4 lg:col-start-2 col-end-[24] md:col-end-[22] lg:col-end-11 xl:col-end-9 row-start-2 row-end-3 lg:self-end">
+            <div className="flex flex-col gap-6 h-full items-center justify-end lg:h-auto lg:items-start lg:justify-start lg:pb-0">
+
+              <div className="w-full text-center lg:text-left lg:relative lg:block">
+                <div ref={btnRevealRef} className="ih-btn-reveal">
+                  <p className="text-base md:text-lg text-[rgba(255,97,54)]/80 font-light text-pretty m-0 mb-6">
+                    Humanly® is right now raising capital to build the first vertically integrated AI-native workforce housing platform in America. Series A — Texas Flagship groundbreaking 2026.
+                  </p>
+
+                  {/* CTA Buttons */}
+                  <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+                    <a
+                      href="#dataroom"
+                      className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl bg-[#FF6136]/95 text-white font-bold hover:bg-[#ff7a55] transition-all hover:-translate-y-0.5 shadow-xl shadow-orange-950/30 text-sm"
+                    >
+                      Request Access ↗
+                    </a>
+                    <a
+                      href="#ir-contact"
+                      className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl border border-[#FF6136]/30 bg-[#FF6136]/5 text-[#FF6136] font-semibold hover:border-[#FF6136]/60 hover:bg-[#FF6136]/10 transition-all text-sm"
+                    >
+                      Schedule a Call
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          {/* 2. The Secondary (Smaller/Back) Card */}
+          <div className="col-start-2 lg:col-start-[14] col-end-6 lg:col-end-[18] row-start-3 lg:row-start-1 row-end-4 lg:row-end-3 mb-[45vw] lg:mb-[17vw] self-end z-20 lg:-translate-y-12">
+            <div className="motionComponent relative aspect-square w-full">
+              <Image
+                src="/images/AdobeStock_815248903.jpeg"
+                className="object-cover rounded-lg shadow-2xl"
+                alt="Secondary Card"
+                fill
+                quality={100}
+                sizes="(max-width: 1024px) 100vw, 33vw"
               />
-            </video>
-            {/* Dark overlay to ensure text legibility */}
-            <div className="absolute inset-0 bg-black/45" />
-          </motion.div>
-        </motion.div>
-
-        {/* Dynamic content overlays */}
-        <div className="container relative z-10 mx-auto px-6 max-w-[1200px] h-full flex flex-col justify-center items-center text-center">
-
-          {/* Screen 1: Hero Intro */}
-          <motion.div
-            style={{
-              opacity: screen1Opacity,
-              y: screen1Y,
-              scale: screen1Scale,
-            }}
-            className="absolute flex flex-col items-center justify-center pointer-events-auto"
-          >
-            <p className="text-[#c2c5ee] text-[0.75rem] font-bold tracking-[0.2em] uppercase mb-6">
-              Investor Relations
-            </p>
-
-            <h1 className="font-serif text-5xl md:text-6xl lg:text-8xl text-white mb-8 leading-tight max-w-4xl mx-auto">
-              Invest in the <br />
-              <em className="lg:text-9xl text-[#f09050] not-italic font-serif">future of housing.</em>
-            </h1>
-
-            <div className="inline-flex items-center gap-3 bg-white/[0.04] border border-white/10 backdrop-blur-md rounded-full px-8 py-3 mt-4">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#3daf98] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#3daf98]"></span>
-              </span>
-              <span className="text-[0.85rem] font-medium text-[#f7f6f2]/90 tracking-wide">
-                Series A Capital Raising for Texas Flagship Groundbreaking in 2026
-              </span>
             </div>
+          </div>
 
-            {/* Scroll Indicator */}
-            <div className="absolute top-[calc(100%+80px)] flex flex-col items-center gap-2 text-white/40 text-[0.75rem] font-medium uppercase tracking-[0.15em] animate-pulse">
-              <span>Scroll to explore</span>
-              <svg className="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
+          {/* 3. The Primary (Larger/Front) Card */}
+          <div className="col-start-3 lg:col-start-[16] col-end-[23] row-start-3 lg:row-start-1 row-end-4 lg:row-end-3 self-end pt-32 lg:pt-0 z-10 lg:-translate-y-12">
+            <div className="motionComponent relative aspect-[3/2] w-full">
+              <Image
+                src="/images/AdobeStock_610237900.jpeg"
+                className="object-cover rounded-lg shadow-xl"
+                alt="Main Card"
+                fill
+                quality={100}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
-          </motion.div>
-
-          {/* Screen 2: Action details */}
-          <motion.div
-            style={{
-              opacity: screen2Opacity,
-              y: screen2Y,
-              scale: screen2Scale,
-              pointerEvents: screen2PointerEvents
-            }}
-            className="absolute flex flex-col items-center justify-center max-w-3xl"
-          >
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white mb-6 leading-tight">
-              A Vertically Integrated AI-Native Housing Platform
-            </h2>
-
-            <p className="text-[clamp(1.15rem,2.2vw,1.35rem)] text-white/90 leading-relaxed mb-10 font-light max-w-2xl mx-auto">
-              Humanly® is right now raising capital to build the first vertically integrated AI-native workforce housing platform in America.
-            </p>
-
-            <div className="flex flex-wrap gap-4 justify-center">
-              <a
-                href="#dataroom"
-                className="inline-flex items-center justify-center px-10 py-4 rounded-xl bg-[#d96a2b] text-white font-bold hover:bg-[#f09050] transition-all hover:-translate-y-0.5 shadow-xl shadow-orange-950/40"
-              >
-                Request Access ↗
-              </a>
-              <a
-                href="#ir-contact"
-                className="inline-flex items-center justify-center px-10 py-4 rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm text-white font-semibold hover:border-white/50 hover:bg-white/10 transition-all"
-              >
-                Schedule a Call
-              </a>
-            </div>
-          </motion.div>
+          </div>
 
         </div>
       </div>
     </section>
   );
 };
-
