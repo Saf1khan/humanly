@@ -129,7 +129,7 @@ export const CHero = () => {
           {/* Title Column */}
           <div className="col-start-2 col-end-[24] lg:col-end-[14] xl:col-end-12 row-start-1 row-end-2 lg:mt-auto lg:self-center">
             <div className="my-5 flex flex-col items-center lg:items-start lg:pt-[5vw] lg:pb-[8vw]">
-              <h1 ref={titleRef} className="wh-hero-title text-4xl md:text-6xl lg:text-[80px] font-light leading-[52px] md:leading-[72px] lg:leading-[92px] tracking-[-0.05em] text-center lg:text-left m-0">
+              <h1 ref={titleRef} className="wh-hero-title text-4xl md:text-6xl lg:text-[80px] font-light leading-[52px] md:leading-[72px] lg:leading-[92px] tracking-tight text-center lg:text-left m-0">
                 Every Humanly® community shares a common foundation
               </h1>
             </div>

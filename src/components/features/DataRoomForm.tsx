@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export const DataRoomForm = () => {
   return (
-    <section className="relative bg-black overflow-x-clip">
+    <section id="dataroom" className="relative bg-black overflow-x-clip">
       <div className='w-full bg-[#111213] py-24 overflow-hidden text-sandstone-500 font-sans rounded-b-[40px] md:rounded-b-[64px] z-20'>
       {/* Background Gradients (matching the Oura blue glow) */}
       <div 
@@ -17,7 +17,7 @@ export const DataRoomForm = () => {
         style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.12), rgba(105, 165, 255, 0.05) 50%, rgba(105, 165, 255, 0))" }}
       />
 
-      <div className="mx-auto w-full max-w-[1440px] px-6 lg:px-12 relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-stretch">
+      <div className="mx-auto w-full max-w-[1440px] px-6 lg:px-16 relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
         
         {/* Aside Image Container (Now on the left in the grid, matching the 2nd request) */}
         <div className="relative z-10 w-full h-[400px] lg:h-full min-h-[400px] overflow-hidden rounded-2xl shadow-2xl">
