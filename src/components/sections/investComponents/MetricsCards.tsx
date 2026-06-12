@@ -184,7 +184,7 @@ export const MetricsCards = () => {
           <div className="lg:col-span-7 xl:col-span-7">
             <div className="flex h-full flex-col pb-16">
               <h2 className="order-1 text-4xl font-display font-cormorant font-normal leading-[1.08] tracking-tight text-sandstone-500 md:text-5xl">
-                Investment at a Glance
+                Investment <span className="not-italic text-[#FF6136]">Stats</span>
               </h2>
 
               <div className="order-2 mt-auto">

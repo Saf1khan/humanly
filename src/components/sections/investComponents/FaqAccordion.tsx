@@ -160,7 +160,7 @@ const FaqItem = ({ faq, idx, isOpen, onToggle }: FaqItemProps) => {
           </div>
 
           <span
-            className={`relative mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${isOpen
+            className={`relative mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-[#FF6136]/15 transition-all duration-300 ${isOpen
                 ? "border-[#FF6136]/30 bg-gradient-to-br from-[#FF6136]/10 to-transparent text-[#FF6136]"
                 : "border-sandstone-400/30 bg-transparent text-sandstone-500/50 group-hover:border-sandstone-400/60 group-hover:text-sandstone-600"
               }`}
