@@ -25,10 +25,10 @@ export default function HumanlyOSPage() {
       }}
     >
       {/* Layered radial glow overlays — spanning the whole page */}
-      <div className="absolute inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(circle at 10% 0%, rgba(215, 226, 232, 0.3) 0%, transparent 50%)' }} />
-      <div className="absolute inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(circle at 75% 100%, rgba(143, 163, 185, 0.2) 0%, transparent 30%)' }} />
-      <div className="absolute inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(circle at 99% 0%, rgba(143, 163, 185, 0.2) 0%, transparent 30%)' }} />
-      <div className="absolute inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(at 0% 10%, rgba(56, 73, 84, 1) 0%, transparent 40%)' }} />
+      <div className="absolute inset-0 pointer-events-none z-[2]" style={{ background: 'radial-gradient(circle at 10% 0%, rgba(215, 226, 232, 0.3) 0%, transparent 30%)' }} />
+      <div className="absolute inset-0 pointer-events-none z-[2]" style={{ background: 'radial-gradient(circle at 75% 100%, rgba(143, 163, 185, 0.2) 0%, transparent 30%)' }} />
+      <div className="absolute inset-0 pointer-events-none z-[2]" style={{ background: 'radial-gradient(circle at 99% 0%, rgba(143, 163, 185, 0.2) 0%, transparent 30%)' }} />
+      <div className="absolute inset-0 pointer-events-none z-[2]" style={{ background: 'radial-gradient(at 0% 10%, rgba(56, 73, 84, 1) 0%, transparent 40%)' }} />
 
       <OSHero />
       {/* <OSFinancialFoundation />

@@ -82,7 +82,7 @@ const OSCircleOfServices = ({ isDark = true }: CircleOfServicesSectionProps) => 
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[14rem] h-[14rem] md:w-[20rem] md:h-[20rem] rounded-full pointer-events-none z-[1]"
           style={{
-            background: 'radial-gradient(ellipse at center, rgba(45,125,210,0.35) 0%, rgba(217,106,43,0.15) 55%, transparent 75%)',
+            background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.15) 55%, transparent 75%)',
             filter: 'blur(50px)',
             opacity: isDark ? 0.6 : 0.8
           }}
