@@ -177,11 +177,14 @@ const OSHero = () => {
         {/* Hero Container */}
         <div className="hero-container hero-container-oshero relative flex-grow rounded-b-[12px] lg:rounded-b-xl overflow-hidden flex flex-col">
           {/* Gradient Layers */}
-          <div className="hero-gradient-layer" style={{ backgroundImage: "radial-gradient(circle at 10% 0%, rgba(215, 226, 232, 0.3) 0px, transparent 50%)" }} />
-          <div className="hero-gradient-layer" style={{ backgroundImage: "radial-gradient(circle at 75% 100%, rgba(143, 163, 185, 0.2) 0px, transparent 30%)" }} />
-          <div className="hero-gradient-layer" style={{ backgroundImage: "radial-gradient(circle at 99% 0%, rgba(143, 163, 185, 0.2) 0px, transparent 30%)" }} />
-          <div className="hero-gradient-layer" style={{ backgroundImage: "radial-gradient(circle at 99% 99%, rgba(56, 73, 84, 0.5) 0px, transparent 30%)" }} />
-          <div className="hero-gradient-layer" style={{ backgroundImage: "radial-gradient(at 0% 10%, rgb(56, 73, 84) 0px, transparent 40%)" }} />
+          <div className="hero-gradient-layer" id="gradient-1" style={{ backgroundImage: "radial-gradient(circle at 10% 90%, rgb(56, 73, 84) 0px, transparent 25%)" }} />
+          <div className="hero-gradient-layer" id="gradient-2" style={{ backgroundImage: "radial-gradient(circle at 90% 30%, rgb(56, 73, 84) 0px, transparent 25%)" }} />
+          <div className="hero-gradient-layer" id="gradient-3" style={{ backgroundImage: "radial-gradient(circle at 10% 10%, rgba(215, 226, 232, 0.3) 0px, transparent 25%)" }} />
+          <div className="hero-gradient-layer" id="gradient-4" style={{ backgroundImage: "radial-gradient(circle at 90% 90%, rgba(215, 226, 232, 0.3) 0px, transparent 20%)" }} />
+          <div className="hero-gradient-layer" id="gradient-5" style={{ backgroundImage: "radial-gradient(circle at 70% 90%, rgba(215, 226, 232, 0.2) 0px, transparent 20%)" }} />
+          <div className="hero-gradient-layer" id="gradient-6" style={{ backgroundImage: "radial-gradient(circle at 60% 60%, rgba(215, 226, 232, 0.1) 0px, transparent 20%)" }} />
+          <div className="hero-gradient-layer" id="logo-glow" style={{ backgroundImage: "radial-gradient(circle at 5% 5%, rgba(215, 226, 232, 0.35) 0px, transparent 15%)" }} />
+          <div className="hero-gradient-layer" id="bottom-left-glow" style={{ backgroundImage: "radial-gradient(circle at 0% 100%, rgba(215, 226, 232, 0.25) 0px, transparent 18%)" }} />
 
           {/* Content Grid (The Wrapper) */}
           <div className="grid grid-cols-[minmax(1rem,1fr)_repeat(22,minmax(0,1fr))_minmax(1rem,1fr)] lg:grid-cols-[64px_repeat(22,minmax(0,1fr))_64px] grid-rows-[auto_auto] gap-y-0 gap-x-2 relative w-full pt-24 pb-16 min-h-[600px] items-end z-10 lg:grow">
@@ -217,9 +220,9 @@ const OSHero = () => {
             {/* 2. The Secondary (Smaller/Back) Card */}
             <div className="col-start-2 lg:col-start-[14] col-end-6 lg:col-end-[18] row-start-3 lg:row-start-1 row-end-4 lg:row-end-3 mb-[45vw] lg:mb-[17vw] self-end z-20 lg:-translate-y-12">
               <div className="motionComponent relative aspect-square w-full">
-                <Image 
-                  src="/images/pexels-themob000-30766684.jpg" 
-                  className="object-cover rounded-lg shadow-2xl" 
+                <Image
+                  src="/images/pexels-themob000-30766684.jpg"
+                  className="object-cover rounded-lg shadow-2xl"
                   alt="Secondary Card"
                   fill
                   quality={100}
@@ -231,9 +234,9 @@ const OSHero = () => {
             {/* 3. The Primary (Larger/Front) Card */}
             <div className="col-start-3 lg:col-start-[16] col-end-[23] row-start-3 lg:row-start-1 row-end-4 lg:row-end-3 self-end pt-32 lg:pt-0 z-10 lg:-translate-y-12">
               <div className="motionComponent relative aspect-[3/2] w-full">
-                <Image 
-                  src="/images/pexels-soc-nang-d-ng-2150345854-36779651.jpg" 
-                  className="object-cover rounded-lg shadow-xl" 
+                <Image
+                  src="/images/pexels-soc-nang-d-ng-2150345854-36779651.jpg"
+                  className="object-cover rounded-lg shadow-xl"
                   alt="Main Card"
                   fill
                   quality={100}
