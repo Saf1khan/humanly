@@ -231,7 +231,7 @@ export const MetricsCards = () => {
                             }`}
                         >
                           <h3
-                            className={`text-3xl font-display font-light font-cormorant leading-tight tracking-tight xl:text-[2.55rem] ${isActive ? "text-[#FF6136]" : "text-sandstone-500"
+                            className={`text-2xl font-display font-light font-cormorant leading-tight tracking-tight md:text-4xl ${isActive ? "text-[#FF6136]" : "text-sandstone-500"
                               }`}
                           >
                             {item.title}
