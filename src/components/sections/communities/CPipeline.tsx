@@ -92,7 +92,7 @@ export const CPipeline = () => {
       ref={sectionRef}
       className="bg-black"
     >
-      <div className="relative overflow-hidden bg-[#111213] py-24 lg:py-36 rounded-b-[40px] md:rounded-b-[64px]">
+      <div className="relative overflow-hidden bg-[#111213] py-24 lg:py-32 rounded-b-[40px] md:rounded-b-[64px]">
       <div
         className="absolute pointer-events-none right-0 bottom-0 translate-x-1/2 translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
         style={{
@@ -113,24 +113,15 @@ export const CPipeline = () => {
       <div className="relative max-w-[1380px] mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-16 lg:gap-10 items-start mb-16 lg:mb-20">
           <div>
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
-              transition={{ duration: 0.7, delay: 0, ease: [0.22, 1, 0.36, 1] }}
-              className="mb-4 inline-flex items-center gap-3 text-xs font-medium font-albert uppercase tracking-widest text-[#3daf98]"
-            >
-              <span className="block w-8 h-px bg-[#3daf98]" />
-              National Expansion Pipeline
-            </motion.p>
 
             <motion.h2
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
               transition={{ duration: 0.7, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-              className="text-3xl md:text-5xl font-cormorant font-normal leading-[40px] md:leading-[60px] tracking-tight text-white"
+              className="mt-8 text-3xl md:text-5xl font-cormorant font-normal leading-[40px] md:leading-[60px] tracking-tight text-white"
             >
-              A national roadmap,<br />
-              <span className="text-[#3daf98]">cinematic in motion.</span>
+              A National Roadmap,<br />
+              <span className="text-[#3daf98]">Cinematic in Motion.</span>
             </motion.h2>
           </div>
 
@@ -452,12 +443,12 @@ export const CPipeline = () => {
             <div className="w-full lg:w-[260px]">
               <div className="flex items-baseline gap-2 justify-start lg:justify-end">
                 <span
-                  className="text-4xl font-cormorant font-normal text-[#3daf98]"
+                  className="text-2xl font-albert font-normal text-[#3daf98]"
                 >
                   1
                 </span>
                 <span
-                  className="text-sm font-albert text-white/60"
+                  className="text-sm font-albert tracking-wider text-white/60"
                 >
                   of 50 states live
                 </span>
