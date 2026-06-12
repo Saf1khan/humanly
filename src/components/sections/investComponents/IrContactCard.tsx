@@ -6,43 +6,9 @@ import { Mail, Globe, MapPin, Calendar } from 'lucide-react';
 
 export const IrContactCard = () => {
   return (
-    <section id="ir-contact" className="relative py-20 lg:py-32 overflow-hidden">
-      {/* Background Image & Overlays */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        <motion.div
-          initial={{ opacity: 0, scale: 1.15 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: false, amount: 0.25 }}
-          transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full h-full relative"
-        >
-          <Image
-            src="/images/AdobeStock_195533712.jpeg"
-            alt="Investor Relations Background"
-            fill
-            className="object-cover opacity-100 mix-blend-luminosity"
-            priority
-          />
-        </motion.div>
-        {/* Deep, premium dark gradient overlay for text contrast
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a1118] via-[#0e1b26]/75 to-[#050a0e] mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-tr from-[#0a1118]/90 via-transparent to-[#0a1118]/90" /> */}
-
-        {/* Subtle grid pattern overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)
-            `,
-            backgroundSize: '100px 100px'
-          }}
-        />
-      </div>
-
+    <section id="ir-contact" className="relative py-20 lg:py-32 bg-transparent overflow-x-clip">
       {/* Floating Fluid Glass Blobs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      <div className="absolute inset-0 overflow-visible pointer-events-none z-0">
         {/* Blob 1: Orange/Amber - floating and morphing */}
         <motion.div
           animate={{
@@ -95,63 +61,142 @@ export const IrContactCard = () => {
         />
       </div>
 
-      <div className="container relative z-10 mx-auto px-6 max-w-[1200px] w-full">
+      <div className="mx-auto w-full max-w-[1440px] px-6 lg:px-16 relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+
+        {/* Left Column: Contact Content */}
         <motion.div
-          initial={{ opacity: 0, y: 40, scale: 0.97 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.25 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-[720px] mr-auto ml-0 bg-sandstone-100/60 backdrop-blur-[32px] border border-sandstone-300/30 rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-16 text-left shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)] relative z-10"
+          className="relative z-10 flex h-full w-full flex-col justify-between overflow-visible rounded-[32px] bg-sandstone-100/55 p-8 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)] backdrop-blur-[32px] md:p-12"
         >
-          {/* Subtle Background Glow inside the card for warmth and cool tones */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#FF6136]/10 blur-[100px] rounded-full pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#FF6136]/5 blur-[100px] rounded-full pointer-events-none" />
+          {/* Ambient premium glow */}
+          <div className="pointer-events-none absolute inset-0">
+            <div
+              className="absolute right-0 top-0 -translate-x-[50%] -translate-y-[28%] w-[clamp(22rem,10rem+34vw,34rem)] h-[clamp(22rem,10rem+34vw,34rem)] opacity-[0.9]"
+              style={{
+                background:
+                  "radial-gradient(50% 50%, rgba(255, 97, 54, 0.06), rgba(255, 97, 54, 0.03) 52%, rgba(255, 97, 54, 0))",
+              }}
+            />
+
+            <div
+              className="absolute bottom-0 left-0 -translate-x-[28%] translate-y-[28%] w-[clamp(22rem,10rem+34vw,34rem)] h-[clamp(22rem,10rem+34vw,34rem)] opacity-[0.8]"
+              style={{
+                background:
+                  "radial-gradient(50% 50%, rgba(255, 97, 54, 0.05), rgba(255, 97, 54, 0.02) 52%, rgba(255, 97, 54, 0))",
+              }}
+            />
+
+            <div className="absolute inset-[1px] rounded-[31px] border border-white/20" />
+          </div>
 
           <div className="relative z-10">
-            <h2 className="font-serif text-4xl md:text-5xl text-sandstone-700 font-medium mb-6">Let's talk about your investment.</h2>
-            <p className="text-sandstone-500 leading-relaxed mb-12 max-w-[48ch] text-lg font-normal">
+
+            {/* Original heading */}
+            <h2 className="mb-6 font-cormorant text-4xl font-normal leading-[1.05] tracking-[-0.02em] text-sandstone-500 md:text-5xl">
+              Contact Investor Relations
+            </h2>
+
+            {/* Original paragraph */}
+            <p className="mb-12 max-w-[500px] font-albert text-base font-light leading-relaxed text-sandstone-500 md:text-lg">
               Our investor relations team is available to answer questions, walk through the data room, and arrange a direct conversation with leadership.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
-              <div className="bg-sandstone-100/60 border border-sandstone-300/30 rounded-2xl p-6 text-left hover:bg-sandstone-100/80 hover:border-sandstone-400/40 transition-all duration-300 group shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)]">
-                <div className="mb-4 group-hover:scale-110 transition-transform duration-300 origin-left">
-                  <Mail className="w-6 h-6 text-[#FF6136]" strokeWidth={1.5} />
-                </div>
-                <div className="text-[0.75rem] font-bold tracking-[0.12em] uppercase text-sandstone-500/60 mb-2">Email</div>
-                <div className="text-[0.95rem] text-sandstone-700 break-all font-medium">
-                  <a href="mailto:investors@humanly.com" className="text-[#FF6136] hover:text-[#ff7a55] font-semibold transition-colors duration-300">investors@humanly.com</a>
+            {/* Premium info rows */}
+            <div className="mb-12 space-y-4">
+              <div className="group rounded-[24px] border border-sandstone-300/25 bg-white/30 px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.28)] transition-all duration-300 hover:border-sandstone-400/40 hover:bg-white/40">
+                <div className="flex items-start gap-4">
+                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#FF6136]/20 bg-[#FF6136]/8">
+                    <Mail className="h-4 w-4 text-[#FF6136]" strokeWidth={1.5} />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="mb-1 text-xs font-bold font-albert uppercase tracking-widest text-sandstone-500">
+                      Email
+                    </div>
+                    <div className="break-all">
+                      <a
+                        href="mailto:investors@humanly.com"
+                        className="text-[#FF6136] font-albert font-medium text-base transition-colors duration-300 hover:text-[#ff7a55]"
+                      >
+                        investors@humanly.com
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="bg-sandstone-100/60 border border-sandstone-300/30 rounded-2xl p-6 text-left hover:bg-sandstone-100/80 hover:border-sandstone-400/40 transition-all duration-300 group shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)]">
-                <div className="mb-4 group-hover:scale-110 transition-transform duration-300 origin-left">
-                  <Globe className="w-6 h-6 text-[#FF6136]" strokeWidth={1.5} />
-                </div>
-                <div className="text-[0.75rem] font-bold tracking-[0.12em] uppercase text-sandstone-500/60 mb-2">Website</div>
-                <div className="text-[0.95rem] text-sandstone-700 font-medium">
-                  <a href="https://humanly.us" target="_blank" className="text-[#FF6136] hover:text-[#ff7a55] font-semibold transition-colors duration-300">humanly.us</a>
+
+              <div className="group rounded-[24px] border border-sandstone-300/25 bg-white/30 px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.28)] transition-all duration-300 hover:border-sandstone-400/40 hover:bg-white/40">
+                <div className="flex items-start gap-4">
+                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#FF6136]/20 bg-[#FF6136]/8">
+                    <Globe className="h-4 w-4 text-[#FF6136]" strokeWidth={1.5} />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="mb-1 text-xs font-bold uppercase tracking-widest text-sandstone-500">
+                      Website
+                    </div>
+                    <div className="break-all">
+                      <a
+                        href="https://humanly.us"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium text-base text-[#FF6136] font-albert transition-colors duration-300 hover:text-[#ff7a55]"
+                      >
+                        humanly.us
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="bg-sandstone-100/60 border border-sandstone-300/30 rounded-2xl p-6 text-left hover:bg-sandstone-100/80 hover:border-sandstone-400/40 transition-all duration-300 group shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)]">
-                <div className="mb-4 group-hover:scale-110 transition-transform duration-300 origin-left">
-                  <MapPin className="w-6 h-6 text-[#FF6136]" strokeWidth={1.5} />
+
+              <div className="group rounded-[24px] border border-sandstone-300/25 bg-white/30 px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.28)] transition-all duration-300 hover:border-sandstone-400/40 hover:bg-white/40">
+                <div className="flex items-start gap-4">
+                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#FF6136]/20 bg-[#FF6136]/8">
+                    <MapPin className="h-4 w-4 text-[#FF6136]" strokeWidth={1.5} />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="mb-1 text-xs font-bold uppercase tracking-widest text-sandstone-500">
+                      Office
+                    </div>
+                    <div className="text-base font-albert font-medium text-[#FF6136]">
+                      Dallas, Texas, US
+                    </div>
+                  </div>
                 </div>
-                <div className="text-[0.75rem] font-bold tracking-[0.12em] uppercase text-sandstone-500/60 mb-2">Office</div>
-                <div className="text-[0.95rem] text-sandstone-700 font-semibold">Dallas, Texas, US</div>
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-5 justify-start">
-              <a href="#dataroom" className="px-10 py-4 bg-[#FF6136] text-white font-bold rounded-xl hover:bg-[#ff7a55] transition-all hover:-translate-y-0.5 shadow-xl shadow-orange-950/20 duration-300">
-                Request Data Room Access
-              </a>
-              <a href="https://calendly.com" target="_blank" className="px-10 py-4 bg-sandstone-100/60 text-sandstone-700 border border-sandstone-300/40 font-bold rounded-xl hover:bg-sandstone-100 transition-all duration-300 flex items-center gap-2 backdrop-blur-sm">
-                <Calendar className="w-5 h-5 text-sandstone-500" strokeWidth={1.5} />
-                Schedule a Call
+            {/* Original CTA text preserved */}
+            <div className="flex flex-wrap gap-5 justify-center md:justify-start">
+              <a
+                href="https://calendly.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl border border-[#FF6136]/30 bg-sandstone-100/60 px-10 py-4 font-bold text-sandstone-700 shadow-md backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#FF6136]/70 hover:text-[#FF6136] hover:shadow-[0_8px_30px_-6px_rgba(255,97,54,0.35)]"
+              >
+                <span className="absolute inset-0 rounded-xl bg-[#FF6136]/0 transition-all duration-300 group-hover:bg-[#FF6136]/8" />
+                <Calendar
+                  className="relative z-10 h-5 w-5 transition-colors duration-300"
+                  strokeWidth={1.5}
+                />
+                <span className="relative text-sandstone-500 font-albert font-semibold z-10 group-hover:text-[#FF6136]">Schedule a Call</span>
               </a>
             </div>
           </div>
         </motion.div>
+
+        {/* Right Column: Image Container */}
+        <div className="relative z-10 w-full h-[400px] lg:h-full min-h-[400px] overflow-hidden rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)]">
+          <Image
+            src="/images/AdobeStock_195533712.jpeg"
+            alt="Humanly Investor Relations"
+            fill
+            className="w-full h-full object-cover"
+          />
+          {/* Subtle gradient overlay to match styling */}
+          <div className="z-10 absolute bottom-0 right-0 h-full w-full bg-gradient-to-t from-sandstone-200/40 via-transparent to-transparent pointer-events-none"></div>
+        </div>
       </div>
     </section>
   );

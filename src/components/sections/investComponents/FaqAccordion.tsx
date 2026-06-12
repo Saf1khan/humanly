@@ -98,7 +98,7 @@ const FaqItem = ({ faq, idx, isOpen, onToggle }: FaqItemProps) => {
     mouseY.set(e.clientY - rect.top);
   };
 
-  const handleMouseLeave = () => {};
+  const handleMouseLeave = () => { };
 
   const indexStr = String(idx + 1).padStart(2, "0");
 
@@ -107,11 +107,10 @@ const FaqItem = ({ faq, idx, isOpen, onToggle }: FaqItemProps) => {
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`group relative overflow-hidden select-none transition-all duration-500 ease-out ${
-        isOpen
+      className={`group relative overflow-hidden select-none transition-all duration-500 ease-out ${isOpen
           ? "z-10 rounded-2xl border border-sandstone-300/30 border-t-sandstone-400/40 bg-sandstone-100/40 px-6 py-5 shadow-[0_12px_28px_-4px_rgba(0,0,0,0.08)] md:px-8 md:py-6"
           : "border border-transparent border-b-sandstone-300/30 bg-transparent px-6 py-4 hover:border-b-sandstone-400/40 hover:bg-sandstone-100/20 md:px-8 md:py-5"
-      }`}
+        }`}
     >
       <motion.div
         className="pointer-events-none absolute inset-0 z-0"
@@ -142,32 +141,29 @@ const FaqItem = ({ faq, idx, isOpen, onToggle }: FaqItemProps) => {
         >
           <div className="flex items-start gap-4 md:gap-6">
             <span
-              className={`mt-1.5 font-albert text-xs font-normal tracking-wider transition-colors duration-300 md:text-sm ${
-                isOpen
+              className={`mt-1.5 font-albert text-xs font-normal tracking-wider transition-colors duration-300 md:text-sm ${isOpen
                   ? "text-[#FF6136]"
                   : "text-sandstone-500/40 group-hover:text-[#FF6136]/70"
-              }`}
+                }`}
             >
               {indexStr}
             </span>
 
             <span
-              className={`font-albert text-base leading-snug transition-colors duration-300 md:text-lg ${
-                isOpen
+              className={`font-albert text-base leading-snug transition-colors duration-300 md:text-lg ${isOpen
                   ? "font-medium text-sandstone-700"
                   : "text-sandstone-500 group-hover:text-sandstone-700"
-              }`}
+                }`}
             >
               {faq.q}
             </span>
           </div>
 
           <span
-            className={`relative mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
-              isOpen
+            className={`relative mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${isOpen
                 ? "border-[#FF6136]/30 bg-gradient-to-br from-[#FF6136]/10 to-transparent text-[#FF6136]"
                 : "border-sandstone-400/30 bg-transparent text-sandstone-500/50 group-hover:border-sandstone-400/60 group-hover:text-sandstone-600"
-            }`}
+              }`}
           >
             <svg width="14" height="14" viewBox="0 0 12 12" fill="none">
               <rect
@@ -185,9 +181,8 @@ const FaqItem = ({ faq, idx, isOpen, onToggle }: FaqItemProps) => {
                 height="8"
                 rx="0.75"
                 fill="currentColor"
-                className={`origin-center transition-transform duration-300 ${
-                  isOpen ? "rotate-90 scale-y-0" : ""
-                }`}
+                className={`origin-center transition-transform duration-300 ${isOpen ? "rotate-90 scale-y-0" : ""
+                  }`}
               />
             </svg>
           </span>
@@ -217,17 +212,25 @@ export const FaqAccordion = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative overflow-hidden border-t border-sandstone-300/30 bg-transparent py-24 lg:py-36">
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.8]"
-          style={{
-            background: `
-              radial-gradient(circle at 10% 20%, rgba(255, 97, 54, 0.04) 0%, transparent 60%),
-              radial-gradient(circle at 90% 80%, rgba(255, 97, 54, 0.03) 0%, transparent 60%)
-            `,
-          }}
-        />
+    <section className="relative overflow-x-clip bg-transparent py-24 lg:py-36">
+      <div className="pointer-events-none absolute inset-0 overflow-visible">
+        <>
+          <div
+            className="absolute pointer-events-none left-[10%] top-[20%] -translate-x-1/2 -translate-y-1/2 w-[clamp(30rem,10rem+70vw,72rem)] h-[clamp(18rem,7rem+42vw,44rem)] opacity-[0.8]"
+            style={{
+              background:
+                "radial-gradient(50% 50%, rgba(255, 97, 54, 0.09), rgba(255, 97, 54, 0.04) 50%, rgba(255, 97, 54, 0))",
+            }}
+          />
+
+          <div
+            className="absolute pointer-events-none right-[10%] bottom-[20%] translate-x-1/2 translate-y-1/2 w-[clamp(30rem,10rem+70vw,72rem)] h-[clamp(18rem,7rem+42vw,44rem)] opacity-[0.75]"
+            style={{
+              background:
+                "radial-gradient(50% 50%, rgba(255, 97, 54, 0.08), rgba(255, 97, 54, 0.03) 50%, rgba(255, 97, 54, 0))",
+            }}
+          />
+        </>
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 md:px-12 lg:px-16">

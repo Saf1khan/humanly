@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   motion,
   AnimatePresence,
   useScroll,
   useTransform,
-  useReducedMotion,
 } from "framer-motion";
 
 const milestones = [
@@ -22,7 +21,7 @@ const milestones = [
     color: "#FF6136",
     metric: "5,000+",
     metricLabel: "homes planned",
-    image: "/images/pexels-fotoaibe-1643389.jpg",
+    image: "/images/AdobeStock_1715809262.jpeg",
     imagePosition: "center",
     icon: (
       <svg
@@ -52,7 +51,7 @@ const milestones = [
     color: "#F59E0B",
     metric: "Phase 1",
     metricLabel: "delivery begins",
-    image: "/images/first-residents.jpg",
+    image: "/images/AdobeStock_680093057.jpeg",
     imagePosition: "center",
     icon: (
       <svg
@@ -81,7 +80,7 @@ const milestones = [
     color: "#818CF8",
     metric: "4",
     metricLabel: "communities live",
-    image: "/images/expansion.jpg",
+    image: "/images/AdobeStock_170554793.jpeg",
     imagePosition: "center",
     icon: (
       <svg
@@ -111,7 +110,7 @@ const milestones = [
     color: "#34D399",
     metric: "SaaS",
     metricLabel: "licensing revenue",
-    image: "/images/licensing.jpg",
+    image: "/images/AdobeStock_383551453.jpeg",
     imagePosition: "center",
     icon: (
       <svg
@@ -131,421 +130,330 @@ const milestones = [
   },
 ];
 
-const EASE = [0.22, 1, 0.36, 1] as const;
+const EASE = [0.16, 1, 0.3, 1] as const;
 
 export const MilestoneRoadmap = () => {
   const [active, setActive] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const ms = milestones[active];
+
+  // Refs for Parallax tracking
   const sectionRef = useRef<HTMLElement>(null);
-  const shouldReduceMotion = useReducedMotion();
+  const panelRef = useRef<HTMLDivElement>(null);
 
-  const current = milestones[active];
+  // Auto-flow with pause
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setActive((prev) => (prev + 1) % milestones.length);
+    }, 10000);
+    return () => clearInterval(timer);
+  }, [isPaused]);
 
+  // Scroll tracking for the whole section
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
   });
 
-  const ambientY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
-  const panelY = useTransform(scrollYProgress, [0, 1], [20, -20]);
-
-  const goPrev = () => setActive((prev) => Math.max(0, prev - 1));
-  const goNext = () => setActive((prev) => Math.min(milestones.length - 1, prev + 1));
+  // Parallax transformations
+  const bgGridY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+  const headerY = useTransform(scrollYProgress, [0, 0.5], [50, 0]);
+  const panelNumberY = useTransform(scrollYProgress, [0.3, 0.8], [60, -40]);
 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden py-20 lg:py-32"
+      className="relative overflow-x-clip py-24 lg:py-36 text-sandstone-500 cursor-pointer"
+      onClick={() => setIsPaused((prev) => !prev)}
     >
-      {/* Ambient blooms */}
+      {/* ── Fluid Glass Background (Image Removed) ── */}
       <motion.div
-        className="absolute inset-0 pointer-events-none"
-        style={{ y: shouldReduceMotion ? 0 : ambientY }}
+        className="absolute inset-0 pointer-events-none z-0"
+        style={{ y: bgGridY, scale: 1.1 }}
       >
+        {/* Transparent backdrop filter to retain the premium feel without solid colors */}
+        <div className="absolute inset-0 backdrop-blur-sm" />
+
+        {/* Film grain effect overlay */}
         <div
-          className="absolute top-[-10%] left-[-5%] w-[60vw] h-[60vw] rounded-full"
+          className="absolute inset-0 opacity-[0.04] mix-blend-overlay"
           style={{
-            background: `radial-gradient(circle, ${current.color}12 0%, transparent 65%)`,
-            transition: "background 0.8s ease",
-          }}
-        />
-        <div
-          className="absolute bottom-[-10%] right-[-5%] w-[50vw] h-[50vw] rounded-full"
-          style={{
-            background: `radial-gradient(circle, ${current.color}0B 0%, transparent 65%)`,
-            transition: "background 0.8s ease",
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
           }}
         />
       </motion.div>
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
-        {/* Header */}
-        <header className="flex flex-col gap-3 mb-16 lg:mb-20">
-          <div className="flex items-center gap-3">
-            <div
-              className="h-[1px] w-8"
-              style={{
-                background: `linear-gradient(to right, ${current.color}, transparent)`,
-                transition: "background 0.5s ease",
-              }}
-            />
-            <span className="text-[0.65rem] font-semibold tracking-[0.22em] uppercase text-[#a8a5a0]">
-              Growth Roadmap
-            </span>
-          </div>
-
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-sandstone-700 leading-[1.05]">
-            The Path to Scale
+      {/* ── CONTENT ── */}
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative z-10 w-full">
+        {/* Cinematic Header (with entrance scroll parallax) */}
+        <motion.div
+          style={{ y: headerY }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.9, ease: EASE }}
+          className="mb-24 flex flex-col items-center md:items-start text-center md:text-left gap-4"
+        >
+          <h2 className="font-cormorant text-3xl md:text-5xl text-sandstone-500 leading-[40px] md:leading-[60px] tracking-tight font-noraml">
+            The Path to<span className="not-italic font-light text-[#FF6136]"> Scale</span>
           </h2>
-
-          <p className="text-sm md:text-base font-light text-[#1C1B1A]/45 max-w-md leading-relaxed mt-1">
-            A disciplined, milestone-driven progression from Texas groundbreak to
-            national HumanlyOS® licensing.
+          <p className="max-w-4xl text-base md:text-lg font-light font-albert leading-[28px] md:leading-[30px] text-sandstone-500">
+            A disciplined, milestone-driven progression from our Texas
+            groundbreak to national HumanlyOS® licensing.
           </p>
-        </header>
+        </motion.div>
 
-        {/* Main layout */}
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
-          {/* Left rail */}
-          <div className="w-full lg:w-auto flex lg:flex-col items-center lg:items-stretch gap-0 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0">
+        {/* ── TIMELINE TRACK (Sharp, geometric) ── */}
+        <motion.div
+          className="relative mb-20 px-2"
+          initial={{ opacity: 0, scaleX: 0.95 }}
+          whileInView={{ opacity: 1, scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: EASE, delay: 0.2 }}
+        >
+          {/* Base track line */}
+          <div
+            className="absolute top-[11px] h-[1px] bg-sandstone-500/[0.15] z-0"
+            style={{
+              left: `${100 / (milestones.length * 2)}%`,
+              right: `${100 / (milestones.length * 2)}%`
+            }}
+          />
+
+          {/* Animated sharp progress line */}
+          <motion.div
+            className="absolute top-[11px] h-[1px] bg-sandstone-500 z-0"
+            style={{ left: `${100 / (milestones.length * 2)}%` }}
+            animate={{ width: `${(active / (milestones.length - 1)) * (100 - (100 / milestones.length))}%` }}
+            transition={{ duration: 0.8, ease: EASE }}
+          />
+
+          {/* Nodes */}
+          <div className="flex justify-between relative z-10">
             {milestones.map((m, i) => {
-              const isActive = i === active;
               const isPast = i < active;
+              const isCurrent = i === active;
 
               return (
-                <div
+                <button
                   key={m.id}
-                  className="flex lg:flex-col items-center lg:items-start flex-shrink-0"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActive(i);
+                  }}
+                  className="flex flex-col items-center gap-6 group focus:outline-none"
+                  style={{ width: `${100 / milestones.length}%` }}
                 >
-                  <button
-                    onClick={() => setActive(i)}
-                    className="flex items-center gap-4 group relative"
-                    aria-label={`Go to milestone ${m.num}`}
-                  >
-                    <div className="relative flex-shrink-0">
+                  {/* Node Shape */}
+                  <div className="relative flex items-center justify-center h-6 w-6">
+                    {/* Solid background mask to break the track line */}
+                    <div className="absolute w-5 h-5 bg-sandstone-200 z-0" />
+
+                    <motion.div
+                      animate={{
+                        scale: isCurrent ? 1 : 0.5,
+                        backgroundColor: isCurrent
+                          ? "#FF6136"
+                          : isPast
+                            ? "rgba(74, 71, 65, 0.4)"
+                            : "rgba(74, 71, 65, 0.15)",
+                        borderColor: isCurrent
+                          ? "#4a4741"
+                          : "transparent",
+                      }}
+                      transition={{ duration: 0.5, ease: EASE }}
+                      className="w-3 h-3 relative z-10 transition-colors duration-500"
+                    />
+                    {/* Outer pulse for current */}
+                    {isCurrent && (
                       <motion.div
-                        className="w-12 h-12 rounded-full flex items-center justify-center relative z-10"
-                        animate={{
-                          background: isActive
-                            ? `${m.color}18`
-                            : isPast
-                            ? `${m.color}08`
-                            : "rgba(74,71,65,0.04)",
-                          borderColor: isActive
-                            ? m.color
-                            : isPast
-                            ? `${m.color}40`
-                            : "rgba(74,71,65,0.12)",
-                          scale: isActive ? 1.08 : 1,
+                        className="absolute w-3 h-3 border border-sandstone-500 z-10"
+                        animate={{ scale: [1, 2.5, 2.5], opacity: [0.8, 0, 0] }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeOut",
                         }}
-                        style={{ border: "1px solid" }}
-                        transition={{ duration: 0.45 }}
-                      >
-                        <span
-                          style={{
-                            color: isActive
-                              ? m.color
-                              : isPast
-                              ? `${m.color}90`
-                              : "rgba(28,27,26,0.25)",
-                          }}
-                        >
-                          {m.icon}
-                        </span>
-                      </motion.div>
+                      />
+                    )}
+                  </div>
 
-                      {isActive && (
-                        <motion.div
-                          className="absolute inset-0 rounded-full pointer-events-none"
-                          style={{ border: `1px solid ${m.color}` }}
-                          animate={{ scale: [1, 1.6], opacity: [0.55, 0] }}
-                          transition={{
-                            duration: 1.4,
-                            repeat: Infinity,
-                            ease: "easeOut",
-                          }}
-                        />
-                      )}
-                    </div>
-
-                    <div className="hidden lg:flex flex-col gap-0.5 text-left">
-                      <span
-                        className="text-[0.6rem] font-semibold tracking-[0.18em] uppercase transition-colors duration-300"
-                        style={{
-                          color: isActive
-                            ? m.color
-                            : "rgba(168,165,160,0.7)",
-                        }}
-                      >
-                        {m.date}
-                      </span>
-                      <span
-                        className="text-sm font-semibold transition-colors duration-300"
-                        style={{
-                          color: isActive
-                            ? "#1C1B1A"
-                            : isPast
-                            ? "rgba(28,27,26,0.55)"
-                            : "rgba(28,27,26,0.28)",
-                        }}
-                      >
-                        {m.title}
-                      </span>
-                    </div>
-                  </button>
-
-                  {i < milestones.length - 1 && (
-                    <>
-                      {/* Mobile connector */}
-                      <div
-                        className="flex lg:hidden w-10 h-[1px] flex-shrink-0 mx-1 relative overflow-hidden"
-                        style={{ background: "rgba(74,71,65,0.1)" }}
-                      >
-                        {(isPast || isActive) && (
-                          <motion.div
-                            className="absolute inset-0"
-                            style={{
-                              background: `linear-gradient(to right, ${m.color}70, ${milestones[i + 1].color}40)`,
-                            }}
-                            initial={{ width: 0 }}
-                            animate={{ width: isPast ? "100%" : "50%" }}
-                            transition={{ duration: 0.45 }}
-                          />
-                        )}
-                      </div>
-
-                      {/* Desktop connector */}
-                      <div
-                        className="hidden lg:flex flex-col items-center ml-6 my-1 relative overflow-hidden"
-                        style={{ height: "40px", width: "1px" }}
-                      >
-                        <div
-                          className="w-full h-full"
-                          style={{ background: "rgba(74,71,65,0.1)" }}
-                        />
-                        {(isPast || isActive) && (
-                          <motion.div
-                            className="absolute top-0 left-0 w-full"
-                            style={{
-                              background: `linear-gradient(to bottom, ${m.color}80, ${milestones[i + 1].color}40)`,
-                            }}
-                            initial={{ height: 0 }}
-                            animate={{ height: isPast ? "100%" : "50%" }}
-                            transition={{ duration: 0.5, ease: "easeOut" }}
-                          />
-                        )}
-                      </div>
-                    </>
-                  )}
-                </div>
+                  {/* Date label */}
+                  <motion.span
+                    animate={{
+                      color: isCurrent
+                        ? "#4a4741"
+                        : isPast
+                          ? "rgba(74, 71, 65, 0.5)"
+                          : "rgba(74, 71, 65, 0.2)",
+                    }}
+                    transition={{ duration: 0.4 }}
+                    className="text-xs font-albert font-medium tracking-widest uppercase"
+                  >
+                    {m.date}
+                  </motion.span>
+                </button>
               );
             })}
           </div>
+        </motion.div>
 
-          {/* Right full-image panel */}
+        {/* ── DETAIL PANEL (Parallax Monolithic Effect) ── */}
+        <motion.div
+          ref={panelRef}
+          className="relativ bg-[#101d2d]/60 border border-white/5 overflow-hidden backdrop-blur-md rounded-[24px] text-white shadow-[0_25px_60px_-15px_rgba(255,97,54,0.25)]"
+          style={{ minHeight: "340px", }}
+          initial={{ opacity: 0, y: 40, scale: 0.97 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.9, ease: EASE, delay: 0.3 }}
+        >
+          {/* Subtle Color Overlay for Transition */}
           <motion.div
-            className="flex-1 w-full"
-            style={{ y: shouldReduceMotion ? 0 : panelY }}
-          >
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={current.id}
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -18 }}
-                transition={{ duration: 0.45, ease: EASE }}
-                className="relative rounded-[2rem] overflow-hidden min-h-[560px] lg:min-h-[620px]"
-                style={{
-                  border: `1px solid ${current.color}30`,
-                  boxShadow: `0 0 60px ${current.color}12, 0 16px 48px rgba(74,71,65,0.08)`,
-                  background: "rgba(255,255,255,0.35)",
-                  backdropFilter: "blur(20px)",
-                  WebkitBackdropFilter: "blur(20px)",
-                }}
-              >
-                {/* Full image background */}
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={current.image}
-                    initial={{ opacity: 0, scale: 1 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 1 }}
-                    transition={{ duration: 0.6, ease: EASE }}
-                    className="absolute inset-0"
-                  >
-                    <img
-                      src={current.image}
-                      alt={current.title}
-                      className="absolute inset-0 w-full h-full object-cover"
-                      style={{ objectPosition: current.imagePosition }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#111111]/62 via-[#111111]/34 to-[#111111]/18" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/60 via-transparent to-transparent" />
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        background: `radial-gradient(circle at 18% 20%, ${current.color}22, transparent 42%)`,
-                      }}
-                    />
-                  </motion.div>
-                </AnimatePresence>
+            className="absolute inset-0 pointer-events-none z-0"
+            animate={{ backgroundColor: ms.color }}
+            transition={{ duration: 1, ease: EASE }}
+            style={{ opacity: 0.08 }}
+          />
 
-                {/* top shimmer */}
-                <div
-                  className="absolute top-0 left-8 right-8 h-[1px] z-20 pointer-events-none"
-                  style={{
-                    background: `linear-gradient(to right, transparent, ${current.color}60, transparent)`,
-                  }}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active}
+              initial={{ opacity: 0, filter: "blur(12px)", scale: 0.97 }}
+              animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+              exit={{ opacity: 0, filter: "blur(8px)", scale: 1.02 }}
+              transition={{ duration: 0.9, ease: EASE }}
+              className="absolute inset-0 flex flex-col md:flex-row z-10"
+            >
+              {/* Optional background image from our milestone data */}
+              <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
+                <img
+                  src={ms.image}
+                  alt={ms.title}
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: ms.imagePosition }}
                 />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#101d2d] to-transparent" />
+              </div>
 
-                {/* floating year */}
-                <div className="absolute right-6 bottom-4 z-10 text-white/[0.08] text-[6rem] md:text-[9rem] lg:text-[11rem] font-bold leading-none select-none pointer-events-none">
-                  {current.year}
-                </div>
-
-                {/* content overlay */}
-                <div className="relative z-20 h-full flex flex-col p-8 lg:p-12">
-                  {/* top row */}
-                  <div className="flex items-start justify-between gap-4">
-                    <div
-                      className="flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.16em] uppercase"
-                      style={{
-                        color: "#fff",
-                        background: "rgba(255,255,255,0.12)",
-                        border: "1px solid rgba(255,255,255,0.2)",
-                        backdropFilter: "blur(14px)",
-                        WebkitBackdropFilter: "blur(14px)",
-                      }}
-                    >
-                      <span
-                        className="w-1.5 h-1.5 rounded-full inline-block"
-                        style={{
-                          background: current.color,
-                          boxShadow: `0 0 8px ${current.color}`,
-                        }}
-                      />
-                      Milestone {current.num}
-                    </div>
-
-                    <div
-                      className="px-3 py-1.5 rounded-full text-[0.65rem] font-semibold tracking-[0.18em] uppercase text-white"
-                      style={{
-                        background: "rgba(255,255,255,0.12)",
-                        border: "1px solid rgba(255,255,255,0.18)",
-                        backdropFilter: "blur(14px)",
-                        WebkitBackdropFilter: "blur(14px)",
-                      }}
-                    >
-                      {active + 1} of {milestones.length}
-                    </div>
-                  </div>
-
-                  {/* middle content */}
-                  <div className="mt-auto max-w-2xl">
-                    <p
-                      className="text-xs font-medium tracking-widest uppercase mb-3"
-                      style={{ color: current.color }}
-                    >
-                      {current.subtitle}
-                    </p>
-
-                    <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.02] max-w-3xl">
-                      {current.title}
-                    </h3>
-
-                    <div
-                      className="h-[1px] w-14 mt-6 mb-6"
-                      style={{
-                        background: `linear-gradient(to right, ${current.color}, transparent)`,
-                      }}
-                    />
-
-                    <p className="text-base md:text-lg font-light text-white/78 leading-relaxed max-w-xl">
-                      {current.desc}
+              {/* Left Column: Meta & Lines */}
+              
+              <div className="w-full md:w-1/3 p-8 md:p-12 border-b md:border-b-0 md:border-r border-white/5 flex flex-col justify-between relative bg-black/40 backdrop-blur-sm z-10">
+                 <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.25, duration: 2, ease: EASE }}
+                >
+                <div>
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="w-1 h-1 bg-white" />
+                    <p className="text-xs font-albert font-medium tracking-[0.2em] uppercase text-white">
+                      Phase 0{active + 1}
                     </p>
                   </div>
-
-                  {/* bottom block */}
-                  <div className="mt-10 pt-6 border-t border-white/12 flex flex-col gap-6">
-                    <div className="flex flex-col sm:flex-row items-start sm:items-end gap-6">
-                      <div>
-                        <p
-                          className="text-5xl md:text-6xl font-bold leading-none"
-                          style={{ color: current.color }}
-                        >
-                          {current.metric}
-                        </p>
-                        <p className="text-xs font-medium tracking-widest uppercase text-white/45 mt-2">
-                          {current.metricLabel}
-                        </p>
-                      </div>
-
-                      <div className="sm:ml-auto flex items-center gap-2">
-                        <span
-                          className="w-2 h-2 rounded-full"
-                          style={{
-                            background:
-                              current.status === "Active"
-                                ? current.color
-                                : "rgba(255,255,255,0.35)",
-                            boxShadow:
-                              current.status === "Active"
-                                ? `0 0 8px ${current.color}`
-                                : "none",
-                          }}
-                        />
-                        <span className="text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-white/60">
-                          {current.status}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* dot nav */}
-                    <div className="flex items-center gap-3">
-                      {milestones.map((_, i) => (
-                        <button
-                          key={i}
-                          onClick={() => setActive(i)}
-                          className="rounded-full transition-all duration-300"
-                          style={{
-                            width: i === active ? "28px" : "7px",
-                            height: "7px",
-                            background:
-                              i === active
-                                ? current.color
-                                : i < active
-                                ? "rgba(255,255,255,0.45)"
-                                : "rgba(255,255,255,0.18)",
-                          }}
-                          aria-label={`Go to milestone ${milestones[i].num}`}
-                        />
-                      ))}
-                    </div>
-
-                    {/* prev/next */}
-                    <div className="flex items-center justify-between">
-                      <button
-                        onClick={goPrev}
-                        disabled={active === 0}
-                        className="text-[0.68rem] font-semibold tracking-[0.2em] uppercase text-white/55 hover:text-white transition-colors disabled:opacity-20 flex items-center gap-2 group"
-                      >
-                        <span className="w-4 h-[1px] bg-current group-hover:-translate-x-1 transition-transform inline-block" />
-                        Prev
-                      </button>
-
-                      <button
-                        onClick={goNext}
-                        disabled={active === milestones.length - 1}
-                        className="text-[0.68rem] font-semibold tracking-[0.2em] uppercase text-white/55 hover:text-white transition-colors disabled:opacity-20 flex items-center gap-2 group"
-                      >
-                        Next
-                        <span className="w-4 h-[1px] bg-current group-hover:translate-x-1 transition-transform inline-block" />
-                      </button>
-                    </div>
-                  </div>
+                  <h3 className="font-bodoni text-3xl md:text-4xl text-[#FF6136] font-normal tracking-widest mb-2">
+                    {ms.year}
+                  </h3>
                 </div>
-              </motion.div>
-            </AnimatePresence>
-          </motion.div>
+                </motion.div>
+
+                {/* Minimalist Status */}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.25, duration: 2, ease: EASE }}
+                >
+                <div className="flex items-center gap-2 mt-8 md:mt-0">
+                  {ms.status === "Active" ? (
+                    <span className="w-1.5 h-1.5 bg-white animate-pulse" />
+                  ) : (
+                    <span className="w-1.5 h-1.5 border border-white/40" />
+                  )}
+                  <span className="text-xs font-medium font-albert tracking-[0.2em] uppercase text-white">
+                    {ms.status}
+                  </span>
+                </div>
+                </motion.div>
+              </div>
+
+              {/* Right Column: Title & Desc */}
+              <div className="w-full md:w-2/3 p-8 md:p-16 flex flex-col justify-center relative backdrop-blur-[2px] z-10">
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.25, duration: 2, ease: EASE }}
+                >
+                  <h4 className="font-cormorant text-2xl md:text-3xl font-bold text-[#FF6136] mb-6">
+                    {ms.title}
+                  </h4>
+                  <div className="h-[1px] w-12 bg-white/60 mb-6" />
+                  <p className="text-base font-albert leading-relaxed font-light text-white max-w-2xl mb-8">
+                    {ms.desc}
+                  </p>
+
+                  {/* Incorporating current milestone metrics into the new premium card */}
+                  <div className="flex flex-col">
+                    <span className="text-3xl md:text-4xl font-albert font-light text-[#FF6136]">{ms.metric}</span>
+                    <span className="text-[10px] font-light font-albert uppercase tracking-[0.2em] text-white mt-2">{ms.metricLabel}</span>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </motion.div>
+
+        {/* ── Navigation ── */}
+        <div className="flex items-center justify-between pt-8">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setActive(Math.max(0, active - 1));
+            }}
+            disabled={active === 0}
+            className="text-[10px] font-medium tracking-[0.2em] uppercase text-sandstone-500/40 hover:text-sandstone-500 transition-colors duration-300 disabled:opacity-20 disabled:hover:text-sandstone-500/40 flex items-center gap-2 group"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="group-hover:-translate-x-1 transition-transform duration-300"
+            >
+              <path d="M19 12H5M12 5l-7 7 7 7" />
+            </svg>
+            Prev
+          </button>
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setActive(Math.min(milestones.length - 1, active + 1));
+            }}
+            disabled={active === milestones.length - 1}
+            className="text-[10px] font-medium tracking-[0.2em] uppercase text-sandstone-500/40 hover:text-sandstone-500 transition-colors duration-300 disabled:opacity-20 disabled:hover:text-sandstone-500/40 flex items-center gap-2 group"
+          >
+            Next
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="group-hover:translate-x-1 transition-transform duration-300"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
       </div>
     </section>
