@@ -119,7 +119,7 @@ export const InvestHero = () => {
             <div className="my-5 flex flex-col items-center lg:items-start lg:pt-[5vw] lg:pb-[8vw]">
 
               <h1 ref={titleRef} className="ih-hero-title text-4xl md:text-6xl lg:text-[80px] font-cormorant font-light leading-[52px] md:leading-[72px] lg:leading-[92px] tracking-tight text-center lg:text-left m-0">
-                Invest in the future <br/>of housing
+                Invest in the future <br />of housing
               </h1>
             </div>
           </div>
@@ -159,7 +159,7 @@ export const InvestHero = () => {
           <div className="col-start-2 lg:col-start-[14] col-end-6 lg:col-end-[18] row-start-3 lg:row-start-1 row-end-4 lg:row-end-3 mb-[45vw] lg:mb-[17vw] self-end z-20 lg:-translate-y-12">
             <div className="motionComponent relative aspect-square w-full">
               <Image
-                src="/images/AdobeStock_815248903.jpeg"
+                src="/images/pexels-pixabay-221540.jpg"
                 className="object-cover rounded-lg shadow-2xl"
                 alt="Secondary Card"
                 fill
@@ -173,7 +173,7 @@ export const InvestHero = () => {
           <div className="col-start-3 lg:col-start-[16] col-end-[23] row-start-3 lg:row-start-1 row-end-4 lg:row-end-3 self-end pt-32 lg:pt-0 z-10 lg:-translate-y-12">
             <div className="motionComponent relative aspect-[3/2] w-full">
               <Image
-                src="/images/AdobeStock_610237900.jpeg"
+                src="/images/pexels-vlada-karpovich-7433837.jpg"
                 className="object-cover rounded-lg shadow-xl"
                 alt="Main Card"
                 fill
