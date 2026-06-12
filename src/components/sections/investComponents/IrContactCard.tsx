@@ -95,18 +95,18 @@ export const IrContactCard = () => {
           <div className="relative z-10">
 
             {/* Original heading */}
-            <h2 className="mb-6 font-cormorant text-4xl font-normal leading-[1.05] tracking-[-0.02em] text-sandstone-500 md:text-5xl">
-              Contact Investor Relations
+            <h2 className="mb-4 font-cormorant text-4xl font-normal leading-[40px] md:leading-[60px] tracking-tight text-sandstone-500 md:text-5xl">
+              Contact <span className="not-italic text-[#FF6136]">Investor Relations</span>
             </h2>
 
             {/* Original paragraph */}
-            <p className="mb-12 max-w-[500px] font-albert text-base font-light leading-relaxed text-sandstone-500 md:text-lg">
+            <p className="mb-12 max-w-[500px] font-albert text-base font-light leading-[28px] md:leading-[30px] text-sandstone-500 md:text-lg">
               Our investor relations team is available to answer questions, walk through the data room, and arrange a direct conversation with leadership.
             </p>
 
             {/* Premium info rows */}
             <div className="mb-12 space-y-4">
-              <div className="group rounded-[24px] border border-sandstone-300/25 bg-white/30 px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.28)] transition-all duration-300 hover:border-sandstone-400/40 hover:bg-white/40">
+              <div className="group rounded-2xl border border-[#FF6136]/10 bg-white/30 px-5 py-5 transition-all duration-300 hover:border-sandstone-400/40 hover:bg-white/40">
                 <div className="flex items-start gap-4">
                   <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#FF6136]/20 bg-[#FF6136]/8">
                     <Mail className="h-4 w-4 text-[#FF6136]" strokeWidth={1.5} />
@@ -127,7 +127,7 @@ export const IrContactCard = () => {
                 </div>
               </div>
 
-              <div className="group rounded-[24px] border border-sandstone-300/25 bg-white/30 px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.28)] transition-all duration-300 hover:border-sandstone-400/40 hover:bg-white/40">
+              <div className="group rounded-2xl border border-[#FF6136]/10 bg-white/30 px-5 py-5 transition-all duration-300 hover:border-sandstone-400/40 hover:bg-white/40">
                 <div className="flex items-start gap-4">
                   <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#FF6136]/20 bg-[#FF6136]/8">
                     <Globe className="h-4 w-4 text-[#FF6136]" strokeWidth={1.5} />
@@ -150,7 +150,7 @@ export const IrContactCard = () => {
                 </div>
               </div>
 
-              <div className="group rounded-[24px] border border-sandstone-300/25 bg-white/30 px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.28)] transition-all duration-300 hover:border-sandstone-400/40 hover:bg-white/40">
+              <div className="group rounded-2xl border border-[#FF6136]/10 bg-white/30 px-5 py-5 transition-all duration-300 hover:border-sandstone-400/40 hover:bg-white/40">
                 <div className="flex items-start gap-4">
                   <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#FF6136]/20 bg-[#FF6136]/8">
                     <MapPin className="h-4 w-4 text-[#FF6136]" strokeWidth={1.5} />
