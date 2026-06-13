@@ -14,7 +14,7 @@ import { Footer } from "@/components/layout/Footer";
 
 export default function CommunitiesPage() {
   return (
-      <main className="bg-sandstone-200">
+      <main className="bg-sandstone-200" style={{ '--radial-gradient-color': '170, 61, 173' } as React.CSSProperties}>
         <CHero />
         <COutcomes />
         <CSteward />

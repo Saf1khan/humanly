@@ -18,7 +18,7 @@ const milestones = [
     subtitle: "Flagship launch",
     desc: "Break ground on our flagship master-planned community — 5,000+ units, 1,000+ acres, Texas workforce market.",
     status: "Active",
-    color: "#FF6136",
+    color: "rgb(var(--radial-gradient-color))",
     metric: "5,000+",
     metricLabel: "homes planned",
     image: "/images/AdobeStock_1715809262.jpeg",
@@ -172,8 +172,13 @@ export const MilestoneRoadmap = () => {
         className="absolute inset-0 pointer-events-none z-0"
         style={{ y: bgGridY, scale: 1.1 }}
       >
-        {/* Transparent backdrop filter to retain the premium feel without solid colors */}
-        <div className="absolute inset-0 backdrop-blur-sm" />
+        <div
+          className="absolute pointer-events-none right-0 top-1/3 translate-x-1/2 -translate-y-1/4 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)] opacity-[0.8]"
+          style={{
+            background:
+              "radial-gradient(50% 50%, rgba(var(--radial-gradient-color, 255, 97, 54), 0.20), rgba(var(--radial-gradient-color, 255, 97, 54), 0.03) 50%, rgba(var(--radial-gradient-color, 255, 97, 54), 0))",
+          }}
+        />
 
         {/* Film grain effect overlay */}
         <div
@@ -196,7 +201,7 @@ export const MilestoneRoadmap = () => {
           className="mb-24 flex flex-col items-center md:items-start text-center md:text-left gap-4"
         >
           <h2 className="font-cormorant text-3xl md:text-5xl text-sandstone-500 leading-[40px] md:leading-[60px] tracking-tight font-noraml">
-            The Path to<span className="not-italic font-light text-[#FF6136]"> Scale</span>
+            The Path to<span className="not-italic font-light text-[rgb(var(--radial-gradient-color))]"> Scale</span>
           </h2>
           <p className="max-w-4xl text-base md:text-lg font-light font-albert leading-[28px] md:leading-[30px] text-sandstone-500">
             A disciplined, milestone-driven progression from our Texas
@@ -254,7 +259,7 @@ export const MilestoneRoadmap = () => {
                       animate={{
                         scale: isCurrent ? 1 : 0.5,
                         backgroundColor: isCurrent
-                          ? "#FF6136"
+                          ? "rgb(var(--radial-gradient-color))"
                           : isPast
                             ? "rgba(74, 71, 65, 0.4)"
                             : "rgba(74, 71, 65, 0.15)",
@@ -302,8 +307,8 @@ export const MilestoneRoadmap = () => {
         {/* ── DETAIL PANEL (Parallax Monolithic Effect) ── */}
         <motion.div
           ref={panelRef}
-          className="relativ bg-[#101d2d]/60 border border-white/5 overflow-hidden backdrop-blur-md rounded-[24px] text-white shadow-[0_25px_60px_-15px_rgba(255,97,54,0.25)]"
-          style={{ minHeight: "340px", }}
+          className="relativ bg-[#101d2d]/60 border border-white/5 overflow-hidden backdrop-blur-md rounded-[24px] text-white"
+          style={{ minHeight: "340px", boxShadow: `0 25px 60px -15px rgba(var(--radial-gradient-color), 0.25)` }}
           initial={{ opacity: 0, y: 40, scale: 0.97 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: "-40px" }}
@@ -352,7 +357,7 @@ export const MilestoneRoadmap = () => {
                       Phase 0{active + 1}
                     </p>
                   </div>
-                  <h3 className="font-bodoni text-3xl md:text-4xl text-[#FF6136] font-normal tracking-widest mb-2">
+                  <h3 className="font-bodoni text-3xl md:text-4xl text-[rgb(var(--radial-gradient-color))] font-normal tracking-widest mb-2">
                     {ms.year}
                   </h3>
                 </div>
@@ -384,7 +389,7 @@ export const MilestoneRoadmap = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.25, duration: 2, ease: EASE }}
                 >
-                  <h4 className="font-cormorant text-2xl md:text-3xl font-bold text-[#FF6136] mb-6">
+                  <h4 className="font-cormorant text-2xl md:text-3xl font-bold text-[rgb(var(--radial-gradient-color))] mb-6">
                     {ms.title}
                   </h4>
                   <div className="h-[1px] w-12 bg-white/60 mb-6" />
@@ -394,7 +399,7 @@ export const MilestoneRoadmap = () => {
 
                   {/* Incorporating current milestone metrics into the new premium card */}
                   <div className="flex flex-col">
-                    <span className="text-3xl md:text-4xl font-albert font-light text-[#FF6136]">{ms.metric}</span>
+                    <span className="text-3xl md:text-4xl font-albert font-light text-[rgb(var(--radial-gradient-color))]">{ms.metric}</span>
                     <span className="text-[10px] font-light font-albert uppercase tracking-[0.2em] text-white mt-2">{ms.metricLabel}</span>
                   </div>
                 </motion.div>

@@ -79,7 +79,15 @@ export const MetricsCards = () => {
 
   return (
     <section className="relative overflow-x-clip bg-transparent py-16 sm:py-20">
-      <div className="pointer-events-none absolute inset-0" />
+      <div className="pointer-events-none absolute inset-0">
+        <div
+          className="absolute pointer-events-none left-0 bottom-1/5 -translate-x-1/2 translate-y-1/3 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)] opacity-[0.8]"
+          style={{
+            background:
+              "radial-gradient(50% 50%, rgba(var(--radial-gradient-color, 255, 97, 54), 0.20), rgba(var(--radial-gradient-color, 255, 97, 54), 0.06) 50%, rgba(var(--radial-gradient-color, 255, 97, 54), 0))",
+          }}
+        />
+      </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 sm:px-6 md:px-12 lg:px-16">
         <motion.div
@@ -112,7 +120,7 @@ export const MetricsCards = () => {
               className="space-y-3"
             >
 
-              <div className="relative aspect-square w-full overflow-hidden rounded-[1.35rem] bg-[rgba(255,97,54,0.12)]">
+              <div className="relative aspect-square w-full overflow-hidden rounded-[1.35rem]" style={{ backgroundColor: `rgba(var(--radial-gradient-color), 0.12)` }}>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_5%,rgba(74,58,57,0.28)_0,transparent_30%),radial-gradient(circle_at_90%_40%,rgba(92,73,62,0.30)_0,transparent_30%),radial-gradient(circle_at_5%_80%,rgba(70,57,56,0.26)_0,transparent_30%),radial-gradient(circle_at_90%_70%,rgba(93,71,61,0.22)_0,transparent_20%),radial-gradient(circle_at_60%_99%,rgba(98,63,62,0.20)_0,transparent_30%)]" />
 
                 <div className="absolute inset-[13%] rounded-[1.1rem] border border-white/45 bg-white/34 shadow-[inset_0_1px_0_rgba(255,255,255,0.55),0_18px_40px_rgba(61,43,36,0.10)] backdrop-blur-2xl">
@@ -153,13 +161,13 @@ export const MetricsCards = () => {
                 className="min-w-0 flex-1"
               >
                 <div className="space-y-3">
-                  <div className="relative aspect-square w-full overflow-hidden rounded-[1.5rem] bg-[rgba(255,97,54,0.10)]">
+                  <div className="relative aspect-square w-full overflow-hidden rounded-[1.5rem]" style={{ backgroundColor: `rgba(var(--radial-gradient-color), 0.10)` }}>
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_5%,rgba(92,74,73,0.26)_0,transparent_30%),radial-gradient(circle_at_90%_40%,rgba(109,85,74,0.28)_0,transparent_30%),radial-gradient(circle_at_5%_80%,rgba(84,69,67,0.24)_0,transparent_30%),radial-gradient(circle_at_90%_70%,rgba(111,84,72,0.18)_0,transparent_20%),radial-gradient(circle_at_60%_99%,rgba(109,71,70,0.16)_0,transparent_30%)]" />
 
                     <div className="absolute inset-[16%] rounded-[1.15rem] border border-white/45 bg-white/34 shadow-[inset_0_1px_0_rgba(255,255,255,0.55),0_18px_40px_rgba(61,43,36,0.10)] backdrop-blur-2xl">
                       <div className="absolute inset-0 rounded-[inherit] bg-[linear-gradient(180deg,rgba(255,255,255,0.34),rgba(255,255,255,0.14))]" />
                       <div className="absolute left-[12%] top-[10%] h-14 w-14 rounded-full bg-white/20 blur-3xl" />
-                      <div className="absolute bottom-[12%] right-[10%] h-16 w-16 rounded-full bg-[#FF6136]/10 blur-3xl" />
+                      <div className="absolute bottom-[12%] right-[10%] h-16 w-16 rounded-full bg-[rgba(var(--radial-gradient-color),0.1)] blur-3xl" />
 
                       <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-5 md:p-6">
                         <div className="max-w-[10rem] text-center">
@@ -184,7 +192,7 @@ export const MetricsCards = () => {
           <div className="lg:col-span-7 xl:col-span-7">
             <div className="flex h-full flex-col pb-16">
               <h2 className="order-1 text-4xl font-display font-cormorant font-normal leading-[1.08] tracking-tight text-sandstone-500 md:text-5xl">
-                Investment <span className="not-italic text-[#FF6136]">Stats</span>
+                Investment <span className="not-italic text-[rgb(var(--radial-gradient-color))]">Stats</span>
               </h2>
 
               <div className="order-2 mt-auto">
@@ -231,7 +239,7 @@ export const MetricsCards = () => {
                             }`}
                         >
                           <h3
-                            className={`text-2xl font-display font-light font-cormorant leading-tight tracking-tight md:text-4xl ${isActive ? "text-[#FF6136]" : "text-sandstone-500"
+                            className={`text-2xl font-display font-light font-cormorant leading-tight tracking-tight md:text-4xl ${isActive ? "text-[rgb(var(--radial-gradient-color))]" : "text-sandstone-500"
                               }`}
                           >
                             {item.title}
@@ -287,13 +295,13 @@ export const MetricsCards = () => {
               tabIndex={0}
               className="w-full"
             >
-              <div className="relative aspect-square w-full overflow-hidden rounded-[1.9rem] bg-[rgba(255,97,54,0.10)]">
+              <div className="relative aspect-square w-full overflow-hidden rounded-[1.9rem]" style={{ backgroundColor: `rgba(var(--radial-gradient-color), 0.10)` }}>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_5%,rgba(92,74,73,0.26)_0,transparent_30%),radial-gradient(circle_at_90%_40%,rgba(109,85,74,0.28)_0,transparent_30%),radial-gradient(circle_at_5%_80%,rgba(84,69,67,0.24)_0,transparent_30%),radial-gradient(circle_at_90%_70%,rgba(111,84,72,0.18)_0,transparent_20%),radial-gradient(circle_at_60%_99%,rgba(109,71,70,0.16)_0,transparent_30%)]" />
 
                 <div className="absolute inset-[22%] rounded-[1.4rem] border border-white/45 bg-white/34">
                   <div className="absolute inset-0 rounded-[inherit] bg-[linear-gradient(180deg,rgba(255,255,255,0.34),rgba(255,255,255,0.14))]" />
                   <div className="absolute left-[12%] top-[10%] h-20 w-20 rounded-full bg-white/20 blur-3xl" />
-                  <div className="absolute bottom-[12%] right-[10%] h-24 w-24 rounded-full bg-[#FF6136]/10 blur-3xl" />
+                  <div className="absolute bottom-[12%] right-[10%] h-24 w-24 rounded-full bg-[rgba(var(--radial-gradient-color),0.1)] blur-3xl" />
 
                   <AnimatePresence mode="wait" initial={false}>
                     <motion.div

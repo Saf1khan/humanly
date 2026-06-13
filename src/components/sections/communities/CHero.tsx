@@ -60,7 +60,7 @@ export const CHero = () => {
       <style>{`
         .wh-hero-title {
           /* Premium vibrant violet text color */
-          color: rgb(170, 61, 173);
+          color: rgb(var(--radial-gradient-color, 170, 61, 173));
           text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
           font-family: "Cormorant Garamond", Georgia, serif;
           /* Hidden until SplitType finishes — prevents layout flash on reload */
@@ -106,17 +106,17 @@ export const CHero = () => {
           z-index: 1;
           background-image: 
             /* top Left - Custom Violet */
-            radial-gradient(circle at 0% 20%, rgba(170, 61, 173, 0.30) 0%, transparent 20%),
+            radial-gradient(circle at 0% 20%, rgba(var(--radial-gradient-color, 170, 61, 173), 0.30) 0%, transparent 20%),
             /* Mobile header readability gradient */
             linear-gradient(to bottom, rgb(247, 241, 232) 0%, transparent 100%),
             /* Middle Right - Custom Violet */
-            radial-gradient(circle at 99% 40%, rgba(170, 61, 173, 0.3) 0%, transparent 40%),
+            radial-gradient(circle at 99% 40%, rgba(var(--radial-gradient-color, 170, 61, 173), 0.3) 0%, transparent 40%),
             /* Center Highlight - Bright White */
-            radial-gradient(circle at 60% 50%, rgb(170, 61, 173, 0.30) 0%, transparent 30%),
+            radial-gradient(circle at 60% 50%, rgba(var(--radial-gradient-color, 170, 61, 173), 0.30) 0%, transparent 30%),
             /* Bottom Left - Custom Violet Muted Tone */
-            radial-gradient(circle at 10% 90%, rgba(170, 61, 173, 0.15) 0%, transparent 70%),
+            radial-gradient(circle at 10% 90%, rgba(var(--radial-gradient-color, 170, 61, 173), 0.15) 0%, transparent 70%),
             /* Bottom Right - Custom Violet Muted Tone */
-            radial-gradient(circle at 90% 70%, rgba(170, 61, 173, 0.35) 0%, transparent 10%);
+            radial-gradient(circle at 90% 70%, rgba(var(--radial-gradient-color, 170, 61, 173), 0.35) 0%, transparent 10%);
         }
       `}</style>
 
@@ -141,7 +141,7 @@ export const CHero = () => {
 
               <div className="w-full text-center lg:text-left lg:relative lg:block">
                 <div ref={btnRevealRef} className="wh-btn-reveal">
-                  <p className="text-base md:text-lg text-[rgba(170,61,173)]/80 font-light text-pretty m-0 mb-4">
+                  <p className="text-base md:text-lg text-[rgba(var(--radial-gradient-color,170,61,173))]/80 font-light text-pretty m-0 mb-4">
                     "Humanly® empowers second chances and brilliant starts
                     for those left behind by the housing crisis."
                     Our master-planned communities integrate

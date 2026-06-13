@@ -77,7 +77,7 @@ export const IrContactCard = () => {
               className="absolute right-0 top-0 -translate-x-[50%] -translate-y-[28%] w-[clamp(22rem,10rem+34vw,34rem)] h-[clamp(22rem,10rem+34vw,34rem)] opacity-[0.9]"
               style={{
                 background:
-                  "radial-gradient(50% 50%, rgba(255, 97, 54, 0.06), rgba(255, 97, 54, 0.03) 52%, rgba(255, 97, 54, 0))",
+                  "radial-gradient(50% 50%, rgba(var(--radial-gradient-color, 255, 97, 54), 0.06), rgba(var(--radial-gradient-color, 255, 97, 54), 0.03) 52%, rgba(var(--radial-gradient-color, 255, 97, 54), 0))",
               }}
             />
 
@@ -85,7 +85,7 @@ export const IrContactCard = () => {
               className="absolute bottom-0 left-0 -translate-x-[28%] translate-y-[28%] w-[clamp(22rem,10rem+34vw,34rem)] h-[clamp(22rem,10rem+34vw,34rem)] opacity-[0.8]"
               style={{
                 background:
-                  "radial-gradient(50% 50%, rgba(255, 97, 54, 0.05), rgba(255, 97, 54, 0.02) 52%, rgba(255, 97, 54, 0))",
+                  "radial-gradient(50% 50%, rgba(var(--radial-gradient-color, 255, 97, 54), 0.05), rgba(var(--radial-gradient-color, 255, 97, 54), 0.02) 52%, rgba(var(--radial-gradient-color, 255, 97, 54), 0))",
               }}
             />
 
@@ -96,7 +96,7 @@ export const IrContactCard = () => {
 
             {/* Original heading */}
             <h2 className="mb-4 font-cormorant text-4xl font-normal leading-[40px] md:leading-[60px] tracking-tight text-sandstone-500 md:text-5xl">
-              Contact <span className="not-italic text-[#FF6136]">Investor Relations</span>
+              Contact <span className="not-italic text-[rgb(var(--radial-gradient-color))]">Investor Relations</span>
             </h2>
 
             {/* Original paragraph */}
@@ -106,10 +106,10 @@ export const IrContactCard = () => {
 
             {/* Premium info rows */}
             <div className="mb-12 space-y-4">
-              <div className="group rounded-2xl border border-[#FF6136]/10 bg-white/30 px-5 py-5 transition-all duration-300 hover:border-sandstone-400/40 hover:bg-white/40">
+              <div className="group rounded-2xl border border-[rgba(var(--radial-gradient-color),0.1)] bg-white/30 px-5 py-5 transition-all duration-300 hover:border-sandstone-400/40 hover:bg-white/40">
                 <div className="flex items-start gap-4">
-                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#FF6136]/20 bg-[#FF6136]/8">
-                    <Mail className="h-4 w-4 text-[#FF6136]" strokeWidth={1.5} />
+                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[rgba(var(--radial-gradient-color),0.2)] bg-[rgba(var(--radial-gradient-color),0.08)]">
+                    <Mail className="h-4 w-4 text-[rgb(var(--radial-gradient-color))]" strokeWidth={1.5} />
                   </div>
                   <div className="min-w-0">
                     <div className="mb-1 text-xs font-bold font-albert uppercase tracking-widest text-sandstone-500">
@@ -118,7 +118,7 @@ export const IrContactCard = () => {
                     <div className="break-all">
                       <a
                         href="mailto:investors@humanly.com"
-                        className="text-[#FF6136] font-albert font-medium text-base transition-colors duration-300 hover:text-[#ff7a55]"
+                        className="text-[rgb(var(--radial-gradient-color))] font-albert font-medium text-base transition-colors duration-300 hover:text-[#ff7a55]"
                       >
                         investors@humanly.com
                       </a>
@@ -127,10 +127,10 @@ export const IrContactCard = () => {
                 </div>
               </div>
 
-              <div className="group rounded-2xl border border-[#FF6136]/10 bg-white/30 px-5 py-5 transition-all duration-300 hover:border-sandstone-400/40 hover:bg-white/40">
+              <div className="group rounded-2xl border border-[rgba(var(--radial-gradient-color),0.1)] bg-white/30 px-5 py-5 transition-all duration-300 hover:border-sandstone-400/40 hover:bg-white/40">
                 <div className="flex items-start gap-4">
-                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#FF6136]/20 bg-[#FF6136]/8">
-                    <Globe className="h-4 w-4 text-[#FF6136]" strokeWidth={1.5} />
+                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[rgba(var(--radial-gradient-color),0.2)] bg-[rgba(var(--radial-gradient-color),0.08)]">
+                    <Globe className="h-4 w-4 text-[rgb(var(--radial-gradient-color))]" strokeWidth={1.5} />
                   </div>
                   <div className="min-w-0">
                     <div className="mb-1 text-xs font-bold uppercase tracking-widest text-sandstone-500">
@@ -141,7 +141,7 @@ export const IrContactCard = () => {
                         href="https://humanly.us"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-medium text-base text-[#FF6136] font-albert transition-colors duration-300 hover:text-[#ff7a55]"
+                        className="font-medium text-base text-[rgb(var(--radial-gradient-color))] font-albert transition-colors duration-300 hover:text-[#ff7a55]"
                       >
                         humanly.us
                       </a>
@@ -150,16 +150,16 @@ export const IrContactCard = () => {
                 </div>
               </div>
 
-              <div className="group rounded-2xl border border-[#FF6136]/10 bg-white/30 px-5 py-5 transition-all duration-300 hover:border-sandstone-400/40 hover:bg-white/40">
+              <div className="group rounded-2xl border border-[rgba(var(--radial-gradient-color),0.1)] bg-white/30 px-5 py-5 transition-all duration-300 hover:border-sandstone-400/40 hover:bg-white/40">
                 <div className="flex items-start gap-4">
-                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#FF6136]/20 bg-[#FF6136]/8">
-                    <MapPin className="h-4 w-4 text-[#FF6136]" strokeWidth={1.5} />
+                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[rgba(var(--radial-gradient-color),0.2)] bg-[rgba(var(--radial-gradient-color),0.08)]">
+                    <MapPin className="h-4 w-4 text-[rgb(var(--radial-gradient-color))]" strokeWidth={1.5} />
                   </div>
                   <div className="min-w-0">
                     <div className="mb-1 text-xs font-bold uppercase tracking-widest text-sandstone-500">
                       Office
                     </div>
-                    <div className="text-base font-albert font-medium text-[#FF6136]">
+                    <div className="text-base font-albert font-medium text-[rgb(var(--radial-gradient-color))]">
                       Dallas, Texas, US
                     </div>
                   </div>
@@ -167,20 +167,19 @@ export const IrContactCard = () => {
               </div>
             </div>
 
-            {/* Original CTA text preserved */}
             <div className="flex flex-wrap gap-5 justify-center md:justify-start">
               <a
                 href="https://calendly.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl border border-[#FF6136]/30 bg-sandstone-100/60 px-10 py-4 font-bold text-sandstone-700 shadow-md backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#FF6136]/70 hover:text-[#FF6136] hover:shadow-[0_8px_30px_-6px_rgba(255,97,54,0.35)]"
+                className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl border border-[rgba(var(--radial-gradient-color),0.3)] bg-sandstone-100/60 px-10 py-4 font-bold text-sandstone-700 shadow-md backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(var(--radial-gradient-color),0.7)] hover:text-[rgb(var(--radial-gradient-color))] hover:shadow-[0_8px_30px_-6px_rgba(var(--radial-gradient-color),0.35)]"
               >
-                <span className="absolute inset-0 rounded-xl bg-[#FF6136]/0 transition-all duration-300 group-hover:bg-[#FF6136]/8" />
+                <span className="absolute inset-0 rounded-xl bg-transparent transition-all duration-300 group-hover:bg-[rgba(var(--radial-gradient-color),0.08)]" />
                 <Calendar
                   className="relative z-10 h-5 w-5 transition-colors duration-300"
                   strokeWidth={1.5}
                 />
-                <span className="relative text-sandstone-500 font-albert font-semibold z-10 group-hover:text-[#FF6136]">Schedule a Call</span>
+                <span className="relative text-sandstone-500 font-albert font-semibold z-10 group-hover:text-[rgb(var(--radial-gradient-color))]">Schedule a Call</span>
               </a>
             </div>
           </div>

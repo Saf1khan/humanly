@@ -13,7 +13,7 @@ import { DataRoomForm } from "@/components/features/DataRoomForm";
 
 export default function HomeV2() {
   return (
-    <div className="min-h-screen bg-sandstone-200">
+    <div className="min-h-screen bg-sandstone-200" style={{ '--radial-gradient-color': '107, 206, 255' } as React.CSSProperties}>
       <main>
         <Hero />
         <ProblemMissionSection />

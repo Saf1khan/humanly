@@ -59,7 +59,7 @@ export const InvestHero = () => {
     >
       <style>{`
         .ih-hero-title {
-          color: #FF6136;
+          color: rgb(var(--radial-gradient-color));
           text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
           opacity: 0;
           -webkit-font-smoothing: antialiased;
@@ -92,24 +92,26 @@ export const InvestHero = () => {
         }
 
         .ih-hero-container::before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          opacity: 0.8;
-          z-index: 1;
-          background-image:
-            radial-gradient(circle at 0% 20%, rgba(255, 97, 54, 0.30) 0%, transparent 20%),
-            linear-gradient(to bottom, rgb(247, 241, 232) 0%, transparent 100%),
-            radial-gradient(circle at 99% 40%, rgba(255, 97, 54, 0.3) 0%, transparent 40%),
-            radial-gradient(circle at 60% 50%, rgba(255, 97, 54, 0.30) 0%, transparent 30%),
-            radial-gradient(circle at 10% 90%, rgba(255, 97, 54, 0.15) 0%, transparent 70%),
-            radial-gradient(circle at 90% 70%, rgba(255, 97, 54, 0.35) 0%, transparent 10%);
+          content: none;
         }
       `}</style>
 
       {/* Hero Container */}
       <div className="ih-hero-container hero-container relative flex-grow rounded-b-[12px] lg:rounded-b-xl overflow-hidden flex flex-col">
+        {/* Radial gradient overlay — reads from CSS variable */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-80 z-[1]"
+          style={{
+            backgroundImage: [
+              `radial-gradient(circle at 0% 20%, rgba(var(--radial-gradient-color), 0.30) 0%, transparent 20%)`,
+              `linear-gradient(to bottom, rgb(247, 241, 232) 0%, transparent 100%)`,
+              `radial-gradient(circle at 99% 40%, rgba(var(--radial-gradient-color), 0.30) 0%, transparent 40%)`,
+              `radial-gradient(circle at 60% 50%, rgba(var(--radial-gradient-color), 0.30) 0%, transparent 30%)`,
+              `radial-gradient(circle at 10% 90%, rgba(var(--radial-gradient-color), 0.15) 0%, transparent 70%)`,
+              `radial-gradient(circle at 90% 70%, rgba(var(--radial-gradient-color), 0.35) 0%, transparent 10%)`,
+            ].join(", "),
+          }}
+        />
 
         {/* Content Grid (The Wrapper) */}
         <div className="grid grid-cols-[minmax(1rem,1fr)_repeat(22,minmax(0,1fr))_minmax(1rem,1fr)] lg:grid-cols-[64px_repeat(22,minmax(0,1fr))_64px] grid-rows-[auto_auto] gap-y-0 gap-x-2 relative w-full pt-24 pb-16 min-h-[600px] items-end z-10 lg:grow">
@@ -130,7 +132,7 @@ export const InvestHero = () => {
 
               <div className="w-full text-center lg:text-left lg:relative lg:block">
                 <div ref={btnRevealRef} className="ih-btn-reveal">
-                  <p className="text-base md:text-lg text-[rgba(255,97,54)]/80 font-light text-pretty m-0 mb-6">
+                  <p className="text-base md:text-lg font-light text-pretty m-0 mb-6" style={{ color: `rgba(var(--radial-gradient-color), 0.80)` }}>
                     Humanly® is right now raising capital to build the first vertically integrated AI-native workforce housing platform in America. Series A — Texas Flagship groundbreaking 2026.
                   </p>
 
@@ -138,13 +140,13 @@ export const InvestHero = () => {
                   <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
                     <a
                       href="#dataroom"
-                      className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl bg-[#FF6136]/95 text-white font-bold hover:bg-[#ff7a55] transition-all hover:-translate-y-0.5 shadow-xl shadow-orange-950/30 text-sm"
+                      className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl bg-[rgba(var(--radial-gradient-color),0.95)] text-white font-bold hover:bg-[#ff7a55] transition-all hover:-translate-y-0.5 shadow-xl shadow-orange-950/30 text-sm"
                     >
                       Request Access ↗
                     </a>
                     <a
                       href="#ir-contact"
-                      className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl border border-[#FF6136]/30 bg-[#FF6136]/5 text-[#FF6136] font-semibold hover:border-[#FF6136]/60 hover:bg-[#FF6136]/10 transition-all text-sm"
+                      className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl border border-[rgba(var(--radial-gradient-color),0.3)] bg-[rgba(var(--radial-gradient-color),0.05)] text-[rgb(var(--radial-gradient-color))] font-semibold hover:border-[rgba(var(--radial-gradient-color),0.6)] hover:bg-[rgba(var(--radial-gradient-color),0.1)] transition-all text-sm"
                     >
                       Schedule a Call
                     </a>

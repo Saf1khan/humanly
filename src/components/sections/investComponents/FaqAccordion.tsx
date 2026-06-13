@@ -142,8 +142,8 @@ const FaqItem = ({ faq, idx, isOpen, onToggle }: FaqItemProps) => {
           <div className="flex items-start gap-4 md:gap-6">
             <span
               className={`mt-1.5 font-albert text-xs font-normal tracking-wider transition-colors duration-300 md:text-sm ${isOpen
-                  ? "text-[#FF6136]"
-                  : "text-sandstone-500/40 group-hover:text-[#FF6136]/70"
+                  ? "text-[rgb(var(--radial-gradient-color))]"
+                  : "text-sandstone-500/40 group-hover:text-[rgba(var(--radial-gradient-color),0.7)]"
                 }`}
             >
               {indexStr}
@@ -160,8 +160,8 @@ const FaqItem = ({ faq, idx, isOpen, onToggle }: FaqItemProps) => {
           </div>
 
           <span
-            className={`relative mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-[#FF6136]/15 transition-all duration-300 ${isOpen
-                ? "border-[#FF6136]/30 bg-gradient-to-br from-[#FF6136]/10 to-transparent text-[#FF6136]"
+            className={`relative mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-[rgba(var(--radial-gradient-color),0.15)] transition-all duration-300 ${isOpen
+                ? "border-[rgba(var(--radial-gradient-color),0.3)] bg-gradient-to-br from-[rgba(var(--radial-gradient-color),0.1)] to-transparent text-[rgb(var(--radial-gradient-color))]"
                 : "border-sandstone-400/30 bg-transparent text-sandstone-500/50 group-hover:border-sandstone-400/60 group-hover:text-sandstone-600"
               }`}
           >
@@ -219,7 +219,7 @@ export const FaqAccordion = () => {
             className="absolute pointer-events-none left-[10%] top-[20%] -translate-x-1/2 -translate-y-1/2 w-[clamp(30rem,10rem+70vw,72rem)] h-[clamp(18rem,7rem+42vw,44rem)] opacity-[0.8]"
             style={{
               background:
-                "radial-gradient(50% 50%, rgba(255, 97, 54, 0.09), rgba(255, 97, 54, 0.04) 50%, rgba(255, 97, 54, 0))",
+                "radial-gradient(50% 50%, rgba(var(--radial-gradient-color, 255, 97, 54), 0.09), rgba(var(--radial-gradient-color, 255, 97, 54), 0.04) 50%, rgba(var(--radial-gradient-color, 255, 97, 54), 0))",
             }}
           />
 
@@ -227,7 +227,7 @@ export const FaqAccordion = () => {
             className="absolute pointer-events-none right-[10%] bottom-[20%] translate-x-1/2 translate-y-1/2 w-[clamp(30rem,10rem+70vw,72rem)] h-[clamp(18rem,7rem+42vw,44rem)] opacity-[0.75]"
             style={{
               background:
-                "radial-gradient(50% 50%, rgba(255, 97, 54, 0.08), rgba(255, 97, 54, 0.03) 50%, rgba(255, 97, 54, 0))",
+                "radial-gradient(50% 50%, rgba(var(--radial-gradient-color, 255, 97, 54), 0.08), rgba(var(--radial-gradient-color, 255, 97, 54), 0.03) 50%, rgba(var(--radial-gradient-color, 255, 97, 54), 0))",
             }}
           />
         </>
@@ -238,7 +238,7 @@ export const FaqAccordion = () => {
           <div className="h-fit lg:sticky lg:top-32">
             <h2 className="mb-6 font-cormorant text-3xl font-normal leading-[40px] tracking-tight md:text-5xl md:leading-[52px]">
               <span className="text-sandstone-600">Frequently Asked</span> <br />
-              <em className="not-italic text-[#FF6136]">Questions</em>
+              <em className="not-italic text-[rgb(var(--radial-gradient-color))]">Questions</em>
             </h2>
 
             <p className="mb-8 text-pretty font-albert text-base font-light leading-[28px] text-sandstone-500 md:text-lg md:leading-[30px]">
@@ -252,7 +252,7 @@ export const FaqAccordion = () => {
               </p>
               <a
                 href="#ir-contact"
-                className="group inline-flex items-center gap-2 font-albert text-sm font-semibold tracking-wider text-[#FF6136]/85 transition-colors hover:text-[#FF6136]"
+                className="group inline-flex items-center gap-2 font-albert text-sm font-semibold tracking-wider text-[rgba(var(--radial-gradient-color),0.85)] transition-colors hover:text-[rgb(var(--radial-gradient-color))]"
               >
                 Contact Investor Relations
                 <span className="inline-block transition-transform group-hover:translate-x-1">

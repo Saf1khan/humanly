@@ -9,7 +9,7 @@ import { Footer } from '@/components/layout/Footer';
 
 export default function InvestPage() {
   return (
-    <main className="min-h-screen bg-sandstone-200">
+    <main className="min-h-screen bg-sandstone-200" style={{ '--radial-gradient-color': '255, 97, 54' } as React.CSSProperties}>
       <InvestHero />
       <MetricsCards />
       <MilestoneRoadmap />
