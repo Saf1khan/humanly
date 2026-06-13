@@ -70,7 +70,7 @@ export const CommunityPreview = () => {
               className="absolute pointer-events-none right-1/3 bottom-1/2 translate-x-1/2 translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)] -z-10"
               style={{
                 background:
-                  "radial-gradient(50% 50%, rgba(107,206,255, 0.20), rgba(107,206,255, 0.1) 50%, rgba(107,206,255, 0))",
+                  "radial-gradient(50% 50%, rgba(var(--radial-gradient-color, 107, 206, 255), 0.20), rgba(var(--radial-gradient-color, 107, 206, 255), 0.1) 50%, rgba(var(--radial-gradient-color, 107, 206, 255), 0))",
               }}
             />
             <motion.div

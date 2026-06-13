@@ -14,7 +14,7 @@ export const CSteward = () => {
         className="absolute pointer-events-none left-0 top-0 h-[clamp(25rem,8.654rem+65.385vw,67.5rem)] w-[clamp(44rem,14.769rem+116.923vw,120rem)] -translate-x-3/4 -translate-y-1/2"
         style={{
           background:
-            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.25), rgba(170, 61, 173, 0.08) 50%, rgba(170, 61, 173, 0))",
+            "radial-gradient(50% 50%, rgba(var(--radial-gradient-color, 170, 61, 173), 0.25), rgba(var(--radial-gradient-color, 170, 61, 173), 0.08) 50%, rgba(var(--radial-gradient-color, 170, 61, 173), 0))",
         }}
       />
 

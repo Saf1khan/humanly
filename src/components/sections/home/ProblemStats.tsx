@@ -87,10 +87,10 @@ export const ProblemMissionSection = () => {
           className="absolute -left-[10%] top-[10%] w-[clamp(20rem,50vw,50rem)] h-[clamp(20rem,50vw,50rem)]"
           style={{
             background:
-              "radial-gradient(50% 50%, rgba(107,206,255, 0.25), rgba(107,206,255, 0.1) 50%, rgba(107,206,255, 0))",
+              "radial-gradient(50% 50%, rgba(var(--radial-gradient-color, 107, 206, 255), 0.25), rgba(var(--radial-gradient-color, 107, 206, 255), 0.1) 50%, rgba(var(--radial-gradient-color, 107, 206, 255), 0))",
           }}
         /> */}
-        
+
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 md:px-12 lg:px-16">
@@ -134,7 +134,7 @@ export const ProblemMissionSection = () => {
                 {item.description}
               </p>
 
-              <div className="relative aspect-square w-full overflow-hidden rounded-[1.75rem] bg-[rgba(107,206,255,0.25)]">
+              <div className="relative aspect-square w-full overflow-hidden rounded-[1.75rem] bg-[rgba(var(--radial-gradient-color,107,206,255),0.25)]">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_5%,rgba(74,58,57,0.28)_0,transparent_30%),radial-gradient(circle_at_90%_40%,rgba(92,73,62,0.30)_0,transparent_30%),radial-gradient(circle_at_5%_80%,rgba(70,57,56,0.26)_0,transparent_30%),radial-gradient(circle_at_90%_70%,rgba(93,71,61,0.22)_0,transparent_20%),radial-gradient(circle_at_60%_99%,rgba(98,63,62,0.20)_0,transparent_30%)]" />
 
                 <div className="absolute inset-[13%] rounded-[1.35rem] border border-white/45 bg-white/34 shadow-[inset_0_1px_0_rgba(255,255,255,0.55),0_18px_40px_rgba(61,43,36,0.10)] backdrop-blur-2xl">
@@ -258,7 +258,7 @@ export const ProblemMissionSection = () => {
               tabIndex={0}
               className="w-full"
             >
-              <div className="relative aspect-square w-full overflow-hidden rounded-[1.9rem] bg-[rgba(107,206,255,0.15)]">
+              <div className="relative aspect-square w-full overflow-hidden rounded-[1.9rem] bg-[rgba(var(--radial-gradient-color,107,206,255),0.10)]">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_5%,rgba(92,74,73,0.26)_0,transparent_30%),radial-gradient(circle_at_90%_40%,rgba(109,85,74,0.28)_0,transparent_30%),radial-gradient(circle_at_5%_80%,rgba(84,69,67,0.24)_0,transparent_30%),radial-gradient(circle_at_90%_70%,rgba(111,84,72,0.18)_0,transparent_20%),radial-gradient(circle_at_60%_99%,rgba(109,71,70,0.16)_0,transparent_30%)]" />
 
                 <div className="absolute inset-[22%] rounded-[1.4rem] border border-white/45 bg-white/34">
@@ -355,8 +355,8 @@ export const ProblemMissionSection = () => {
                     onClick={goToNext}
                     disabled={activeIndex === items.length - 1}
                     className={`flex size-10 items-center justify-center ${activeIndex === items.length - 1
-                        ? "cursor-not-allowed opacity-30"
-                        : ""
+                      ? "cursor-not-allowed opacity-30"
+                      : ""
                       }`}
                   >
                     <svg

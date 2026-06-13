@@ -11,14 +11,14 @@ export const CLease = () => {
         className="absolute pointer-events-none right-0 top-1/5 translate-x-1/2 -translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
         style={{
           background:
-            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.10), rgba(170, 61, 173, 0.05) 50%, rgba(170, 61, 173, 0))",
+            "radial-gradient(50% 50%, rgba(var(--radial-gradient-color, 170, 61, 173), 0.10), rgba(var(--radial-gradient-color, 170, 61, 173), 0.05) 50%, rgba(var(--radial-gradient-color, 170, 61, 173), 0))",
         }}
       />
       <div
         className="absolute pointer-events-none left-0 bottom-0 -translate-x-1/2 translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
         style={{
           background:
-            "radial-gradient(50% 50%, rgba(170, 61, 173, 0.15), rgba(170, 61, 173, 0.05) 50%, rgba(170, 61, 173, 0))",
+            "radial-gradient(50% 50%, rgba(var(--radial-gradient-color, 170, 61, 173), 0.15), rgba(var(--radial-gradient-color, 170, 61, 173), 0.05) 50%, rgba(var(--radial-gradient-color, 170, 61, 173), 0))",
         }}
       />
       <div className="max-w-[1280px] mx-auto px-6 lg:px-0">
