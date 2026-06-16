@@ -51,7 +51,7 @@ const OSFinancialFoundation = () => {
             </p>
             <div className="h-[2px] rounded-full w-[84px] bg-gradient-to-r from-[#1a4f82] via-[#2d7dd2] to-[#d96a2b] mb-8"></div> */}
             
-            <h2 className="font-serif text-[clamp(2.5rem,4vw,3.5rem)] font-normal leading-[1.1] mb-8 text-white text-balance drop-shadow-lg" style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}>
+            <h2 className="font-serif text-[clamp(2.5rem,4vw,3.5rem)] font-normal leading-[1.1] mb-8 text-white text-balance drop-shadow-lg text-center lg:text-left min-[360px]:max-[767px]:text-[36px] min-[360px]:max-[767px]:leading-[48px] min-[360px]:max-[767px]:tracking-normal max-[359px]:text-[28px] md:text-[48px] md:leading-[60px] md:text-center lg:text-left" style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}>
               Your home becomes a foundation for financial literacy, wealth creation, and equity stewardship.
             </h2>
             

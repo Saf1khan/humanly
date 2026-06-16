@@ -143,7 +143,7 @@ const topCardsData = [
   {
     title: 'Community',
     subtitle: 'Consolidated Living',
-    image: '/images/pexels-fotoaibe-1643389.jpg',
+    image: '/images/pexels-anastasia-shuraeva-8466021.jpg',
     color: '#2d7dd2',
     items: [
       { text: 'Smart lock & access control', icon: 'lock' },
@@ -157,7 +157,7 @@ const topCardsData = [
   {
     title: 'Home Buying',
     subtitle: 'Ownership Redefined',
-    image: '/images/pexels-artful-homes-921250275-31663643.jpg',
+    image: '/images/pexels-lukasz-pajzert-643361052-18501298.jpg',
     color: '#4a8fd4',
     items: [
       { text: 'Fractional & full ownership portals', icon: 'home' },
@@ -171,7 +171,7 @@ const topCardsData = [
   {
     title: 'Home Financing',
     subtitle: 'Modern Mortgages',
-    image: '/images/pexels-thirdman-8470773.jpg',
+    image: '/images/pexels-tima-miroshnichenko-4841700.jpg',
     color: '#6aa3d8',
     items: [
       { text: 'AI-assisted instant underwriting', icon: 'cpu' },
@@ -185,7 +185,7 @@ const topCardsData = [
   {
     title: 'Home Insurance',
     subtitle: 'Proactive Protection',
-    image: '/images/pexels-karola-g-4386466.jpg',
+    image: '/images/pexels-vlada-karpovich-7433837.jpg',
     color: '#d96a2b',
     items: [
       { text: 'Instant claim filing & approval', icon: 'zap' },
@@ -308,10 +308,10 @@ const OSTransactionIntegration = () => {
           className="mb-16"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end">
-            <h2 className="font-serif text-[clamp(2.5rem,4vw,3.5rem)] font-normal leading-[1.1] text-white" style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}>
+            <h2 className="font-serif text-[clamp(2.5rem,4vw,3.5rem)] font-normal leading-[1.1] text-white text-center lg:text-left min-[360px]:max-[767px]:text-[36px] min-[360px]:max-[767px]:leading-[48px] min-[360px]:max-[767px]:tracking-normal max-[359px]:text-[28px] md:text-[48px] md:leading-[60px] md:text-center lg:text-left" style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}>
               Transaction Integration
             </h2>
-            <p className="text-[#94a3b8] text-[0.95rem] leading-relaxed font-light max-w-md">
+            <p className="text-[#94a3b8] text-[0.95rem] leading-relaxed font-light max-w-md text-center lg:text-left mx-auto lg:mx-0">
               Every resident payment flows through a single intelligent layer — from home acquisition to daily subscriptions — consolidating revenue across the community ecosystem.
             </p>
           </div>
@@ -338,38 +338,26 @@ const OSTransactionIntegration = () => {
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#16232e] via-[#16232e]/80 to-[#16232e]/30" />
                 </div>
 
                 {/* Card Content Card */}
-                <div className="relative z-10 w-full h-[350px] md:h-[370px] p-6 flex flex-col bg-[#182632]/85 backdrop-blur-xl rounded-xl border border-white/10 transition-all duration-300 group-hover:border-white/20">
+                <div className="relative z-10 w-full h-[310px] md:h-[320px] p-5 flex flex-col bg-gradient-to-t from-stone-700/40 to-stone-700/10 backdrop-blur-md rounded-xl border border-white/15 transition-all duration-300 group-hover:border-white/25">
                   <header className="flex flex-col gap-1 pb-3 border-b border-white/10 mb-4">
                     <h3 className="font-serif text-xl text-white font-normal" style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}>
                       {card.title}
                     </h3>
-                    <p className="text-[0.72rem] text-white/50 tracking-wide font-light">{card.subtitle}</p>
+                    <p className="text-[0.72rem] text-white/50 tracking-wide font-light lg:hidden xl:block">{card.subtitle}</p>
                   </header>
 
-                  <ul className="flex flex-col gap-3.5 mb-6">
+                  <ul className="flex flex-col gap-2.5 mb-4">
                     {card.items.map((item, itemIdx) => (
-                      <li key={itemIdx} className="flex items-start gap-3 text-[0.78rem] text-white/85 leading-snug font-light">
+                      <li key={itemIdx} className="flex items-start gap-2.5 text-[0.74rem] text-white/85 leading-snug font-light">
                         <CardIcon type={item.icon} color="#ffffff" />
                         <span>{item.text}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <div className="mt-auto">
-                    <a
-                      href={card.link}
-                      className="w-full text-[0.75rem] font-semibold text-white/90 border border-white/20 hover:border-white hover:text-white rounded-full py-2.5 flex items-center justify-center gap-2 transition-all bg-transparent cursor-pointer"
-                    >
-                      <span>{card.cta}</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 11 11" className="h-2.5 w-2.5 fill-white">
-                        <path d="M2.486 1.24c0-.396.32-.717.716-.717L9.653.522c.396 0 .718.322.718.717L10.37 7.69a.717.717 0 1 1-1.434 0V2.97L1.24 10.667.225 9.653l7.698-7.697h-4.72a.717.717 0 0 1-.717-.717"></path>
-                      </svg>
-                    </a>
-                  </div>
                 </div>
               </motion.article>
             );

@@ -23,10 +23,10 @@ const OSFinancialFoundationMerged = () => {
           {/* Left Column - Text Content */}
           <div>
             
-            <h2 className="font-serif text-[clamp(2.5rem,4vw,3.5rem)] font-normal leading-[1.1] my-4 text-white text-balance drop-shadow-sm" style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}>
+            <h2 className="font-serif text-[clamp(2.5rem,4vw,3.5rem)] font-normal leading-[1.1] my-4 text-white text-balance drop-shadow-sm text-center md:text-center lg:text-left min-[360px]:max-[767px]:text-[36px] min-[360px]:max-[767px]:leading-[48px] min-[360px]:max-[767px]:tracking-normal max-[359px]:text-[28px] md:text-[48px] md:leading-[60px]" style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}>
               Your home becomes a foundation for financial literacy, wealth creation, and equity stewardship.
             </h2>
-            <p className="text-[1.05rem] text-[#94a3b8] font-light leading-[1.75] text-pretty mt-6">
+            <p className="text-[1.05rem] text-[#94a3b8] font-light leading-[1.75] text-pretty mt-6 text-center lg:text-left mx-auto lg:mx-0 max-w-xl lg:max-w-none">
               The resident outcome is the investor return. Every payment builds equity. Every year builds wealth. Every neighbor strengthens the community. We don't just build homes. We create the conditions for families to build wealth and change their financial trajectory.
             </p>
           </div>
