@@ -7,11 +7,11 @@ export const CommunityPreview = () => {
     <section className="py-24 lg:py-32 bg-transparent relative overflow-x-clip">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative z-10 w-full">
 
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-12">
 
           {/* Left Column */}
           <div className="w-full lg:w-1/2">
-            <div className="h-full min-h-[540px] flex flex-col justify-between">
+            <div className="h-full flex flex-col justify-between">
 
               {/* Top + Middle Content */}
               <motion.div
@@ -19,47 +19,35 @@ export const CommunityPreview = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl md:text-5xl font-cormorant font-light text-sandstone-500 leading-[40px] md:leading-[60px] tracking-tight mb-4">
-                  Flagship Communities.
-                </h2>
-
-                <div className="max-w-xl">
-                  <h3 className="text-xl md:text-2xl font-light font-albert tracking-tight text-sandstone-500 mb-8">
+                <div className="w-full">
+                  <h2 className="text-4xl md:text-5xl font-cormorant font-light text-sandstone-500 leading-[40px] md:leading-[60px] tracking-tight mb-4">
+                    Flagship Communities
+                  </h2>
+                  <h3 className="text-xl md:text-2xl font-light font-albert tracking-tight text-sandstone-500 mb-6">
                     The Launchpad @ North Austin
                   </h3>
-
-                  <p className="text-base md:text-lg text-sandstone-500 font-light font-albert leading-relaxed tracking-normal">
+                </div>
+                <div className="w-full">
+                  {/* Mobile/Tablet view */}
+                  <p className="block lg:hidden text-base md:text-lg text-sandstone-500 font-light font-albert leading-relaxed tracking-normal">
                     Our flagship community features 420 attainably priced units, a 20,000 sq ft Circle of Services® hub, and full HumanlyOS® integration. Designed as a blueprint for the future of workforce living.
                   </p>
-                </div>
-              </motion.div>
-
-              {/* Bottom Stats */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="flex flex-wrap gap-12 pt-10 border-t border-black/10"
-              >
-                <div>
-                  <div className="text-5xl md:text-6xl font-normal font-cormorant text-sandstone-500 mb-3">
-                    80–120%
-                  </div>
-                  <div className="text-xs font-normal text-sandstone-500 font-albert uppercase tracking-widest">
-                    AMI Target
-                  </div>
-                </div>
-
-                <div>
-                  <div className="text-5xl md:text-6xl font-normal font-cormorant text-sandstone-500 mb-3">
-                    ~70%
-                  </div>
-                  <div className="text-xs font-normal text-sandstone-500 font-albert uppercase tracking-widest">
-                    Lots Retained
+                  
+                  {/* Desktop view */}
+                  <div className="hidden lg:block lg:text-base text-sandstone-500 font-light font-albert leading-relaxed tracking-normal">
+                    <ol className="list-disc my-8 pl-10 space-y-4">
+                      <li>420 attainably priced units</li>
+                      <li>20,000 sq ft Circle of Services® hub</li>
+                      <li>Full HumanlyOS® integration</li>
+                    </ol>
+                    <p className="text-pretty lg:text-lg">
+                      Designed as a blueprint for the future of workforce living.
+                    </p>
                   </div>
                 </div>
               </motion.div>
+
+
 
             </div>
           </div>
@@ -78,15 +66,47 @@ export const CommunityPreview = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="relative w-full aspect-[4/5] lg:aspect-[3/4] rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.08)] group"
+              className="relative w-full aspect-[3/1] lg:aspect-[3/4] rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.08)] group"
             >
               <img
                 src="/images/pexels-ianr-21853691.jpg"
                 alt="Community Preview"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none transition-opacity duration-700 opacity-80 group-hover:opacity-100"></div>
+              <div className="absolute inset-0 backdrop-blur-sm lg:backdrop-blur-none bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none transition-opacity duration-700 opacity-80 group-hover:opacity-100"></div>
 
+              {/* Bottom Stats */}
+              <div className="absolute bottom-1/3 lg:bottom-0 left-0 w-full lg:p-12 z-10 flex flex-wrap text-white justify-around lg:bg-black/10 lg:rounded-t-3xl lg:backdrop-blur-sm">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-normal text-center font-albert drop-shadow-md">
+                    80–120%
+                  </div>
+                  <div className="text-xs md:text-base font-medium text-center font-cormorant tracking-widest drop-shadow-md">
+                    AMI Target
+                  </div>
+                </motion.div>
+
+                <div className="h-30 w-0.5 bg-white/30"/>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-normal text-center font-albert drop-shadow-md">
+                    ~70%
+                  </div>
+                  <div className="text-xs md:text-base font-medium text-center font-cormorant tracking-widest drop-shadow-md">
+                    Lots Retained
+                  </div>
+                </motion.div>
+              </div>
             </motion.div>
           </div>
 

@@ -55,7 +55,7 @@ export const CircleOfServicesSection = () => {
     let diff = activeIndex - index;
     if (diff > 4) diff -= 8;
     if (diff < -3) diff += 8;
-    
+
     setRotation(prev => prev + diff * 45);
     setActiveIndex(index);
     setLastInteraction(Date.now());
@@ -106,44 +106,44 @@ export const CircleOfServicesSection = () => {
               style={{ transform: `rotate(${rotation}deg)` }}
             >
               {carouselItems.map((item, index) => {
-              const angle = index * 45 - 90;
-              const rad = (angle * Math.PI) / 180;
-              const x = 50 + 54 * Math.cos(rad);
-              const y = 50 + 54 * Math.sin(rad);
+                const angle = index * 45 - 90;
+                const rad = (angle * Math.PI) / 180;
+                const x = 50 + 54 * Math.cos(rad);
+                const y = 50 + 54 * Math.sin(rad);
 
-              return (
-                <div
-                  key={index}
-                  onClick={() => handleCardClick(index)}
-                  className={`absolute w-28 h-28 md:w-36 md:h-36 -translate-x-1/2 -translate-y-1/2 rounded-[2rem] overflow-visible pointer-events-auto group cursor-pointer transition-all duration-[1000ms] ease-in-out ${activeIndex === index ? 'opacity-100 scale-125 bg-white shadow-[0_0_60px_rgba(245,93,51,0.3)] z-20' : 'opacity-80 scale-95 bg-white shadow-[0_8px_24px_rgba(0,0,0,0.08)] z-10'}`}
-                  style={{ left: `${x}%`, top: `${y}%` }}
-                >
-                  <div className="absolute inset-0 rounded-[2rem] overflow-hidden -rotate-90 md:rotate-0 transition-transform duration-[1000ms] ease-in-out">
-                    <div
-                      className="absolute w-[150%] h-[150%] -top-[25%] -left-[25%] origin-center transition-transform duration-[2500ms] ease-in-out"
-                      style={{ transform: `rotate(${-rotation}deg)` }}
-                    >
-                      <Image
-                        src={item.src}
-                        alt={item.alt}
-                        width={100}
-                        height={100}
-                        className="absolute w-[60%] h-[60%] top-[20%] left-[20%] object-contain"
-                      />
-                      {/* Full Image Overlay & Text - Shown on Hover */}
-                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/60">
-                        <p
-                          className="text-white text-xs md:text-[13px] font-medium font-albert text-center leading-tight tracking-wider uppercase whitespace-pre-line"
-                          style={{ WebkitFontSmoothing: 'antialiased', transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
-                        >
-                          {item.label}
-                        </p>
+                return (
+                  <div
+                    key={index}
+                    onClick={() => handleCardClick(index)}
+                    className={`absolute w-28 h-28 md:w-36 md:h-36 -translate-x-1/2 -translate-y-1/2 rounded-[2rem] overflow-visible pointer-events-auto group cursor-pointer transition-all duration-[1000ms] ease-in-out ${activeIndex === index ? 'opacity-100 scale-125 bg-white shadow-[0_0_60px_rgba(245,93,51,0.3)] z-20' : 'opacity-80 scale-95 bg-white shadow-[0_8px_24px_rgba(0,0,0,0.08)] z-10'}`}
+                    style={{ left: `${x}%`, top: `${y}%` }}
+                  >
+                    <div className="absolute inset-0 rounded-[2rem] overflow-hidden -rotate-90 md:rotate-0 transition-transform duration-[1000ms] ease-in-out">
+                      <div
+                        className="absolute w-[150%] h-[150%] -top-[25%] -left-[25%] origin-center transition-transform duration-[2500ms] ease-in-out"
+                        style={{ transform: `rotate(${-rotation}deg)` }}
+                      >
+                        <Image
+                          src={item.src}
+                          alt={item.alt}
+                          width={100}
+                          height={100}
+                          className="absolute w-[60%] h-[60%] top-[20%] left-[20%] object-contain"
+                        />
+                        {/* Full Image Overlay & Text - Shown on Hover */}
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/60">
+                          <p
+                            className="text-white text-xs md:text-[13px] font-medium font-albert text-center leading-tight tracking-wider uppercase whitespace-pre-line"
+                            style={{ WebkitFontSmoothing: 'antialiased', transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
+                          >
+                            {item.label}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
             </div>
           </div>
 
@@ -176,7 +176,7 @@ export const CircleOfServicesSection = () => {
         </div>
 
         {/* Right Side Details Panel */}
-        <div className="absolute top-[660px] md:top-1/2 md:-translate-y-1/2 w-[90%] md:w-80 lg:w-[26rem] z-20 pointer-events-none md:left-[540px] lg:left-[600px] xl:left-[calc(50%+380px)]">
+        <div className="absolute top-[660px] md:top-1/2 md:-translate-y-1/2 w-[90%] md:w-80 lg:w-[26rem] z-20 pointer-events-none md:left-[510px] lg:left-[600px] xl:left-[calc(50%+380px)]">
           <div className="relative flex flex-col items-center md:items-start text-center md:text-left w-full h-[22rem]">
             {carouselItems.map((item, index) => (
               <div

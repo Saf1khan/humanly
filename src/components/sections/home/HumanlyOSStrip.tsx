@@ -50,7 +50,7 @@ export const HumanlyOSSection = () => {
               </div>
             </div>
 
-            <h2 className="text-left text-white leading-tight font-cormorant font-light mb-4 text-3xl md:text-5xl tracking-tight">
+            <h2 className="text-left text-white leading-tight font-cormorant font-light mb-4 text-4xl md:text-5xl tracking-tight">
               HumanlyOS<sup>&reg;</sup>
             </h2>
 

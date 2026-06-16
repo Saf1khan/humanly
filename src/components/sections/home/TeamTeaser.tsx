@@ -181,7 +181,7 @@ const TeamCarousel = ({
   return (
     <div className="mb-24 last:mb-0">
       <div className="relative mb-8">
-        <h3 className="text-4xl font-cormorant font-light text-[#11161a] tracking-tight">
+        <h3 className="text-3xl md:text-4xl font-cormorant font-light text-[#11161a] tracking-tight">
           {title}
         </h3>
         <div className="h-[1px] w-full bg-[#c2a077] mt-3" />
@@ -358,7 +358,7 @@ export const TeamGrid = () => {
       />
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative z-10 w-full">
-        <h2 className="text-center text-5xl font-cormorant font-light tracking-tight text-sandstone-500 mb-24">
+        <h2 className="text-center text-4xl md:text-5xl font-cormorant font-light tracking-tight text-sandstone-500 mb-24">
           Team behind Humanly
         </h2>
 
