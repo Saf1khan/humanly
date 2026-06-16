@@ -129,12 +129,12 @@ const OSJourney = () => {
               p16 / RESIDENT JOURNEY
             </p> */}
             {/* <div className="h-[2px] rounded-full w-[80px] bg-gradient-to-r from-[#1a4f82] via-[#2d7dd2] to-[#d96a2b] mb-6" /> */}
-            <h2 className="font-serif text-[clamp(2.2rem,4vw,3.2rem)] font-normal leading-[1.1] text-white" style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}>
+            <h2 className="font-serif text-[clamp(2.2rem,4vw,3.2rem)] font-normal leading-[1.1] text-white text-center lg:text-left min-[360px]:max-[767px]:text-[36px] min-[360px]:max-[767px]:leading-[48px] min-[360px]:max-[767px]:tracking-normal max-[359px]:text-[28px] md:text-[48px] md:leading-[60px] md:text-center lg:text-left" style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}>
               Every payment builds<br />
               <span className="text-[#aeb6be]">a better future.</span>
             </h2>
           </div>
-          <p className="text-[#94a3b8] text-[0.95rem] leading-relaxed font-light max-w-md">
+          <p className="text-[#94a3b8] text-[0.95rem] leading-relaxed font-light max-w-md text-center lg:text-left mx-auto lg:mx-0">
             A seven-milestone program designed to turn residential stability into generational wealth. Hover any milestone to explore it.
           </p>
         </motion.div>
