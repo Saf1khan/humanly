@@ -92,18 +92,13 @@ export const ProblemMissionSection = () => {
           <div className="mb-6 flex justify-center">
             <div className="h-[2px] w-12 rounded-full bg-h-primary" />
           </div>
-          <h2 className="text-3xl font-display font-cormorant font-light leading-[1.08] tracking-tight text-sandstone-500 sm:text-4xl lg:hidden">
+          <h2 className="text-4xl font-display font-cormorant font-light leading-[1.08] tracking-tight text-sandstone-500 sm:text-4xl lg:hidden">
             America's Housing is Broken
           </h2>
         </motion.div>
 
         {/* Mobile: below sm */}
         <div className="space-y-8 sm:hidden">
-          <div>
-            <p className="mb-5 text-[10px] font-semibold font-albert uppercase tracking-[0.24em] text-sandstone-500">
-              Explore Stats
-            </p>
-          </div>
 
           {items.map((item, idx) => (
             <motion.article
@@ -141,11 +136,7 @@ export const ProblemMissionSection = () => {
 
         {/* SM–LG: one horizontal row, no wrap */}
         <div className="hidden sm:block lg:hidden">
-          <div>
-            <p className="mb-6 text-[10px] font-semibold font-albert uppercase tracking-[0.24em] text-sandstone-500 sm:text-xs">
-              Explore Stats
-            </p>
-          </div>
+
 
           <div className="flex flex-nowrap items-start justify-between gap-4 overflow-x-auto">
             {items.map((item, idx) => (
@@ -196,9 +187,7 @@ export const ProblemMissionSection = () => {
               </h2>
 
               <div className="order-2 mt-auto">
-                <p className="mb-6 text-xs font-semibold font-albert uppercase tracking-[0.28em] text-sandstone-500">
-                  Explore Stats
-                </p>
+
 
                 <div
                   role="tablist"
@@ -233,14 +222,12 @@ export const ProblemMissionSection = () => {
                           aria-controls={`stat-panel-${item.id}`}
                           tabIndex={isActive ? 0 : -1}
                           onClick={() => setActiveIndex(index)}
-                          className={`w-full text-left transition-opacity duration-300 ${
-                            isActive ? "opacity-100" : "opacity-50 hover:opacity-100"
-                          }`}
+                          className={`w-full text-left transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-50 hover:opacity-100"
+                            }`}
                         >
                           <h3
-                            className={`text-2xl font-display font-light font-cormorant leading-tight tracking-tight md:text-4xl ${
-                              isActive ? "text-[rgb(var(--radial-gradient-color),0.45)]" : "text-sandstone-500"
-                            }`}
+                            className={`text-2xl font-display font-light font-cormorant leading-tight tracking-tight md:text-4xl ${isActive ? "text-[rgb(var(--radial-gradient-color),0.45)]" : "text-sandstone-500"
+                              }`}
                           >
                             {item.title}
                           </h3>
@@ -371,9 +358,8 @@ export const ProblemMissionSection = () => {
                     type="button"
                     onClick={goToPrev}
                     disabled={activeIndex === 0}
-                    className={`flex size-10 items-center justify-center ${
-                      activeIndex === 0 ? "cursor-not-allowed opacity-30" : ""
-                    }`}
+                    className={`flex size-10 items-center justify-center ${activeIndex === 0 ? "cursor-not-allowed opacity-30" : ""
+                      }`}
                   >
                     <svg
                       aria-hidden="true"
@@ -395,9 +381,8 @@ export const ProblemMissionSection = () => {
                     type="button"
                     onClick={goToNext}
                     disabled={activeIndex === items.length - 1}
-                    className={`flex size-10 items-center justify-center ${
-                      activeIndex === items.length - 1 ? "cursor-not-allowed opacity-30" : ""
-                    }`}
+                    className={`flex size-10 items-center justify-center ${activeIndex === items.length - 1 ? "cursor-not-allowed opacity-30" : ""
+                      }`}
                   >
                     <svg
                       aria-hidden="true"
