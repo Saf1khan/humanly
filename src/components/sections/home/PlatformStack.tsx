@@ -179,7 +179,7 @@ export const PlatformStack = () => {
             "radial-gradient(50% 50%, rgba(var(--radial-gradient-color, 107, 206, 255), 0.20), rgba(var(--radial-gradient-color, 107, 206, 255), 0.06) 50%, rgba(var(--radial-gradient-color, 107, 206, 255), 0))",
         }}
       />
-     
+
       <div
         className="grid grid-cols-[minmax(20px,1fr)_repeat(22,minmax(0,1fr))_minmax(20px,1fr)] gap-x-2 max-w-[1440px] mx-auto relative z-10"
         data-cy="layout-grid"
@@ -206,9 +206,72 @@ export const PlatformStack = () => {
           </div>
         </div>
 
-        {/* Bottom Row: Tabs + Panels */}
+        {/* Mobile View: Stacked Cards */}
+        <div className="col-start-1 col-end-[25] lg:hidden flex flex-col" data-cy="gridItem_div">
+          {steps.map((step, idx) => (
+            <div
+              key={`mobile-${idx}`}
+              className="relative flex flex-col justify-center gap-x-6 pt-12 pb-32"
+            >
+              {/* Mobile Title */}
+              <div className="gap-y-2 grid grid-cols-[minmax(20px,1fr)_repeat(22,minmax(0,1fr))_minmax(20px,1fr)] gap-x-2 w-full pb-6 px-4">
+                <div className="col-start-1 col-end-[25]">
+                  <h4 className="text-[1.75rem] leading-[1.25] tracking-normal text-left text-sandstone-500 font-albert font-light">
+                    {step.title}
+                  </h4>
+                </div>
+              </div>
+
+              {/* Mobile Simulator */}
+              <div className="relative h-[500px] w-full px-4">
+                <DashboardSimulator activeStep={idx} />
+              </div>
+
+              {/* Left Cards (Mobile) */}
+              <div className="absolute bottom-16 left-1/2 w-[80vw] max-w-[300px] -translate-x-1/2 flex-col gap-y-6 flex">
+
+
+                {/* Key Capabilities Card with image + blur */}
+                <div
+                  className="relative overflow-hidden rounded-lg w-[300px] h-[270px] bg-cover bg-center shadow-lg"
+                  style={{
+                    backgroundImage: `url('${step.image}')`,
+                  }}
+                >
+                  <div className="absolute inset-0" />
+
+                  <div
+                    className="absolute inset-0"
+                    style={{ backgroundColor: step.bgColor, opacity: 0.2 }}
+                  />
+
+                  <div className="absolute inset-0 backdrop-blur-xl" />
+
+                  <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 py-6 text-center">
+                    <p className="text-xl font-cormorant font-normal tracking-normal uppercase text-white/90 mb-4">
+                      Key Capabilities
+                    </p>
+
+                    <div className="flex flex-col gap-1.5">
+                      {step.bullets.slice(0, 4).map((b, i) => (
+                        <p
+                          key={i}
+                          className="text-sm font-albert font-light text-white/90"
+                        >
+                          {b}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop View: Tabs + Panels */}
         <div
-          className="col-start-1 col-end-[25] lg:col-start-3 lg:col-end-[23] mt-10 lg:mt-16 lg:min-h-[825px] xl:min-h-[715px]"
+          className="col-start-3 col-end-[23] hidden lg:block mt-16 min-h-[825px] xl:min-h-[715px]"
           data-cy="gridItem_div"
         >
           <div className="motionComponent" style={{ opacity: 1 }}>
@@ -222,7 +285,7 @@ export const PlatformStack = () => {
               <div>
                 <div className="relative">
                   <div
-                    className="flex gap-x-8 relative z-10 justify-start lg:justify-between overflow-x-auto scrollbar-hide px-0 lg:px-0"
+                    className="flex gap-x-8 relative z-10 justify-between overflow-x-auto scrollbar-hide px-0"
                     data-cy="tabs_tablist"
                     role="tablist"
                   >
@@ -231,12 +294,12 @@ export const PlatformStack = () => {
 
                       return (
                         <button
-                          key={idx}
+                          key={`tab-${idx}`}
                           onClick={() => setActiveStep(idx)}
                           aria-controls={`_R_aekpinlaivb_-tabpanel-${idx}`}
                           id={`_R_aekpinlaivb_-tab-${idx}`}
                           aria-selected={isActive}
-                          className={`whitespace-nowrap appearance-none font-medium text-sandstone-500 font-albert duration-300 flex items-center justify-center bg-transparent border-0 border-b-[3px] border-solid pb-4 pt-3 relative text-sm transition-opacity hover:opacity-100 lg:pb-7 lg:pt-5 lg:px-12 lg:text-base px-0 ${isActive
+                          className={`whitespace-nowrap appearance-none font-medium text-sandstone-500 font-albert duration-300 flex items-center justify-center bg-transparent border-0 border-b-[3px] border-solid pb-7 pt-5 px-12 text-base ${isActive
                             ? "border-b-current opacity-100"
                             : "border-b-transparent opacity-70"
                             }`}
@@ -264,7 +327,7 @@ export const PlatformStack = () => {
 
                 return (
                   <div
-                    key={idx}
+                    key={`panel-${idx}`}
                     aria-labelledby={`_R_aekpinlaivb_-tab-${idx}`}
                     data-cy="tabs_tabpanel"
                     id={`_R_aekpinlaivb_-tabpanel-${idx}`}
@@ -273,92 +336,69 @@ export const PlatformStack = () => {
                     hidden={!isActive}
                   >
                     <div
-                      className="motionComponent relative flex flex-col justify-center gap-x-6 pt-12 pb-32 lg:flex-row lg:items-center lg:py-0"
-                      data-cy="mobile-feature"
+                      className="motionComponent relative flex flex-row items-center justify-center gap-x-[clamp(16px,2vw,24px)] py-0"
+                      data-cy="desktop-feature"
                       style={{ opacity: 1 }}
                     >
-                      {/* Mobile Title */}
+                      {/* Desktop Simulator */}
                       <div
-                        className="gap-y-2 grid grid-cols-[minmax(20px,1fr)_repeat(22,minmax(0,1fr))_minmax(20px,1fr)] gap-x-2 max-w-[1440px] mx-auto pb-6 lg:hidden"
-                        data-cy="layout-grid"
+                        className="relative mt-10 lg:mt-12 xl:mt-14 shrink min-w-0"
+                        style={{ width: "clamp(320px, 38vw, 520px)" }}
                       >
-                        <div
-                          className="col-start-2 col-end-[24]"
-                          data-cy="gridItem_div"
-                        >
-                          <div
-                            className="motionComponent"
-                            style={{ filter: "blur(0px)", opacity: 1 }}
-                          >
-                            <h4 className="text-[1.75rem] leading-[1.25] tracking-normal text-left text-[#4a4741] font-['AkkuratLL',sans-serif] font-light">
-                              {step.title}
-                            </h4>
-                          </div>
+                        <div className="aspect-square w-full">
+                          <DashboardSimulator activeStep={idx} />
                         </div>
                       </div>
 
-                      {/* Mobile Simulator */}
-                      <div
-                        className="motionComponent relative h-[500px] lg:hidden"
-                        style={{ opacity: 1 }}
-                      >
-                        <DashboardSimulator activeStep={idx} />
-                      </div>
-
-                      {/* Desktop Simulator */}
-                      <div
-                        className="relative mt-14 hidden lg:block shrink-0"
-                        style={{ width: "520px", height: "520px" }}
-                      >
-                        <DashboardSimulator activeStep={idx} />
-                      </div>
-
                       {/* Left Cards */}
-                      <div className="absolute bottom-16 left-1/2 w-[80vw] max-w-[300px] -translate-x-1/2 flex-col gap-y-6 lg:relative lg:bottom-auto lg:left-0 lg:flex lg:w-auto lg:max-w-none lg:translate-x-0 lg:self-center">
+                      <div
+                        className="relative flex shrink-0 flex-col gap-y-6 self-center"
+                        style={{ width: "clamp(220px, 22vw, 300px)" }}
+                      >
                         {/* Stage Info Card */}
                         <div
                           style={{
                             backgroundImage: `linear-gradient(135deg, ${step.bgColor}cc, ${step.bgColor}88)`,
                           }}
-                          className="overflow-hidden rounded-lg px-5 py-5 w-[300px] h-[212px] flex flex-col"
+                          className="overflow-hidden rounded-lg px-4 py-4 xl:px-5 xl:py-5 h-[clamp(180px,18vw,212px)] flex flex-col"
                         >
                           <div className="flex items-center justify-between mb-3">
-                            <span className="text-xs font-mono font-bold tracking-widest uppercase text-white/80">
+                            <span className="text-[10px] xl:text-xs font-mono font-bold tracking-widest uppercase text-white/80">
                               Stage {step.num}
                             </span>
-                            <span className="text-xs font-mono text-white/60">
+                            <span className="text-[10px] xl:text-xs font-mono text-white/60">
                               ACTIVE
                             </span>
                           </div>
 
                           <div className="mt-auto">
-                            <p className="text-white font-cormorant text-xl font-normal leading-snug mb-3">
+                            <p className="text-white font-cormorant text-lg xl:text-xl font-normal leading-snug mb-3">
                               {step.title}
                             </p>
-                            <p className="text-white/80 font-albert font-light text-sm leading-relaxed">
+                            <p className="text-white/80 font-albert font-light text-xs xl:text-sm leading-relaxed">
                               {step.desc}
                             </p>
                           </div>
                         </div>
 
-                        {/* Key Capabilities Card with image + blur */}
+                        {/* Key Capabilities Card */}
                         <div
-                          className="relative overflow-hidden rounded-lg w-[300px] h-[270px] bg-cover bg-center"
+                          className="relative overflow-hidden rounded-lg bg-cover bg-center shadow-lg"
                           style={{
                             backgroundImage: `url('${step.image}')`,
+                            width: "100%",
+                            height: "clamp(220px, 24vw, 270px)",
                           }}
                         >
                           <div className="absolute inset-0" />
-
                           <div
                             className="absolute inset-0"
                             style={{ backgroundColor: step.bgColor, opacity: 0.2 }}
                           />
-
                           <div className="absolute inset-0 backdrop-blur-xl" />
 
-                          <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 py-6 text-center">
-                            <p className="text-xl font-cormorant font-normal tracking-normal uppercase text-white/90 mb-4">
+                          <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 xl:px-6 py-5 xl:py-6 text-center">
+                            <p className="text-lg xl:text-xl font-cormorant font-normal tracking-normal uppercase text-white/90 mb-4">
                               Key Capabilities
                             </p>
 
@@ -366,7 +406,7 @@ export const PlatformStack = () => {
                               {step.bullets.slice(0, 4).map((b, i) => (
                                 <p
                                   key={i}
-                                  className="text-sm font-albert font-light text-white/90"
+                                  className="text-xs xl:text-sm font-albert font-light text-white/90"
                                 >
                                   {b}
                                 </p>
@@ -377,7 +417,10 @@ export const PlatformStack = () => {
                       </div>
 
                       {/* Quote */}
-                      <div className="hidden self-center rounded-lg border border-[#d3d1ce] px-10 py-12 lg:block shrink-0 max-w-[260px]">
+                      <div
+                        className="self-center shrink-0 rounded-lg border border-[#d3d1ce] px-5 py-7 xl:px-10 xl:py-12"
+                        style={{ width: "clamp(200px, 20vw, 260px)" }}
+                      >
                         <svg
                           aria-hidden="true"
                           fill="none"
@@ -388,12 +431,12 @@ export const PlatformStack = () => {
                           className="text-[#5b6550]"
                         >
                           <path
-                            d="M3.89374 4.16051C4.97735 4.16051 5.67646 4.99943 5.67646 6.08305C5.67646 7.27152 4.80257 8.25027 3.2995 8.25027C1.79642 8.25027 0.607943 7.02684 0.607943 5.13925C0.607943 3.18176 1.86633 1.25922 4.97735 0.315425V1.22426C3.01986 1.74859 1.93624 2.97203 1.93624 4.0906C1.93624 4.51006 2.11102 4.75475 2.35571 4.75475C2.74021 4.75475 2.94995 4.16051 3.89374 4.16051ZM10.6051 4.16051C11.6888 4.16051 12.3879 4.99943 12.3879 6.08305C12.3879 7.27152 11.514 8.25027 10.0109 8.25027C8.50783 8.25027 7.31935 7.02684 7.31935 5.13925C7.31935 3.18176 8.57774 1.25922 11.6888 0.315425V1.22426C9.73127 1.74859 8.64766 2.97203 8.64766 4.0906C8.64766 4.51006 8.82243 4.75475 9.06712 4.75475C9.48658 4.75475 9.66136 4.16051 10.6051 4.16051Z"
+                            d="M3.89374 4.16051C4.97735 4.16051 5.67646 4.99943 5.67646 6.08305C5.67646 7.27152 4.80257 8.25027 3.2995 8.25027C1.79642 8.25027 0.607943 7.02684 0.607943 5.13925C0.607943 3.18176 1.86633 1.25922 4.97735 0.315425V1.22426C3.01986 1.74859 1.93624 2.97203 1.93624 4.0906C1.93624 4.51006 2.11102 4.75475 2.35571 4.75475C2.74021 4.75475 2.94995 4.16051 2.94995 4.16051ZM10.6051 4.16051C11.6888 4.16051 12.3879 4.99943 12.3879 6.08305C12.3879 7.27152 11.514 8.25027 10.0109 8.25027C8.50783 8.25027 7.31935 7.02684 7.31935 5.13925C7.31935 3.18176 8.57774 1.25922 11.6888 0.315425V1.22426C9.73127 1.74859 8.64766 2.97203 8.64766 4.0906C8.64766 4.51006 8.82243 4.75475 9.06712 4.75475C9.48658 4.75475 9.66136 4.16051 10.6051 4.16051Z"
                             fill="currentColor"
-                          ></path>
+                          />
                         </svg>
 
-                        <p className="text-left text-sandstone-500 font-cormorant leading-normal font-light text-3xl">
+                        <p className="text-left text-sandstone-500 font-cormorant leading-normal font-light text-[clamp(1.5rem,2vw,1.875rem)] mt-6 xl:mt-10">
                           {step.title} has become
                           <br />
                           our daily compass,
@@ -403,7 +446,7 @@ export const PlatformStack = () => {
                           right track.
                         </p>
 
-                        <p className="text-sm leading-[1.5] tracking-normal text-left font-albert font-normal mt-4 text-sandstone-500">
+                        <p className="text-xs xl:text-sm leading-[1.5] tracking-normal text-left font-albert font-normal mt-4 text-sandstone-500">
                           HumanlyOS®, {step.title} Stage
                         </p>
                       </div>
