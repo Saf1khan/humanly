@@ -55,7 +55,7 @@ const OSPlatformMatrix = () => {
   const [hoveredStakeholder, setHoveredStakeholder] = useState<StakeholderKey | null>(null);
 
   return (
-    <div className="bg-black">
+    <div className="relative z-10 bg-black">
       <section 
         className="py-[clamp(5rem,10vw,8rem)] relative overflow-hidden rounded-b-[40px] md:rounded-b-[64px]"
         style={{

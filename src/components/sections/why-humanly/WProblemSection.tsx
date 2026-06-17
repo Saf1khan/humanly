@@ -385,7 +385,7 @@ export const WProblemSection = () => {
                 ref={imageContainerRef}
                 className="order-2 flex flex-col w-full lg:w-[50%] lg:max-w-[750px]"
               >
-                <div className="image-container rounded-[12px] lg:rounded-xl relative overflow-hidden aspect-square md:aspect-[332/400] lg:aspect-[750/450] w-full">
+                <div className="image-container rounded-[12px] lg:rounded-xl relative overflow-hidden h-[360px] lg:h-auto lg:aspect-[750/450] w-full">
                   {/* THE COVER: Only slides once to reveal */}
                   <div
                     ref={coverRef}
@@ -404,7 +404,7 @@ export const WProblemSection = () => {
                 </div>
 
                 {/* Navigation Arrows below the image */}
-                <div className="flex gap-4 mt-6 justify-start lg:justify-end">
+                <div className="flex gap-4 mt-6 justify-end">
                   <button
                     onClick={prevSlide}
                     className="w-12 h-12 rounded-full border border-[rgba(17,17,17,0.2)] bg-white/90 shadow-sm flex items-center justify-center text-[#111111] hover:bg-[#6E7C8D] hover:text-[#131416] hover:border-[#6E7C8D] transition-all cursor-pointer hover:scale-105 active:scale-95 duration-200"

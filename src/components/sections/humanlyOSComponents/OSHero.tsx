@@ -211,6 +211,8 @@ const OSHero = () => {
 
             .wh-hero-title {
               text-align: left !important;
+              font-size: clamp(52px, 5.2vw, 80px) !important;
+              line-height: clamp(58px, 5.7vw, 88px) !important;
             }
 
             .wh-desc-container {
@@ -256,6 +258,12 @@ const OSHero = () => {
             .wh-primary-card-container {
               grid-column: 16 / 23 !important;
               transform: translateY(-3rem) !important;
+            }
+
+            /* At xl+, slow down the vw growth so text stays within its column */
+            .wh-hero-title {
+              font-size: clamp(52px, 4.2vw, 80px) !important;
+              line-height: clamp(58px, 4.7vw, 88px) !important;
             }
           }
 
@@ -328,7 +336,7 @@ const OSHero = () => {
             {/* Title Column */}
             <div className="col-start-2 col-end-10 md:col-start-[main-start] md:col-end-[main-end] lg:col-start-2 lg:col-end-[14] xl:col-end-12 row-start-1 row-end-2 lg:mt-auto lg:self-center wh-title-container">
               <div className="mt-5 mb-4 lg:my-5 flex flex-col items-center lg:items-start lg:pt-[5vw] lg:pb-[8vw]">
-                <h1 ref={titleRef} className="wh-hero-title lg:text-[5rem] lg:leading-[1.1] font-light tracking-[-0.05em] text-center whitespace-normal lg:whitespace-nowrap lg:text-left m-0">
+                <h1 ref={titleRef} className="wh-hero-title font-light tracking-[-0.05em] text-center whitespace-normal lg:whitespace-nowrap lg:text-left m-0">
                   HumanlyOS®
                   <br className="block" />
                   vertically integrated
