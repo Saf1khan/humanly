@@ -54,33 +54,6 @@ export const Hero = () => {
 
   return (
     <section ref={containerRef} className="relative flex flex-col min-h-screen px-[20px] pb-[16px]">
-      <style>{`
-        .wh-hero-title {
-          font-family: "Cormorant Garamond", Georgia, serif;
-          opacity: 0;
-          text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2);
-          -webkit-font-smoothing: antialiased;
-          -moz-osx-font-smoothing: grayscale;
-          text-rendering: optimizeLegibility;
-        }
-        .wh-hero-title .line {
-          overflow: hidden;
-          padding-bottom: 0.15em;
-        }
-        .wh-hero-title .char {
-          display: inline-block;
-          transform: translateY(105%) scale(1.1) rotate(2deg);
-          transform-origin: bottom left;
-          opacity: 0;
-          will-change: transform, opacity;
-        }
-        .wh-btn-reveal {
-          opacity: 0;
-          transform: translateY(20px);
-          will-change: transform, opacity;
-        }
-      `}</style>
-
       {/* Hero Container */}
       <div className="hero-container relative flex-grow rounded-b-[12px] lg:rounded-b-xl overflow-hidden flex flex-col justify-center">
         {/* Background Image with Overlay */}
@@ -104,13 +77,13 @@ export const Hero = () => {
           <div className="col-start-2 col-end-[24] lg:col-end-[18] xl:col-end-[16] flex flex-col items-center lg:items-start gap-8 lg:gap-10">
 
             <div className="flex flex-col items-center lg:items-start w-full">
-              <h1 ref={titleRef} className="wh-hero-title text-[#f7f1e8] text-[40px] md:text-6xl lg:text-[80px] font-light leading-[52px] md:leading-[72px] lg:leading-[92px] tracking-[-0.05em] text-center lg:text-left m-0 drop-shadow-2xl">
-                Every Neighborhood<br />
+              <h1 ref={titleRef} className="font-cormorant opacity-0 [text-shadow:2px_2px_4px_rgba(255,255,255,0.2)] antialiased [&_.line]:overflow-hidden [&_.line]:pb-[0.15em] [&_.char]:inline-block [&_.char]:translate-y-[105%] [&_.char]:scale-[1.1] [&_.char]:rotate-[2deg] [&_.char]:origin-bottom-left [&_.char]:opacity-0 [&_.char]:will-change-[transform,opacity] text-[#f7f1e8] text-[44px] md:text-6xl lg:text-[80px] font-light leading-[52px] md:leading-[72px] lg:leading-[92px] tracking-[-0.05em] text-center lg:text-left m-0">
+                Every Neighborhood<br className="hidden lg:block" />
                 <span className="text-h-primary">a Launchpad</span>
               </h1>
             </div>
 
-            <div ref={btnRevealRef} className="wh-btn-reveal w-full text-center lg:text-left">
+            <div ref={btnRevealRef} className="opacity-0 translate-y-[20px] will-change-[transform,opacity] w-full text-center lg:text-left">
               <p className="text-lg md:text-xl text-white max-w-2xl mx-auto lg:mx-0 mb-10 font-albert font-light leading-relaxed drop-shadow-md">
                 Humanly is building the future of workforce housing. From land acquisition through lifelong resident services, powered by HumanlyOS®.
               </p>
