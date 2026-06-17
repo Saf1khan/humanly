@@ -219,7 +219,7 @@ export const WRevenueSection = () => {
                       key={imgIdx}
                       loading="lazy"
                       src={img}
-                      className="w-full aspect-[4/5] object-cover rounded-[12px] lg:rounded-xl"
+                      className="w-full aspect-[4/5] sm:aspect-[3/2] md:aspect-video object-cover rounded-[12px] lg:rounded-xl"
                       alt={layer.title}
                     />
                   ))}
