@@ -53,16 +53,16 @@ export const RevenueLayers = () => {
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative z-10 w-full">
 
         <div className="flex flex-col items-center text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-light font-cormorant text-sandstone-500 leading-[44px] md:leading-[60px]  tracking-tight max-w-4xl">
+          <h2 className="text-4xl md:text-5xl font-light font-cormorant text-sandstone-500 leading-[44px] md:leading-[60px] tracking-tight max-w-4xl">
             Five Revenue Layers <br /> One Integrated Platform
           </h2>
-          <p className="mt-6 text-lg text-sandstone-500 max-w-3xl mx-auto leading-relaxed font-albert font-light">
+          <p className="mt-6 text-base md:text-lg text-sandstone-500 max-w-3xl mx-auto leading-relaxed font-albert font-light">
             Traditional real estate captures one revenue stream. Humanly captures five — compounding returns through vertical integration from land to living to lifelong services.
           </p>
         </div>
 
         {/* 5-Column Hover Expansion Layout */}
-        <div className="flex flex-col lg:flex-row w-full h-[800px] lg:h-[600px] gap-4">
+        <div className="group/row flex flex-col lg:flex-row w-full h-[800px] lg:h-[600px] gap-4">
           {layers.map((layer, idx) => (
             <motion.div
               key={layer.id}
@@ -70,7 +70,8 @@ export const RevenueLayers = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.6 }}
-              className="relative group flex-1 hover:flex-[3] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] rounded-3xl overflow-hidden cursor-pointer border border-black/10 shadow-sm hover:shadow-2xl h-full"
+              // ↓ Added group/card alongside existing group
+              className="relative group group/card flex-1 hover:flex-[3] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] rounded-3xl overflow-hidden cursor-pointer border border-black/10 shadow-sm hover:shadow-2xl h-full"
             >
               <img
                 src={layer.image}
@@ -79,18 +80,19 @@ export const RevenueLayers = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
 
-              <div className="absolute inset-0 p-6 lg:p-8 flex flex-col justify-end">
+              <div className="absolute inset-0 px-6 py-8 lg:px-4 group-hover/row:lg:px-2 group-hover/card:lg:px-4 flex flex-col justify-end transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]">
                 <div className="transform transition-transform duration-500 ease-out translate-y-6 group-hover:translate-y-0">
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[10px] font-medium tracking-[0.15em] font-albert uppercase text-white border border-white/20 shadow-sm">
+                    <span className="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[10px] font-medium tracking-wide lg:tracking-wider font-albert uppercase text-white border border-white/20 shadow-sm">
                       {layer.eyebrow}
                     </span>
                   </div>
-                  <h3 className="text-2xl lg:text-3xl font-light font-cormorant text-white mb-2 leading-tight drop-shadow-md">
+                  {/* ↓ group/card now works — overrides row shrink on hovered card */}
+                  <h3 className="text-2xl lg:text-3xl group-hover/row:lg:text-2xl group-hover/card:lg:text-3xl font-light font-cormorant text-white mb-2 leading-tight drop-shadow-md transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]">
                     {layer.title}
                   </h3>
                   <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-500 ease-out">
-                    <p className="overflow-hidden font-light text-white font-albert text-base lg:text-lg leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                    <p className="overflow-hidden font-light text-white font-albert text-sm lg:text-base leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                       {layer.content}
                     </p>
                   </div>

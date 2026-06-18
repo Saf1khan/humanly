@@ -35,7 +35,7 @@ export const DataRoomForm = () => {
         <div className="flex flex-col gap-8 relative z-10 bg-neutral-900/40 backdrop-blur-md border border-white/5 p-6 md:p-8 lg:p-12 rounded-2xl shadow-2xl h-full">
           
           <div className="flex flex-col gap-2">
-            <h2 className="text-3xl md:text-5xl leading-[40px] md:leading-[15px] font-cormorant font-light text-white tracking-tight mb-8">Request Data Room Access</h2>
+            <h2 className="text-4xl md:text-5xl leading-[40px] md:leading-[60px] font-cormorant font-light text-white tracking-tighter text-center mb-8">Request Data Room Access</h2>
             <p className="text-neutral-400 font-albert font-light text-base md:text-lg">Please fill out the form below to receive exclusive access to the Humanly Data Room.</p>
           </div>
           
