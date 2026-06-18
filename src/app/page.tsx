@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useState, Suspense } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { RevenueLayers } from "@/components/sections/InvestmentThesisSection";
 import { ProblemSection } from "@/components/sections/ProblemSection";
@@ -14,8 +18,22 @@ import { Footer } from "@/components/layout/Footer";
 import { CircleOfServicesSection } from "@/components/sections/CircleOfServicesSection";
 import { PlatformSection } from "@/components/sections/PlatformSection";
 
+function HomeContent() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const [shouldRender, setShouldRender] = useState(false);
 
-export default function Home() {
+  useEffect(() => {
+    const isFromLogo = searchParams.get("from") === "logo";
+    if (!isFromLogo) {
+      router.replace("/home");
+    } else {
+      setShouldRender(true);
+    }
+  }, [router, searchParams]);
+
+  if (!shouldRender) return null;
+
   return (
     <main className="min-h-screen">
       {/* Seamless Light Background Container */}
@@ -58,5 +76,13 @@ export default function Home() {
       <DataRoomForm />
       <Footer />
     </main>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={null}>
+      <HomeContent />
+    </Suspense>
   );
 }
