@@ -64,7 +64,7 @@ export const Hero = () => {
             className="w-full h-full object-cover object-[75%_center]"
           />
           <div className="absolute inset-0 bg-black/10" />
-          <div className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-black/40 via-black/20 to-transparent hidden lg:block" />
+          <div className="absolute inset-y-0 left-0 w-full md:w-2/3 lg:w-1/2 bg-gradient-to-r from-black/40 via-black/20 to-transparent hidden lg:block" />
           <div className="absolute inset-y-0 left-0 w-full bg-black/30 lg:hidden" />
         </div>
 
@@ -85,7 +85,7 @@ export const Hero = () => {
     [text-shadow:2px_2px_4px_rgba(255,255,255,0.2)]
     antialiased
     text-[#f7f1e8] text-[40px] md:text-6xl lg:text-[80px]
-    font-light  leading-[52px] md:leading-[72px] lg:leading-[92px]
+    font-light leading-[52px] md:leading-[72px] lg:leading-[92px]
     tracking-[-0.05em] text-center lg:text-left m-0
     [&_.line]:block
     [&_.line]:w-full
