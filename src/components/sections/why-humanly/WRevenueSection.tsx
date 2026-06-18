@@ -97,14 +97,14 @@ export const WRevenueSection = () => {
 
   return (
     <section className="w-full text-[#111111] font-['Albert_Sans',-apple-system,BlinkMacSystemFont,sans-serif]">
-      <div className="w-full max-w-[1440px] mx-auto px-8 md:px-16">
+      <div className="w-full max-w-[1440px] mx-auto px-6 md:px-12">
         {/* Desktop View: Exact replica of reference layout */}
-        <div className="desktop hidden lg:flex flex-row items-start gap-16 lg:gap-[80px] pt-[100px]">
+        <div className="desktop hidden lg:flex flex-row items-start gap-16 lg:gap-[80px] pt-[60px]">
           {/* LEFT: Sticky Column */}
           <div className="left sticky top-[100px] lg:w-[45%] self-start pb-[100px]">
             <div className="w-full lg:max-w-[500px]">
               <h2
-                className={`text-3xl md:text-4xl lg:text-5xl leading-[1.6] tracking-tight font-serif font-normal not-italic mb-14 transition-opacity duration-700 ease-out ${
+                className={`text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tight font-serif font-normal not-italic mb-8 transition-opacity duration-700 ease-out ${
                   mounted ? "opacity-100" : "opacity-0"
                 }`}
               >
@@ -139,7 +139,7 @@ export const WRevenueSection = () => {
                           isActive ? "max-h-40 pt-4 pl-[48px]" : "max-h-0"
                         }`}
                       >
-                        <p className="text-[17px] leading-relaxed font-light text-[#5F646B] max-w-[500px]">
+                        <p className="text-[17px] leading-relaxed font-normal text-[#5F646B] max-w-[500px]">
                           {layer.desc}
                         </p>
                       </div>
@@ -176,7 +176,7 @@ export const WRevenueSection = () => {
         </div>
 
         {/* Mobile View... */}
-        <div className="mobile flex flex-col gap-10 pt-[50px] lg:hidden">
+        <div className="mobile flex flex-col gap-10 pt-[20px] pb-[80px] lg:hidden">
           <div>
             <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#6E7C8D] mb-4">
               Designed Revenue Model
@@ -199,7 +199,7 @@ export const WRevenueSection = () => {
             </p>
           </div>
 
-          <div className="flex flex-col gap-[40px]">
+          <div className="flex flex-col gap-[64px]">
             {layers.map((layer) => (
               <div key={layer.id} className="flex flex-col gap-4">
                 <div className="heading w-full border-b border-[rgba(17,17,17,0.08)] pb-[10px]">
@@ -210,7 +210,7 @@ export const WRevenueSection = () => {
                     {layer.title}
                   </h4>
                 </div>
-                <p className="font-light text-[17px] leading-relaxed text-[#5F646B]">
+                <p className="font-normal text-[17px] leading-relaxed text-[#5F646B]">
                   {layer.desc}
                 </p>
                 <div className="flex flex-col gap-4 mt-2">

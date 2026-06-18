@@ -256,7 +256,7 @@ export const WProblemSection = () => {
   return (
     <section
       ref={containerRef}
-      className="gl-b-container w-full first:pt-[70px] z-30 relative pb-20 md:pb-[100px] font-['Albert_Sans',-apple-system,BlinkMacSystemFont,sans-serif] overflow-x-hidden"
+      className="gl-b-container w-full first:pt-[70px] z-30 relative pb-12 md:pb-[60px] font-['Albert_Sans',-apple-system,BlinkMacSystemFont,sans-serif] overflow-x-hidden"
     >
       <style>{`
         .ac-animated-heading {
@@ -335,7 +335,7 @@ export const WProblemSection = () => {
         }
       `}</style>
 
-      <div className="content-container max-w-[1440px] mx-auto px-8 md:px-16">
+      <div className="content-container max-w-[1440px] mx-auto px-6 md:px-12">
         <div className="acf-innerblocks-container">
           <div key={currentIndex} className="gl-b-alternating-column relative">
             <div className="ac-animated-heading lg:flex lg:flex-row lg:justify-between pt-[50px] md:pt-[100px] lg:pt-[120px] gap-16 lg:gap-[40px] !overflow-visible">
@@ -351,7 +351,7 @@ export const WProblemSection = () => {
 
                   <div
                     ref={bodyRef}
-                    className="body-text mt-6 lg:mt-[30px] text-[#111111] text-[15px] leading-relaxed md:text-[16px] lg:text-[17px] font-light"
+                    className="body-text mt-6 lg:mt-[30px] text-[#111111] text-[15px] leading-relaxed md:text-[16px] lg:text-[17px] font-normal"
                   >
                     <p className="font-bold mb-4 text-[#111111]">{p.tagline}</p>
                     <p className="text-[#5F646B]">{p.description}</p>
