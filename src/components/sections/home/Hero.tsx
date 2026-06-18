@@ -65,7 +65,7 @@ export const Hero = () => {
           />
           <div className="absolute inset-0 bg-black/10" />
           <div className="absolute inset-y-0 left-0 w-full md:w-2/3 lg:w-1/2 bg-gradient-to-r from-black/40 via-black/20 to-transparent hidden lg:block" />
-          <div className="absolute inset-y-0 left-0 w-full bg-black/30 lg:hidden" />
+          <div className="absolute inset-y-0 left-0 w-full bg-black/25 lg:hidden" />
         </div>
 
         {/* Decorative Glows */}
