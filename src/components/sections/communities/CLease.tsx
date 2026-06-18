@@ -21,7 +21,7 @@ export const CLease = () => {
             "radial-gradient(50% 50%, rgba(var(--radial-gradient-color, 170, 61, 173), 0.15), rgba(var(--radial-gradient-color, 170, 61, 173), 0.05) 50%, rgba(var(--radial-gradient-color, 170, 61, 173), 0))",
         }}
       />
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-0">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
         {/* Section Header */}
         <div className="mb-16 lg:mb-24 max-w-4xl">
           <h2 className="font-normal font-cormorant text-3xl md:text-5xl leading-[40px] md:leading-[60px] text-sandstone-500 mb-3 tracking-tight">

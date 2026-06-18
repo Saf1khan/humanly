@@ -53,12 +53,18 @@ export const RevenueLayers = () => {
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative z-10 w-full">
 
         <div className="flex flex-col items-center text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-light font-cormorant text-sandstone-500 leading-[44px] md:leading-[60px] tracking-tight max-w-4xl">
-            Five Revenue Layers <br /> One Integrated Platform
-          </h2>
-          <p className="mt-6 text-base md:text-lg text-sandstone-500 max-w-3xl mx-auto leading-relaxed font-albert font-light">
-            Traditional real estate captures one revenue stream. Humanly captures five — compounding returns through vertical integration from land to living to lifelong services.
-          </p>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ duration: 1 }}>
+            <h2 className="text-4xl md:text-5xl font-light font-cormorant text-sandstone-500 leading-[44px] md:leading-[60px] tracking-tight max-w-4xl">
+              Five Revenue Layers <br /> One Integrated Platform
+            </h2>
+            <p className="mt-6 text-base md:text-lg text-sandstone-500 max-w-3xl mx-auto leading-relaxed font-albert font-light">
+              Traditional real estate captures one revenue stream. Humanly captures five — compounding returns through vertical integration from land to living to lifelong services.
+            </p>
+          </motion.div>
         </div>
 
         {/* 5-Column Hover Expansion Layout */}

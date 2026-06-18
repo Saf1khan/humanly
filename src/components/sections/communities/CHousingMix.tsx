@@ -96,7 +96,7 @@ export const CHousingMix = () => {
             "radial-gradient(50% 50%, rgba(var(--radial-gradient-color, 170, 61, 173), 0.10), rgba(var(--radial-gradient-color, 170, 61, 173), 0.04) 50%, rgba(var(--radial-gradient-color, 170, 61, 173), 0))",
         }}
       />
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-0">
+      <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-10">
           {/* Title */}
           <h2 className="lg:col-span-2 font-cormorant text-3xl font-normal tracking-tight text-sandstone-500 md:text-5xl leading-[40px] md:leading-[60px] max-w-4xl">

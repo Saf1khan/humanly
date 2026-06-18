@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { motion, AnimatePresence } from "framer-motion";
 
 const carouselItems = [
   {
@@ -76,7 +77,12 @@ export const CircleOfServicesSection = () => {
 
       {/* Title & Description - Top Left */}
       <div className="w-full z-20 mb-12 md:mb-24">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 w-full flex flex-col items-start">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 1 }}>
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 w-full flex flex-col items-start"> 
           <h2 className="text-left text-sandstone-500 leading-tight font-light font-cormorant text-4xl md:text-5xl tracking-tight mb-4 md:mb-6">
             Circle of Services
           </h2>
@@ -84,6 +90,7 @@ export const CircleOfServicesSection = () => {
             Humanly’s Circle of Services is a fully integrated ecosystem designed to support the whole person by bringing everyday essentials together in one seamless experience.
           </p>
         </div>
+        </motion.div>
       </div>
 
       {/* Carousel Container */}
@@ -177,6 +184,11 @@ export const CircleOfServicesSection = () => {
 
         {/* Right Side Details Panel */}
         <div className="absolute top-[660px] md:top-1/2 md:-translate-y-1/2 w-[90%] md:w-80 lg:w-[26rem] z-20 pointer-events-none md:left-[510px] lg:left-[600px] xl:left-[calc(50%+380px)]">
+          <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 1 }}>
           <div className="relative flex flex-col items-center md:items-start text-center md:text-left w-full h-[22rem]">
             {carouselItems.map((item, index) => (
               <div
@@ -198,6 +210,7 @@ export const CircleOfServicesSection = () => {
               </div>
             ))}
           </div>
+          </motion.div>
         </div>
       </div>
     </section>

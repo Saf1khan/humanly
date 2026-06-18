@@ -191,18 +191,31 @@ export const PlatformStack = () => {
               className="motionComponent w-full"
               style={{ filter: "blur(0px)", opacity: 1 }}
             >
-              <h3 className="mx-auto max-w-5xl text-4xl leading-[44px] tracking-tight md:text-5xl md:leading-[60px] text-sandstone-500 font-cormorant font-light mb-4">
-                One Company, One System <br />
-                Full Vertical Integration
-              </h3>
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{ duration: 0.8 }}
+              >
+                <h3 className="mx-auto max-w-5xl text-4xl leading-[44px] tracking-tight md:text-5xl md:leading-[60px] text-sandstone-500 font-cormorant font-light mb-4">
+                  One Company, One System <br />
+                  Full Vertical Integration
+                </h3>
+              </motion.div>
             </div>
-
+<motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{ duration: 0.8 }}
+              >
             <p className="mt-6 lg:mt-4 max-w-4xl text-lg leading-[28px] tracking-normal text-sandstone-500 font-albert font-light">
               HumanlyOS® powers every community service and transaction. It
               provides a data flywheel that drives continuous improvement across
               all communities, maximizing tenant longevity and predictive
               returns.
             </p>
+            </motion.div>
           </div>
         </div>
 
