@@ -61,10 +61,11 @@ export const Hero = () => {
           <img
             src="/images/AdobeStock_192330637.jpeg"
             alt="Modern Community"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-[75%_center]"
           />
           <div className="absolute inset-0 bg-black/10" />
-          <div className="absolute inset-y-0 left-0 w-full md:w-2/3 lg:w-1/2 bg-gradient-to-r from-black/80 via-black/30 to-transparent" />
+          <div className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-black/40 via-black/20 to-transparent hidden lg:block" />
+          <div className="absolute inset-y-0 left-0 w-full bg-black/30 lg:hidden" />
         </div>
 
         {/* Decorative Glows */}
@@ -77,9 +78,32 @@ export const Hero = () => {
           <div className="col-start-2 col-end-[24] lg:col-end-[18] xl:col-end-[16] flex flex-col items-center lg:items-start gap-8 lg:gap-10">
 
             <div className="flex flex-col items-center lg:items-start w-full">
-              <h1 ref={titleRef} className="font-cormorant opacity-0 [text-shadow:2px_2px_4px_rgba(255,255,255,0.2)] antialiased [&_.line]:overflow-hidden [&_.line]:pb-[0.15em] [&_.char]:inline-block [&_.char]:translate-y-[105%] [&_.char]:scale-[1.1] [&_.char]:rotate-[2deg] [&_.char]:origin-bottom-left [&_.char]:opacity-0 [&_.char]:will-change-[transform,opacity] text-[#f7f1e8] text-[44px] md:text-6xl lg:text-[80px] font-light leading-[52px] md:leading-[72px] lg:leading-[92px] tracking-[-0.05em] text-center lg:text-left m-0">
+              <h1
+                ref={titleRef}
+                className="
+    font-cormorant opacity-0
+    [text-shadow:2px_2px_4px_rgba(255,255,255,0.2)]
+    antialiased
+    text-[#f7f1e8] text-[40px] md:text-6xl lg:text-[80px]
+    font-light  leading-[52px] md:leading-[72px] lg:leading-[92px]
+    tracking-[-0.05em] text-center lg:text-left m-0
+    [&_.line]:block
+    [&_.line]:w-full
+    [&_.line]:overflow-hidden
+    [&_.line]:pb-[0.15em]
+    [&_.line]:text-center
+    lg:[&_.line]:text-left
+    [&_.char]:inline-block
+    [&_.char]:translate-y-[105%]
+    [&_.char]:scale-[1.1]
+    [&_.char]:rotate-[2deg]
+    [&_.char]:origin-bottom-left
+    [&_.char]:opacity-0
+    [&_.char]:will-change-[transform,opacity]
+  "
+              >
                 Every Neighborhood<br className="hidden lg:block" />
-                <span className="text-h-primary">a Launchpad</span>
+                <span className="text-h-primary block"> a Launchpad</span>
               </h1>
             </div>
 
