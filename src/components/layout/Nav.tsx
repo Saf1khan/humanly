@@ -354,7 +354,7 @@ export const Nav = () => {
             {/* Logo - Restored to larger size */}
             <div className="flex justify-start">
               <a
-                href="/"
+                href="/?from=logo"
                 className="relative flex items-center h-12 md:h-14 cursor-pointer"
               >
                 <img
