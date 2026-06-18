@@ -106,14 +106,14 @@ export const WStatsSection = () => {
     <section className="py-20 overflow-hidden">
 
       {/* ── MOBILE / TABLET  (< lg) ─────────────────────────────────────── */}
-      <div className="lg:hidden w-full max-w-[1440px] mx-auto px-8 md:px-16">
+      <div className="lg:hidden w-full max-w-[1440px] mx-auto px-6 md:px-12">
         <div className="relative overflow-hidden" style={mobileAnimStyle}>
           {/* Top border accent */}
           <div className="w-full h-[1px] bg-[rgba(17,17,17,0.08)] mb-5" />
 
           {/* Title + Stat */}
           <p className="text-2xl font-serif text-[#5F646B] mb-4">{slide.title}</p>
-          <p className="text-[clamp(72px,18vw,99px)] font-serif font-normal m-0 leading-none text-[#111111]">
+          <p className="text-[clamp(64px,4vw+2.5rem,99px)] font-serif font-normal m-0 leading-none text-[#111111]">
             {slide.count}
             <sub className="text-base font-normal align-baseline ml-1 text-[#5F646B]">
               {slide.sub}
@@ -171,7 +171,7 @@ export const WStatsSection = () => {
               {/* Text column */}
               <div className="flex-none w-full flex flex-col pr-0">
                 <p className="text-2xl font-serif text-[#5F646B] mb-5">{s.title}</p>
-                <p className="text-[clamp(64px,6vw,99px)] font-serif font-normal m-0 leading-none text-[#111111]">
+                <p className="text-[clamp(64px,4vw+2.5rem,99px)] font-serif font-normal m-0 leading-none text-[#111111]">
                   {s.count}
                   <sub className="text-base font-normal align-baseline ml-1 text-[#5F646B]">
                     {s.sub}

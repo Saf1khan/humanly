@@ -55,7 +55,7 @@ export const WHeroSection = () => {
   return (
     <section
       ref={containerRef}
-      className="hero-section relative flex flex-col min-h-screen px-[20px] pb-[16px]"
+      className="hero-section relative flex flex-col min-h-screen px-0 lg:px-5 pb-0 lg:pb-[16px]"
     >
       <style>{`
         .wh-hero-title {
@@ -103,7 +103,7 @@ export const WHeroSection = () => {
       `}</style>
 
       {/* Hero Container */}
-      <div className="hero-container hero-gradient-charcoal relative flex-grow rounded-b-[12px] lg:rounded-b-xl overflow-hidden flex flex-col">
+      <div className="hero-container hero-gradient-charcoal relative flex-grow rounded-none lg:rounded-b-xl overflow-hidden flex flex-col">
 
         {/* Content Grid (The Wrapper) */}
         <div className="grid grid-cols-[minmax(1rem,1fr)_repeat(22,minmax(0,1fr))_minmax(1rem,1fr)] lg:grid-cols-[64px_repeat(22,minmax(0,1fr))_64px] grid-rows-[auto_auto] gap-y-0 gap-x-2 relative w-full pt-24 pb-16 min-h-[600px] items-end z-10 lg:grow">
@@ -111,7 +111,7 @@ export const WHeroSection = () => {
           {/* Title Column */}
           <div className="col-start-2 col-end-[24] lg:col-end-[14] xl:col-end-12 row-start-1 row-end-2 lg:mt-auto lg:self-center">
             <div className="my-5 flex flex-col items-center lg:items-start lg:pt-[5vw] lg:pb-[8vw]">
-              <h1 ref={titleRef} className="wh-hero-title text-[#f7f1e8] text-[2.5rem] md:text-[3.75rem] lg:text-[5rem] font-light leading-tight tracking-[-0.05em] text-center lg:text-left m-0">
+              <h1 ref={titleRef} className="wh-hero-title text-[#f7f1e8] text-[clamp(2.5rem,1.4rem+4.5vw,5rem)] font-light leading-tight tracking-[-0.02em] lg:tracking-[-0.05em] text-center lg:text-left m-0">
                 Every Neighborhood a Launchpad,
                 <br />
                 <span>For Human Potential.</span>
