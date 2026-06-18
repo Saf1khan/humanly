@@ -182,94 +182,104 @@ export const ProblemMissionSection = () => {
         <div className="hidden lg:grid lg:grid-cols-12 lg:gap-8 xl:gap-12">
           <div className="lg:col-span-7 xl:col-span-7">
             <div className="flex h-full flex-col pb-16">
-              <h2 className="order-1 text-4xl font-display font-cormorant font-light leading-[1.08] tracking-tight text-sandstone-500 md:text-5xl">
-                America's Housing is Broken
-              </h2>
-
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{ duration: 0.8 }}>
+                <h2 className="order-1 text-4xl font-display font-cormorant font-light leading-[1.08] tracking-tight text-sandstone-500 md:text-5xl">
+                  America's Housing is Broken
+                </h2>
+              </motion.div>
               <div className="order-2 mt-auto">
 
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.35 }}
+                  transition={{ duration: 0.8 }}>
+                  <div
+                    role="tablist"
+                    aria-label="Housing crisis statistics"
+                    aria-orientation="vertical"
+                    onKeyDown={onKeyDown}
+                    className="flex flex-col gap-y-5"
+                  >
+                    {items.map((item, index) => {
+                      const isActive = index === activeIndex;
 
-                <div
-                  role="tablist"
-                  aria-label="Housing crisis statistics"
-                  aria-orientation="vertical"
-                  onKeyDown={onKeyDown}
-                  className="flex flex-col gap-y-5"
-                >
-                  {items.map((item, index) => {
-                    const isActive = index === activeIndex;
-
-                    return (
-                      <motion.div
-                        key={item.id}
-                        layout
-                        transition={{
-                          layout: {
-                            duration: 0.45,
-                            ease: easeOutExpo,
-                          },
-                        }}
-                        className="overflow-hidden"
-                      >
-                        <button
-                          ref={(el) => {
-                            tabRefs.current[index] = el;
+                      return (
+                        <motion.div
+                          key={item.id}
+                          layout
+                          transition={{
+                            layout: {
+                              duration: 0.45,
+                              ease: easeOutExpo,
+                            },
                           }}
-                          id={`stat-tab-${item.id}`}
-                          role="tab"
-                          type="button"
-                          aria-selected={isActive}
-                          aria-controls={`stat-panel-${item.id}`}
-                          tabIndex={isActive ? 0 : -1}
-                          onClick={() => setActiveIndex(index)}
-                          className={`w-full text-left transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-50 hover:opacity-100"
-                            }`}
+                          className="overflow-hidden"
                         >
-                          <h3
-                            className={`text-2xl font-display font-light font-cormorant leading-tight tracking-tight md:text-4xl ${isActive ? "text-[rgb(var(--radial-gradient-color),0.45)]" : "text-sandstone-500"
+                          <button
+                            ref={(el) => {
+                              tabRefs.current[index] = el;
+                            }}
+                            id={`stat-tab-${item.id}`}
+                            role="tab"
+                            type="button"
+                            aria-selected={isActive}
+                            aria-controls={`stat-panel-${item.id}`}
+                            tabIndex={isActive ? 0 : -1}
+                            onClick={() => setActiveIndex(index)}
+                            className={`w-full text-left transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-50 hover:opacity-100"
                               }`}
                           >
-                            {item.title}
-                          </h3>
-                        </button>
-
-                        <AnimatePresence initial={false}>
-                          {isActive && (
-                            <motion.div
-                              key={`${item.id}-description`}
-                              layout
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: "auto", opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{
-                                height: {
-                                  duration: 0.42,
-                                  ease: easeOutExpo,
-                                },
-                                opacity: {
-                                  duration: 0.2,
-                                  ease: "easeOut",
-                                },
-                              }}
-                              className="overflow-hidden"
+                            <h3
+                              className={`text-2xl font-display font-light font-cormorant leading-tight tracking-tight md:text-4xl ${isActive ? "text-[rgb(var(--radial-gradient-color),0.45)]" : "text-sandstone-500"
+                                }`}
                             >
-                              <motion.p
+                              {item.title}
+                            </h3>
+                          </button>
+
+                          <AnimatePresence initial={false}>
+                            {isActive && (
+                              <motion.div
+                                key={`${item.id}-description`}
                                 layout
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ duration: 0.18 }}
-                                className="mt-4 max-w-[36rem] text-base font-light font-albert leading-relaxed text-sandstone-500 xl:text-lg"
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{
+                                  height: {
+                                    duration: 0.42,
+                                    ease: easeOutExpo,
+                                  },
+                                  opacity: {
+                                    duration: 0.2,
+                                    ease: "easeOut",
+                                  },
+                                }}
+                                className="overflow-hidden"
                               >
-                                {item.description}
-                              </motion.p>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </motion.div>
-                    );
-                  })}
-                </div>
+                                <motion.p
+                                  layout
+                                  initial={{ opacity: 0 }}
+                                  animate={{ opacity: 1 }}
+                                  exit={{ opacity: 0 }}
+                                  transition={{ duration: 0.18 }}
+                                  className="mt-4 max-w-[36rem] text-base font-light font-albert leading-relaxed text-sandstone-500 xl:text-lg"
+                                >
+                                  {item.description}
+                                </motion.p>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+                </motion.div>
               </div>
             </div>
           </div>

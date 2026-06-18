@@ -150,7 +150,7 @@ export const COutcomeCards = () => {
         }}
       />
 
-      <div className="mx-auto max-w-[1360px] px-6 lg:px-12">
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-16">
         <div className="flex flex-col items-center justify-between gap-16 lg:flex-row lg:gap-24">
           <div className="relative min-h-auto w-full flex-shrink-0 pb-10 text-center lg:w-[420px] lg:pb-0 lg:text-left">
             <div className="relative flex w-full flex-col items-center text-center lg:items-start lg:text-left">
@@ -227,8 +227,7 @@ export const COutcomeCards = () => {
                     </h3>
                     <div className="mt-3">
                       <p
-                        className="m-0 text-xs font-light leading-[1.72] text-white/88"
-                        style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                        className="m-0 text-xs font-light leading-5 text-white/88 font-albert"
                       >
                         {slides[index].text}
                       </p>

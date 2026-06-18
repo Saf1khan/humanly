@@ -22,13 +22,13 @@ export const COutcomes = () => {
       className="relative z-10 bg-transparent py-20 lg:py-28 overflow-x-clip"
     >
       <div
-        className="absolute pointer-events-none left-1/4 bottom-1/2 -translate-x-1/2 translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
+        className="absolute pointer-events-none left-1/3 bottom-1/2 -translate-x-2/3 translate-y-1/2 w-[clamp(44rem,14.769rem+116.923vw,120rem)] h-[clamp(25rem,8.654rem+65.385vw,67.5rem)]"
         style={{
           background:
-            "radial-gradient(50% 50%, rgba(255, 255, 255, 0.30), rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0))",
+            "radial-gradient(50% 50%, rgba(255, 255, 255, 0.30), rgba(255, 255, 255, 0.20) 50%, rgba(255, 255, 255, 0))",
         }}
       />
-      <div className="max-w-[1380px] mx-auto px-6 lg:px-12">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-8 items-stretch">
 
 

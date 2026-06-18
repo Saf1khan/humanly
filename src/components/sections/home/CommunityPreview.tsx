@@ -14,38 +14,46 @@ export const CommunityPreview = () => {
             <div className="h-full flex flex-col justify-between">
 
               {/* Top + Middle Content */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                <div className="w-full">
-                  <h2 className="text-4xl md:text-5xl font-cormorant font-light text-sandstone-500 leading-[40px] md:leading-[60px] tracking-tight mb-4">
-                    Flagship Communities
-                  </h2>
-                  <h3 className="text-xl md:text-2xl font-light font-albert tracking-tight text-sandstone-500 mb-6">
-                    The Launchpad @ North Austin
-                  </h3>
-                </div>
-                <div className="w-full">
-                  {/* Mobile/Tablet view */}
-                  <p className="block lg:hidden text-base md:text-lg text-sandstone-500 font-light font-albert leading-relaxed tracking-normal">
-                    Our flagship community features 420 attainably priced units, a 20,000 sq ft Circle of Services® hub, and full HumanlyOS® integration. Designed as a blueprint for the future of workforce living.
-                  </p>
-                  
-                  {/* Desktop view */}
-                  <div className="hidden lg:block lg:text-base text-sandstone-500 font-light font-albert leading-relaxed tracking-normal">
-                    <ol className="list-disc my-8 pl-10 space-y-4">
-                      <li>420 attainably priced units</li>
-                      <li>20,000 sq ft Circle of Services® hub</li>
-                      <li>Full HumanlyOS® integration</li>
-                    </ol>
-                    <p className="text-pretty lg:text-lg">
-                      Designed as a blueprint for the future of workforce living.
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.35 }}
+                  transition={{ duration: 1 }}>
+                  <div className="w-full">
+                    <h2 className="text-4xl md:text-5xl font-cormorant font-light text-sandstone-500 leading-[40px] md:leading-[60px] tracking-tight mb-4">
+                      Flagship Communities
+                    </h2>
+                    <h3 className="text-xl md:text-2xl font-light font-albert tracking-tight text-sandstone-500 mb-6">
+                      The Launchpad @ North Austin
+                    </h3>
+
+                  </div>
+                  <div className="w-full">
+                    {/* Mobile/Tablet view */}
+                    <p className="block lg:hidden text-base md:text-lg text-sandstone-500 font-light font-albert leading-relaxed tracking-normal">
+                      Our flagship community features 420 attainably priced units, a 20,000 sq ft Circle of Services® hub, and full HumanlyOS® integration. Designed as a blueprint for the future of workforce living.
                     </p>
                   </div>
+                </motion.div>
+
+                {/* Desktop view */}
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.35 }}
+                  transition={{ duration: 1 }}>
+                <div className="hidden lg:block lg:text-base text-sandstone-500 font-light font-albert leading-relaxed tracking-normal">
+                  <ol className="list-disc my-8 pl-10 space-y-4">
+                    <li>420 attainably priced units</li>
+                    <li>20,000 sq ft Circle of Services® hub</li>
+                    <li>Full HumanlyOS® integration</li>
+                  </ol>
+                  <p className="text-pretty lg:text-lg">
+                    Designed as a blueprint for the future of workforce living.
+                  </p>
                 </div>
-              </motion.div>
+                </motion.div>
+        
 
 
 
@@ -91,7 +99,7 @@ export const CommunityPreview = () => {
                   </div>
                 </motion.div>
 
-                <div className="h-30 w-0.5 bg-white/30"/>
+                <div className="h-30 w-0.5 bg-white/30" />
 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}

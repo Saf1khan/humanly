@@ -110,7 +110,7 @@ export const CPipeline = () => {
 
 
 
-      <div className="relative max-w-[1380px] mx-auto px-6 lg:px-12">
+      <div className="relative max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-16 lg:gap-10 items-start mb-16 lg:mb-20">
           <div>
 
