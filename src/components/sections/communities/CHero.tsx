@@ -55,7 +55,7 @@ export const CHero = () => {
   return (
     <section
       ref={containerRef}
-      className="hero-section relative flex flex-col min-h-screen px-[20px] pb-[16px]"
+      className="hero-section relative flex flex-col min-h-screen lg:px-[20px] pb-[16px]"
     >
       <style>{`
         .wh-hero-title {
@@ -68,6 +68,116 @@ export const CHero = () => {
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           text-rendering: optimizeLegibility;
+          word-break: keep-all;
+          overflow-wrap: break-word;
+        }
+
+        /* Fluid typography for mobile/tablet only — clamp(34px → 60px) between 360px and 768px */
+        
+
+        @media (min-width: 360px) and (max-width: 767px) {
+          .wh-hero-title {
+            font-size: 40px !important;
+            line-height: 46px !important;
+          }
+
+          .wh-desc-container{
+            max-width: 85% !important;
+          }
+        }
+
+        /* Named grid system at 768px (md) breakpoint */
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .hero-grid-md {
+            display: grid !important;
+            grid-template-columns: [full-start] 24px [main-start] repeat(22, 1fr) [main-end] 24px [full-end] !important;
+          }
+
+          .wh-title-container {
+            grid-column: main-start / main-end !important;
+            grid-row: 1 / 2 !important;
+            text-align: center !important;
+          }
+
+          .wh-desc-container {
+            grid-column: main-start / main-end !important;
+            grid-row: 2 / 3 !important;
+            max-width: 450px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            max-width: 85% !important;
+          }
+
+          .wh-secondary-card-container {
+            grid-column: main-start / 13 !important;
+            grid-row: 3 / 4 !important;
+            margin-bottom: 45vw !important;
+            align-self: end !important;
+            z-index: 20 !important;
+          }
+
+          .wh-primary-card-container {
+            grid-column: 5 / main-end !important;
+            grid-row: 3 / 4 !important;
+            padding-top: 320px !important;
+            align-self: end !important;
+            z-index: 10 !important;
+          }
+
+          .wh-hero-title {
+            font-size: 60px !important;
+            line-height: 66px !important;
+            text-align: center !important;
+          }
+        }
+
+        /* Named grid system at 1024px (lg) breakpoint */
+        @media (min-width: 1024px) {
+          .hero-grid-lg {
+            display: grid !important;
+            grid-template-columns: [full-start] 64px [main-start] repeat(22, 1fr) [main-end] 64px [full-end] !important;
+          }
+
+          .wh-title-container {
+            grid-column: main-start / 14 !important;
+            grid-row: 1 / 2 !important;
+            text-align: left !important;
+          }
+
+          .wh-title-container > div {
+            align-items: flex-start !important;
+          }
+
+          .wh-hero-title {
+            text-align: left !important;
+            font-size: clamp(60px, 5.2vw, 80px) !important;
+            line-height: clamp(72px, 5.7vw, 88px) !important;
+          }
+
+          .wh-desc-container {
+            grid-column: main-start / 11 !important;
+            grid-row: 2 / 3 !important;
+            max-width: none !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            align-self: end !important;
+          }
+
+          .wh-secondary-card-container {
+            grid-column: 15 / 19 !important;
+            grid-row: 1 / 3 !important;
+            margin-bottom: 17vw !important;
+            align-self: end !important;
+            z-index: 20 !important;
+          }
+
+          .wh-primary-card-container {
+            grid-column: 16 / 23 !important;
+            grid-row: 1 / 3 !important;
+            padding-top: 0 !important;
+            align-self: end !important;
+            z-index: 10 !important;
+          }
         }
 
         /* SplitType adds .line automatically — overflow:hidden masks the sliding chars */
@@ -121,22 +231,22 @@ export const CHero = () => {
       `}</style>
 
       {/* Hero Container */}
-      <div className="hero-container hero-container-chero relative flex-grow rounded-b-[12px] lg:rounded-b-xl overflow-hidden flex flex-col">
+      <div className="hero-container hero-container-chero relative flex-grow lg:rounded-b-xl overflow-hidden flex flex-col">
 
         {/* Content Grid (The Wrapper) */}
-        <div className="grid grid-cols-[minmax(1rem,1fr)_repeat(22,minmax(0,1fr))_minmax(1rem,1fr)] lg:grid-cols-[64px_repeat(22,minmax(0,1fr))_64px] grid-rows-[auto_auto] gap-y-0 gap-x-2 relative w-full pt-24 pb-16 min-h-[600px] items-end z-10 lg:grow">
+        <div className="grid grid-cols-[24px_repeat(8,1fr)_24px] hero-grid-md hero-grid-lg grid-rows-[auto_auto] gap-y-0 gap-x-0 lg:gap-x-0 relative w-full pt-12 lg:pt-24 pb-16 min-h-[600px] items-end z-10 lg:grow lg:content-between">
 
           {/* Title Column */}
-          <div className="col-start-2 col-end-[24] lg:col-end-[14] xl:col-end-12 row-start-1 row-end-2 lg:mt-auto lg:self-center">
-            <div className="my-5 flex flex-col items-center lg:items-start lg:pt-[5vw] lg:pb-[8vw]">
-              <h1 ref={titleRef} className="wh-hero-title text-4xl md:text-6xl lg:text-[80px] font-light leading-[52px] md:leading-[72px] lg:leading-[92px] tracking-tight text-center lg:text-left m-0">
-                Every Humanly® community shares a common foundation
+          <div className="col-start-2 col-end-10 row-start-1 row-end-2 lg:mt-auto lg:self-center wh-title-container">
+            <div className="mt-5 mb-4 lg:my-5 flex flex-col items-center lg:items-start lg:pt-[5vw] lg:pb-[8vw]">
+              <h1 ref={titleRef} className="wh-hero-title font-light tracking-tight text-center whitespace-normal lg:text-left m-0">
+                Every Humanly® <br />community shares a <br/> common foundation
               </h1>
             </div>
           </div>
 
           {/* Description / CTA Column */}
-          <div className="col-start-2 md:col-start-4 lg:col-start-2 col-end-[24] md:col-end-[22] lg:col-end-11 xl:col-end-9 row-start-2 row-end-3 lg:self-end">
+          <div className="col-start-2 col-end-10 row-start-2 row-end-3 lg:self-end mb-[48px] lg:mb-0 max-w-[312px] md:max-w-[450px] mx-auto lg:max-w-none lg:mx-0 wh-desc-container">
             <div className="flex flex-col gap-6 h-full items-center justify-end lg:h-auto lg:items-start lg:justify-start lg:pb-0">
 
               <div className="w-full text-center lg:text-left lg:relative lg:block">
@@ -155,7 +265,7 @@ export const CHero = () => {
           </div>
 
           {/* 2. The Secondary (Smaller/Back) Card */}
-          <div className="col-start-2 lg:col-start-[14] col-end-6 lg:col-end-[18] row-start-3 lg:row-start-1 row-end-4 lg:row-end-3 mb-[45vw] lg:mb-[17vw] self-end z-20 lg:-translate-y-12">
+          <div className="col-start-2 col-end-6 row-start-3 row-end-4 mb-[45vw] md:mb-[25vw] self-end z-20 wh-secondary-card-container">
             <div className="motionComponent relative aspect-square w-full">
               <Image
                 src="/images/AdobeStock_815248903.jpeg"
@@ -169,7 +279,7 @@ export const CHero = () => {
           </div>
 
           {/* 3. The Primary (Larger/Front) Card */}
-          <div className="col-start-3 lg:col-start-[16] col-end-[23] row-start-3 lg:row-start-1 row-end-4 lg:row-end-3 self-end pt-32 lg:pt-0 z-10 lg:-translate-y-12">
+          <div className="col-start-3 col-end-10 row-start-3 row-end-4 self-end pt-32 md:pt-80 z-10 wh-primary-card-container">
             <div className="motionComponent relative aspect-[3/2] w-full">
               <Image
                 src="/images/AdobeStock_610237900.jpeg"
