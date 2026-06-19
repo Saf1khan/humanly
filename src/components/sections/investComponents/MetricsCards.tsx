@@ -97,7 +97,7 @@ export const MetricsCards = () => {
           transition={{ duration: 0.8 }}
           className="mx-auto mb-12 max-w-4xl text-center sm:mb-16 md:mb-20"
         >
-          <h2 className="text-3xl font-display font-cormorant font-normal leading-[1.08] tracking-tight text-sandstone-500 sm:text-4xl lg:hidden">
+          <h2 className="text-4xl font-display font-cormorant font-normal leading-[1.08] tracking-tight text-sandstone-500 sm:text-4xl lg:hidden">
             Investment at a Glance
           </h2>
         </motion.div>

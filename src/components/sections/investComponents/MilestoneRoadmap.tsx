@@ -200,7 +200,7 @@ export const MilestoneRoadmap = () => {
           transition={{ duration: 0.9, ease: EASE }}
           className="mb-24 flex flex-col items-center md:items-start text-center md:text-left gap-4"
         >
-          <h2 className="font-cormorant text-3xl md:text-5xl text-sandstone-500 leading-[40px] md:leading-[60px] tracking-tight font-noraml">
+          <h2 className="font-cormorant text-4xl md:text-5xl text-sandstone-500 leading-[40px] md:leading-[60px] tracking-tight font-noraml">
             The Path to<span className="not-italic font-light text-[rgb(var(--radial-gradient-color))]"> Scale</span>
           </h2>
           <p className="max-w-4xl text-base md:text-lg font-light font-albert leading-[28px] md:leading-[30px] text-sandstone-500">
@@ -307,8 +307,11 @@ export const MilestoneRoadmap = () => {
         {/* ── DETAIL PANEL (Parallax Monolithic Effect) ── */}
         <motion.div
           ref={panelRef}
-          className="relativ bg-[#101d2d]/60 border border-white/5 overflow-hidden backdrop-blur-md rounded-[24px] text-white"
-          style={{ minHeight: "340px", boxShadow: `0 25px 60px -15px rgba(var(--radial-gradient-color), 0.25)` }}
+          className="relative bg-[#101d2d]/60 border border-white/5 overflow-hidden backdrop-blur-md rounded-[20px] md:rounded-[24px] text-white"
+          style={{
+            minHeight: "auto",
+            boxShadow: `0 25px 60px -15px rgba(var(--radial-gradient-color), 0.25)`,
+          }}
           initial={{ opacity: 0, y: 40, scale: 0.97 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: "-40px" }}
@@ -329,38 +332,37 @@ export const MilestoneRoadmap = () => {
               animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
               exit={{ opacity: 0, filter: "blur(8px)", scale: 1.02 }}
               transition={{ duration: 0.9, ease: EASE }}
-              className="absolute inset-0 flex flex-col md:flex-row z-10"
+              className="relative z-10 flex flex-col md:flex-row"
             >
               {/* Optional background image from our milestone data */}
-              <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen pointer-events-none">
+              <div className="absolute inset-0 z-0 opacity-10 md:opacity-20 mix-blend-screen pointer-events-none">
                 <img
                   src={ms.image}
                   alt={ms.title}
                   className="w-full h-full object-cover"
                   style={{ objectPosition: ms.imagePosition }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#101d2d] to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-[#101d2d] via-[#101d2d]/85 to-transparent" />
               </div>
 
               {/* Left Column: Meta & Lines */}
-              
-              <div className="w-full md:w-1/3 p-8 md:p-12 border-b md:border-b-0 md:border-r border-white/5 flex flex-col justify-between relative bg-black/40 backdrop-blur-sm z-10">
-                 <motion.div
+              <div className="w-full md:w-1/3 p-6 md:p-12 border-b md:border-b-0 md:border-r border-white/5 flex flex-col justify-between gap-8 md:gap-0 relative bg-black/40 backdrop-blur-sm z-10">
+                <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.25, duration: 2, ease: EASE }}
                 >
-                <div>
-                  <div className="flex items-center gap-3 mb-6">
-                    <span className="w-1 h-1 bg-white" />
-                    <p className="text-xs font-albert font-medium tracking-[0.2em] uppercase text-white">
-                      Phase 0{active + 1}
-                    </p>
+                  <div>
+                    <div className="flex items-center gap-3 mb-5 md:mb-6">
+                      <span className="w-1 h-1 bg-white" />
+                      <p className="text-xs font-albert font-medium tracking-[0.2em] uppercase text-white">
+                        Phase 0{active + 1}
+                      </p>
+                    </div>
+                    <h3 className="font-bodoni text-3xl md:text-4xl text-[rgb(var(--radial-gradient-color))] font-normal tracking-widest mb-2">
+                      {ms.year}
+                    </h3>
                   </div>
-                  <h3 className="font-bodoni text-3xl md:text-4xl text-[rgb(var(--radial-gradient-color))] font-normal tracking-widest mb-2">
-                    {ms.year}
-                  </h3>
-                </div>
                 </motion.div>
 
                 {/* Minimalist Status */}
@@ -369,38 +371,41 @@ export const MilestoneRoadmap = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.25, duration: 2, ease: EASE }}
                 >
-                <div className="flex items-center gap-2 mt-8 md:mt-0">
-                  {ms.status === "Active" ? (
-                    <span className="w-1.5 h-1.5 bg-white animate-pulse" />
-                  ) : (
-                    <span className="w-1.5 h-1.5 border border-white/40" />
-                  )}
-                  <span className="text-xs font-medium font-albert tracking-[0.2em] uppercase text-white">
-                    {ms.status}
-                  </span>
-                </div>
+                  <div className="flex items-center gap-2 mt-0 md:mt-8">
+                    {ms.status === "Active" ? (
+                      <span className="w-1.5 h-1.5 bg-white animate-pulse" />
+                    ) : (
+                      <span className="w-1.5 h-1.5 border border-white/40" />
+                    )}
+                    <span className="text-xs font-medium font-albert tracking-[0.2em] uppercase text-white">
+                      {ms.status}
+                    </span>
+                  </div>
                 </motion.div>
               </div>
 
               {/* Right Column: Title & Desc */}
-              <div className="w-full md:w-2/3 p-8 md:p-16 flex flex-col justify-center relative backdrop-blur-[2px] z-10">
+              <div className="w-full md:w-2/3 p-6 md:p-16 flex flex-col justify-center relative backdrop-blur-[2px] z-10">
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.25, duration: 2, ease: EASE }}
                 >
-                  <h4 className="font-cormorant text-2xl md:text-3xl font-bold text-[rgb(var(--radial-gradient-color))] mb-6">
+                  <h4 className="font-cormorant text-2xl md:text-3xl font-bold text-[rgb(var(--radial-gradient-color))] mb-4 md:mb-6">
                     {ms.title}
                   </h4>
-                  <div className="h-[1px] w-12 bg-white/60 mb-6" />
-                  <p className="text-base font-albert leading-relaxed font-light text-white max-w-2xl mb-8">
+                  <div className="h-[1px] w-12 bg-white/60 mb-5 md:mb-6" />
+                  <p className="text-sm md:text-base font-albert leading-7 md:leading-relaxed font-light text-white max-w-2xl mb-6 md:mb-8">
                     {ms.desc}
                   </p>
 
-                  {/* Incorporating current milestone metrics into the new premium card */}
                   <div className="flex flex-col">
-                    <span className="text-3xl md:text-4xl font-albert font-light text-[rgb(var(--radial-gradient-color))]">{ms.metric}</span>
-                    <span className="text-[10px] font-light font-albert uppercase tracking-[0.2em] text-white mt-2">{ms.metricLabel}</span>
+                    <span className="text-2xl md:text-4xl font-albert font-light text-[rgb(var(--radial-gradient-color))]">
+                      {ms.metric}
+                    </span>
+                    <span className="text-xs md:text-[10px] font-light font-albert uppercase tracking-[0.2em] text-white mt-2">
+                      {ms.metricLabel}
+                    </span>
                   </div>
                 </motion.div>
               </div>
