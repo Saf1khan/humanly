@@ -202,13 +202,13 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
                 onMouseLeave={() => { if (activeIdx === idx) toggleCard(idx); }}
               >
 
-                <div className="flex h-full flex-col lg:flex-row">
+                <div className="flex h-full flex-col lg:flex-row gap-0">
                   <motion.div
                     initial={{ opacity: 0, clipPath: "inset(20% 20% 20% 20%)" }}
                     whileInView={{ opacity: 1, clipPath: "inset(0% 0% 0% 0%)" }}
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="relative w-[277px] shrink-0 overflow-hidden lg:h-full"
+                    className="relative w-[277px] shrink-0 overflow-hidden h-[180px] lg:h-full mobile-no-clip"
                   >
                     <motion.div
                       initial={{ scale: 1.1, filter: "grayscale(40%)" }}
@@ -228,7 +228,7 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
                       />
                     </motion.div>
                   </motion.div>
-                  <div className={`h-full overflow-hidden transition-all duration-300 sm:hidden lg:block ${isExpanded ? "w-72" : "w-0"} bg-[#5C6F5D]/15 border-1 border-[#5C6F5D]/25`}>
+                  <div className={`h-full overflow-hidden transition-all duration-300 hidden lg:block ${isExpanded ? "w-72" : "w-0"} bg-[#5C6F5D]/15 border-1 border-[#5C6F5D]/25`}>
                     <div className="flex h-full w-72 flex-col justify-top gap-4 overflow-hidden p-6 text-[rgb(34,66,40)]">
                       <div className="h-[1px] w-8 bg-[rgba(34,66,40,0.2)] mb-1" />
                       <p className="text-2xl font-serif tracking-tight">{member.name}</p>
@@ -236,12 +236,12 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
                       <p className="text-base text-[rgba(34,66,40,0.8)] font-light">{member.bio}</p>
                     </div>
                   </div>
-                  <div className="flex h-full w-[277px] grow flex-col justify-between p-6 lg:hidden bg-transparent">
-                    <div className="flex flex-col gap-2 text-[rgb(34,66,40)]">
+                  <div className="flex w-[277px] h-[190px] flex-col justify-between p-5 lg:hidden bg-[#5C6F5D]/15 border-t border-[#5C6F5D]/25 backdrop-blur-sm -mt-[1px]">
+                    <div className="flex flex-col gap-1 text-[rgb(34,66,40)]">
                       <p className="text-lg font-serif tracking-tight">{member.name}</p>
                       <p className="text-[0.875rem] text-[rgba(34,66,40,0.8)] font-light">{member.title}</p>
                     </div>
-                    <p className="text-base text-[rgba(34,66,40,0.8)] font-light">{member.bio}</p>
+                    <p className="text-sm text-[rgba(34,66,40,0.8)] font-light leading-relaxed">{member.bio}</p>
                   </div>
                 </div>
               </div>
@@ -282,6 +282,11 @@ export const TeamGrid = () => {
       </div>
       <style jsx global>{`
         .no-scrollbar::-webkit-scrollbar { display: none; }
+        @media (max-width: 1023px) {
+          .mobile-no-clip {
+            clip-path: none !important;
+          }
+        }
       `}</style>
     </section>
   );

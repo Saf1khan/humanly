@@ -32,22 +32,22 @@ export const WShiftSection = () => {
       />
       <div
         ref={ref}
-        className="content-container flex flex-col lg:flex-row lg:items-center max-w-[1400px] mx-auto transition-all duration-1000 ease-out opacity-0 translate-y-8 [&.wh-on]:opacity-100 [&.wh-on]:translate-y-0"
+        className="content-container flex flex-col lg:flex-row lg:items-stretch max-w-[1400px] mx-auto transition-all duration-1000 ease-out opacity-0 translate-y-8 [&.wh-on]:opacity-100 [&.wh-on]:translate-y-0"
       >
         {/* Left Content: Image Column */}
-        <div className="left-content flex-1 basis-[100%] lg:basis-1/2 overflow-hidden rounded-[12px] lg:rounded-xl max-h-[350px] lg:max-h-none">
+        <div className="left-content flex-1 basis-[100%] lg:basis-1/2 overflow-hidden rounded-[12px] lg:rounded-xl max-h-[350px] md:max-h-none lg:max-h-none">
           <img
             loading="lazy"
             decoding="async"
             src="/images/TheShift-Image.png"
-            className="w-full h-full object-cover object-center aspect-[16/9] lg:aspect-[688/400] hover:scale-105 transition-transform duration-700 ease-out"
+            className="w-full h-full object-cover object-center aspect-[16/9] lg:aspect-auto hover:scale-105 transition-transform duration-700 ease-out"
             alt="Humanly Shift"
           />
         </div>
 
         {/* Right Content: Text Column */}
         <div className="right-content flex flex-1 basis-[100%] items-center justify-center lg:basis-1/2">
-          <div className="text-container w-full px-0 py-10 lg:px-[64px]">
+          <div className="text-container w-full px-0 py-10 lg:pl-8 lg:pr-0 xl:px-[64px]">
             <h2 className="text-[32px] font-serif font-normal leading-[1.08] tracking-[-0.03em] text-white md:text-[40px] lg:text-[48px]">
               Humanly doesn&apos;t patch the problem. It rebuilds the system{" "}
               <span className="font-serif font-normal">
