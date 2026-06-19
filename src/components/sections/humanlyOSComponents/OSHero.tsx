@@ -331,7 +331,7 @@ const OSHero = () => {
           <div className="hero-gradient-layer" id="bottom-left-glow" style={{ backgroundImage: "radial-gradient(circle at 0% 100%, rgba(215, 226, 232, 0.25) 0px, transparent 18%)" }} />
 
           {/* Content Grid (The Wrapper) */}
-          <div className="grid grid-cols-[24px_repeat(8,1fr)_24px] hero-grid-md hero-grid-lg grid-rows-[auto_auto] gap-y-0 gap-x-0 lg:gap-x-0 relative w-full pt-12 lg:pt-24 pb-16 min-h-[600px] items-end z-10 lg:grow lg:content-between">
+          <div className="grid grid-cols-[12px_repeat(8,1fr)_12px] sm:grid-cols-[24px_repeat(8,1fr)_24px] hero-grid-md hero-grid-lg grid-rows-[auto_auto] gap-y-0 gap-x-0 lg:gap-x-0 relative w-full pt-24 md:pt-28 lg:pt-24 pb-16 min-h-[600px] items-end z-10 lg:grow lg:content-between">
 
             {/* Title Column */}
             <div className="col-start-2 col-end-10 md:col-start-[main-start] md:col-end-[main-end] lg:col-start-2 lg:col-end-[14] xl:col-end-12 row-start-1 row-end-2 lg:mt-auto lg:self-center wh-title-container">
