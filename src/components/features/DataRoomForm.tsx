@@ -17,7 +17,7 @@ export const DataRoomForm = () => {
         style={{ background: "radial-gradient(50% 50%, rgba(105, 165, 255, 0.12), rgba(105, 165, 255, 0.05) 50%, rgba(105, 165, 255, 0))" }}
       />
 
-      <div className="mx-auto w-full max-w-[1440px] px-6 lg:px-16 relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+      <div className="mx-auto w-full max-w-[1440px] px-6 md:px-12 lg:px-16 relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
         
         {/* Aside Image Container (Now on the left in the grid, matching the 2nd request) */}
         <div className="relative z-10 w-full h-[400px] lg:h-full min-h-[400px] overflow-hidden rounded-2xl shadow-2xl">

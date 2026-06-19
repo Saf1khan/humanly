@@ -236,7 +236,7 @@ export const FaqAccordion = () => {
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 md:px-12 lg:px-16">
         <div className="grid grid-cols-1 items-start gap-16 lg:grid-cols-[1.1fr_1.9fr] lg:gap-24">
           <div className="h-fit lg:sticky lg:top-32">
-            <h2 className="mb-6 font-cormorant text-3xl font-normal leading-[40px] tracking-tight md:text-5xl md:leading-[52px]">
+            <h2 className="mb-6 font-cormorant text-4xl font-normal leading-[40px] tracking-tight md:text-5xl md:leading-[52px]">
               <span className="text-sandstone-600">Frequently Asked</span> <br />
               <em className="not-italic text-[rgb(var(--radial-gradient-color))]">Questions</em>
             </h2>
