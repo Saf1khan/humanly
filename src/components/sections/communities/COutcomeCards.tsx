@@ -121,8 +121,8 @@ export const COutcomeCards = () => {
 
   const desktopSlots = [
     { x: "0px", y: "0px", a: "1", z: "3" },
-    { x: "-56px", y: "-22px", a: ".98", z: "2" },
-    { x: "-112px", y: "-44px", a: ".92", z: "1" },
+    { x: "-25px", y: "-22px", a: ".98", z: "2" },
+    { x: "-50px", y: "-44px", a: ".92", z: "1" },
   ];
 
   const mobileSlots = [
@@ -134,7 +134,7 @@ export const COutcomeCards = () => {
   const slots = isMobileView ? mobileSlots : desktopSlots;
 
   return (
-    <section className="relative overflow-x-clip bg-transparent py-20 lg:py-32">
+    <section className="relative overflow-x-clip bg-transparent py-20 xl:py-32">
       <div
         className="absolute pointer-events-none left-0 top-1/4 h-[clamp(25rem,8.654rem+65.385vw,67.5rem)] w-[clamp(44rem,14.769rem+116.923vw,120rem)] -translate-x-1/2 -translate-y-1/2"
         style={{
@@ -150,11 +150,11 @@ export const COutcomeCards = () => {
         }}
       />
 
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-16">
-        <div className="flex flex-col items-center justify-between gap-16 lg:flex-row lg:gap-24">
-          <div className="relative min-h-auto w-full flex-shrink-0 pb-10 text-center lg:w-[420px] lg:pb-0 lg:text-left">
-            <div className="relative flex w-full flex-col items-center text-center lg:items-start lg:text-left">
-              <div className="pointer-events-none absolute -top-28 left-1/2 z-0 -translate-x-1/2 select-none font-ivy-ora text-[80px] font-light tracking-widest text-[#5C472B]/[0.06] lg:-left-2.5 lg:translate-x-0 md:text-[130px]">
+      <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-16">
+        <div className="flex flex-col items-center gap-16 xl:flex-row xl:items-center xl:gap-12">
+          <div className="relative min-h-auto w-full pb-10 text-center xl:min-w-0 xl:flex-1 xl:pb-0 xl:text-left">
+            <div className="relative flex w-full flex-col items-center text-center xl:items-start xl:text-left">
+              <div className="pointer-events-none absolute top-10 md:top-10 xl:-top-28 left-1/2 z-0 -translate-x-1/2 select-none font-ivy-ora text-[80px] font-light tracking-widest text-[#5C472B]/[0.06] xl:-left-2.5 xl:translate-x-0 md:text-[130px]">
                 {String(index + 1).padStart(2, "0")}
               </div>
 
@@ -168,20 +168,21 @@ export const COutcomeCards = () => {
                 by <span className="italic">System Design</span>
               </h2>
 
-              <p className="mt-7 max-w-[400px] font-albert text-base font-light leading-[28px] text-sandstone-500 md:text-lg md:leading-[30px]">
-                Every Humanly® community provides sustained structural advantages.
-                We blend master planning, land stewardship, and digital
-                infrastructure to redefine suburban wellness and attainable
-                living. From land design to resident pathways, our frameworks
-                foster an integrated ecosystem for dining, living, and thriving.
+              <p className="mt-7 w-full font-albert text-base font-light leading-[28px] text-sandstone-500 md:text-lg md:leading-[30px] xl:max-w-[520px] text-pretty">
+                Every Humanly® community provides sustained structural
+                advantages. We blend master planning, land stewardship, and
+                digital infrastructure to redefine suburban wellness and
+                attainable living. From land design to resident pathways, our
+                frameworks foster an integrated ecosystem for dining, living,
+                and thriving.
               </p>
             </div>
           </div>
 
-          <div className="w-full flex-shrink-0 lg:w-[640px]">
-            <div className="relative grid w-full grid-cols-1 items-center gap-0 md:grid-cols-[1.15fr_1fr]">
+          <div className="w-full md:max-xl:w-[620px] md:max-xl:pl-[36px] xl:w-[720px] xl:shrink-0 xl:pl-[50px]">
+            <div className="relative grid w-full grid-cols-1 items-center gap-0 md:max-xl:grid-cols-[1.05fr_0.95fr] md:grid-cols-[1.15fr_1fr]">
               <div
-                className="relative isolate z-[3] h-[clamp(400px,118vw,580px)] max-h-[600px] cursor-pointer rounded-[2000px_2000px_0_0] md:h-[clamp(320px,72vw,420px)] md:cursor-default md:rounded-none lg:h-[clamp(380px,42vw,560px)]"
+                className="relative isolate z-[3] h-[clamp(400px,118vw,580px)] max-h-[600px] cursor-pointer rounded-[2000px_2000px_0_0] md:h-[clamp(320px,72vw,420px)] md:max-xl:h-[360px] md:cursor-default md:rounded-none xl:h-[clamp(380px,42vw,560px)]"
                 aria-label="Experience images"
                 onClick={() => {
                   if (isMobileView) goNext();
@@ -220,15 +221,16 @@ export const COutcomeCards = () => {
 
                 <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-transparent via-[#0a0a0a]/18 via-[#0a0a0a]/42 via-[#0a0a0a]/68 to-[#0a0a0a]/88 md:hidden" />
 
-                <div className="pointer-events-none absolute inset-0 z-10 flex items-end justify-center px-[22px] py-[28px] md:hidden" aria-hidden="true">
+                <div
+                  className="pointer-events-none absolute inset-0 z-10 flex items-end justify-center px-[22px] py-[28px] md:hidden"
+                  aria-hidden="true"
+                >
                   <div className="w-full max-w-[320px] text-center text-white">
                     <h3 className="m-0 font-cormorant text-xl font-light uppercase tracking-tight text-white leading-[28px]">
                       {slides[index].title}
                     </h3>
                     <div className="mt-3">
-                      <p
-                        className="m-0 text-xs font-light leading-5 text-white/88 font-albert"
-                      >
+                      <p className="m-0 text-xs font-light leading-5 text-white/88 font-albert">
                         {slides[index].text}
                       </p>
                     </div>
@@ -236,7 +238,7 @@ export const COutcomeCards = () => {
                 </div>
               </div>
 
-              <div className="relative z-[2] mt-[23px] flex min-h-[300px] w-full flex-col rounded-r-3xl bg-transparent p-[35px] pb-[calc(35px+44px)] text-white shadow-none before:absolute before:-left-[92px] before:top-0 before:z-[-1] before:hidden before:h-full before:w-[92px] before:bg-[#5C472B] before:content-[''] md:mt-0 md:h-[320px] md:max-w-[500px] md:justify-self-end md:bg-[#5C472B] md:shadow-[0_20px_70px_rgba(0,0,0,0.10)] md:before:block">
+              <div className="relative z-[2] mt-[23px] flex min-h-[300px] w-full flex-col rounded-r-3xl bg-transparent p-[35px] pb-[calc(35px+44px)] text-white shadow-none before:absolute before:top-0 before:z-[-1] before:hidden before:h-full before:bg-[#5C472B] before:content-[''] md:mt-0 md:h-[320px] md:max-w-[500px] md:justify-self-end md:bg-[#5C472B] md:shadow-[0_20px_70px_rgba(0,0,0,0.10)] md:before:block md:max-xl:before:-left-[36px] md:max-xl:before:w-[36px] xl:before:-left-[50px] xl:before:w-[50px]">
                 <div
                   className={`hidden md:block transition-[opacity,transform,filter] will-change-transform motion-reduce:transition-none ${
                     contentVisible
