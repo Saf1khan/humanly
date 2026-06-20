@@ -113,11 +113,11 @@ export const Hero = () => {
               </p>
 
               <div className="flex flex-wrap justify-center lg:justify-start gap-5">
-                <a href="invest.html" className="group relative px-10 py-4 bg-h-primary text-white rounded-full font-semibold font-albert overflow-hidden transition-all hover:pr-14">
+                <a href="/invest" className="group relative px-10 py-4 bg-h-primary text-white rounded-full font-semibold font-albert overflow-hidden transition-all hover:pr-14">
                   <span className="relative z-10">Request Data Room Access</span>
                   <span className="absolute right-4 top-1/2 -translate-y-1/2 ">→</span>
                 </a>
-                <a href="platform.html" className="px-10 py-4 bg-white/10 backdrop-blur-md border font-albert border-white/20 text-white rounded-full font-semibold hover:bg-white/20 transition-all">
+                <a href="/platform" className="px-10 py-4 bg-white/10 backdrop-blur-md border font-albert border-white/20 text-white rounded-full font-semibold hover:bg-white/20 transition-all">
                   Explore the Platform
                 </a>
               </div>
