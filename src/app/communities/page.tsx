@@ -25,7 +25,6 @@ export default function CommunitiesPage() {
         <VillageCenterSection />
         <COutcomeCards />
         <CPipeline />
-        <Footer />
       </main>
   );
 }

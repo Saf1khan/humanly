@@ -16,7 +16,6 @@ export default function InvestPage() {
       <FaqAccordion />
       <IrContactCard />
       <DataRoomForm />
-      <Footer />
     </main>
   );
 }
