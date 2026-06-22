@@ -22,7 +22,6 @@ export default function TeamPage() {
       <PartnersAdvisors />
       <CredentialsStrip />
       <CultureSection />
-      <Footer />
     </main>
   );
 }

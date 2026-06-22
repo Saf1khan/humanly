@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Nav } from "@/components/layout/Nav";
+import { Footer } from "@/components/layout/Footer";
 import {
   Albert_Sans,
   Bodoni_Moda,
@@ -46,6 +47,7 @@ export default function RootLayout({
       <body className="antialiased">
         <Nav />
         {children}
+        <Footer />
       </body>
     </html>
   );

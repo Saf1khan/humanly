@@ -38,7 +38,6 @@ export default function HumanlyOSPage() {
       <OSTransactionIntegration />
       <OSJourney />
       <OSPlatformMatrix />
-      <Footer />
     </main>
   );
 }

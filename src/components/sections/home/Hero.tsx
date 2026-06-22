@@ -84,7 +84,7 @@ export const Hero = () => {
     font-cormorant opacity-0
     [text-shadow:2px_2px_4px_rgba(255,255,255,0.2)]
     antialiased
-    text-[#f7f1e8] text-[40px] md:text-6xl lg:text-[80px]
+    text-[#f7f1e8] text-[40px] md:text-6xl lg:text-[clamp(60px,5.2vw,80px)]
     font-light leading-[52px] md:leading-[72px] lg:leading-[92px]
     tracking-[-0.05em] text-center lg:text-left m-0
     [&_.line]:block
@@ -113,11 +113,11 @@ export const Hero = () => {
               </p>
 
               <div className="flex flex-wrap justify-center lg:justify-start gap-5">
-                <a href="invest.html" className="group relative px-10 py-4 bg-h-primary text-white rounded-full font-semibold font-albert overflow-hidden transition-all hover:pr-14">
+                <a href="/invest" className="group relative px-10 py-4 bg-h-primary text-white rounded-full font-semibold font-albert overflow-hidden transition-all hover:pr-14">
                   <span className="relative z-10">Request Data Room Access</span>
                   <span className="absolute right-4 top-1/2 -translate-y-1/2 ">→</span>
                 </a>
-                <a href="platform.html" className="px-10 py-4 bg-white/10 backdrop-blur-md border font-albert border-white/20 text-white rounded-full font-semibold hover:bg-white/20 transition-all">
+                <a href="/platform" className="px-10 py-4 bg-white/10 backdrop-blur-md border font-albert border-white/20 text-white rounded-full font-semibold hover:bg-white/20 transition-all">
                   Explore the Platform
                 </a>
               </div>

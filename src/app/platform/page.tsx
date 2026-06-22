@@ -16,7 +16,7 @@ export default function PlatformPage() {
         </div>
         <PhasesTabSection />
       </div>
-      <Footer />
+ 
     </main>
   );
 }
