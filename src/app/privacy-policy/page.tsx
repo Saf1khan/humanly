@@ -2,7 +2,8 @@ import React from 'react';
 
 export default function PrivacyPolicy() {
   return (
-    <main className="min-h-screen relative overflow-hidden bg-sandstone-200 py-24 px-8 md:px-12 lg:px-16 pt-32">
+    <main className="min-h-screen relative overflow-hidden bg-black">
+      <div className="rounded-b-[40px] md:rounded-b-[64px] bg-sandstone-200 py-24 px-8 md:px-12 lg:px-16 pt-32">
       {/* Radial Gradient Background Layer */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/60 via-transparent to-transparent pointer-events-none"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_var(--tw-gradient-stops))] from-[#5c4033]/10 via-transparent to-transparent pointer-events-none"></div>
@@ -62,6 +63,7 @@ export default function PrivacyPolicy() {
             </p>
           </section>
         </div>
+      </div>
       </div>
     </main>
   );

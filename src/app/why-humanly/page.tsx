@@ -174,8 +174,6 @@ export default function WhyHumanlyPage() {
         <div className="bg-black">
           <WShiftSection />
         </div>
-
-        <Footer />
       </div>
     </main>
   );
