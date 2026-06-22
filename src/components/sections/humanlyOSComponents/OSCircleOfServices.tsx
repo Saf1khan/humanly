@@ -66,7 +66,7 @@ const OSCircleOfServices = ({ isDark = true }: CircleOfServicesSectionProps) => 
           </p>
           <div className="h-[2px] rounded-full w-[80px] bg-gradient-to-r from-[#1a4f82] via-[#2d7dd2] to-[#d96a2b] mb-8"></div> */}
 
-          <h2 className="text-center lg:text-left text-white font-serif leading-tight font-normal text-[2.5rem] md:text-[3rem] lg:text-[4rem] tracking-tight drop-shadow-sm min-[360px]:max-[767px]:text-[36px] min-[360px]:max-[767px]:leading-[50px] min-[360px]:max-[767px]:tracking-normal max-[359px]:text-[28px] md:text-[48px] md:leading-[60px] md:text-center lg:text-left" style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}>
+          <h2 className="text-center lg:text-left text-white font-serif leading-tight font-normal text-[2.5rem] lg:text-[3rem] tracking-tight drop-shadow-sm min-[360px]:max-[767px]:text-[36px] min-[360px]:max-[767px]:leading-[50px] min-[360px]:max-[767px]:tracking-normal max-[359px]:text-[28px] md:text-[48px] md:leading-[60px] md:text-center lg:text-left" style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}>
             Circle of Services<span className="text-[0.4em] align-super">®</span>
           </h2>
           <p className={`mt-4 md:mt-6 text-center lg:text-left text-[#e2e8f0] max-w-[22rem] md:max-w-lg lg:max-w-xl text-[1.1rem] md:text-[1.25rem] leading-relaxed font-sans font-light mx-auto lg:mx-0`}>

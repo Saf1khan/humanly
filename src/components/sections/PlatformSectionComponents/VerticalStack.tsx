@@ -29,8 +29,8 @@ const Layer = ({ label, title, desc, cap, detail, phase, imgSrc, delay = 0 }: La
       transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
       className="flex flex-col md:flex-row items-center mb-10 md:mb-20 gap-6 md:gap-12 font-sans"
     >
-      <div className="w-full md:w-5/12 overflow-hidden rounded-[20px] shadow-lg group cursor-pointer">
-        <div className="aspect-[4/3] w-full relative overflow-hidden bg-slate-100">
+      <div className="w-full md:w-5/12 overflow-hidden rounded-[20px] shadow-lg group cursor-pointer transition-transform duration-300 hover:-translate-y-1.5">
+        <div className="aspect-[16/9] md:aspect-[4/3] w-full relative overflow-hidden bg-slate-100">
            <img
              src={imgSrc}
              alt={title}
@@ -101,7 +101,7 @@ export const VerticalStack = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-[clamp(36px,5vw,64px)] font-cormorant font-light leading-[1.08] tracking-[-0.02em] text-[#3E2242] max-w-[880px] mb-24 text-center md:text-left mx-auto md:mx-0"
+          className="text-[clamp(36px,5vw,48px)] font-cormorant font-light leading-[1.08] tracking-[-0.02em] text-[#3E2242] max-w-[880px] mb-24 text-center md:text-left mx-auto md:mx-0"
         >
           Nine layers of value creation across acquisitions, lease-up, and management.
         </motion.h2>

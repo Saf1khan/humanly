@@ -400,6 +400,16 @@ export const PhasesTabSection = () => {
             background: rgb(239, 234, 226);
             padding: 200px 0 100px;
           }
+          @media (max-width: 1024px) {
+            .phases-section {
+              padding: 100px 0 80px;
+            }
+          }
+          @media (max-width: 768px) {
+            .phases-section {
+              padding: 60px 0 60px;
+            }
+          }
           .phases-bg-dots {
             position: absolute;
             inset: 0;
@@ -432,7 +442,7 @@ export const PhasesTabSection = () => {
             justify-content: center;
             max-width: 100%;
           }
-          .phases-tab-btn {
+           .phases-tab-btn {
             appearance: none;
             display: inline-flex;
             align-items: center;
@@ -450,6 +460,15 @@ export const PhasesTabSection = () => {
             cursor: pointer;
             transition: all 0.3s ease;
             font-family: inherit;
+          }
+          @media (max-width: 768px) {
+            .phases-tab-btn {
+              padding: 10px 18px;
+              font-size: 14px;
+            }
+            .phases-tablist {
+              gap: 8px;
+            }
           }
           .phases-tab-btn:hover:not(.phases-tab-btn--active) {
             border-color: #999795;
@@ -494,7 +513,7 @@ export const PhasesTabSection = () => {
             gap: 64px;
           }
           .phases-panel-headline {
-            font-size: clamp(36px, 5.5vw, 68px);
+            font-size: clamp(36px, 5.5vw, 48px);
             font-weight: 300;
             line-height: 1.08;
             letter-spacing: -0.02em;

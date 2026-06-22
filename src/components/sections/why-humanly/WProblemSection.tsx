@@ -271,7 +271,7 @@ export const WProblemSection = () => {
         .wp-problem-title {
             color: #111111;
             font-family: "Cormorant Garamond", Georgia, serif;
-            font-size: clamp(26px, 3vw, 46px);
+            font-size: clamp(30px, 3vw, 48px);
             font-weight: 400;
             line-height: 1.08;
             letter-spacing: -0.03em;

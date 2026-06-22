@@ -170,9 +170,9 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
   const indicatorLeft = scrollProgress * (100 - indicatorWidth);
 
   return (
-    <div className="mb-24 last:mb-0">
+    <div className="mb-12 md:mb-16 lg:mb-24 last:mb-0">
       <div className="relative mb-8">
-        <h3 className="text-4xl font-cormorant font-normal text-[rgb(34,66,40)] tracking-tight">{title}</h3>
+        <h3 className="text-2xl md:text-3xl lg:text-4xl font-cormorant font-normal text-[rgb(34,66,40)] tracking-tight">{title}</h3>
         <div className="h-[1px] w-full bg-[rgba(34,66,40,0.12)] mt-3" />
       </div>
 
@@ -275,10 +275,12 @@ const TeamCarousel = ({ title, members }: { title: string, members: TeamMember[]
 
 export const TeamGrid = () => {
   return (
-    <section className="z-10 relative w-full bg-transparent py-24 overflow-x-clip">
-      <div className="container mx-auto px-6 relative z-10 max-w-[1200px]">
-        <TeamCarousel title="Leadership Team" members={innovationTeam} />
-        <TeamCarousel title="Development Team" members={developmentTeam} />
+    <section className="z-10 relative w-full bg-transparent py-16 md:py-20 lg:py-24 overflow-x-clip">
+      <div className="w-full max-w-[1440px] mx-auto px-6 md:px-12 relative z-10">
+        <div className="max-w-[1200px] mx-auto">
+          <TeamCarousel title="Leadership Team" members={innovationTeam} />
+          <TeamCarousel title="Development Team" members={developmentTeam} />
+        </div>
       </div>
       <style jsx global>{`
         .no-scrollbar::-webkit-scrollbar { display: none; }
