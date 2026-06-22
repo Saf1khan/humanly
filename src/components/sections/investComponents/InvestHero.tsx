@@ -55,16 +55,140 @@ export const InvestHero = () => {
   return (
     <section
       ref={containerRef}
-      className="ih-hero-section relative flex flex-col min-h-screen px-[20px] pb-[16px]"
+      className="hero-section relative flex flex-col min-h-screen lg:px-[20px] pb-[16px]"
     >
       <style>{`
         .ih-hero-title {
           color: rgb(var(--radial-gradient-color));
           text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+          font-family: "Cormorant Garamond", Georgia, serif;
           opacity: 0;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           text-rendering: optimizeLegibility;
+          word-break: keep-all;
+          overflow-wrap: break-word;
+        }
+
+        @media (min-width: 360px) and (max-width: 767px) {
+          .ih-hero-title {
+            font-size: 40px !important;
+            line-height: 46px !important;
+          }
+
+          .ih-desc-container{
+            max-width: 85% !important;
+          }
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .hero-grid-md {
+            display: grid !important;
+            grid-template-columns: [full-start] 24px [main-start] repeat(22, 1fr) [main-end] 24px [full-end] !important;
+          }
+
+          .ih-title-container {
+            grid-column: main-start / main-end !important;
+            grid-row: 1 / 2 !important;
+            text-align: center !important;
+          }
+
+          .ih-desc-container {
+            grid-column: main-start / main-end !important;
+            grid-row: 2 / 3 !important;
+            max-width: 450px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            max-width: 85% !important;
+          }
+
+          .ih-secondary-card-container {
+            grid-column: main-start / 13 !important;
+            grid-row: 3 / 4 !important;
+            margin-bottom: 45vw !important;
+            align-self: end !important;
+            z-index: 20 !important;
+          }
+
+          .ih-primary-card-container {
+            grid-column: 5 / main-end !important;
+            grid-row: 3 / 4 !important;
+            padding-top: 320px !important;
+            align-self: end !important;
+            z-index: 10 !important;
+          }
+
+          .ih-hero-title {
+            font-size: 60px !important;
+            line-height: 66px !important;
+            text-align: center !important;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .hero-grid-lg {
+            display: grid !important;
+            grid-template-columns: [full-start] 64px [main-start] repeat(22, 1fr) [main-end] 64px [full-end] !important;
+          }
+
+          .ih-title-container {
+            grid-column: main-start / 14 !important;
+            grid-row: 1 / 2 !important;
+            text-align: left !important;
+          }
+
+          .ih-title-container > div {
+            align-items: flex-start !important;
+          }
+
+          .ih-hero-title {
+            text-align: left !important;
+            font-size: clamp(60px, 5.2vw, 80px) !important;
+            line-height: clamp(72px, 5.7vw, 88px) !important;
+          }
+
+          .ih-desc-container {
+            grid-column: main-start / 11 !important;
+            grid-row: 2 / 3 !important;
+            max-width: none !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            align-self: end !important;
+          }
+
+          .ih-secondary-card-container {
+            grid-column: 14 / 20 !important;
+            grid-row: 1 / 3 !important;
+            margin-bottom: 16vw !important;
+            align-self: end !important;
+            z-index: 20 !important;
+          }
+
+          .ih-primary-card-container {
+            grid-column: 16 / 24 !important;
+            grid-row: 1 / 3 !important;
+            padding-top: 0 !important;
+            align-self: end !important;
+            z-index: 10 !important;
+          }
+        }
+
+        /* Named grid system at 1280px (xl) breakpoint to restore sizes */
+        @media (min-width: 1280px) {
+          .ih-secondary-card-container {
+            grid-column: 14 / 19 !important;
+          }
+
+          .ih-secondary-card-wrapper {
+            width: 100%;
+            max-width: 20.5rem;
+            margin-left: auto;
+            margin-right: auto;
+          }
+          
+          .ih-primary-card-container {
+            grid-column: 16 / 23 !important;
+          }
         }
 
         .ih-hero-title .line {
@@ -85,49 +209,46 @@ export const InvestHero = () => {
           will-change: opacity;
         }
 
-        .ih-hero-container {
+        .hero-container-ihero {
           position: relative;
           background-color: rgb(247, 241, 232);
           overflow: hidden;
         }
 
-        .ih-hero-container::before {
-          content: none;
+        .hero-container-ihero::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          opacity: 0.8;
+          z-index: 1;
+          background-image: 
+            radial-gradient(circle at 0% 20%, rgba(var(--radial-gradient-color), 0.30) 0%, transparent 20%),
+            linear-gradient(to bottom, rgb(247, 241, 232) 0%, transparent 100%),
+            radial-gradient(circle at 99% 40%, rgba(var(--radial-gradient-color), 0.30) 0%, transparent 40%),
+            radial-gradient(circle at 60% 50%, rgba(var(--radial-gradient-color), 0.30) 0%, transparent 30%),
+            radial-gradient(circle at 10% 90%, rgba(var(--radial-gradient-color), 0.15) 0%, transparent 70%),
+            radial-gradient(circle at 90% 70%, rgba(var(--radial-gradient-color), 0.35) 0%, transparent 10%);
         }
       `}</style>
 
       {/* Hero Container */}
-      <div className="ih-hero-container hero-container relative flex-grow rounded-b-[12px] lg:rounded-b-xl overflow-hidden flex flex-col">
-        {/* Radial gradient overlay — reads from CSS variable */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-80 z-[1]"
-          style={{
-            backgroundImage: [
-              `radial-gradient(circle at 0% 20%, rgba(var(--radial-gradient-color), 0.30) 0%, transparent 20%)`,
-              `linear-gradient(to bottom, rgb(247, 241, 232) 0%, transparent 100%)`,
-              `radial-gradient(circle at 99% 40%, rgba(var(--radial-gradient-color), 0.30) 0%, transparent 40%)`,
-              `radial-gradient(circle at 60% 50%, rgba(var(--radial-gradient-color), 0.30) 0%, transparent 30%)`,
-              `radial-gradient(circle at 10% 90%, rgba(var(--radial-gradient-color), 0.15) 0%, transparent 70%)`,
-              `radial-gradient(circle at 90% 70%, rgba(var(--radial-gradient-color), 0.35) 0%, transparent 10%)`,
-            ].join(", "),
-          }}
-        />
+      <div className="hero-container hero-container-ihero relative flex-grow lg:rounded-b-xl overflow-hidden flex flex-col">
 
         {/* Content Grid (The Wrapper) */}
-        <div className="grid grid-cols-[minmax(1rem,1fr)_repeat(22,minmax(0,1fr))_minmax(1rem,1fr)] lg:grid-cols-[64px_repeat(22,minmax(0,1fr))_64px] grid-rows-[auto_auto] gap-y-0 gap-x-2 relative w-full pt-24 pb-16 min-h-[600px] items-end z-10 lg:grow">
+        <div className="grid grid-cols-[24px_repeat(8,1fr)_24px] hero-grid-md hero-grid-lg grid-rows-[auto_auto] gap-y-0 gap-x-0 lg:gap-x-0 relative w-full pt-12 lg:pt-24 pb-16 min-h-[600px] items-end z-10 lg:grow lg:content-between">
 
           {/* Title Column */}
-          <div className="col-start-2 col-end-[24] lg:col-end-[16] xl:col-end-14 row-start-1 row-end-2 lg:mt-auto lg:self-center">
-            <div className="my-5 flex flex-col items-center lg:items-start lg:pt-[5vw] lg:pb-[8vw]">
-
-              <h1 ref={titleRef} className="ih-hero-title text-[40px] md:text-6xl lg:text-[80px] font-cormorant font-light leading-[52px] md:leading-[72px] lg:leading-[92px] tracking-tight text-center lg:text-left m-0 whitespace-nowrap">
+          <div className="col-start-2 col-end-10 row-start-1 row-end-2 lg:mt-auto lg:self-center ih-title-container">
+            <div className="mt-5 mb-4 lg:my-5 flex flex-col items-center lg:items-start lg:pt-[5vw] lg:pb-[8vw]">
+              <h1 ref={titleRef} className="ih-hero-title font-light tracking-tight text-center whitespace-normal lg:text-left m-0">
                 Invest in the future <br />of housing
               </h1>
             </div>
           </div>
 
           {/* Description / CTA Column */}
-          <div className="col-start-2 md:col-start-4 lg:col-start-2 col-end-[24] md:col-end-[22] lg:col-end-11 xl:col-end-9 row-start-2 row-end-3 lg:self-end">
+          <div className="col-start-2 col-end-10 row-start-2 row-end-3 lg:self-end mb-[48px] lg:mb-0 max-w-[312px] md:max-w-[450px] mx-auto lg:max-w-none lg:mx-0 ih-desc-container">
             <div className="flex flex-col gap-6 h-full items-center justify-end lg:h-auto lg:items-start lg:justify-start lg:pb-0">
 
               <div className="w-full text-center lg:text-left lg:relative lg:block">
@@ -140,7 +261,8 @@ export const InvestHero = () => {
                   <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
                     <a
                       href="#dataroom"
-                      className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl bg-[rgba(var(--radial-gradient-color),0.95)] text-white font-bold hover:bg-[#ff7a55] transition-all hover:-translate-y-0.5 shadow-xl shadow-orange-950/30 text-sm"
+                      className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl bg-[rgba(var(--radial-gradient-color),0.95)] text-white font-bold hover:opacity-90 transition-all hover:-translate-y-0.5 shadow-xl text-sm"
+                      style={{ boxShadow: "0 20px 25px -5px rgba(var(--radial-gradient-color), 0.3), 0 8px 10px -6px rgba(var(--radial-gradient-color), 0.3)" }}
                     >
                       Request Access ↗
                     </a>
@@ -158,21 +280,23 @@ export const InvestHero = () => {
           </div>
 
           {/* 2. The Secondary (Smaller/Back) Card */}
-          <div className="col-start-2 lg:col-start-[14] col-end-6 lg:col-end-[18] row-start-3 lg:row-start-1 row-end-4 lg:row-end-3 mb-[45vw] lg:mb-[17vw] self-end z-20 lg:-translate-y-12">
-            <div className="motionComponent relative aspect-square w-full">
-              <Image
-                src="/images/pexels-pixabay-221540.jpg"
-                className="object-cover rounded-lg shadow-2xl"
-                alt="Secondary Card"
-                fill
-                quality={100}
-                sizes="(max-width: 1024px) 100vw, 33vw"
-              />
+          <div className="col-start-2 col-end-6 row-start-3 row-end-4 mb-[45vw] md:mb-[25vw] self-end z-20 ih-secondary-card-container">
+            <div className="ih-secondary-card-wrapper">
+              <div className="motionComponent relative aspect-square w-full">
+                <Image
+                  src="/images/pexels-pixabay-221540.jpg"
+                  className="object-cover rounded-lg shadow-2xl"
+                  alt="Secondary Card"
+                  fill
+                  quality={100}
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                />
+              </div>
             </div>
           </div>
 
           {/* 3. The Primary (Larger/Front) Card */}
-          <div className="col-start-3 lg:col-start-[16] col-end-[23] row-start-3 lg:row-start-1 row-end-4 lg:row-end-3 self-end pt-32 lg:pt-0 z-10 lg:-translate-y-12">
+          <div className="col-start-3 col-end-10 row-start-3 row-end-4 self-end pt-32 md:pt-80 z-10 ih-primary-card-container">
             <div className="motionComponent relative aspect-[3/2] w-full">
               <Image
                 src="/images/pexels-vlada-karpovich-7433837.jpg"
