@@ -4,7 +4,7 @@ import { Mail, MapPin, Phone, ArrowRight } from 'lucide-react';
 
 export function ContactForm() {
     return (
-        <section className="min-h-screen relative overflow-x-clip bg-sandstone-200 pt-32 pb-24">
+        <section className="min-h-screen relative overflow-x-clip bg-sandstone-200 pt-32 pb-24 ">
             {/* Radial Gradient Layers */}
             <div
                 className="absolute  pointer-events-none"

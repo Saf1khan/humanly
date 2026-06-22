@@ -13,7 +13,8 @@ export const NewsletterSubscription = () => {
   };
 
   return (
-    <section className="w-full bg-sandstone-200">
+    <section className="w-full bg-black ">
+      <div className="rounded-b-[40px] md:rounded-b-[64px] bg-sandstone-200">
       <div className="max-w-[1440px] mx-auto px-8 md:px-12 lg:px-16 py-28 md:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           {/* Left Content */}
@@ -94,6 +95,7 @@ export const NewsletterSubscription = () => {
             )}
           </div>
         </div>
+      </div>
       </div>
     </section>
   );
