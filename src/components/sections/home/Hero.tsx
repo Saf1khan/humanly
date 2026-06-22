@@ -84,7 +84,7 @@ export const Hero = () => {
     font-cormorant opacity-0
     [text-shadow:2px_2px_4px_rgba(255,255,255,0.2)]
     antialiased
-    text-[#f7f1e8] text-[40px] md:text-6xl lg:text-[80px]
+    text-[#f7f1e8] text-[40px] md:text-6xl lg:text-[clamp(60px,5.2vw,80px)]
     font-light leading-[52px] md:leading-[72px] lg:leading-[92px]
     tracking-[-0.05em] text-center lg:text-left m-0
     [&_.line]:block
