@@ -341,9 +341,8 @@ const OSHero = () => {
                   <br className="block" />
                   vertically integrated
                   <br className="block" />
-                  community
+                  community development
                   <br className="block" />
-                  development
                   <span className="md:hidden lg:inline"> & operations.</span>
                 </h1>
               </div>

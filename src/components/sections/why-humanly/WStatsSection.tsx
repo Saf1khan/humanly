@@ -171,7 +171,7 @@ export const WStatsSection = () => {
               {/* Text column */}
               <div className="flex-none w-full flex flex-col pr-0">
                 <p className="text-2xl font-serif text-[#5F646B] mb-5">{s.title}</p>
-                <p className="text-[clamp(64px,4vw+2.5rem,99px)] font-serif font-normal m-0 leading-none text-[#111111]">
+                <p className="text-[clamp(64px,4vw+2.5rem,90px)] font-serif font-normal m-0 leading-none text-[#111111]">
                   {s.count}
                   <sub className="text-base font-normal align-baseline ml-1 text-[#5F646B]">
                     {s.sub}

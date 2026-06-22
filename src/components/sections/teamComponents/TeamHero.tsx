@@ -292,7 +292,7 @@ export const TeamHero = () => {
               <h1 ref={titleRef} className="wh-hero-title font-light tracking-[-0.05em] text-center whitespace-normal lg:whitespace-nowrap lg:text-left m-0">
                 Built by Operators,<br />
                 Technologists,<br />
-                and Community Builders.
+                & Community Builders.
               </h1>
             </div>
           </div>

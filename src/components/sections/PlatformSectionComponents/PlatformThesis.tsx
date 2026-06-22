@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export const PlatformThesis = () => {
   return (
     <section
-      className="py-[160px] overflow-visible"
+      className="py-20 md:py-[160px] overflow-visible"
       style={{
         position: "sticky",
         top: 0,
@@ -53,7 +53,7 @@ export const PlatformThesis = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.1 }}
-          className="text-[clamp(32px,4.5vw,56px)] font-light font-cormorant leading-[1.1] tracking-[-0.03em] text-[#3E2242] max-w-[920px] mx-auto"
+          className="text-[clamp(32px,4.5vw,48px)] font-light font-cormorant leading-[1.1] tracking-[-0.03em] text-[#3E2242] max-w-[920px] mx-auto"
         >
           One company. One system. Full vertical. From land to living.
         </motion.h2>
@@ -98,7 +98,7 @@ export const PlatformThesis = () => {
               transition={{ delay: 0.5 }}
               className="text-left"
             >
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#3E2242]/70">Acquisitions</span>
+              <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.1em] md:tracking-[0.2em] text-[#3E2242]/70">Acquisitions</span>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -107,7 +107,7 @@ export const PlatformThesis = () => {
               transition={{ delay: 0.7 }}
               className="text-center"
             >
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#3E2242]/70">Lease-up</span>
+              <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.1em] md:tracking-[0.2em] text-[#3E2242]/70">Lease-up</span>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -116,7 +116,7 @@ export const PlatformThesis = () => {
               transition={{ delay: 0.9 }}
               className="text-right"
             >
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#3E2242]/70">Management</span>
+              <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.1em] md:tracking-[0.2em] text-[#3E2242]/70">Management</span>
             </motion.div>
           </div>
         </div>

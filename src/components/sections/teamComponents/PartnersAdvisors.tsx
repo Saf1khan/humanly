@@ -35,7 +35,7 @@ const partnerCategories = [
 
 export const PartnersAdvisors = () => {
   return (
-    <section className="relative w-full bg-transparent py-24 lg:py-32 overflow-x-clip">
+    <section className="relative w-full bg-transparent py-16 md:py-20 lg:py-24 overflow-x-clip">
       <div className="container relative z-10 mx-auto px-6 max-w-[1200px]">
 
         {/* Header */}
@@ -46,15 +46,15 @@ export const PartnersAdvisors = () => {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="mb-10"
         >
-          <h2 className="font-cormorant font-normal text-3xl md:text-5xl text-[rgb(34,66,40)] mb-4 tracking-tight">Partners & Advisors</h2>
+          <h2 className="font-cormorant font-normal text-3xl md:text-4xl lg:text-5xl text-[rgb(34,66,40)] mb-4 tracking-tight">Partners & Advisors</h2>
           <p className="text-[1.05rem] font-light text-[rgba(34,66,40,0.55)] leading-relaxed mb-8">
-            The organizations and individuals who amplify Humanly®’s reach, credibility, and capabilities.
+            The organizations and individuals who amplify Humanly®'s reach, credibility, and capabilities.
           </p>
 
         </motion.div>
 
         {/* Category Sections */}
-        <div className="space-y-20">
+        <div className="space-y-12 md:space-y-16 lg:space-y-20">
           {partnerCategories.map((category, catIndex) => (
             <motion.div
               key={catIndex}
@@ -64,7 +64,7 @@ export const PartnersAdvisors = () => {
               transition={{ duration: 1.5, delay: catIndex * 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Category Label */}
-              <div className="flex items-center gap-4 mb-10">
+              <div className="flex items-center gap-4 mb-6 md:mb-8 lg:mb-10">
                 <span className="text-[0.75rem] font-semibold tracking-[0.2em] uppercase text-[rgba(34,66,40,0.6)]">
                   {category.label}
                 </span>
